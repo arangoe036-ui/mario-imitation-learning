@@ -672,3 +672,43 @@ approach that had been killed on the grounds that enemy deaths were a minority.
 four checkpoints — the same median-as-universal error made two reports earlier with death positions.
 And the 19% "past x=720" figure counted arrivals at pipe 3's face rather than clearances, because the
 threshold sat on the obstacle instead of past it.
+
+### ✅ 2026-08-03 — The best model's regression is one Goomba, and the arithmetic is exact
+
+**What.** Composition improved pipe 2 from 21.5% to 54.0% but *lost* ground at pipe 1, 81.5% → 64.0%.
+That regression is entirely extra deaths to a single Goomba at x≈288. Round 2 loses **35** pipe-1
+clearances and gains **exactly 35** extra Goomba deaths; round 3 loses **63** and gains **exactly 63**.
+
+**How we got there.** The conditional rates pointed at it before any new measurement: of episodes
+clearing pipe 1, the share also clearing pipe 2 is 26.4% for the baseline and **84.4%** for the composed
+model. So the composed model is dramatically better once past pipe 1 and worse at getting there — which
+localises the problem to something before x=470. The death histograms were already on disk, recorded by
+a summary function written for an earlier question, so answering it cost no emulator time.
+
+**Numbers.** Single life, n=200 each.
+
+| model | pipe 1 | Goomba-zone deaths | deaths past x=470 | ended died/stuck |
+|---|---|---|---|---|
+| baseline | 81.5% | 37 | 9 | 46 / 154 |
+| compose_round2 | 64.0% | **72** | **81** | 153 / 47 |
+| compose_round3 | 50.0% | **100** | 73 | 173 / 27 |
+
+**Why it matters.** That Goomba is cleared by **75 of 80** scripted jump timings — it is the most
+tractable obstacle in the game. Restoring baseline survival while keeping the composed model's
+downstream ability projects to 0.815 × 0.844 = **~69% pipe 2**, far beyond anything measured.
+
+**But the answer was not either/or.** Deaths past pipe 1 rose from 9 to 81 — a ninefold increase spread
+across eight locations from x=640 to 1952, including Koopas. The composed models trade survival for
+reach *globally* as well as regressing at the Goomba, and the dominant failure mode inverted: 153 died /
+47 stuck, against the baseline's 46 died / 154 stuck.
+
+**Cost.** Minutes, entirely from artifacts already written.
+
+**Downstream.** The Goomba becomes the top target on value grounds rather than as a machinery test. And
+"death relabelling", killed earlier because enemy deaths were a minority, is now live — deaths are 76–86%
+of episodes for these models.
+
+**A methodological note worth keeping.** Two figures in the previous report mixed n=100 and n=200
+measurements of the same checkpoints as though continuous. `x max` also grows with sample size — the same
+checkpoint reads 1250 at n=100 and 1957 at n=200 — so it is an anecdote, not a statistic. The rate of
+reaching a given x is the statistic.
