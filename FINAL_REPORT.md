@@ -511,3 +511,62 @@ that "rate alone is not sufficient" is withdrawn.
 
 **Also done this round:** `git init` (fourth request), 121 files, 1.2 MB, with the 11 GB corpus,
 all checkpoints and the copyrighted ROM excluded.
+
+### ✅ 2026-08-03 — The frontier, measured as a rate: pipe 2 is passed 21.5% of the time, and the real wall is x≈720
+
+**What.** The pipe-2 clearance *rate* had never been reported in this project — every claim about
+it was inferred from an `x` median of 594–595. Measured at n=200: the best model clears pipe 2 on
+**21.5%** of episodes [16.4, 27.7]. Not the 0% four rounds of diagnosis assumed. Three further
+facts arrived with it:
+
+- **A hard wall at x≈720.** Across 800 episodes and four checkpoints, maximum x ever reached is
+  **724**. Nothing crosses it. That is the real frontier.
+- **Every death is a Goomba at x≈310.** 175 deaths across 800 episodes, 100% `enemy:goomba`,
+  median death x 309–312 — *before* pipe 1, not after pipe 2. 23% of all episodes.
+- **"99.0% clear pipe 1" is 81.5% on a single life.** The original harness lets Mario die and
+  respawn inside one episode and scores the best of several attempts.
+
+**How we got there.** Four consecutive mechanisms for "why the policy cannot pass pipe 2" had been
+proposed and withdrawn (takeoff velocity, A-hold duration, consecutive Right frames, sustained
+Right rate). When four mechanisms fail in a row the usual cause is not a subtle fifth one but a
+false premise, and two independent signals said so: every high-water mark of 706–713 in the
+existing artifacts turned out to be a *death* position (38/38 in one artifact), and the project
+owner, watching live play, reported Mario passing pipe 2 often and dying to a Goomba.
+
+A pre-committed stopping rule fired: mechanism-hunting ended, and the one measurement that had
+been deferred four times — a rate with an interval — was finally taken.
+
+**Numbers.** n=200 per checkpoint, single life per episode, per-button sampling.
+
+| checkpoint | pipe 1 (x>470) | pipe 2 (x>630) | x>760 | x max | died | stuck |
+|---|---|---|---|---|---|---|
+| round3_ratio1to1 | 81.5% | **21.5% [16.4, 27.7]** | 0.0% | 724 | 46 | 154 |
+| round2_ratio1to1 | 76.5% | 16.0% | 0.0% | 723 | 54 | 146 |
+| round2_ratio3to1 | 79.0% | 8.5% | 0.0% | 723 | 36 | 164 |
+| sustain_arm_a | 81.0% | 8.5% | 0.0% | 724 | 39 | 161 |
+
+Obstacle positions, read off the x histogram rather than assumed: enemy ~296–312, pipe 1 ~432,
+pipe 2 ~592, **wall ~720**.
+
+**Cost.** ~20 minutes of emulator time, plus a free artifact read.
+
+**Two checks that came back clean.** The failure taxonomy was suspected of mislabelling deaths as
+stalls; an independent code path returns 23.0% died / 77.0% stuck against the taxonomy's 23.0% /
+77.0% — exact agreement, so those figures stand. And self-imitation did **not** regress at pipe 2
+while gaining at pipe 1: along the 1:1 lineage the pipe-2 rate rose 8.5% → 16.0% → 21.5%.
+
+**The last of the architectural story, killed on direct measurement.** Realized Right rate over
+*airborne* frames is **0.83–0.93** across all four checkpoints, against the ~0.62 the void
+dose-response implied was needed. The claim that independent per-frame sampling cannot sustain a
+button is now contradicted by measurement, not merely unsupported.
+
+**Downstream.** Search gets scoped at x≈720 from a savestate, not at pipe 2 and not from the
+level start. The Goomba at x≈310 becomes a separate and cheaper target — 23% of episodes lost to
+one enemy in the first fifth of the level. And the "negative examples" kill, which rested on
+enemy deaths being a minority at the *pipe-2* frontier, no longer clearly transfers.
+
+**One discrepancy left open deliberately:** 99.0% and 81.5% are the same checkpoint on the same
+level under two harnesses — multi-life versus single-life. Both are defensible measurements; they
+are not the same measurement, and every pipe-1 figure in the project's history is the multi-life
+one. Which is canonical is not the builder's call to make unilaterally, and it affects whether a
+successor model can be said to "beat 99.0%".
