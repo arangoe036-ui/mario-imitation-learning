@@ -712,3 +712,42 @@ of episodes for these models.
 measurements of the same checkpoints as though continuous. `x max` also grows with sample size — the same
 checkpoint reads 1250 at n=100 and 1957 at n=200 — so it is an anecdote, not a statistic. The rate of
 reaching a given x is the statistic.
+
+### ⚠️✅ 2026-08-03 — A survival gate on the self-imitation filter improved reach, not survival
+
+**What.** The acceptance filter for self-imitation kept the top 25% of rollouts by
+progress-from-start, which cannot distinguish "got far and survived" from "got far and died" — so it
+plausibly selected for reckless play, and deaths did rise monotonically across rounds (30 → 56 → 153
+→ 173). Adding a survival requirement raised pipe-2 clearance at **every** round (best: 54% → **60%**)
+and **did not stop the death escalation** (30 → 85 → 144 → 189, higher at two of three rounds).
+
+**How we got there.** The mechanism was spotted in the training loop after the same objective flaw had
+already been recorded twice elsewhere — an always-jump policy that clears an obstacle and can never
+jump again, and an evaluation harness that rewarded dying by granting retries. One condition was
+changed and nothing else, so the comparison is clean.
+
+**Numbers.** Single life, n=200 per round.
+
+| round | old filter (pipe1 / pipe2 / deaths) | survival-gated |
+|---|---|---|
+| 1 | 79.5 / 43.5 / 56 | 75.5 / **51.5** / 85 |
+| 2 | 64.0 / 54.0 / 153 | 66.0 / **60.0** / 144 |
+| 3 | 50.0 / 48.0 / 173 | 58.0 / 55.5 / 189 |
+
+`surv_round2` is the best model the project has produced: pipe 1 66.0%, pipe 2 **60.0%**
+(+38.5 pp [+29.2, +46.8] over baseline), past-720 46.0%.
+
+**Why the gate barely mattered.** It excluded almost nothing. Of 150 rollouts per round, 91–99
+survived and the accepted set shrank only from ~38 to 29–30 — because inside a 500-frame window the
+rollouts that travel furthest are overwhelmingly the ones that survive. **Progress and survival are
+correlated at that horizon, so gating on survival is close to a no-op on selection.** The death
+escalation is therefore intrinsic to self-imitation on this data, not a selection bug.
+
+**A verdict declined.** The script printed "SELECTION BUG CONFIRMED" because the pre-committed
+condition was literally satisfied — 144 deaths against 153, pipe 2 above 43.5%. That compares the best
+round of one run against the best round of another and hides an unchanged trend. Reported as declined
+rather than as a confirmation.
+
+**Cost.** ~40 minutes, reusing the existing base checkpoint.
+
+**Downstream.** The Goomba fix becomes the whole plan, and `surv_round2` is the model to freeze.
