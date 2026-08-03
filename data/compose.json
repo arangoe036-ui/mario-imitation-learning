@@ -1,0 +1,205 @@
+{
+  "recipe": {
+    "data": [
+      "pub-1194",
+      "pub-1106",
+      "pub-262"
+    ],
+    "frames": 203865,
+    "fraction_of_corpus": 0.20773192987461597,
+    "onset_weight": 10.0,
+    "sustain_weight": 5.0,
+    "base_steps": 2000,
+    "rounds": 3,
+    "round_steps": 800,
+    "note": "earliest-chain and 25%-subset nearly coincide; not independent"
+  },
+  "baseline_single_life": {
+    "pipe1": {
+      "k": 163,
+      "n": 200,
+      "rate": 0.815
+    },
+    "pipe2": {
+      "k": 43,
+      "n": 200,
+      "rate": 0.215
+    },
+    "past720": {
+      "k": 38,
+      "n": 200,
+      "rate": 0.19
+    }
+  },
+  "stages": [
+    {
+      "n": 200,
+      "pipe1": {
+        "k": 164,
+        "n": 200,
+        "rate": 0.82,
+        "ci": [
+          0.7608840628376157,
+          0.8670544933746589
+        ],
+        "vs_baseline": {
+          "delta": 0.0050000000000000044,
+          "ci": [
+            -0.07095968046305792,
+            0.08091394565276402
+          ],
+          "excludes_zero": false
+        }
+      },
+      "pipe2": {
+        "k": 15,
+        "n": 200,
+        "rate": 0.075,
+        "ci": [
+          0.045974507057252416,
+          0.12004459797332034
+        ],
+        "vs_baseline": {
+          "delta": -0.14,
+          "ci": [
+            -0.20847987113234728,
+            -0.07174410679231558
+          ],
+          "excludes_zero": true
+        }
+      },
+      "past720": {
+        "k": 15,
+        "n": 200,
+        "rate": 0.075,
+        "ci": [
+          0.045974507057252416,
+          0.12004459797332034
+        ],
+        "vs_baseline": {
+          "delta": -0.115,
+          "ci": [
+            -0.18166415614494216,
+            -0.048934017469886223
+          ],
+          "excludes_zero": true
+        }
+      },
+      "x_median": 595.0,
+      "x_p90": 596.0,
+      "x_max": 724,
+      "ended": {
+        "died": 30,
+        "stuck": 170
+      },
+      "deaths": 30,
+      "death_causes": {
+        "enemy:goomba": 30
+      },
+      "death_x_histogram_32px": {
+        "288": 29,
+        "704": 1
+      },
+      "death_x_median": 314.0,
+      "deaths_past_470": 1,
+      "deaths_past_630": 1,
+      "cleared_pipe2_outcomes": {
+        "stuck": 14,
+        "died": 1
+      },
+      "n_cleared_pipe2": 15,
+      "tag": "compose_base"
+    },
+    {
+      "n": 200,
+      "pipe1": {
+        "k": 159,
+        "n": 200,
+        "rate": 0.795,
+        "ci": [
+          0.7337418048192546,
+          0.8451390516889363
+        ],
+        "vs_baseline": {
+          "delta": -0.019999999999999907,
+          "ci": [
+            -0.09763855682755311,
+            0.057863510722872144
+          ],
+          "excludes_zero": false
+        }
+      },
+      "pipe2": {
+        "k": 87,
+        "n": 200,
+        "rate": 0.435,
+        "ci": [
+          0.368156071588974,
+          0.5042939091804078
+        ],
+        "vs_baseline": {
+          "delta": 0.22,
+          "ci": [
+            0.12881269674372553,
+            0.30620613087538134
+          ],
+          "excludes_zero": true
+        }
+      },
+      "past720": {
+        "k": 79,
+        "n": 200,
+        "rate": 0.395,
+        "ci": [
+          0.3298398699878317,
+          0.4641177912550158
+        ],
+        "vs_baseline": {
+          "delta": 0.20500000000000002,
+          "ci": [
+            0.11641403600371888,
+            0.2893384094530077
+          ],
+          "excludes_zero": true
+        }
+      },
+      "x_median": 595.5,
+      "x_p90": 723.0,
+      "x_max": 1957,
+      "ended": {
+        "stuck": 144,
+        "died": 56
+      },
+      "deaths": 56,
+      "death_causes": {
+        "enemy:goomba": 55,
+        "unknown": 1
+      },
+      "death_x_histogram_32px": {
+        "288": 40,
+        "672": 7,
+        "704": 4,
+        "800": 1,
+        "896": 2,
+        "1248": 1,
+        "1952": 1
+      },
+      "death_x_median": 312.5,
+      "deaths_past_470": 16,
+      "deaths_past_630": 16,
+      "cleared_pipe2_outcomes": {
+        "stuck": 71,
+        "died": 16
+      },
+      "n_cleared_pipe2": 87,
+      "tag": "compose_round1",
+      "round": 1,
+      "acceptance_rate": 0.25333333333333335,
+      "accepted": 38,
+      "scored": 150,
+      "cutoff": 403.5,
+      "score_median": 137.0,
+      "score_p90": 692.8999999999997
+    }
+  ]
+}

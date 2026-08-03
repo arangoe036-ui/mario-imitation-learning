@@ -1,0 +1,36 @@
+{
+  "determinism_identical": true,
+  "clip": {
+    "pipe1": {
+      "entered_x_range": 163,
+      "stalled_inside": 0,
+      "crossed": 163,
+      "crossed_over_surface": 163,
+      "crossed_at_floor": 0,
+      "surface_y": 144,
+      "clip_fraction_of_crossings": 0.0
+    },
+    "pipe2": {
+      "entered_x_range": 163,
+      "stalled_inside": 120,
+      "crossed": 43,
+      "crossed_over_surface": 43,
+      "crossed_at_floor": 0,
+      "surface_y": 128,
+      "clip_fraction_of_crossings": 0.0
+    },
+    "pipe3": {
+      "entered_x_range": 42,
+      "stalled_inside": 42,
+      "crossed": 0,
+      "crossed_over_surface": 0,
+      "crossed_at_floor": 0,
+      "surface_y": 112,
+      "clip_fraction_of_crossings": null
+    }
+  },
+  "n_discontinuities": 0,
+  "discontinuities": [],
+  "longest_expert_action_match_frames": 7,
+  "verdict": "NO CLIPPING at pipe 2: 43/43 crossings go over the surface, floor-level 0. The 21.5% stands."
+}
