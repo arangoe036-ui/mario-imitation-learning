@@ -463,3 +463,51 @@ after landing, which is a third mechanism and is not yet measured.
 
 The "10 consecutive frames" story from the previous entry is withdrawn. The conjunction
 (long A-hold **and** Right in flight) stands; the account of why Right matters does not.
+
+### 🔁 ⚠️ 2026-08-03 — The Right-rate threshold was a walking-speed threshold, not a pipe threshold
+
+**What.** The previous entry's dose-response — Right on 45% of frames never clears pipe 2, 65%
+clears 30%, 80% clears 85% — is **void as a statement about the pipe**. On flat ground with no
+pipe and no jump, Right at a random 45% of frames moves Mario **1.2 pixels in 80 frames**. At
+100% he moves 144. The low-rate conditions were not failing to clear an obstacle; they were
+failing to walk.
+
+**How we got there.** The advisor asked for the trivial baseline that had been missing: run the
+identical dose-response on flat ground and score distance. This is the third time in the project
+that a missing baseline produced a confident wrong conclusion, and the advisor named it as the
+same class of gap.
+
+SMB applies friction the moment Right is released, so intermittent Right yields almost no net
+movement at any rate below ~0.8. The pipe-2 curve's apparent cliff between 0.60 and 0.65 sits
+exactly where the locomotion curve's first jump sits. The obstacle was incidental.
+
+**The cross-check that closed it.** The real policy travels 554 px in 255 frames — **2.17
+px/frame**, against a maximum steady-state of 2.5. That is only achievable by holding Right
+nearly continuously. So the policy's operative Right rate while moving is ~1.0, not the 0.4424
+corpus-wide average that the builder had substituted into a per-frame calculation. The advisor
+had rejected exactly that substitution two rounds earlier; this quantified how large the error
+was.
+
+**Numbers.** Flat ground, 1-1 start, 80 frames, B held, no A, n=20 per rate, 0 deaths in 160
+trials. Mean distance: p=0.45 → 1.2 px · 0.50 → 1.8 · 0.55 → 2.6 · 0.60 → 3.2 · 0.65 → 7.5 ·
+0.70 → 9.5 · 0.80 → 32.8 · 1.00 → 144.0.
+
+**Cost.** ~10 minutes.
+
+**Downstream.** The architectural claim — that 8 conditionally-independent Bernoulli outputs
+cannot sustain a button, and that this is why pipe 2 is blocked — is **withdrawn**, not deferred.
+Its evidence was confounded, and the cross-check points the opposite way: the policy sustains
+Right fine. Three candidate mechanisms were overturned in three consecutive rounds, all of them
+built by reasoning about a regime that had not been measured. A pre-committed stopping rule fired:
+diagnosis stops, building starts.
+
+**A reporting defect fixed in the same pass.** The structured conditions had reported
+`min(total_right_frames, 40)` as though it were a count over the first 40 frames. Reissued
+honestly, `alt` is a 50% rate with a longest run of **1**, and `first_half`/`second_half` are
+**6.7%** full-window rates, not 50%. The previously flagged "disagreement" between them and
+i.i.d. 0.70 was two experiments of different duration in one table — not physics. With the
+accounting fixed, every cell is explained by net forward travel alone, and the earlier claim
+that "rate alone is not sufficient" is withdrawn.
+
+**Also done this round:** `git init` (fourth request), 121 files, 1.2 MB, with the 11 GB corpus,
+all checkpoints and the copyrighted ROM excluded.
