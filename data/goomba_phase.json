@@ -1,0 +1,592 @@
+{
+  "triggers": [
+    240,
+    244,
+    248,
+    252,
+    256,
+    260,
+    264,
+    268,
+    272,
+    276,
+    280,
+    284,
+    288,
+    292,
+    296,
+    300
+  ],
+  "holds": [
+    8,
+    10,
+    12,
+    14,
+    16
+  ],
+  "n_configs": 80,
+  "n_passed": 75,
+  "verdict": "YES -- 75/80 scripted configurations clear the Goomba. Working (trigger, hold) pairs include [(244, 8), (248, 8), (252, 8), (256, 8), (260, 8), (264, 8)]; best max_x 436",
+  "rows": [
+    {
+      "trigger": 240,
+      "hold": 8,
+      "max_x": 312,
+      "passed_goomba": false,
+      "died_at": 312
+    },
+    {
+      "trigger": 244,
+      "hold": 8,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 248,
+      "hold": 8,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 252,
+      "hold": 8,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 256,
+      "hold": 8,
+      "max_x": 435,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 260,
+      "hold": 8,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 264,
+      "hold": 8,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 268,
+      "hold": 8,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 272,
+      "hold": 8,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 276,
+      "hold": 8,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 280,
+      "hold": 8,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 284,
+      "hold": 8,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 288,
+      "hold": 8,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 292,
+      "hold": 8,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 296,
+      "hold": 8,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 300,
+      "hold": 8,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 240,
+      "hold": 10,
+      "max_x": 312,
+      "passed_goomba": false,
+      "died_at": 312
+    },
+    {
+      "trigger": 244,
+      "hold": 10,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 248,
+      "hold": 10,
+      "max_x": 435,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 252,
+      "hold": 10,
+      "max_x": 435,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 256,
+      "hold": 10,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 260,
+      "hold": 10,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 264,
+      "hold": 10,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 268,
+      "hold": 10,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 272,
+      "hold": 10,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 276,
+      "hold": 10,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 280,
+      "hold": 10,
+      "max_x": 435,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 284,
+      "hold": 10,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 288,
+      "hold": 10,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 292,
+      "hold": 10,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 296,
+      "hold": 10,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 300,
+      "hold": 10,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 240,
+      "hold": 12,
+      "max_x": 312,
+      "passed_goomba": false,
+      "died_at": 312
+    },
+    {
+      "trigger": 244,
+      "hold": 12,
+      "max_x": 435,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 248,
+      "hold": 12,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 252,
+      "hold": 12,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 256,
+      "hold": 12,
+      "max_x": 435,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 260,
+      "hold": 12,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 264,
+      "hold": 12,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 268,
+      "hold": 12,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 272,
+      "hold": 12,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 276,
+      "hold": 12,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 280,
+      "hold": 12,
+      "max_x": 435,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 284,
+      "hold": 12,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 288,
+      "hold": 12,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 292,
+      "hold": 12,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 296,
+      "hold": 12,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 300,
+      "hold": 12,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 240,
+      "hold": 14,
+      "max_x": 312,
+      "passed_goomba": false,
+      "died_at": 312
+    },
+    {
+      "trigger": 244,
+      "hold": 14,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 248,
+      "hold": 14,
+      "max_x": 435,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 252,
+      "hold": 14,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 256,
+      "hold": 14,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 260,
+      "hold": 14,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 264,
+      "hold": 14,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 268,
+      "hold": 14,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 272,
+      "hold": 14,
+      "max_x": 435,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 276,
+      "hold": 14,
+      "max_x": 435,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 280,
+      "hold": 14,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 284,
+      "hold": 14,
+      "max_x": 435,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 288,
+      "hold": 14,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 292,
+      "hold": 14,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 296,
+      "hold": 14,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 300,
+      "hold": 14,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 240,
+      "hold": 16,
+      "max_x": 312,
+      "passed_goomba": false,
+      "died_at": 312
+    },
+    {
+      "trigger": 244,
+      "hold": 16,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 248,
+      "hold": 16,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 252,
+      "hold": 16,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 256,
+      "hold": 16,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 260,
+      "hold": 16,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 264,
+      "hold": 16,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 268,
+      "hold": 16,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 272,
+      "hold": 16,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 276,
+      "hold": 16,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 280,
+      "hold": 16,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 284,
+      "hold": 16,
+      "max_x": 434,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 288,
+      "hold": 16,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 292,
+      "hold": 16,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 296,
+      "hold": 16,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    },
+    {
+      "trigger": 300,
+      "hold": 16,
+      "max_x": 436,
+      "passed_goomba": true,
+      "died_at": null
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "n_runs": 25,
+  "floor_y": 176,
+  "profile_8px": {
+    "400": {
+      "n": 13,
+      "lowest_y": 176,
+      "highest_y": 83,
+      "tiles": 0.0
+    },
+    "408": {
+      "n": 10,
+      "lowest_y": 176,
+      "highest_y": 176,
+      "tiles": 0.0
+    },
+    "416": {
+      "n": 6,
+      "lowest_y": 176,
+      "highest_y": 56,
+      "tiles": 0.0
+    },
+    "424": {
+      "n": 7,
+      "lowest_y": 148,
+      "highest_y": 137,
+      "tiles": 1.75
+    },
+    "432": {
+      "n": 10,
+      "lowest_y": 148,
+      "highest_y": 140,
+      "tiles": 1.75
+    },
+    "440": {
+      "n": 19,
+      "lowest_y": 148,
+      "highest_y": 95,
+      "tiles": 1.75
+    },
+    "448": {
+      "n": 30,
+      "lowest_y": 144,
+      "highest_y": 31,
+      "tiles": 2.0
+    },
+    "456": {
+      "n": 17,
+      "lowest_y": 144,
+      "highest_y": 29,
+      "tiles": 2.0
+    },
+    "464": {
+      "n": 20,
+      "lowest_y": 144,
+      "highest_y": 115,
+      "tiles": 2.0
+    },
+    "472": {
+      "n": 15,
+      "lowest_y": 144,
+      "highest_y": 105,
+      "tiles": 2.0
+    },
+    "480": {
+      "n": 4,
+      "lowest_y": 144,
+      "highest_y": 86,
+      "tiles": 2.0
+    },
+    "488": {
+      "n": 4,
+      "lowest_y": 105,
+      "highest_y": 72,
+      "tiles": 4.44
+    },
+    "496": {
+      "n": 5,
+      "lowest_y": 176,
+      "highest_y": 77,
+      "tiles": 0.0
+    },
+    "504": {
+      "n": 4,
+      "lowest_y": 176,
+      "highest_y": 176,
+      "tiles": 0.0
+    },
+    "512": {
+      "n": 12,
+      "lowest_y": 176,
+      "highest_y": 176,
+      "tiles": 0.0
+    },
+    "520": {
+      "n": 18,
+      "lowest_y": 176,
+      "highest_y": 176,
+      "tiles": 0.0
+    },
+    "528": {
+      "n": 18,
+      "lowest_y": 176,
+      "highest_y": 148,
+      "tiles": 0.0
+    },
+    "536": {
+      "n": 20,
+      "lowest_y": 176,
+      "highest_y": 63,
+      "tiles": 0.0
+    },
+    "544": {
+      "n": 22,
+      "lowest_y": 176,
+      "highest_y": 61,
+      "tiles": 0.0
+    },
+    "552": {
+      "n": 23,
+      "lowest_y": 176,
+      "highest_y": 61,
+      "tiles": 0.0
+    },
+    "560": {
+      "n": 18,
+      "lowest_y": 176,
+      "highest_y": 176,
+      "tiles": 0.0
+    },
+    "568": {
+      "n": 10,
+      "lowest_y": 176,
+      "highest_y": 176,
+      "tiles": 0.0
+    },
+    "576": null,
+    "584": {
+      "n": 9,
+      "lowest_y": 118,
+      "highest_y": 95,
+      "tiles": 3.62
+    },
+    "592": {
+      "n": 17,
+      "lowest_y": 128,
+      "highest_y": 93,
+      "tiles": 3.0
+    },
+    "600": {
+      "n": 18,
+      "lowest_y": 128,
+      "highest_y": 106,
+      "tiles": 3.0
+    },
+    "608": {
+      "n": 23,
+      "lowest_y": 128,
+      "highest_y": 128,
+      "tiles": 3.0
+    },
+    "616": {
+      "n": 33,
+      "lowest_y": 128,
+      "highest_y": 111,
+      "tiles": 3.0
+    },
+    "624": {
+      "n": 23,
+      "lowest_y": 128,
+      "highest_y": 128,
+      "tiles": 3.0
+    },
+    "632": {
+      "n": 13,
+      "lowest_y": 128,
+      "highest_y": 128,
+      "tiles": 3.0
+    },
+    "640": null,
+    "648": null,
+    "656": null,
+    "664": {
+      "n": 1,
+      "lowest_y": 47,
+      "highest_y": 47,
+      "tiles": 8.06
+    },
+    "672": {
+      "n": 7,
+      "lowest_y": 60,
+      "highest_y": 46,
+      "tiles": 7.25
+    },
+    "680": {
+      "n": 11,
+      "lowest_y": 156,
+      "highest_y": 45,
+      "tiles": 1.25
+    },
+    "688": {
+      "n": 6,
+      "lowest_y": 47,
+      "highest_y": 45,
+      "tiles": 8.06
+    },
+    "696": {
+      "n": 10,
+      "lowest_y": 48,
+      "highest_y": 45,
+      "tiles": 8.0
+    },
+    "704": {
+      "n": 17,
+      "lowest_y": 48,
+      "highest_y": 45,
+      "tiles": 8.0
+    },
+    "712": {
+      "n": 22,
+      "lowest_y": 46,
+      "highest_y": 45,
+      "tiles": 8.12
+    },
+    "720": {
+      "n": 4,
+      "lowest_y": 112,
+      "highest_y": 112,
+      "tiles": 4.0
+    },
+    "728": {
+      "n": 5,
+      "lowest_y": 112,
+      "highest_y": 112,
+      "tiles": 4.0
+    },
+    "736": {
+      "n": 9,
+      "lowest_y": 112,
+      "highest_y": 95,
+      "tiles": 4.0
+    },
+    "744": {
+      "n": 22,
+      "lowest_y": 112,
+      "highest_y": 84,
+      "tiles": 4.0
+    },
+    "752": {
+      "n": 25,
+      "lowest_y": 112,
+      "highest_y": 83,
+      "tiles": 4.0
+    },
+    "760": {
+      "n": 16,
+      "lowest_y": 112,
+      "highest_y": 112,
+      "tiles": 4.0
+    },
+    "768": {
+      "n": 10,
+      "lowest_y": 112,
+      "highest_y": 112,
+      "tiles": 4.0
+    },
+    "776": null,
+    "784": null,
+    "792": {
+      "n": 2,
+      "lowest_y": 153,
+      "highest_y": 153,
+      "tiles": 1.44
+    },
+    "800": {
+      "n": 4,
+      "lowest_y": 157,
+      "highest_y": 153,
+      "tiles": 1.19
+    }
+  },
+  "obstacles": {
+    "goomba_zone": {
+      "x_range": [
+        280,
+        330
+      ],
+      "max_tiles_above_floor": null,
+      "standing_frames": 0,
+      "airborne_frames": 631,
+      "airborne_fraction": 1.0,
+      "expert_A_holds": {
+        "n": 13,
+        "median": 1.0,
+        "p90": 5.600000000000001,
+        "max": 21
+      }
+    },
+    "pipe1": {
+      "x_range": [
+        420,
+        470
+      ],
+      "max_tiles_above_floor": 2.0,
+      "standing_frames": 124,
+      "airborne_frames": 509,
+      "airborne_fraction": 0.8041074249605056,
+      "expert_A_holds": {
+        "n": 15,
+        "median": 4.0,
+        "p90": 18.0,
+        "max": 18
+      }
+    },
+    "pipe2": {
+      "x_range": [
+        575,
+        640
+      ],
+      "max_tiles_above_floor": 3.62,
+      "standing_frames": 146,
+      "airborne_frames": 654,
+      "airborne_fraction": 0.8175,
+      "expert_A_holds": {
+        "n": 23,
+        "median": 30.0,
+        "p90": 65.80000000000001,
+        "max": 72
+      }
+    },
+    "wall720": {
+      "x_range": [
+        690,
+        760
+      ],
+      "max_tiles_above_floor": 8.12,
+      "standing_frames": 136,
+      "airborne_frames": 674,
+      "airborne_fraction": 0.8320987654320988,
+      "expert_A_holds": {
+        "n": 9,
+        "median": 1.0,
+        "p90": 61.6,
+        "max": 64
+      }
+    }
+  },
+  "verdict_wall720": "x=690-760 is a surface 8.12 tiles above the floor line; the expert is airborne there 83% of the time"
+}
