@@ -1,0 +1,473 @@
+{
+  "seeds": 200,
+  "harness": "single life; episode ends at first death",
+  "scripted_baseline": {
+    "hold": {
+      "mode": "hold",
+      "max_x": 312,
+      "ended": "died",
+      "death": {
+        "x": 312,
+        "cause": "enemy:goomba"
+      },
+      "elevated_rests": []
+    },
+    "jump": {
+      "mode": "jump",
+      "max_x": 316,
+      "ended": "died",
+      "death": {
+        "x": 316,
+        "cause": "enemy:goomba"
+      },
+      "elevated_rests": [
+        [
+          48,
+          116,
+          3.8
+        ],
+        [
+          128,
+          101,
+          4.7
+        ],
+        [
+          256,
+          101,
+          4.7
+        ]
+      ]
+    }
+  },
+  "chain": {
+    "earliest": {
+      "per_seed": [
+        {
+          "n": 200,
+          "pipe1": {
+            "k": 105,
+            "n": 200,
+            "rate": 0.525,
+            "ci": [
+              0.45597270710507,
+              0.5930849925990139
+            ]
+          },
+          "pipe2": {
+            "k": 4,
+            "n": 200,
+            "rate": 0.02,
+            "ci": [
+              0.007804300176394188,
+              0.050287865505193874
+            ]
+          },
+          "past720": {
+            "k": 4,
+            "n": 200,
+            "rate": 0.02,
+            "ci": [
+              0.007804300176394188,
+              0.050287865505193874
+            ]
+          },
+          "x_median": 594.0,
+          "x_p90": 596.0,
+          "x_max": 724,
+          "ended": {
+            "stuck": 150,
+            "died": 50
+          },
+          "deaths": 50,
+          "death_causes": {
+            "enemy:goomba": 50
+          },
+          "death_x_histogram_32px": {
+            "288": 50
+          },
+          "death_x_median": 314.0,
+          "deaths_past_470": 0,
+          "deaths_past_630": 0,
+          "cleared_pipe2_outcomes": {
+            "stuck": 4
+          },
+          "n_cleared_pipe2": 4
+        },
+        {
+          "n": 200,
+          "pipe1": {
+            "k": 85,
+            "n": 200,
+            "rate": 0.425,
+            "ci": [
+              0.35853495209243025,
+              0.4942919487953179
+            ]
+          },
+          "pipe2": {
+            "k": 4,
+            "n": 200,
+            "rate": 0.02,
+            "ci": [
+              0.007804300176394188,
+              0.050287865505193874
+            ]
+          },
+          "past720": {
+            "k": 3,
+            "n": 200,
+            "rate": 0.015,
+            "ci": [
+              0.005114145184492387,
+              0.043166480556278884
+            ]
+          },
+          "x_median": 436.0,
+          "x_p90": 596.0,
+          "x_max": 723,
+          "ended": {
+            "stuck": 161,
+            "died": 39
+          },
+          "deaths": 39,
+          "death_causes": {
+            "enemy:goomba": 39
+          },
+          "death_x_histogram_32px": {
+            "288": 38,
+            "704": 1
+          },
+          "death_x_median": 314.0,
+          "deaths_past_470": 1,
+          "deaths_past_630": 1,
+          "cleared_pipe2_outcomes": {
+            "stuck": 3,
+            "died": 1
+          },
+          "n_cleared_pipe2": 4
+        },
+        {
+          "n": 200,
+          "pipe1": {
+            "k": 124,
+            "n": 200,
+            "rate": 0.62,
+            "ci": [
+              0.5510658951919951,
+              0.6844110633876079
+            ]
+          },
+          "pipe2": {
+            "k": 9,
+            "n": 200,
+            "rate": 0.045,
+            "ci": [
+              0.023852271724704166,
+              0.08329759366096785
+            ]
+          },
+          "past720": {
+            "k": 9,
+            "n": 200,
+            "rate": 0.045,
+            "ci": [
+              0.023852271724704166,
+              0.08329759366096785
+            ]
+          },
+          "x_median": 594.0,
+          "x_p90": 596.0,
+          "x_max": 724,
+          "ended": {
+            "stuck": 161,
+            "died": 39
+          },
+          "deaths": 39,
+          "death_causes": {
+            "enemy:goomba": 39
+          },
+          "death_x_histogram_32px": {
+            "288": 39
+          },
+          "death_x_median": 314.0,
+          "deaths_past_470": 0,
+          "deaths_past_630": 0,
+          "cleared_pipe2_outcomes": {
+            "stuck": 9
+          },
+          "n_cleared_pipe2": 9
+        }
+      ],
+      "pooled_n": 600,
+      "pipe1": {
+        "k": 314,
+        "rate": 0.5233333333333333,
+        "ci": [
+          0.4833471969143963,
+          0.5630225795302872
+        ]
+      },
+      "pipe2": {
+        "k": 17,
+        "rate": 0.028333333333333332,
+        "ci": [
+          0.0177637898515876,
+          0.04490430058802438
+        ]
+      },
+      "deaths": 128
+    },
+    "latest": {
+      "per_seed": [
+        {
+          "n": 200,
+          "pipe1": {
+            "k": 15,
+            "n": 200,
+            "rate": 0.075,
+            "ci": [
+              0.045974507057252416,
+              0.12004459797332034
+            ]
+          },
+          "pipe2": {
+            "k": 0,
+            "n": 200,
+            "rate": 0.0,
+            "ci": [
+              0.0,
+              0.018846005918320894
+            ]
+          },
+          "past720": {
+            "k": 0,
+            "n": 200,
+            "rate": 0.0,
+            "ci": [
+              0.0,
+              0.018846005918320894
+            ]
+          },
+          "x_median": 405.0,
+          "x_p90": 436.0,
+          "x_max": 595,
+          "ended": {
+            "died": 48,
+            "budget": 43,
+            "stuck": 109
+          },
+          "deaths": 48,
+          "death_causes": {
+            "enemy:goomba": 48
+          },
+          "death_x_histogram_32px": {
+            "128": 20,
+            "160": 11,
+            "192": 1,
+            "256": 15,
+            "288": 1
+          },
+          "death_x_median": 169.0,
+          "deaths_past_470": 0,
+          "deaths_past_630": 0,
+          "cleared_pipe2_outcomes": {},
+          "n_cleared_pipe2": 0
+        },
+        {
+          "n": 200,
+          "pipe1": {
+            "k": 63,
+            "n": 200,
+            "rate": 0.315,
+            "ci": [
+              0.25462218077944276,
+              0.38235084141033604
+            ]
+          },
+          "pipe2": {
+            "k": 0,
+            "n": 200,
+            "rate": 0.0,
+            "ci": [
+              0.0,
+              0.018846005918320894
+            ]
+          },
+          "past720": {
+            "k": 0,
+            "n": 200,
+            "rate": 0.0,
+            "ci": [
+              0.0,
+              0.018846005918320894
+            ]
+          },
+          "x_median": 435.0,
+          "x_p90": 595.0,
+          "x_max": 596,
+          "ended": {
+            "stuck": 152,
+            "died": 48
+          },
+          "deaths": 48,
+          "death_causes": {
+            "enemy:goomba": 48
+          },
+          "death_x_histogram_32px": {
+            "256": 2,
+            "288": 46
+          },
+          "death_x_median": 294.0,
+          "deaths_past_470": 0,
+          "deaths_past_630": 0,
+          "cleared_pipe2_outcomes": {},
+          "n_cleared_pipe2": 0
+        },
+        {
+          "n": 200,
+          "pipe1": {
+            "k": 31,
+            "n": 200,
+            "rate": 0.155,
+            "ci": [
+              0.11139568514638545,
+              0.211608058937256
+            ]
+          },
+          "pipe2": {
+            "k": 0,
+            "n": 200,
+            "rate": 0.0,
+            "ci": [
+              0.0,
+              0.018846005918320894
+            ]
+          },
+          "past720": {
+            "k": 0,
+            "n": 200,
+            "rate": 0.0,
+            "ci": [
+              0.0,
+              0.018846005918320894
+            ]
+          },
+          "x_median": 435.0,
+          "x_p90": 594.0,
+          "x_max": 596,
+          "ended": {
+            "stuck": 159,
+            "died": 41
+          },
+          "deaths": 41,
+          "death_causes": {
+            "enemy:goomba": 41
+          },
+          "death_x_histogram_32px": {
+            "128": 3,
+            "160": 2,
+            "256": 11,
+            "288": 25
+          },
+          "death_x_median": 289.0,
+          "deaths_past_470": 0,
+          "deaths_past_630": 0,
+          "cleared_pipe2_outcomes": {},
+          "n_cleared_pipe2": 0
+        }
+      ],
+      "pooled_n": 600,
+      "pipe1": {
+        "k": 109,
+        "rate": 0.18166666666666667,
+        "ci": [
+          0.15287157635153198,
+          0.21451218786742882
+        ]
+      },
+      "pipe2": {
+        "k": 0,
+        "rate": 0.0,
+        "ci": [
+          0.0,
+          0.006361933328210577
+        ]
+      },
+      "deaths": 137
+    }
+  },
+  "chain_difference": {
+    "pipe1": {
+      "delta": 0.3416666666666667,
+      "ci": [
+        0.2899199820514804,
+        0.39070128188835657
+      ],
+      "excludes_zero": true
+    },
+    "pipe2": {
+      "delta": 0.028333333333333332,
+      "ci": [
+        0.01599682470710078,
+        0.04490430058802438
+      ],
+      "excludes_zero": true
+    }
+  },
+  "round3_single_life": {
+    "n": 200,
+    "pipe1": {
+      "k": 163,
+      "n": 200,
+      "rate": 0.815,
+      "ci": [
+        0.7554281794988185,
+        0.8626988367726394
+      ]
+    },
+    "pipe2": {
+      "k": 43,
+      "n": 200,
+      "rate": 0.215,
+      "ci": [
+        0.16371792563672208,
+        0.2770242977367209
+      ]
+    },
+    "past720": {
+      "k": 38,
+      "n": 200,
+      "rate": 0.19,
+      "ci": [
+        0.14167093792456506,
+        0.250013585744794
+      ]
+    },
+    "x_median": 595.0,
+    "x_p90": 722.0,
+    "x_max": 724,
+    "ended": {
+      "stuck": 154,
+      "died": 46
+    },
+    "deaths": 46,
+    "death_causes": {
+      "enemy:goomba": 46
+    },
+    "death_x_histogram_32px": {
+      "288": 37,
+      "640": 1,
+      "672": 1,
+      "704": 7
+    },
+    "death_x_median": 309.5,
+    "deaths_past_470": 9,
+    "deaths_past_630": 9,
+    "cleared_pipe2_outcomes": {
+      "stuck": 34,
+      "died": 9
+    },
+    "n_cleared_pipe2": 43
+  },
+  "binary": "YES -- the earliest-vs-latest advantage survives single life: +34.2 pp on pipe 1 [+29.0, +39.1]"
+}

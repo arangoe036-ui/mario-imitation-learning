@@ -570,3 +570,55 @@ level under two harnesses — multi-life versus single-life. Both are defensible
 are not the same measurement, and every pipe-1 figure in the project's history is the multi-life
 one. Which is canonical is not the builder's call to make unilaterally, and it affects whether a
 successor model can be said to "beat 99.0%".
+
+### ⚠️✅ 2026-08-03 — Every clearance figure was best-of-several-lives; the headline finding survives being fixed
+
+**What.** The evaluation harness counted deaths and let Mario respawn *inside* one episode,
+scoring the best attempt across several lives. Re-measured with one life per episode, the
+project's headline claim — older speedruns train better policies than world-record ones — shrinks
+from **+45.7 pp to +34.2 pp [+29.0, +39.1]** and still excludes zero. The absolute numbers do
+not survive: the best model's pipe-1 rate is **81.5%**, not the 99.0% published everywhere.
+
+**How we got there.** A discrepancy surfaced while cross-checking: an independent measurement of
+pipe-1 clearance gave 81.5% where the project's own figure was 99.0%, same checkpoint, same level.
+The cause was a harness difference, not a bug in either number — one allows retries within an
+episode, the other does not.
+
+The advisor ruled single life canonical, on the grounds that the multi-life metric **rewards
+dying**: a policy that dies respawns and gets another attempt at the same obstacle, while a policy
+that gets *stuck* burns its remaining frames and gets no retry. Two policies of equal skill score
+differently according to how they happen to fail.
+
+That made re-measuring the headline urgent, because the inflation scales with how often an arm
+dies and the two arms visibly died at different rates. It survived because the death counts turned
+out near-identical (128 vs 137 across 600 episodes), so the inflation was common-mode.
+
+**Numbers.** Single life, 3 seeds × n=200 per arm, matched 201,479 frames, same six publications:
+
+| metric | earliest | latest | difference |
+|---|---|---|---|
+| pipe 1 | 314/600 = 52.3% | 109/600 = 18.2% | **+34.2 pp [+29.0, +39.1]** |
+| pipe 2 | 17/600 = 2.8% | 0/600 = 0.0% | +2.8 pp [+1.6, +4.5] |
+
+**Cost.** ~35 minutes of emulator time. No retraining — the checkpoints already existed.
+
+**Downstream.** Every clearance number in the project's history is a multi-life figure and needs
+reissuing: 99.0%, 95.5%, the scaling table, the arm A/B comparison. Only the chain result has been
+redone so far.
+
+**Two things found in the same run.**
+
+*The trivial baseline reframes the Goomba.* A scripted agent holding Right+B permanently **dies to
+the Goomba at x=312, every time**, and never reaches pipe 1. So the policy — which survives that
+Goomba 77% of the time and reaches x=595 — is doing substantial work, and the 23% of episodes lost
+there is the hard tail of a hazard it already mostly solves, not low-hanging fruit. This is the
+opposite of what the previous entry recommended.
+
+*The wall at x≈720 is a wall, not a killer.* Of the 43 episodes clearing pipe 2, **34 get stuck at
+720 and 9 die** — whereas a scripted agent pushed past 720 died 38/38. Two different failures at
+one position.
+
+**A correction.** The previous entry reported "every death is a Goomba at x≈310". The advisor
+showed by arithmetic that at least 9 deaths must lie past x=470 (163 clearances + 46 deaths > 200),
+and the histogram confirms exactly 9, clustered at ~704. A median had been reported as a universal
+— the same error that produced the pipe-2 premise and cost four rounds of diagnosis.
