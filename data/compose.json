@@ -200,6 +200,211 @@
       "cutoff": 403.5,
       "score_median": 137.0,
       "score_p90": 692.8999999999997
+    },
+    {
+      "n": 200,
+      "pipe1": {
+        "k": 128,
+        "n": 200,
+        "rate": 0.64,
+        "ci": [
+          0.5714139956562682,
+          0.7033091226866021
+        ],
+        "vs_baseline": {
+          "delta": -0.17499999999999993,
+          "ci": [
+            -0.2585417202438476,
+            -0.08806987396090911
+          ],
+          "excludes_zero": true
+        }
+      },
+      "pipe2": {
+        "k": 108,
+        "n": 200,
+        "rate": 0.54,
+        "ci": [
+          0.4708216309361468,
+          0.6076706885903875
+        ],
+        "vs_baseline": {
+          "delta": 0.32500000000000007,
+          "ci": [
+            0.23208788961567994,
+            0.40990685040264996
+          ],
+          "excludes_zero": true
+        }
+      },
+      "past720": {
+        "k": 89,
+        "n": 200,
+        "rate": 0.445,
+        "ci": [
+          0.3778048169746545,
+          0.5142682436763609
+        ],
+        "vs_baseline": {
+          "delta": 0.255,
+          "ci": [
+            0.16490658683478898,
+            0.3394617536113178
+          ],
+          "excludes_zero": true
+        }
+      },
+      "x_median": 687.5,
+      "x_p90": 1270.1,
+      "x_max": 1957,
+      "ended": {
+        "died": 153,
+        "stuck": 47
+      },
+      "deaths": 153,
+      "death_causes": {
+        "enemy:goomba": 121,
+        "unknown": 27,
+        "enemy:green_koopa": 5
+      },
+      "death_x_histogram_32px": {
+        "256": 2,
+        "288": 70,
+        "640": 2,
+        "672": 13,
+        "704": 13,
+        "800": 6,
+        "832": 2,
+        "864": 1,
+        "896": 6,
+        "1216": 10,
+        "1248": 8,
+        "1280": 1,
+        "1504": 4,
+        "1536": 9,
+        "1632": 1,
+        "1664": 4,
+        "1952": 1
+      },
+      "death_x_median": 677.0,
+      "deaths_past_470": 81,
+      "deaths_past_630": 81,
+      "cleared_pipe2_outcomes": {
+        "died": 81,
+        "stuck": 27
+      },
+      "n_cleared_pipe2": 108,
+      "tag": "compose_round2",
+      "round": 2,
+      "acceptance_rate": 0.26,
+      "accepted": 39,
+      "scored": 150,
+      "cutoff": 426.0,
+      "score_median": 140.5,
+      "score_p90": 738.8
+    },
+    {
+      "n": 200,
+      "pipe1": {
+        "k": 100,
+        "n": 200,
+        "rate": 0.5,
+        "ci": [
+          0.43135962209034523,
+          0.5686403779096547
+        ],
+        "vs_baseline": {
+          "delta": -0.31499999999999995,
+          "ci": [
+            -0.39858636556905147,
+            -0.22411378939902263
+          ],
+          "excludes_zero": true
+        }
+      },
+      "pipe2": {
+        "k": 96,
+        "n": 200,
+        "rate": 0.48,
+        "ci": [
+          0.4117904407948983,
+          0.5489633994418346
+        ],
+        "vs_baseline": {
+          "delta": 0.265,
+          "ci": [
+            0.1728069553779263,
+            0.3509406866017185
+          ],
+          "excludes_zero": true
+        }
+      },
+      "past720": {
+        "k": 71,
+        "n": 200,
+        "rate": 0.355,
+        "ci": [
+          0.29198518653239286,
+          0.4234801551839203
+        ],
+        "vs_baseline": {
+          "delta": 0.16499999999999998,
+          "ci": [
+            0.07797990352622526,
+            0.24881664449919866
+          ],
+          "excludes_zero": true
+        }
+      },
+      "x_median": 454.5,
+      "x_p90": 1249.4,
+      "x_max": 2227,
+      "ended": {
+        "died": 173,
+        "stuck": 27
+      },
+      "deaths": 173,
+      "death_causes": {
+        "enemy:goomba": 148,
+        "unknown": 23,
+        "enemy:green_koopa": 2
+      },
+      "death_x_histogram_32px": {
+        "224": 1,
+        "256": 4,
+        "288": 95,
+        "640": 3,
+        "672": 20,
+        "704": 8,
+        "768": 1,
+        "800": 5,
+        "832": 2,
+        "896": 5,
+        "1216": 9,
+        "1248": 10,
+        "1280": 1,
+        "1504": 6,
+        "1664": 2,
+        "1952": 1
+      },
+      "death_x_median": 308.0,
+      "deaths_past_470": 73,
+      "deaths_past_630": 73,
+      "cleared_pipe2_outcomes": {
+        "died": 73,
+        "stuck": 23
+      },
+      "n_cleared_pipe2": 96,
+      "tag": "compose_round3",
+      "round": 3,
+      "acceptance_rate": 0.25333333333333335,
+      "accepted": 38,
+      "scored": 150,
+      "cutoff": 497.25,
+      "score_median": 203.5,
+      "score_p90": 697.3999999999999
     }
-  ]
+  ],
+  "best": "compose_round2",
+  "verdict": "COMPOSITION IMPROVES pipe 2: compose_round2 at 54.0% vs baseline 21.5%, difference +32.5 pp [+23.2, +41.0]"
 }

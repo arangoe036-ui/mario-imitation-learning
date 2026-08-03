@@ -1,0 +1,3616 @@
+{
+  "budget": 10000,
+  "seeds": 200,
+  "verdict": "BUDGET WAS NOT THE CAUSE: with 10000 frames, max_x is still 724 and pipe-3 clearance is 0/200",
+  "pipe3_rate": {
+    "k": 0,
+    "n": 200,
+    "ci": [
+      0.0,
+      0.018846005918320894
+    ]
+  },
+  "x_max": 724,
+  "rows": [
+    {
+      "seed": 0,
+      "max_x": 723,
+      "arrival_frame_690": 481,
+      "frames_used": 805,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 1,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 600,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 2,
+      "max_x": 596,
+      "arrival_frame_690": null,
+      "frames_used": 919,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 3,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 670,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 4,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 695,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 5,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 673,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 6,
+      "max_x": 312,
+      "arrival_frame_690": null,
+      "frames_used": 171,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 7,
+      "max_x": 722,
+      "arrival_frame_690": 976,
+      "frames_used": 1291,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 8,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 683,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 9,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 814,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 10,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 917,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 11,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 686,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 12,
+      "max_x": 596,
+      "arrival_frame_690": null,
+      "frames_used": 648,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 13,
+      "max_x": 724,
+      "arrival_frame_690": 637,
+      "frames_used": 953,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 14,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 627,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 15,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 698,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 16,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 657,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 17,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 564,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 18,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 744,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 19,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 688,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 20,
+      "max_x": 313,
+      "arrival_frame_690": null,
+      "frames_used": 149,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 21,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 747,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 22,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 751,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 23,
+      "max_x": 315,
+      "arrival_frame_690": null,
+      "frames_used": 147,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 24,
+      "max_x": 304,
+      "arrival_frame_690": null,
+      "frames_used": 173,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 25,
+      "max_x": 722,
+      "arrival_frame_690": 705,
+      "frames_used": 1021,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 26,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 793,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 27,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 654,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 28,
+      "max_x": 295,
+      "arrival_frame_690": null,
+      "frames_used": 191,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 29,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 614,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 30,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 630,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 31,
+      "max_x": 308,
+      "arrival_frame_690": null,
+      "frames_used": 185,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 32,
+      "max_x": 596,
+      "arrival_frame_690": null,
+      "frames_used": 664,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 33,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 590,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 34,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 1044,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 35,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 649,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 36,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 790,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 37,
+      "max_x": 722,
+      "arrival_frame_690": 605,
+      "frames_used": 920,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 38,
+      "max_x": 722,
+      "arrival_frame_690": 449,
+      "frames_used": 770,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 39,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 681,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 40,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 605,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 41,
+      "max_x": 297,
+      "arrival_frame_690": null,
+      "frames_used": 187,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 42,
+      "max_x": 722,
+      "arrival_frame_690": 763,
+      "frames_used": 1080,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 43,
+      "max_x": 723,
+      "arrival_frame_690": 545,
+      "frames_used": 860,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 44,
+      "max_x": 722,
+      "arrival_frame_690": 578,
+      "frames_used": 901,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 45,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 943,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 46,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 671,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 47,
+      "max_x": 722,
+      "arrival_frame_690": 633,
+      "frames_used": 956,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 48,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 670,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 49,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 592,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 50,
+      "max_x": 723,
+      "arrival_frame_690": 655,
+      "frames_used": 971,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 51,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 740,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 52,
+      "max_x": 723,
+      "arrival_frame_690": 678,
+      "frames_used": 755,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 53,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 641,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 54,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 566,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 55,
+      "max_x": 596,
+      "arrival_frame_690": null,
+      "frames_used": 806,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 56,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 807,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 57,
+      "max_x": 596,
+      "arrival_frame_690": null,
+      "frames_used": 578,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 58,
+      "max_x": 722,
+      "arrival_frame_690": 427,
+      "frames_used": 750,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 59,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 601,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 60,
+      "max_x": 722,
+      "arrival_frame_690": 516,
+      "frames_used": 839,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 61,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 666,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 62,
+      "max_x": 297,
+      "arrival_frame_690": null,
+      "frames_used": 199,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 63,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 637,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 64,
+      "max_x": 597,
+      "arrival_frame_690": null,
+      "frames_used": 694,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 65,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 650,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 66,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 682,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 67,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 637,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 68,
+      "max_x": 312,
+      "arrival_frame_690": null,
+      "frames_used": 149,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 69,
+      "max_x": 698,
+      "arrival_frame_690": 381,
+      "frames_used": 385,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 70,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 662,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 71,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 740,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 72,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 868,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 73,
+      "max_x": 298,
+      "arrival_frame_690": null,
+      "frames_used": 189,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 74,
+      "max_x": 307,
+      "arrival_frame_690": null,
+      "frames_used": 175,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 75,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 750,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 76,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 702,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 77,
+      "max_x": 722,
+      "arrival_frame_690": 589,
+      "frames_used": 912,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 78,
+      "max_x": 300,
+      "arrival_frame_690": null,
+      "frames_used": 187,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 79,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 656,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 80,
+      "max_x": 596,
+      "arrival_frame_690": null,
+      "frames_used": 599,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 81,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 821,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 82,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 707,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 83,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 628,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 84,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 744,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 85,
+      "max_x": 722,
+      "arrival_frame_690": 501,
+      "frames_used": 816,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 86,
+      "max_x": 722,
+      "arrival_frame_690": 711,
+      "frames_used": 1035,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 87,
+      "max_x": 307,
+      "arrival_frame_690": null,
+      "frames_used": 161,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 88,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 872,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 89,
+      "max_x": 724,
+      "arrival_frame_690": 416,
+      "frames_used": 732,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 90,
+      "max_x": 710,
+      "arrival_frame_690": 817,
+      "frames_used": 827,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 91,
+      "max_x": 664,
+      "arrival_frame_690": null,
+      "frames_used": 543,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 92,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 758,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 93,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 592,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 94,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 699,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 95,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 603,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 96,
+      "max_x": 311,
+      "arrival_frame_690": null,
+      "frames_used": 161,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 97,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 689,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 98,
+      "max_x": 722,
+      "arrival_frame_690": 714,
+      "frames_used": 1035,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 99,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 768,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 100,
+      "max_x": 315,
+      "arrival_frame_690": null,
+      "frames_used": 163,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 101,
+      "max_x": 314,
+      "arrival_frame_690": null,
+      "frames_used": 165,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 102,
+      "max_x": 313,
+      "arrival_frame_690": null,
+      "frames_used": 151,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 103,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 634,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 104,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 655,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 105,
+      "max_x": 305,
+      "arrival_frame_690": null,
+      "frames_used": 181,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 106,
+      "max_x": 300,
+      "arrival_frame_690": null,
+      "frames_used": 207,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 107,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 706,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 108,
+      "max_x": 307,
+      "arrival_frame_690": null,
+      "frames_used": 161,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 109,
+      "max_x": 722,
+      "arrival_frame_690": 608,
+      "frames_used": 926,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 110,
+      "max_x": 313,
+      "arrival_frame_690": null,
+      "frames_used": 149,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 111,
+      "max_x": 722,
+      "arrival_frame_690": 601,
+      "frames_used": 919,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 112,
+      "max_x": 305,
+      "arrival_frame_690": null,
+      "frames_used": 183,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 113,
+      "max_x": 724,
+      "arrival_frame_690": 543,
+      "frames_used": 860,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 114,
+      "max_x": 304,
+      "arrival_frame_690": null,
+      "frames_used": 179,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 115,
+      "max_x": 723,
+      "arrival_frame_690": 301,
+      "frames_used": 616,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 116,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 643,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 117,
+      "max_x": 722,
+      "arrival_frame_690": 807,
+      "frames_used": 1130,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 118,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 774,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 119,
+      "max_x": 305,
+      "arrival_frame_690": null,
+      "frames_used": 183,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 120,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 739,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 121,
+      "max_x": 313,
+      "arrival_frame_690": null,
+      "frames_used": 147,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 122,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 568,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 123,
+      "max_x": 722,
+      "arrival_frame_690": 556,
+      "frames_used": 879,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 124,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 985,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 125,
+      "max_x": 596,
+      "arrival_frame_690": null,
+      "frames_used": 653,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 126,
+      "max_x": 722,
+      "arrival_frame_690": 712,
+      "frames_used": 1033,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 127,
+      "max_x": 706,
+      "arrival_frame_690": 456,
+      "frames_used": 467,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 128,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 736,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 129,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 575,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 130,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 685,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 131,
+      "max_x": 722,
+      "arrival_frame_690": 600,
+      "frames_used": 924,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 132,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 658,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 133,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 623,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 134,
+      "max_x": 306,
+      "arrival_frame_690": null,
+      "frames_used": 169,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 135,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 685,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 136,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 819,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 137,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 806,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 138,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 697,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 139,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 600,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 140,
+      "max_x": 722,
+      "arrival_frame_690": 638,
+      "frames_used": 953,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 141,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 615,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 142,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 694,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 143,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 642,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 144,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 666,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 145,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 588,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 146,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 564,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 147,
+      "max_x": 306,
+      "arrival_frame_690": null,
+      "frames_used": 171,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 148,
+      "max_x": 596,
+      "arrival_frame_690": null,
+      "frames_used": 605,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 149,
+      "max_x": 301,
+      "arrival_frame_690": null,
+      "frames_used": 159,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 150,
+      "max_x": 299,
+      "arrival_frame_690": null,
+      "frames_used": 181,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 151,
+      "max_x": 596,
+      "arrival_frame_690": null,
+      "frames_used": 713,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 152,
+      "max_x": 724,
+      "arrival_frame_690": 618,
+      "frames_used": 934,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 153,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 689,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 154,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 610,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 155,
+      "max_x": 723,
+      "arrival_frame_690": 572,
+      "frames_used": 795,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 156,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 582,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 157,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 678,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 158,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 591,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 159,
+      "max_x": 313,
+      "arrival_frame_690": null,
+      "frames_used": 171,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 160,
+      "max_x": 306,
+      "arrival_frame_690": null,
+      "frames_used": 199,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 161,
+      "max_x": 722,
+      "arrival_frame_690": 516,
+      "frames_used": 840,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 162,
+      "max_x": 303,
+      "arrival_frame_690": null,
+      "frames_used": 185,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 163,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 648,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 164,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 711,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 165,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 705,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 166,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 639,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 167,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 662,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 168,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 592,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 169,
+      "max_x": 314,
+      "arrival_frame_690": null,
+      "frames_used": 151,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 170,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 568,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 171,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 704,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 172,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 696,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 173,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 689,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 174,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 781,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 175,
+      "max_x": 313,
+      "arrival_frame_690": null,
+      "frames_used": 153,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 176,
+      "max_x": 312,
+      "arrival_frame_690": null,
+      "frames_used": 163,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 177,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 675,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 178,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 760,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 179,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 599,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 180,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 816,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 181,
+      "max_x": 305,
+      "arrival_frame_690": null,
+      "frames_used": 175,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 182,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 682,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 183,
+      "max_x": 724,
+      "arrival_frame_690": 709,
+      "frames_used": 763,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 184,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 689,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 185,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 813,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 186,
+      "max_x": 722,
+      "arrival_frame_690": 451,
+      "frames_used": 775,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 187,
+      "max_x": 722,
+      "arrival_frame_690": 454,
+      "frames_used": 777,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 188,
+      "max_x": 308,
+      "arrival_frame_690": null,
+      "frames_used": 169,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 189,
+      "max_x": 722,
+      "arrival_frame_690": 668,
+      "frames_used": 875,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 190,
+      "max_x": 722,
+      "arrival_frame_690": 617,
+      "frames_used": 941,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 191,
+      "max_x": 722,
+      "arrival_frame_690": 716,
+      "frames_used": 1031,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 192,
+      "max_x": 594,
+      "arrival_frame_690": null,
+      "frames_used": 573,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 193,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 616,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 194,
+      "max_x": 596,
+      "arrival_frame_690": null,
+      "frames_used": 647,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 195,
+      "max_x": 596,
+      "arrival_frame_690": null,
+      "frames_used": 669,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 196,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 724,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 197,
+      "max_x": 595,
+      "arrival_frame_690": null,
+      "frames_used": 607,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 198,
+      "max_x": 722,
+      "arrival_frame_690": 414,
+      "frames_used": 737,
+      "ended": "stuck",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    },
+    {
+      "seed": 199,
+      "max_x": 712,
+      "arrival_frame_690": 409,
+      "frames_used": 425,
+      "ended": "died",
+      "x_mismatches": 0,
+      "areas_seen": [
+        1
+      ],
+      "levels_seen": [
+        [
+          1,
+          1
+        ]
+      ],
+      "area_changed": false
+    }
+  ]
+}

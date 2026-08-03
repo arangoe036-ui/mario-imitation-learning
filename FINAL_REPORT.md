@@ -622,3 +622,53 @@ one position.
 showed by arithmetic that at least 9 deaths must lie past x=470 (163 clearances + 46 deaths > 200),
 and the histogram confirms exactly 9, clustered at ~704. A median had been reported as a universal
 — the same error that produced the pipe-2 premise and cost four rounds of diagnosis.
+
+### ✅ 2026-08-03 — Composing four wins clears pipe 3, and breaks a ceiling that was real for every model before it
+
+**What.** Combining four separately-measured wins — sustain+onset reweighting, earliest-in-chain
+data, the ~25% subset, and self-imitation — produced the first model to get past pipe 3. Pipe 2
+clearance goes from **21.5% to 54.0%** (+32.5 pp [+23.2, +41.0]), pipe 3 from a genuine **0/200 to
+24/100**, and maximum x from 724 to **2227** — most of the way through 1-1.
+
+**How we got there.** The project owner, watching live play, said Mario cleared pipe 3 sometimes.
+The measurement said 0/200 with a hard ceiling at exactly x=724 across 800 episodes and four
+checkpoints — and an identical number across every configuration is this project's most frequent
+signature of a metric that cannot move.
+
+Six explanations were checked against the checkpoint that had been measured, and **all six came back
+clean**: arrivals at pipe 3 happen around frame 600 of a 2,500 budget (not at the end), zero episodes
+time out, raising the budget to 10,000 frames changes nothing, position cross-checks exactly against
+raw RAM, and no episode changes area — so it is not a pipe entry. For that checkpoint the ceiling is
+completely real.
+
+The wrong assumption was not the harness. It was that four checkpoints out of eighty-eight
+generalised to the project. While those checks ran, the composed model finished training and cleared
+pipe 3 immediately.
+
+**Numbers.** Single life, n=100–200, same harness throughout:
+
+| model | pipe 1 | pipe 2 | pipe 3 | x max | deaths |
+|---|---|---|---|---|---|
+| previous best | 81.5% | 21.5% | **0/200** | 724 | 46/200 |
+| compose_round1 | 78.0% | 43.0% | 5/100 | 1250 | 28/100 |
+| **compose_round2** | 61.0% | **50.0%** | **24/100** | **1957** | 78/100 |
+| compose_round3 | 50.0% | 48.0% | 24/100 | **2227** | 86/100 |
+
+**Cost.** ~50 minutes: base training plus three self-imitation rounds, all CPU, with evaluation
+interleaved on the single permitted emulator.
+
+**The tradeoff, stated rather than buried.** These models go further and die far more. Round 2 dies
+in 78 of 100 episodes against the baseline's 46 of 200, and pipe-1 clearance *falls* from 81.5% to
+61%. "Cleared pipe 2" says the composed model is much better; "survived" says it is worse. That is
+the same metric hazard as an always-jump policy clearing an obstacle and then being unable to jump
+again — an objective that rewards distance alone will pick the reckless model.
+
+**Downstream.** The four wins do compose, which had been queued unbuilt for six directives. The
+frontier has moved from x=724 to somewhere past x=2000 and is now unmeasured. Deaths have become the
+dominant failure mode (78–86% of episodes, against 23% before), which revives the negative-examples
+approach that had been killed on the grounds that enemy deaths were a minority.
+
+**Two corrections recorded.** "Nothing in this project has ever cleared pipe 3" was generalised from
+four checkpoints — the same median-as-universal error made two reports earlier with death positions.
+And the 19% "past x=720" figure counted arrivals at pipe 3's face rather than clearances, because the
+threshold sat on the obstacle instead of past it.
