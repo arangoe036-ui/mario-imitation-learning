@@ -107,7 +107,7 @@ def main():
         e_rows = random_rows(ds, min(len(ds), len(self_ds)), seed=rnd)
         policy = train(policy, ConcatDataset([Subset(ds, e_rows), self_ds]),
                        ROUND_STEPS, 1e-4, rnd)
-        save_policy(CKPTS / f"surv_round{rnd}.pt", policy, cfg,
+        save_policy(CKPTS / f"top20_round{rnd}.pt", policy, cfg,
                     {n: 0.5 for n in NES_BUTTON_ORDER})
         res, thr = evaluate(ctx, policy, cfg, f"top20_round{rnd}")
         res.update({"round": rnd, **stats})
