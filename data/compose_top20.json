@@ -1,0 +1,407 @@
+{
+  "gate": "plain top 20% by progress; NO survival test (strictness control)",
+  "base_checkpoint": "compose_base.pt",
+  "stages": [
+    {
+      "n": 200,
+      "pipe1": {
+        "k": 164,
+        "n": 200,
+        "rate": 0.82,
+        "ci": [
+          0.7608840628376157,
+          0.8670544933746589
+        ],
+        "vs_baseline": {
+          "delta": 0.0050000000000000044,
+          "ci": [
+            -0.07095968046305792,
+            0.08091394565276402
+          ],
+          "excludes_zero": false
+        }
+      },
+      "pipe2": {
+        "k": 15,
+        "n": 200,
+        "rate": 0.075,
+        "ci": [
+          0.045974507057252416,
+          0.12004459797332034
+        ],
+        "vs_baseline": {
+          "delta": -0.14,
+          "ci": [
+            -0.20847987113234728,
+            -0.07174410679231558
+          ],
+          "excludes_zero": true
+        }
+      },
+      "past720": {
+        "k": 15,
+        "n": 200,
+        "rate": 0.075,
+        "ci": [
+          0.045974507057252416,
+          0.12004459797332034
+        ],
+        "vs_baseline": {
+          "delta": -0.115,
+          "ci": [
+            -0.18166415614494216,
+            -0.048934017469886223
+          ],
+          "excludes_zero": true
+        }
+      },
+      "x_median": 595.0,
+      "x_p90": 596.0,
+      "x_max": 724,
+      "ended": {
+        "died": 30,
+        "stuck": 170
+      },
+      "deaths": 30,
+      "death_causes": {
+        "enemy:goomba": 30
+      },
+      "death_x_histogram_32px": {
+        "288": 29,
+        "704": 1
+      },
+      "death_x_median": 314.0,
+      "deaths_past_470": 1,
+      "deaths_past_630": 1,
+      "cleared_pipe2_outcomes": {
+        "stuck": 14,
+        "died": 1
+      },
+      "n_cleared_pipe2": 15,
+      "tag": "top20_base"
+    },
+    {
+      "n": 200,
+      "pipe1": {
+        "k": 167,
+        "n": 200,
+        "rate": 0.835,
+        "ci": [
+          0.7773410172613647,
+          0.8800321587733603
+        ],
+        "vs_baseline": {
+          "delta": 0.020000000000000018,
+          "ci": [
+            -0.05483139260976727,
+            0.09467728651748215
+          ],
+          "excludes_zero": false
+        }
+      },
+      "pipe2": {
+        "k": 56,
+        "n": 200,
+        "rate": 0.28,
+        "ci": [
+          0.22236792842635128,
+          0.34592431417771
+        ],
+        "vs_baseline": {
+          "delta": 0.06500000000000003,
+          "ci": [
+            -0.019666812763937003,
+            0.14852165198798564
+          ],
+          "excludes_zero": false
+        }
+      },
+      "past720": {
+        "k": 49,
+        "n": 200,
+        "rate": 0.245,
+        "ci": [
+          0.19056777914685893,
+          0.3090436838714848
+        ],
+        "vs_baseline": {
+          "delta": 0.05499999999999999,
+          "ci": [
+            -0.026021584413987275,
+            0.1352327344973479
+          ],
+          "excludes_zero": false
+        }
+      },
+      "x_median": 595.0,
+      "x_p90": 723.0,
+      "x_max": 900,
+      "ended": {
+        "died": 48,
+        "stuck": 152
+      },
+      "deaths": 48,
+      "death_causes": {
+        "enemy:goomba": 48
+      },
+      "death_x_histogram_32px": {
+        "288": 33,
+        "672": 7,
+        "704": 8
+      },
+      "death_x_median": 315.0,
+      "deaths_past_470": 15,
+      "deaths_past_630": 15,
+      "cleared_pipe2_outcomes": {
+        "died": 15,
+        "stuck": 41
+      },
+      "n_cleared_pipe2": 56,
+      "tag": "top20_round1",
+      "round": 1,
+      "scored": 150,
+      "survived": 99,
+      "accepted": 30,
+      "cutoff": 532.2,
+      "score_median": 256.0,
+      "died_in_rollout": 51
+    },
+    {
+      "n": 200,
+      "pipe1": {
+        "k": 166,
+        "n": 200,
+        "rate": 0.83,
+        "ci": [
+          0.7718399896049648,
+          0.8757216464889435
+        ],
+        "vs_baseline": {
+          "delta": 0.015000000000000013,
+          "ci": [
+            -0.06021812174345682,
+            0.09009507810425998
+          ],
+          "excludes_zero": false
+        }
+      },
+      "pipe2": {
+        "k": 124,
+        "n": 200,
+        "rate": 0.62,
+        "ci": [
+          0.5510658951919951,
+          0.6844110633876079
+        ],
+        "vs_baseline": {
+          "delta": 0.405,
+          "ci": [
+            0.31226961492900834,
+            0.48733247377385924
+          ],
+          "excludes_zero": true
+        }
+      },
+      "past720": {
+        "k": 110,
+        "n": 200,
+        "rate": 0.55,
+        "ci": [
+          0.48075488574571107,
+          0.6173605136624569
+        ],
+        "vs_baseline": {
+          "delta": 0.36000000000000004,
+          "ci": [
+            0.2683674930931317,
+            0.44290438493807965
+          ],
+          "excludes_zero": true
+        }
+      },
+      "x_median": 722.0,
+      "x_p90": 1298.5999999999985,
+      "x_max": 2746,
+      "ended": {
+        "died": 103,
+        "stuck": 97
+      },
+      "deaths": 103,
+      "death_causes": {
+        "unknown": 31,
+        "enemy:goomba": 72
+      },
+      "death_x_histogram_32px": {
+        "256": 1,
+        "288": 33,
+        "640": 1,
+        "672": 13,
+        "704": 12,
+        "800": 3,
+        "832": 3,
+        "864": 2,
+        "1216": 9,
+        "1248": 6,
+        "1504": 7,
+        "1536": 10,
+        "1760": 2,
+        "2720": 1
+      },
+      "death_x_median": 722.0,
+      "deaths_past_470": 69,
+      "deaths_past_630": 69,
+      "cleared_pipe2_outcomes": {
+        "died": 69,
+        "stuck": 55
+      },
+      "n_cleared_pipe2": 124,
+      "tag": "top20_round2",
+      "round": 2,
+      "scored": 150,
+      "survived": 96,
+      "accepted": 30,
+      "cutoff": 571.0,
+      "score_median": 298.0,
+      "died_in_rollout": 54
+    },
+    {
+      "n": 200,
+      "pipe1": {
+        "k": 132,
+        "n": 200,
+        "rate": 0.66,
+        "ci": [
+          0.5918836703220929,
+          0.7220856077840445
+        ],
+        "vs_baseline": {
+          "delta": -0.15499999999999992,
+          "ci": [
+            -0.2381565595623834,
+            -0.06895684517790386
+          ],
+          "excludes_zero": true
+        }
+      },
+      "pipe2": {
+        "k": 110,
+        "n": 200,
+        "rate": 0.55,
+        "ci": [
+          0.48075488574571107,
+          0.6173605136624569
+        ],
+        "vs_baseline": {
+          "delta": 0.3350000000000001,
+          "ci": [
+            0.24203818333410798,
+            0.41965984852260735
+          ],
+          "excludes_zero": true
+        }
+      },
+      "past720": {
+        "k": 78,
+        "n": 200,
+        "rate": 0.39,
+        "ci": [
+          0.325082297194914,
+          0.45906382410711677
+        ],
+        "vs_baseline": {
+          "delta": 0.2,
+          "ci": [
+            0.11159220276787114,
+            0.2842941874709639
+          ],
+          "excludes_zero": true
+        }
+      },
+      "x_median": 686.0,
+      "x_p90": 1529.1,
+      "x_max": 2582,
+      "ended": {
+        "died": 164,
+        "stuck": 36
+      },
+      "deaths": 164,
+      "death_causes": {
+        "unknown": 31,
+        "enemy:goomba": 129,
+        "enemy:green_koopa": 4
+      },
+      "death_x_histogram_32px": {
+        "224": 1,
+        "256": 5,
+        "288": 62,
+        "640": 2,
+        "672": 23,
+        "704": 10,
+        "800": 2,
+        "832": 4,
+        "864": 1,
+        "896": 8,
+        "1216": 16,
+        "1504": 14,
+        "1536": 9,
+        "1664": 4,
+        "1760": 1,
+        "1792": 1,
+        "2560": 1
+      },
+      "death_x_median": 689.5,
+      "deaths_past_470": 96,
+      "deaths_past_630": 96,
+      "cleared_pipe2_outcomes": {
+        "died": 96,
+        "stuck": 14
+      },
+      "n_cleared_pipe2": 110,
+      "tag": "top20_round3",
+      "round": 3,
+      "scored": 150,
+      "survived": 90,
+      "accepted": 30,
+      "cutoff": 598.6,
+      "score_median": 360.0,
+      "died_in_rollout": 60
+    }
+  ],
+  "comparison_vs_old_filter": {
+    "old_best_pipe2": 0.54,
+    "old_best_deaths_at_n200": 153,
+    "new_best_tag": "top20_round2",
+    "new_best_pipe2": 0.62,
+    "new_best_deaths": 103
+  },
+  "matched_rounds": [
+    {
+      "round": 1,
+      "top25_pipe2": 0.435,
+      "top25_deaths": 56,
+      "surv_pipe2": 0.515,
+      "surv_deaths": 85,
+      "top20_pipe2": 0.28,
+      "top20_deaths": 48
+    },
+    {
+      "round": 2,
+      "top25_pipe2": 0.54,
+      "top25_deaths": 153,
+      "surv_pipe2": 0.6,
+      "surv_deaths": 144,
+      "top20_pipe2": 0.62,
+      "top20_deaths": 103
+    },
+    {
+      "round": 3,
+      "top25_pipe2": 0.48,
+      "top25_deaths": 173,
+      "surv_pipe2": 0.555,
+      "surv_deaths": 189,
+      "top20_pipe2": 0.55,
+      "top20_deaths": 164
+    }
+  ],
+  "verdict": "STRICTNESS, NOT SURVIVAL: plain top-20% reproduces the pipe-2 gain in 2/3 matched rounds -- the survival condition is not the cause"
+}
