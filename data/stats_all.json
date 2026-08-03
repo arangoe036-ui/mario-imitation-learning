@@ -1,0 +1,753 @@
+{
+  "n_runs": 34,
+  "total_frames": 1684996,
+  "action_vocabulary_size": 69,
+  "action_frequency": [
+    {
+      "byte": 0,
+      "buttons": "-",
+      "count": 753006,
+      "percentage": 44.688889469173816
+    },
+    {
+      "byte": 130,
+      "buttons": "Right+B",
+      "count": 481063,
+      "percentage": 28.549800711693084
+    },
+    {
+      "byte": 2,
+      "buttons": "B",
+      "count": 142329,
+      "percentage": 8.446844977673537
+    },
+    {
+      "byte": 131,
+      "buttons": "Right+B+A",
+      "count": 113935,
+      "percentage": 6.7617371198507294
+    },
+    {
+      "byte": 1,
+      "buttons": "A",
+      "count": 67625,
+      "percentage": 4.013362642997372
+    },
+    {
+      "byte": 3,
+      "buttons": "B+A",
+      "count": 34241,
+      "percentage": 2.0321116489297304
+    },
+    {
+      "byte": 128,
+      "buttons": "Right",
+      "count": 33866,
+      "percentage": 2.009856403219948
+    },
+    {
+      "byte": 66,
+      "buttons": "Left+B",
+      "count": 16726,
+      "percentage": 0.9926433059781744
+    },
+    {
+      "byte": 129,
+      "buttons": "Right+A",
+      "count": 7343,
+      "percentage": 0.4357873846584799
+    },
+    {
+      "byte": 64,
+      "buttons": "Left",
+      "count": 5331,
+      "percentage": 0.31638057301026234
+    },
+    {
+      "byte": 194,
+      "buttons": "Right+Left+B",
+      "count": 5291,
+      "percentage": 0.31400668013455224
+    },
+    {
+      "byte": 192,
+      "buttons": "Right+Left",
+      "count": 4420,
+      "percentage": 0.262315162765965
+    },
+    {
+      "byte": 33,
+      "buttons": "Down+A",
+      "count": 4040,
+      "percentage": 0.23976318044671915
+    },
+    {
+      "byte": 34,
+      "buttons": "Down+B",
+      "count": 3373,
+      "percentage": 0.2001785167442534
+    },
+    {
+      "byte": 67,
+      "buttons": "Left+B+A",
+      "count": 3229,
+      "percentage": 0.19163250239169707
+    },
+    {
+      "byte": 35,
+      "buttons": "Down+B+A",
+      "count": 2897,
+      "percentage": 0.17192919152330333
+    },
+    {
+      "byte": 32,
+      "buttons": "Down",
+      "count": 1366,
+      "percentage": 0.0810684417054996
+    },
+    {
+      "byte": 193,
+      "buttons": "Right+Left+A",
+      "count": 1143,
+      "percentage": 0.06783398892341584
+    },
+    {
+      "byte": 65,
+      "buttons": "Left+A",
+      "count": 959,
+      "percentage": 0.05691408169514942
+    },
+    {
+      "byte": 195,
+      "buttons": "Right+Left+B+A",
+      "count": 734,
+      "percentage": 0.04356093426928016
+    },
+    {
+      "byte": 18,
+      "buttons": "Up+B",
+      "count": 480,
+      "percentage": 0.02848671450852109
+    },
+    {
+      "byte": 16,
+      "buttons": "Up",
+      "count": 396,
+      "percentage": 0.0235015394695299
+    },
+    {
+      "byte": 134,
+      "buttons": "Right+Select+B",
+      "count": 171,
+      "percentage": 0.010148392043660638
+    },
+    {
+      "byte": 160,
+      "buttons": "Right+Down",
+      "count": 138,
+      "percentage": 0.008189930421199813
+    },
+    {
+      "byte": 8,
+      "buttons": "Start",
+      "count": 131,
+      "percentage": 0.007774499167950547
+    },
+    {
+      "byte": 19,
+      "buttons": "Up+B+A",
+      "count": 121,
+      "percentage": 0.007181025949023024
+    },
+    {
+      "byte": 4,
+      "buttons": "Select",
+      "count": 100,
+      "percentage": 0.005934732189275226
+    },
+    {
+      "byte": 17,
+      "buttons": "Up+A",
+      "count": 66,
+      "percentage": 0.00391692324492165
+    },
+    {
+      "byte": 161,
+      "buttons": "Right+Down+A",
+      "count": 51,
+      "percentage": 0.0030267134165303656
+    },
+    {
+      "byte": 162,
+      "buttons": "Right+Down+B",
+      "count": 44,
+      "percentage": 0.0026112821632811
+    },
+    {
+      "byte": 48,
+      "buttons": "Down+Up",
+      "count": 42,
+      "percentage": 0.002492587519495595
+    },
+    {
+      "byte": 81,
+      "buttons": "Left+Up+A",
+      "count": 40,
+      "percentage": 0.0023738928757100907
+    },
+    {
+      "byte": 146,
+      "buttons": "Right+Up+B",
+      "count": 34,
+      "percentage": 0.002017808944353577
+    },
+    {
+      "byte": 144,
+      "buttons": "Right+Up",
+      "count": 32,
+      "percentage": 0.0018991143005680725
+    },
+    {
+      "byte": 145,
+      "buttons": "Right+Up+A",
+      "count": 27,
+      "percentage": 0.0016023776911043112
+    },
+    {
+      "byte": 96,
+      "buttons": "Left+Down",
+      "count": 22,
+      "percentage": 0.00130564108164055
+    },
+    {
+      "byte": 163,
+      "buttons": "Right+Down+B+A",
+      "count": 21,
+      "percentage": 0.0012462937597477975
+    },
+    {
+      "byte": 98,
+      "buttons": "Left+Down+B",
+      "count": 16,
+      "percentage": 0.0009495571502840363
+    },
+    {
+      "byte": 45,
+      "buttons": "Down+Start+Select+A",
+      "count": 15,
+      "percentage": 0.000890209828391284
+    },
+    {
+      "byte": 147,
+      "buttons": "Right+Up+B+A",
+      "count": 14,
+      "percentage": 0.0008308625064985317
+    },
+    {
+      "byte": 80,
+      "buttons": "Left+Up",
+      "count": 11,
+      "percentage": 0.000652820540820275
+    },
+    {
+      "byte": 247,
+      "buttons": "Right+Left+Down+Up+Select+B+A",
+      "count": 10,
+      "percentage": 0.0005934732189275227
+    },
+    {
+      "byte": 49,
+      "buttons": "Down+Up+A",
+      "count": 9,
+      "percentage": 0.0005341258970347705
+    },
+    {
+      "byte": 6,
+      "buttons": "Select+B",
+      "count": 9,
+      "percentage": 0.0005341258970347705
+    },
+    {
+      "byte": 52,
+      "buttons": "Down+Up+Select",
+      "count": 8,
+      "percentage": 0.00047477857514201813
+    },
+    {
+      "byte": 56,
+      "buttons": "Down+Up+Start",
+      "count": 8,
+      "percentage": 0.00047477857514201813
+    },
+    {
+      "byte": 112,
+      "buttons": "Left+Down+Up",
+      "count": 8,
+      "percentage": 0.00047477857514201813
+    },
+    {
+      "byte": 111,
+      "buttons": "Left+Down+Start+Select+B+A",
+      "count": 7,
+      "percentage": 0.00041543125324926586
+    },
+    {
+      "byte": 82,
+      "buttons": "Left+Up+B",
+      "count": 7,
+      "percentage": 0.00041543125324926586
+    },
+    {
+      "byte": 109,
+      "buttons": "Left+Down+Start+Select+A",
+      "count": 6,
+      "percentage": 0.0003560839313565136
+    },
+    {
+      "byte": 50,
+      "buttons": "Down+Up+B",
+      "count": 5,
+      "percentage": 0.00029673660946376133
+    },
+    {
+      "byte": 99,
+      "buttons": "Left+Down+B+A",
+      "count": 5,
+      "percentage": 0.00029673660946376133
+    },
+    {
+      "byte": 226,
+      "buttons": "Right+Left+Down+B",
+      "count": 3,
+      "percentage": 0.0001780419656782568
+    },
+    {
+      "byte": 51,
+      "buttons": "Down+Up+B+A",
+      "count": 2,
+      "percentage": 0.00011869464378550453
+    },
+    {
+      "byte": 69,
+      "buttons": "Left+Select+A",
+      "count": 2,
+      "percentage": 0.00011869464378550453
+    },
+    {
+      "byte": 87,
+      "buttons": "Left+Up+Select+B+A",
+      "count": 2,
+      "percentage": 0.00011869464378550453
+    },
+    {
+      "byte": 70,
+      "buttons": "Left+Select+B",
+      "count": 2,
+      "percentage": 0.00011869464378550453
+    },
+    {
+      "byte": 135,
+      "buttons": "Right+Select+B+A",
+      "count": 2,
+      "percentage": 0.00011869464378550453
+    },
+    {
+      "byte": 211,
+      "buttons": "Right+Left+Up+B+A",
+      "count": 2,
+      "percentage": 0.00011869464378550453
+    },
+    {
+      "byte": 208,
+      "buttons": "Right+Left+Up",
+      "count": 1,
+      "percentage": 5.9347321892752266e-05
+    },
+    {
+      "byte": 224,
+      "buttons": "Right+Left+Down",
+      "count": 1,
+      "percentage": 5.9347321892752266e-05
+    },
+    {
+      "byte": 58,
+      "buttons": "Down+Up+Start+B",
+      "count": 1,
+      "percentage": 5.9347321892752266e-05
+    },
+    {
+      "byte": 68,
+      "buttons": "Left+Select",
+      "count": 1,
+      "percentage": 5.9347321892752266e-05
+    },
+    {
+      "byte": 100,
+      "buttons": "Left+Down+Select",
+      "count": 1,
+      "percentage": 5.9347321892752266e-05
+    },
+    {
+      "byte": 105,
+      "buttons": "Left+Down+Start+A",
+      "count": 1,
+      "percentage": 5.9347321892752266e-05
+    },
+    {
+      "byte": 114,
+      "buttons": "Left+Down+Up+B",
+      "count": 1,
+      "percentage": 5.9347321892752266e-05
+    },
+    {
+      "byte": 116,
+      "buttons": "Left+Down+Up+Select",
+      "count": 1,
+      "percentage": 5.9347321892752266e-05
+    },
+    {
+      "byte": 83,
+      "buttons": "Left+Up+B+A",
+      "count": 1,
+      "percentage": 5.9347321892752266e-05
+    },
+    {
+      "byte": 9,
+      "buttons": "Start+A",
+      "count": 1,
+      "percentage": 5.9347321892752266e-05
+    }
+  ],
+  "impossible_inputs": {
+    "total_frames": 1684996,
+    "counts": {
+      "left+right": 11605,
+      "up+down": 95
+    },
+    "percentages": {
+      "left+right": 0.68872567056539,
+      "up+down": 0.005637995579811465
+    },
+    "either_count": 11690,
+    "either_percentage": 0.693770192926274
+  },
+  "hold_lengths": [
+    {
+      "button": "B",
+      "presses": 13262,
+      "frames_held": 804778,
+      "mean": 60.68300407178405,
+      "median": 7.0,
+      "p90": 124.0,
+      "p99": 992.5599999999977,
+      "max": 22073,
+      "one_frame_taps": 5425
+    },
+    {
+      "button": "Right",
+      "presses": 23008,
+      "frames_held": 648346,
+      "mean": 28.17915507649513,
+      "median": 2.0,
+      "p90": 46.0,
+      "p99": 505.8600000000006,
+      "max": 21804,
+      "one_frame_taps": 11300
+    },
+    {
+      "button": "A",
+      "presses": 35279,
+      "frames_held": 236551,
+      "mean": 6.705150372742992,
+      "median": 1.0,
+      "p90": 20.0,
+      "p99": 46.0,
+      "max": 269,
+      "one_frame_taps": 19070
+    },
+    {
+      "button": "Left",
+      "presses": 14179,
+      "frames_held": 37984,
+      "mean": 2.6788913181465546,
+      "median": 1.0,
+      "p90": 4.0,
+      "p99": 31.0,
+      "max": 679,
+      "one_frame_taps": 11861
+    },
+    {
+      "button": "Down",
+      "presses": 9949,
+      "frames_held": 12102,
+      "mean": 1.2164036586591618,
+      "median": 1.0,
+      "p90": 1.0,
+      "p99": 6.0,
+      "max": 117,
+      "one_frame_taps": 9582
+    },
+    {
+      "button": "Up",
+      "presses": 225,
+      "frames_held": 1329,
+      "mean": 5.906666666666666,
+      "median": 2.0,
+      "p90": 13.599999999999994,
+      "p99": 72.51999999999975,
+      "max": 170,
+      "one_frame_taps": 105
+    },
+    {
+      "button": "Select",
+      "presses": 106,
+      "frames_held": 337,
+      "mean": 3.1792452830188678,
+      "median": 3.0,
+      "p90": 6.0,
+      "p99": 9.900000000000006,
+      "max": 11,
+      "one_frame_taps": 28
+    },
+    {
+      "button": "Start",
+      "presses": 62,
+      "frames_held": 170,
+      "mean": 2.7419354838709675,
+      "median": 1.0,
+      "p90": 2.0,
+      "p99": 47.0,
+      "max": 47,
+      "one_frame_taps": 45
+    }
+  ],
+  "overlap": {
+    "chain_pairs": [
+      {
+        "chain": "all-items/4313",
+        "older": "pub 3648",
+        "newer": "pub 4313",
+        "agreement": 0.17150536129230942,
+        "n_compared": 71438
+      },
+      {
+        "chain": "warpless/3728",
+        "older": "pub 262",
+        "newer": "pub 1106",
+        "agreement": 0.4220923884979123,
+        "n_compared": 67779
+      },
+      {
+        "chain": "warpless/3728",
+        "older": "pub 1106",
+        "newer": "pub 1194",
+        "agreement": 0.9461825805784819,
+        "n_compared": 67729
+      },
+      {
+        "chain": "warpless/3728",
+        "older": "pub 1194",
+        "newer": "pub 1331",
+        "agreement": 0.6117638354542764,
+        "n_compared": 67580
+      },
+      {
+        "chain": "warpless/3728",
+        "older": "pub 1331",
+        "newer": "pub 1349",
+        "agreement": 0.5912806135315147,
+        "n_compared": 67413
+      },
+      {
+        "chain": "warpless/3728",
+        "older": "pub 1349",
+        "newer": "pub 1962",
+        "agreement": 0.5002827212665912,
+        "n_compared": 67204
+      },
+      {
+        "chain": "warpless/3728",
+        "older": "pub 1962",
+        "newer": "pub 3665",
+        "agreement": 0.5386253313082582,
+        "n_compared": 67158
+      },
+      {
+        "chain": "warpless/3728",
+        "older": "pub 3665",
+        "newer": "pub 3728",
+        "agreement": 0.5387308729532011,
+        "n_compared": 67117
+      },
+      {
+        "chain": "warps/1715",
+        "older": "pub 374",
+        "newer": "pub 1022",
+        "agreement": 0.6286846806610094,
+        "n_compared": 17912
+      },
+      {
+        "chain": "warps/1715",
+        "older": "pub 1022",
+        "newer": "pub 1080",
+        "agreement": 0.8981051925549158,
+        "n_compared": 17891
+      },
+      {
+        "chain": "warps/1715",
+        "older": "pub 1080",
+        "newer": "pub 1330",
+        "agreement": 0.8708937265655605,
+        "n_compared": 17869
+      },
+      {
+        "chain": "warps/1715",
+        "older": "pub 1330",
+        "newer": "pub 1715",
+        "agreement": 0.4720170136556973,
+        "n_compared": 17868
+      }
+    ],
+    "raw_frames": 1684996,
+    "effective_frames": 835628,
+    "redundancy_percentage": 50.40771610140321,
+    "per_run_novelty": [
+      {
+        "run": "user 4686736457",
+        "novelty": 1.0
+      },
+      {
+        "run": "pub 3648",
+        "novelty": 0.7657438478747204
+      },
+      {
+        "run": "pub 4313",
+        "novelty": 0.6891990257286038
+      },
+      {
+        "run": "user 6378219479",
+        "novelty": 0.623060658875968
+      },
+      {
+        "run": "user 6378829043",
+        "novelty": 0.6608474798931527
+      },
+      {
+        "run": "pub 262",
+        "novelty": 0.5904003979109674
+      },
+      {
+        "run": "user 4917648550",
+        "novelty": 0.47650977105297987
+      },
+      {
+        "run": "pub 1106",
+        "novelty": 0.5779076115020877
+      },
+      {
+        "run": "pub 1194",
+        "novelty": 0.053817419421518076
+      },
+      {
+        "run": "user 6764233309",
+        "novelty": 0.4555296272227801
+      },
+      {
+        "run": "pub 1331",
+        "novelty": 0.3882361645457236
+      },
+      {
+        "run": "pub 1349",
+        "novelty": 0.40871938646848527
+      },
+      {
+        "run": "pub 1962",
+        "novelty": 0.4861317778703649
+      },
+      {
+        "run": "pub 3665",
+        "novelty": 0.4613746686917418
+      },
+      {
+        "run": "pub 3728",
+        "novelty": 0.4612691270467989
+      },
+      {
+        "run": "user 6389096164",
+        "novelty": 0.7948507829610978
+      },
+      {
+        "run": "user 5206271727",
+        "novelty": 0.4382711259408707
+      },
+      {
+        "run": "user 7095801412",
+        "novelty": 0.4027823113390845
+      },
+      {
+        "run": "user 7100618405",
+        "novelty": 0.3436202149667906
+      },
+      {
+        "run": "user 7110861297",
+        "novelty": 0.3388400155702608
+      },
+      {
+        "run": "user 6669419515",
+        "novelty": 0.13618874535422498
+      },
+      {
+        "run": "user 6377984983",
+        "novelty": 0.5809799530234336
+      },
+      {
+        "run": "user 4836183441",
+        "novelty": 0.6103067578408526
+      },
+      {
+        "run": "user 6384136162",
+        "novelty": 0.577409042472218
+      },
+      {
+        "run": "user 6386331589",
+        "novelty": 0.3632981018119068
+      },
+      {
+        "run": "user 6916660569",
+        "novelty": 0.6304700162074555
+      },
+      {
+        "run": "user 6385868188",
+        "novelty": 0.5185909980430529
+      },
+      {
+        "run": "user 6388032955",
+        "novelty": 0.21759460635058725
+      },
+      {
+        "run": "pub 374",
+        "novelty": 0.45426761502556123
+      },
+      {
+        "run": "pub 243",
+        "novelty": 0.2919699916643512
+      },
+      {
+        "run": "pub 1022",
+        "novelty": 0.37131531933899065
+      },
+      {
+        "run": "pub 1080",
+        "novelty": 0.10189480744508417
+      },
+      {
+        "run": "pub 1330",
+        "novelty": 0.12910627343443948
+      },
+      {
+        "run": "pub 1715",
+        "novelty": 0.2980747705395119
+      }
+    ]
+  }
+}

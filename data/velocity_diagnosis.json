@@ -1,0 +1,202 @@
+{
+  "window_x": [
+    500,
+    600
+  ],
+  "expert": {
+    "takeoff_velocity_px_per_frame": {
+      "n": 13,
+      "mean": 2.5,
+      "median": 2.5,
+      "p10": 2.5,
+      "p90": 2.5,
+      "max": 2.5
+    },
+    "A_hold_frames": {
+      "n": 13,
+      "mean": 12.923,
+      "median": 12.0,
+      "p10": 6.0,
+      "p90": 25.0,
+      "max": 29.0
+    },
+    "B_held_fraction_of_window": {
+      "n": 12,
+      "mean": 0.679,
+      "median": 1.0,
+      "p10": 0.027,
+      "p90": 1.0,
+      "max": 1.0
+    },
+    "B_held_at_takeoff_fraction": 0.769,
+    "n_onsets": 13
+  },
+  "models": {
+    "arm_a_round3": {
+      "episodes": 40,
+      "episodes_reaching_window": 34,
+      "takeoff_velocity_px_per_frame": {
+        "n": 5430,
+        "mean": 0.145,
+        "median": 0.0,
+        "p10": 0.0,
+        "p90": 0.25,
+        "max": 3.0
+      },
+      "raw_speed_byte_0x0057": {
+        "n": 5430,
+        "mean": 3.522,
+        "median": 1.0,
+        "p10": 0.0,
+        "p90": 5.0,
+        "max": 40.0
+      },
+      "A_hold_frames": {
+        "n": 5407,
+        "mean": 2.858,
+        "median": 2.0,
+        "p10": 1.0,
+        "p90": 6.0,
+        "max": 23.0
+      },
+      "B_held_fraction_of_window": {
+        "n": 34,
+        "mean": 0.939,
+        "median": 0.938,
+        "p10": 0.931,
+        "p90": 0.95,
+        "max": 0.968
+      },
+      "B_held_at_takeoff_fraction": 0.939,
+      "n_onsets": 5430
+    },
+    "sustain_arm_a": {
+      "episodes": 40,
+      "episodes_reaching_window": 30,
+      "takeoff_velocity_px_per_frame": {
+        "n": 6037,
+        "mean": 0.117,
+        "median": 0.0,
+        "p10": 0.0,
+        "p90": 0.0,
+        "max": 3.0
+      },
+      "raw_speed_byte_0x0057": {
+        "n": 6037,
+        "mean": 3.23,
+        "median": 1.0,
+        "p10": 0.0,
+        "p90": 4.0,
+        "max": 40.0
+      },
+      "A_hold_frames": {
+        "n": 6017,
+        "mean": 2.18,
+        "median": 2.0,
+        "p10": 1.0,
+        "p90": 4.0,
+        "max": 16.0
+      },
+      "B_held_fraction_of_window": {
+        "n": 30,
+        "mean": 0.967,
+        "median": 0.965,
+        "p10": 0.958,
+        "p90": 0.977,
+        "max": 1.0
+      },
+      "B_held_at_takeoff_fraction": 0.968,
+      "n_onsets": 6037
+    },
+    "stage2_armB": {
+      "episodes": 40,
+      "episodes_reaching_window": 22,
+      "takeoff_velocity_px_per_frame": {
+        "n": 2402,
+        "mean": 0.151,
+        "median": 0.0,
+        "p10": 0.0,
+        "p90": 0.0,
+        "max": 3.0
+      },
+      "raw_speed_byte_0x0057": {
+        "n": 2402,
+        "mean": 3.544,
+        "median": 1.0,
+        "p10": 0.0,
+        "p90": 4.0,
+        "max": 40.0
+      },
+      "A_hold_frames": {
+        "n": 2395,
+        "mean": 1.27,
+        "median": 1.0,
+        "p10": 1.0,
+        "p90": 2.0,
+        "max": 5.0
+      },
+      "B_held_fraction_of_window": {
+        "n": 22,
+        "mean": 0.914,
+        "median": 0.912,
+        "p10": 0.905,
+        "p90": 0.923,
+        "max": 0.939
+      },
+      "B_held_at_takeoff_fraction": 0.911,
+      "n_onsets": 2402
+    }
+  },
+  "verdicts": [
+    {
+      "model": "arm_a_round3",
+      "model_takeoff_velocity": 0.0,
+      "expert_takeoff_velocity": 2.5,
+      "model_B_at_takeoff": 0.939,
+      "expert_B_at_takeoff": 0.769,
+      "walking_takeoff": true
+    },
+    {
+      "model": "sustain_arm_a",
+      "model_takeoff_velocity": 0.0,
+      "expert_takeoff_velocity": 2.5,
+      "model_B_at_takeoff": 0.968,
+      "expert_B_at_takeoff": 0.769,
+      "walking_takeoff": true
+    },
+    {
+      "model": "stage2_armB",
+      "model_takeoff_velocity": 0.0,
+      "expert_takeoff_velocity": 2.5,
+      "model_B_at_takeoff": 0.911,
+      "expert_B_at_takeoff": 0.769,
+      "walking_takeoff": true
+    }
+  ],
+  "conclusion": "NOT a B-button ceiling and NOT a velocity-capability ceiling. The model holds B on 91-97% of window frames (MORE than the expert's 77%) and reaches 2.60 px/frame during the approach, matching the expert's 2.5. The failure is WHERE it jumps: 56.2% of all A-onsets occur at x=585-600, i.e. already in contact with pipe 2, where median velocity is 0.00 px/frame. It runs to the pipe, stops, then jumps repeatedly from a standstill. SMB selects jump height from horizontal speed at takeoff, so a zero-velocity jump cannot clear a tall pipe no matter how long A is held. This is a timing/placement failure: the jump must start ~40-60px BEFORE the pipe, while still running.",
+  "onset_location_breakdown": {
+    "note": "arm_a_round3, 12 episodes, 2983 A-onsets",
+    "x_0_300": 452,
+    "x_300_500": 454,
+    "x_500_575": 108,
+    "x_575_585": 11,
+    "x_585_600": 1675,
+    "x_600_plus": 283,
+    "pct_at_wall_585_600": 56.2
+  },
+  "velocity_by_band": {
+    "approach_500_575": {
+      "n": 108,
+      "median": 1.6,
+      "mean": 1.7,
+      "max": 2.6
+    },
+    "at_wall_575_600": {
+      "n": 1688,
+      "median": 0.0,
+      "mean": 0.04,
+      "max": 2.6
+    }
+  },
+  "superseded_conclusion": "An earlier automated verdict in this file said 'the ceiling is B'. That was produced by pooling takeoff velocities across the whole window, which is dominated by the 56% of onsets that happen after contact. It was wrong."
+}

@@ -1,0 +1,274 @@
+{
+  "threshold": 100,
+  "rare_token": 24,
+  "size": 25,
+  "tokens": [
+    {
+      "id": 0,
+      "name": "-",
+      "byte": 0,
+      "count": 402923,
+      "members": [
+        0
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Right+B",
+      "byte": 130,
+      "count": 316032,
+      "members": [
+        130
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Right+B+A",
+      "byte": 131,
+      "count": 86484,
+      "members": [
+        131
+      ]
+    },
+    {
+      "id": 3,
+      "name": "B",
+      "byte": 2,
+      "count": 58329,
+      "members": [
+        2
+      ]
+    },
+    {
+      "id": 4,
+      "name": "A",
+      "byte": 1,
+      "count": 30764,
+      "members": [
+        1
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Right",
+      "byte": 128,
+      "count": 25884,
+      "members": [
+        128
+      ]
+    },
+    {
+      "id": 6,
+      "name": "B+A",
+      "byte": 3,
+      "count": 18618,
+      "members": [
+        3
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Left+B",
+      "byte": 66,
+      "count": 12606,
+      "members": [
+        66
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Right+A",
+      "byte": 129,
+      "count": 5613,
+      "members": [
+        129
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Right+Left+B",
+      "byte": 194,
+      "count": 4432,
+      "members": [
+        194
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Left",
+      "byte": 64,
+      "count": 3834,
+      "members": [
+        64
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Right+Left",
+      "byte": 192,
+      "count": 3733,
+      "members": [
+        192
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Left+B+A",
+      "byte": 67,
+      "count": 2423,
+      "members": [
+        67
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Down+B",
+      "byte": 34,
+      "count": 2141,
+      "members": [
+        34
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Down+B+A",
+      "byte": 35,
+      "count": 1963,
+      "members": [
+        35
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Down+A",
+      "byte": 33,
+      "count": 1143,
+      "members": [
+        33
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Down",
+      "byte": 32,
+      "count": 906,
+      "members": [
+        32
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Right+Left+A",
+      "byte": 193,
+      "count": 878,
+      "members": [
+        193
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Left+A",
+      "byte": 65,
+      "count": 751,
+      "members": [
+        65
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Right+Left+B+A",
+      "byte": 195,
+      "count": 697,
+      "members": [
+        195
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Up",
+      "byte": 16,
+      "count": 251,
+      "members": [
+        16
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Right+Select+B",
+      "byte": 134,
+      "count": 171,
+      "members": [
+        134
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Start",
+      "byte": 8,
+      "count": 114,
+      "members": [
+        8
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Select",
+      "byte": 4,
+      "count": 100,
+      "members": [
+        4
+      ]
+    },
+    {
+      "id": 24,
+      "name": "RARE(43 combos, plays Up+A)",
+      "byte": 17,
+      "count": 595,
+      "members": [
+        17,
+        160,
+        161,
+        18,
+        81,
+        162,
+        19,
+        144,
+        146,
+        145,
+        163,
+        45,
+        98,
+        80,
+        49,
+        147,
+        6,
+        52,
+        56,
+        112,
+        96,
+        111,
+        82,
+        109,
+        99,
+        247,
+        50,
+        69,
+        87,
+        208,
+        224,
+        51,
+        58,
+        68,
+        100,
+        105,
+        114,
+        116,
+        70,
+        135,
+        211,
+        226,
+        83
+      ]
+    }
+  ]
+}

@@ -1,0 +1,435 @@
+{
+  "n_runs": 34,
+  "mismatches": [
+    {
+      "run": "pub-3648",
+      "declared": "all-items",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 71520,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4",
+      "problems": [
+        "declared route 'all-items' != measured 'warpless'"
+      ]
+    },
+    {
+      "run": "pub-4313",
+      "declared": "all-items",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 71438,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4",
+      "problems": [
+        "declared route 'all-items' != measured 'warpless'"
+      ]
+    },
+    {
+      "run": "user-4836183441",
+      "declared": "warps",
+      "measured_route": "warps",
+      "measured_levels": 12,
+      "n_frames": 26177,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4",
+      "problems": [
+        "12 levels measured, 8 expected for 'warps'"
+      ]
+    },
+    {
+      "run": "user-6384136162",
+      "declared": "warps-glitchless",
+      "measured_route": "warps",
+      "measured_levels": 7,
+      "n_frames": 19707,
+      "split": "not in split",
+      "synced": false,
+      "furthest_level": "8-3",
+      "problems": [
+        "7 levels measured, 8 expected for 'warps'"
+      ]
+    }
+  ],
+  "unverifiable_glitchless": [
+    {
+      "run": "user-6384136162",
+      "declared": "warps-glitchless",
+      "measured_route": "warps",
+      "measured_levels": 7,
+      "n_frames": 19707,
+      "split": "not in split",
+      "synced": false,
+      "furthest_level": "8-3",
+      "note": "the 'glitchless' claim is not measurable by this pipeline; only the route part of the label was checked"
+    },
+    {
+      "run": "user-6385868188",
+      "declared": "warps-glitchless",
+      "measured_route": "warps",
+      "measured_levels": 8,
+      "n_frames": 18396,
+      "split": "val",
+      "synced": true,
+      "furthest_level": "8-4",
+      "note": "the 'glitchless' claim is not measurable by this pipeline; only the route part of the label was checked"
+    }
+  ],
+  "rows": [
+    {
+      "run": "pub-1022",
+      "declared": "warps",
+      "measured_route": "warps",
+      "measured_levels": 8,
+      "n_frames": 17912,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-1080",
+      "declared": "warps",
+      "measured_route": "warps",
+      "measured_levels": 8,
+      "n_frames": 17891,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-1106",
+      "declared": "warpless",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 67779,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-1194",
+      "declared": "warpless",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 67729,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-1330",
+      "declared": "warps",
+      "measured_route": "warps",
+      "measured_levels": 8,
+      "n_frames": 17869,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-1331",
+      "declared": "warpless",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 67580,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-1349",
+      "declared": "warpless",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 67413,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-1715",
+      "declared": "warps",
+      "measured_route": "warps",
+      "measured_levels": 8,
+      "n_frames": 17868,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-1962",
+      "declared": "warpless",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 67204,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-243",
+      "declared": "warps",
+      "measured_route": "warps",
+      "measured_levels": 8,
+      "n_frames": 17995,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-262",
+      "declared": "warpless",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 68357,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-3648",
+      "declared": "all-items",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 71520,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4",
+      "problems": [
+        "declared route 'all-items' != measured 'warpless'"
+      ]
+    },
+    {
+      "run": "pub-3665",
+      "declared": "warpless",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 67158,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-3728",
+      "declared": "warpless",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 67117,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-374",
+      "declared": "warps",
+      "measured_route": "warps",
+      "measured_levels": 8,
+      "n_frames": 17996,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "pub-4313",
+      "declared": "all-items",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 71438,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4",
+      "problems": [
+        "declared route 'all-items' != measured 'warpless'"
+      ]
+    },
+    {
+      "run": "user-4686736457",
+      "declared": "warpless",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 78130,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "user-4836183441",
+      "declared": "warps",
+      "measured_route": "warps",
+      "measured_levels": 12,
+      "n_frames": 26177,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4",
+      "problems": [
+        "12 levels measured, 8 expected for 'warps'"
+      ]
+    },
+    {
+      "run": "user-4917648550",
+      "declared": "partial-2",
+      "measured_route": "partial-2",
+      "measured_levels": 2,
+      "n_frames": 68007,
+      "split": "not in split",
+      "synced": false,
+      "furthest_level": "1-2"
+    },
+    {
+      "run": "user-5206271727",
+      "declared": "partial-1",
+      "measured_route": "partial-1",
+      "measured_levels": 1,
+      "n_frames": 64435,
+      "split": "not in split",
+      "synced": false,
+      "furthest_level": "1-1"
+    },
+    {
+      "run": "user-6377984983",
+      "declared": "partial-2",
+      "measured_route": "partial-2",
+      "measured_levels": 2,
+      "n_frames": 36614,
+      "split": "not in split",
+      "synced": false,
+      "furthest_level": "1-2"
+    },
+    {
+      "run": "user-6378219479",
+      "declared": "warpless",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 69998,
+      "split": "val",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "user-6378829043",
+      "declared": "warpless",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 68509,
+      "split": "test",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "user-6384136162",
+      "declared": "warps-glitchless",
+      "measured_route": "warps",
+      "measured_levels": 7,
+      "n_frames": 19707,
+      "split": "not in split",
+      "synced": false,
+      "furthest_level": "8-3",
+      "problems": [
+        "7 levels measured, 8 expected for 'warps'"
+      ]
+    },
+    {
+      "run": "user-6385868188",
+      "declared": "warps-glitchless",
+      "measured_route": "warps",
+      "measured_levels": 8,
+      "n_frames": 18396,
+      "split": "val",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "user-6386331589",
+      "declared": "warps",
+      "measured_route": "warps",
+      "measured_levels": 8,
+      "n_frames": 18544,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "user-6388032955",
+      "declared": "warps",
+      "measured_route": "warps",
+      "measured_levels": 8,
+      "n_frames": 18392,
+      "split": "test",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "user-6389096164",
+      "declared": "warpless",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 67117,
+      "split": "test",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "user-6669419515",
+      "declared": "partial-19",
+      "measured_route": "partial-19",
+      "measured_levels": 19,
+      "n_frames": 61077,
+      "split": "not in split",
+      "synced": false,
+      "furthest_level": "5-3"
+    },
+    {
+      "run": "user-6764233309",
+      "declared": "warpless",
+      "measured_route": "warpless",
+      "measured_levels": 32,
+      "n_frames": 67708,
+      "split": "train",
+      "synced": true,
+      "furthest_level": "8-4"
+    },
+    {
+      "run": "user-6916660569",
+      "declared": "partial-1",
+      "measured_route": "partial-1",
+      "measured_levels": 1,
+      "n_frames": 18510,
+      "split": "not in split",
+      "synced": false,
+      "furthest_level": "1-1"
+    },
+    {
+      "run": "user-7095801412",
+      "declared": "partial-1",
+      "measured_route": "partial-1",
+      "measured_levels": 1,
+      "n_frames": 64335,
+      "split": "not in split",
+      "synced": false,
+      "furthest_level": "1-1"
+    },
+    {
+      "run": "user-7100618405",
+      "declared": "partial-1",
+      "measured_route": "partial-1",
+      "measured_levels": 1,
+      "n_frames": 64289,
+      "split": "not in split",
+      "synced": false,
+      "furthest_level": "1-1"
+    },
+    {
+      "run": "user-7110861297",
+      "declared": "partial-1",
+      "measured_route": "partial-1",
+      "measured_levels": 1,
+      "n_frames": 64225,
+      "split": "not in split",
+      "synced": false,
+      "furthest_level": "1-1"
+    }
+  ]
+}

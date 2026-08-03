@@ -1,0 +1,41 @@
+====================================================================================================
+STAGE 2 -- FROZEN RESULT TABLE
+====================================================================================================
+
+Live play, 6 level starts (1-1, 1-2, 1-3, 2-1, 3-1, 4-1), 20 seeds where
+stochastic, 1 where deterministic. Every episode from a savestate on one
+persistent FCEUX. 'pipe1' is counted over 1-1 starts only.
+
+arm                                    selection                 eps   x med   x p90  pipe1 A hold max A presses med deaths med
+-------------------------------------------------------------------------------------------------------------------------------
+A  bernoulli only (control)            threshold (primary)         6     316     441     0%        263             8          0
+A  bernoulli only (control)            threshold + sticky 0.25   120     323     500     0%        364             7          0
+A  bernoulli only (control)            per-button sampling       120     444     882    45%         10            84          0
+
+B  + onset reweight 10x (treatment)    threshold (primary)         6     350     596     0%        308             9          0
+B  + onset reweight 10x (treatment)    threshold + sticky 0.25   120     324    1048     0%        476             8          0
+B  + onset reweight 10x (treatment)    per-button sampling       120     444     854    40%         16           104          0
+
+Errors during the final evaluation: 0
+
+----------------------------------------------------------------------------------------------------
+OFFLINE (validation split), at 3,000 steps
+----------------------------------------------------------------------------------------------------
+A  bernoulli only (control)            exact-match 65.35%   A-onset recall  31.5%   novel combos 0.005%
+B  + onset reweight 10x (treatment)    exact-match 62.94%   A-onset recall  45.5%   novel combos 0.065%
+
+Footnote: onset *separation* (mean p(button) at onsets minus elsewhere) is not
+the headline. Recall at a press rate matched to the expert's is, because a model
+can separate onsets cleanly and still never cross a calibrated threshold.
+
+----------------------------------------------------------------------------------------------------
+EVALUATION WALL-CLOCK
+----------------------------------------------------------------------------------------------------
+  4 x 1500-frame episodes
+  before, process per episode :   10.5s
+  after, one persistent session:    5.3s
+  speedup                      : 2.0x
+  The larger win is reliability: the final evaluation completed 492 episodes
+  with 0 errors, where the parallel process-per-episode design returned 2.
+
+====================================================================================================

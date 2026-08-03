@@ -1,0 +1,593 @@
+{
+  "checkpoint": "round3_ratio1to1.pt",
+  "a_hold": 11,
+  "flight_window": 40,
+  "policy_realized_right_rate": 0.44235,
+  "expert_right_rate": 0.45262053118806583,
+  "per_condition": {
+    "full": {
+      "n": 1,
+      "cleared": 1,
+      "rate": 1.0,
+      "ci": [
+        0.20654329147389294,
+        1.0
+      ],
+      "mean_right_frames_in_flight": 40.0,
+      "mean_longest_consecutive_right": 78.0,
+      "median_max_x": 710.0
+    },
+    "none": {
+      "n": 1,
+      "cleared": 0,
+      "rate": 0.0,
+      "ci": [
+        0.0,
+        0.7934567085261071
+      ],
+      "mean_right_frames_in_flight": 0.0,
+      "mean_longest_consecutive_right": 0.0,
+      "median_max_x": 595.0
+    },
+    "alt": {
+      "n": 1,
+      "cleared": 0,
+      "rate": 0.0,
+      "ci": [
+        0.0,
+        0.7934567085261071
+      ],
+      "mean_right_frames_in_flight": 40.0,
+      "mean_longest_consecutive_right": 1.0,
+      "median_max_x": 596.0
+    },
+    "first_half": {
+      "n": 1,
+      "cleared": 0,
+      "rate": 0.0,
+      "ci": [
+        0.0,
+        0.7934567085261071
+      ],
+      "mean_right_frames_in_flight": 20.0,
+      "mean_longest_consecutive_right": 20.0,
+      "median_max_x": 597.0
+    },
+    "second_half": {
+      "n": 1,
+      "cleared": 0,
+      "rate": 0.0,
+      "ci": [
+        0.0,
+        0.7934567085261071
+      ],
+      "mean_right_frames_in_flight": 20.0,
+      "mean_longest_consecutive_right": 20.0,
+      "median_max_x": 595.0
+    },
+    "iid:0.45": {
+      "n": 20,
+      "cleared": 0,
+      "rate": 0.0,
+      "ci": [
+        0.0,
+        0.16113012549493322
+      ],
+      "mean_right_frames_in_flight": 40.0,
+      "mean_longest_consecutive_right": 6.1,
+      "median_max_x": 595.0
+    },
+    "iid:0.70": {
+      "n": 20,
+      "cleared": 11,
+      "rate": 0.55,
+      "ci": [
+        0.3420820083075997,
+        0.7418049791429071
+      ],
+      "mean_right_frames_in_flight": 40.0,
+      "mean_longest_consecutive_right": 14.6,
+      "median_max_x": 671.0
+    }
+  },
+  "verdict": "INCONCLUSIVE against the pre-committed gate: i.i.d. p=0.45 cleared 0/20 = 0.0% [0.0, 16.1] -- neither >=10% with the interval excluding zero, nor 0 with an upper bound below 14%.",
+  "kill_condition_met": false,
+  "framing_survives": false,
+  "rows": [
+    {
+      "mode": "full",
+      "seed": 0,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 78,
+      "max_x": 710,
+      "cleared_pipe2": true,
+      "died": true
+    },
+    {
+      "mode": "none",
+      "seed": 0,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 0,
+      "longest_consecutive_right": 0,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "alt",
+      "seed": 0,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 1,
+      "max_x": 596,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "first_half",
+      "seed": 0,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 20,
+      "longest_consecutive_right": 20,
+      "max_x": 597,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "second_half",
+      "seed": 0,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 20,
+      "longest_consecutive_right": 20,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 0,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 5,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 1,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 8,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 2,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 8,
+      "max_x": 604,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 3,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 5,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 4,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 4,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 5,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 7,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 6,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 6,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 7,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 6,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 8,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 7,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 9,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 4,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 10,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 5,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 11,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 5,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 12,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 5,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 13,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 6,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 14,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 6,
+      "max_x": 602,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 15,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 8,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 16,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 6,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 17,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 9,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 18,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 6,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.45",
+      "seed": 19,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 6,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 0,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 9,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 1,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 12,
+      "max_x": 624,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 2,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 16,
+      "max_x": 709,
+      "cleared_pipe2": true,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 3,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 13,
+      "max_x": 673,
+      "cleared_pipe2": true,
+      "died": true
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 4,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 18,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 5,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 11,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 6,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 14,
+      "max_x": 723,
+      "cleared_pipe2": true,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 7,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 13,
+      "max_x": 724,
+      "cleared_pipe2": true,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 8,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 16,
+      "max_x": 701,
+      "cleared_pipe2": true,
+      "died": true
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 9,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 12,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 10,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 23,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 11,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 16,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 12,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 13,
+      "max_x": 723,
+      "cleared_pipe2": true,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 13,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 19,
+      "max_x": 723,
+      "cleared_pipe2": true,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 14,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 11,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 15,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 12,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 16,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 13,
+      "max_x": 669,
+      "cleared_pipe2": true,
+      "died": true
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 17,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 27,
+      "max_x": 723,
+      "cleared_pipe2": true,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 18,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 9,
+      "max_x": 619,
+      "cleared_pipe2": false,
+      "died": false
+    },
+    {
+      "mode": "iid:0.70",
+      "seed": 19,
+      "takeoff_x": 594,
+      "takeoff_speed_byte": 1,
+      "right_frames_in_flight": 40,
+      "longest_consecutive_right": 15,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "died": false
+    }
+  ]
+}

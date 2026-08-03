@@ -1,0 +1,579 @@
+"""FCEUX replay backend, behind the same interface as :class:`NesReplayer`.
+
+Why FCEUX and not a "more accurate" emulator
+--------------------------------------------
+An ``.fm2`` was recorded *in FCEUX*. Accuracy and compatibility are different
+properties: any other core, however accurate, is a fresh gamble on whether this
+particular movie survives. FCEUX is the only emulator that is by definition in
+sync with its own movies. (nes-py, kept in :mod:`tasdata.replay`, gets through
+world 1-1 frame-perfectly and then loses the level transition.)
+
+How it works
+------------
+Unlike the nes-py backend we do **not** feed inputs: FCEUX replays the movie
+itself via ``--playmov``. Our only job is capture. A generated Lua script drives
+the emulator one frame at a time and writes a fixed-layout binary record per
+frame into a FIFO, which this module consumes:
+
+    magic "TF" | framecount uint32 | RAM 2048 B | screen_len uint32 | screen
+
+The full 2 KB of RAM is shipped every frame so the *same* ``probe`` callback used
+by the nes-py backend decodes it, which keeps :mod:`tasdata.verify` and the trace
+layout untouched. The screen arrives as FCEUX's native GD truecolor buffer and is
+converted to grayscale and downscaled here, in C, via OpenCV.
+
+Every record carries its own frame number, each is asserted against the expected
+index, and the total is asserted against the movie length -- a short or misaligned
+capture raises rather than silently producing skewed training data.
+"""
+
+from __future__ import annotations
+
+import os
+import re
+import select
+import shutil
+import subprocess
+import tempfile
+import time
+from pathlib import Path
+from typing import Callable, Sequence
+
+import numpy as np
+
+from .buttons import actions_from_states
+from .formats import MovieFormat, sniff
+from .movie import Movie
+from .ram import TRACE_COLUMNS, pack_smb
+from .replay import ReplayError, ReplayResult, RomMismatchError, _resize_gray
+from .rom import load_rom
+
+#: NES RAM size shipped per frame.
+RAM_BYTES = 0x800
+
+#: FCEUX's ``gui.gdscreenshot()`` returns GD2 truecolor: an 11-byte header then
+#: one 4-byte (alpha, red, green, blue) pixel per position, 256x240 for the NES.
+GD_HEADER = 11
+GD_WIDTH, GD_HEIGHT = 256, 240
+GD_LEN = GD_HEADER + GD_WIDTH * GD_HEIGHT * 4
+
+_RECORD_MAGIC = b"TF"
+
+#: Seconds to wait for FCEUX to open the FIFO and produce the first record.
+_STARTUP_TIMEOUT = 120.0
+#: Seconds to wait for any subsequent record before declaring the run wedged.
+_STALL_TIMEOUT = 180.0
+
+
+class FceuxError(ReplayError):
+    """FCEUX could not be run, or did not produce a complete capture."""
+
+
+class FrameCountMismatchError(FceuxError):
+    """The capture did not contain exactly one record per movie frame."""
+
+
+class UnplayableMovieError(FceuxError):
+    """FCEUX cannot play this movie, so capturing it would record nothing."""
+
+
+# --------------------------------------------------------------------------- #
+# Locating and identifying the binary
+# --------------------------------------------------------------------------- #
+
+def find_fceux(binary: str | Path = "fceux") -> Path:
+    """Resolve the FCEUX executable, or raise with an actionable message."""
+    found = shutil.which(str(binary))
+    if found:
+        return Path(found)
+    if Path(binary).is_file():
+        return Path(binary)
+    raise FceuxError(
+        f"FCEUX not found (looked for {binary!r} on PATH). Install it with "
+        "`brew install fceux`."
+    )
+
+
+def fceux_version(binary: str | Path = "fceux") -> str:
+    """Version string reported by FCEUX, e.g. ``"2.6.6"``.
+
+    Sync depends on the exact build, so this is recorded in every run manifest.
+    """
+    path = find_fceux(binary)
+    try:
+        proc = subprocess.run(
+            [str(path), "--help"], capture_output=True, text=True, timeout=120
+        )
+    except (OSError, subprocess.SubprocessError) as exc:
+        raise FceuxError(f"could not run {path}: {exc}") from exc
+    blob = (proc.stdout or "") + (proc.stderr or "")
+    match = re.search(r"Starting FCEUX (\S+)", blob)
+    if match:
+        return match.group(1).rstrip(".")
+    match = re.search(r"fceux[- ]([0-9]+\.[0-9]+\.[0-9]+)", blob, re.I)
+    return match.group(1) if match else "unknown"
+
+
+def fceux_git_rev(binary: str | Path = "fceux") -> str:
+    """The git revision FCEUX was built from, if it reports one."""
+    path = find_fceux(binary)
+    proc = subprocess.run(
+        [str(path), "--help"], capture_output=True, text=True, timeout=120
+    )
+    blob = (proc.stdout or "") + (proc.stderr or "")
+    match = re.search(r"git Rev:\s*(\S+)", blob)
+    return match.group(1) if match else "unknown"
+
+
+# --------------------------------------------------------------------------- #
+# The Lua capture script
+# --------------------------------------------------------------------------- #
+
+#: Driver script. Placeholders are substituted with repr-safe Lua literals.
+_LUA_TEMPLATE = r"""
+-- Generated by tasdata.fceux_backend. Captures one record per emulated frame.
+local N          = %(n_frames)d
+local FIFO       = %(fifo)s
+local FRAME_SKIP = %(frame_skip)d
+local WANT_SCREEN= %(want_screen)d
+
+local function u32(n)
+  return string.char(n %% 256,
+                     math.floor(n / 256) %% 256,
+                     math.floor(n / 65536) %% 256,
+                     math.floor(n / 16777216) %% 256)
+end
+
+emu.speedmode("maximum")
+
+local out = io.open(FIFO, "wb")
+if out == nil then
+  emu.print("tasdata: could not open FIFO " .. FIFO)
+  os.exit(1)
+end
+
+local ZERO = u32(0)
+local i = 0
+while i < N do
+  -- Advance first, then sample: this makes record i the state *after* movie
+  -- frame i has executed, matching the nes-py backend's convention.
+  -- Note FCEUX's first frameadvance() does not increment emu.framecount(): it
+  -- moves from "loaded, nothing run" to frame 0. So after iteration i the
+  -- counter reads exactly i, which is what the reader asserts.
+  emu.frameadvance()
+  local ram = memory.readbyterange(0x0000, 0x800)
+  if WANT_SCREEN == 1 and (i %% FRAME_SKIP) == 0 then
+    local s = gui.gdscreenshot()
+    out:write(%(magic)s, u32(emu.framecount()), ram, u32(#s), s)
+  else
+    out:write(%(magic)s, u32(emu.framecount()), ram, ZERO)
+  end
+  i = i + 1
+end
+
+out:close()
+os.exit(0)
+"""
+
+
+def _lua_string(value: str) -> str:
+    """Quote a Python string as a Lua literal."""
+    escaped = value.replace("\\", "\\\\").replace('"', '\\"')
+    return f'"{escaped}"'
+
+
+def build_lua_script(
+    *, n_frames: int, fifo: Path, frame_skip: int, want_screen: bool
+) -> str:
+    return _LUA_TEMPLATE % {
+        "n_frames": n_frames,
+        "fifo": _lua_string(str(fifo)),
+        "frame_skip": max(1, frame_skip),
+        "want_screen": 1 if want_screen else 0,
+        "magic": _lua_string(_RECORD_MAGIC.decode()),
+    }
+
+
+# --------------------------------------------------------------------------- #
+# FIFO reading
+# --------------------------------------------------------------------------- #
+
+class _FifoReader:
+    """Blocking-with-timeout reader over a FIFO whose writer may die.
+
+    A plain ``open()`` on a FIFO blocks until a writer appears, which would hang
+    forever if FCEUX failed to launch. This opens non-blocking and polls, so a
+    dead emulator surfaces as an error instead of a hung process.
+    """
+
+    def __init__(self, path: Path, process: subprocess.Popen) -> None:
+        self._fd = os.open(str(path), os.O_RDONLY | os.O_NONBLOCK)
+        self._process = process
+        self._buf = bytearray()
+
+    def close(self) -> None:
+        try:
+            os.close(self._fd)
+        except OSError:
+            pass
+
+    def read_exact(self, n: int, timeout: float) -> bytes | None:
+        """Read exactly ``n`` bytes, or return None on clean EOF."""
+        deadline = time.monotonic() + timeout
+        while len(self._buf) < n:
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise FceuxError(
+                    f"timed out after {timeout:.0f}s waiting for {n} bytes from "
+                    f"FCEUX (got {len(self._buf)}). The emulator is probably wedged."
+                )
+            ready, _, _ = select.select([self._fd], [], [], min(remaining, 1.0))
+            if not ready:
+                # No data. If the writer is gone and nothing is buffered, give up.
+                if self._process.poll() is not None and not self._buf:
+                    return None
+                continue
+            try:
+                chunk = os.read(self._fd, max(n - len(self._buf), 1 << 20))
+            except BlockingIOError:
+                continue
+            if not chunk:  # writer closed
+                if not self._buf:
+                    return None
+                raise FceuxError(
+                    f"FCEUX closed the capture stream mid-record "
+                    f"({len(self._buf)} of {n} bytes)"
+                )
+            self._buf += chunk
+        out = bytes(self._buf[:n])
+        del self._buf[:n]
+        return out
+
+
+# --------------------------------------------------------------------------- #
+# The backend
+# --------------------------------------------------------------------------- #
+
+class FceuxReplayer:
+    """Replays a movie by letting FCEUX play it, capturing frames and RAM.
+
+    Mirrors :class:`tasdata.replay.NesReplayer`: same constructor keywords, same
+    :meth:`replay` signature, same :class:`~tasdata.replay.ReplayResult`.
+
+    Args:
+        rom_path: path to an iNES ``.nes`` file.
+        observation_shape: ``(height, width)`` of the captured grayscale frames.
+        frame_skip: capture every Nth *observation*. RAM is always captured every
+            frame, and FCEUX always emulates every frame.
+        capture_frames: set False to capture RAM only (sync checks), which is
+            roughly 3x faster.
+        player: accepted for interface parity; FCEUX replays all ports itself, so
+            this only selects which port's inputs are recorded as labels.
+        allow_rom_mismatch: by default a movie whose recorded ROM fingerprint does
+            not match the supplied ROM raises :class:`RomMismatchError`.
+        binary: FCEUX executable name or path.
+        opposite_directionals: enable simultaneous Left+Right / Up+Down. TAS
+            movies rely on it, and FCEUX defaults it to *off*, so this defaults to
+            True and is passed explicitly on every run.
+        show_window: FCEUX's Qt build crashes in ``QOpenGLWidget`` under
+            ``QT_QPA_PLATFORM=offscreen``, so a real window is required. Leave
+            True unless you have a working headless Qt.
+        extra_args: additional raw FCEUX CLI arguments.
+    """
+
+    #: Identifies this backend in run manifests.
+    backend = "fceux"
+
+    def __init__(
+        self,
+        rom_path: Path | str,
+        *,
+        observation_shape: tuple[int, int] = (84, 84),
+        frame_skip: int = 1,
+        capture_frames: bool = True,
+        player: int = 1,
+        allow_rom_mismatch: bool = False,
+        binary: str | Path = "fceux",
+        opposite_directionals: bool = True,
+        show_window: bool = True,
+        extra_args: Sequence[str] = (),
+    ) -> None:
+        self.rom_path = Path(rom_path)
+        if not self.rom_path.exists():
+            raise ReplayError(f"ROM not found: {self.rom_path}")
+        if frame_skip < 1:
+            raise ValueError("frame_skip must be >= 1")
+        self.observation_shape = observation_shape
+        self.frame_skip = frame_skip
+        self.capture_frames = capture_frames
+        self.player = player
+        self.allow_rom_mismatch = allow_rom_mismatch
+        self.binary = find_fceux(binary)
+        self.opposite_directionals = opposite_directionals
+        self.show_window = show_window
+        self.extra_args = list(extra_args)
+        self.rom = load_rom(self.rom_path)
+        self.version = fceux_version(self.binary)
+        self.git_rev = fceux_git_rev(self.binary)
+
+    # -- command construction ------------------------------------------------ #
+
+    def _command(self, movie_path: Path, lua_path: Path) -> list[str]:
+        cmd = [
+            str(self.binary),
+            # Use built-in defaults and never write back, so a run does not depend
+            # on (or mutate) whatever is in ~/.fceux/fceux.cfg.
+            "--no-config", "1",
+            "--sound", "0",
+            "--opposite-directionals", "1" if self.opposite_directionals else "0",
+            "--playmov", str(movie_path),
+            "--loadlua", str(lua_path),
+        ]
+        cmd += self.extra_args
+        cmd.append(str(self.rom_path))
+        return cmd
+
+    def describe(self) -> str:
+        return (
+            f"FCEUX {self.version} (git {self.git_rev[:9]}) at {self.binary}, "
+            f"opposite-directionals="
+            f"{'on' if self.opposite_directionals else 'off'}"
+        )
+
+    # -- replay -------------------------------------------------------------- #
+
+    def replay(
+        self,
+        movie: Movie,
+        *,
+        max_frames: int | None = None,
+        probe: Callable[[np.ndarray, int, np.ndarray], None] = pack_smb,
+        trace_columns: Sequence[str] = TRACE_COLUMNS,
+        frames_path: Path | str | None = None,
+        progress: Callable[[int, int], None] | None = None,
+    ) -> ReplayResult:
+        """Replay ``movie`` under FCEUX and return a :class:`ReplayResult`."""
+        notes: list[str] = list(movie.notes)
+
+        rom_check = movie.verify_rom(self.rom)
+        if not rom_check.checked:
+            notes.append(f"ROM identity unverified: {rom_check.detail}")
+        elif not rom_check.matched:
+            message = (
+                f"ROM mismatch ({rom_check.algorithm}): movie expects "
+                f"{rom_check.expected} but {self.rom_path.name} is "
+                f"{rom_check.actual}."
+            )
+            if not self.allow_rom_mismatch:
+                raise RomMismatchError(
+                    message + " Pass allow_rom_mismatch=True (CLI: "
+                    "--allow-rom-mismatch) to replay anyway."
+                )
+            notes.append(message)
+
+        if movie.pal:
+            notes.append(
+                "movie is PAL; pass extra_args=('--pal', '1') so FCEUX uses PAL "
+                "timing, otherwise it will run the movie at NTSC timing"
+            )
+        if movie.savestate_anchored:
+            notes.append(
+                "movie is anchored to a savestate; FCEUX needs the companion state "
+                "file next to the movie to reproduce it"
+            )
+
+        total = movie.n_frames if max_frames is None else min(max_frames, movie.n_frames)
+        if total <= 0:
+            raise FceuxError("nothing to replay: movie has no frames")
+
+        # FCEUX plays FCM/FM2/FM3 only, and only as a plain file. Our parser
+        # transparently unwraps gzip and zip containers, so a movie can parse
+        # perfectly while being something FCEUX will silently ignore -- it then
+        # sits on the title screen and we capture a full-length recording of the
+        # attract-mode demo. Guard both cases up front.
+        if movie.format is not MovieFormat.FM2:
+            raise UnplayableMovieError(
+                f"{movie.path.name}: FCEUX can only replay .fm2 here, not "
+                f"{movie.format.value}. Use --backend nes-py for .bk2 movies, or "
+                "convert the movie in BizHawk/FCEUX first."
+            )
+
+        want_screen = self.capture_frames
+        capture_idx = (
+            np.arange(0, total, self.frame_skip) if want_screen else np.empty(0, np.int64)
+        )
+        height, width = self.observation_shape
+        if want_screen and frames_path is not None:
+            frames_path = Path(frames_path)
+            frames_path.parent.mkdir(parents=True, exist_ok=True)
+            frames = np.lib.format.open_memmap(
+                frames_path,
+                mode="w+",
+                dtype=np.uint8,
+                shape=(len(capture_idx), height, width),
+            )
+        else:
+            frames = np.zeros(
+                (len(capture_idx) if want_screen else 0, height, width), np.uint8
+            )
+
+        trace = np.zeros((total, len(trace_columns)), dtype=np.int32)
+
+        workdir = Path(tempfile.mkdtemp(prefix="tasdata-fceux-"))
+        fifo = workdir / "capture.fifo"
+        lua_path = workdir / "capture.lua"
+        log_path = workdir / "fceux.log"
+        os.mkfifo(fifo)
+
+        # Materialise a bare .fm2 for FCEUX if the on-disk file is wrapped.
+        sniffed = sniff(movie.path)
+        if sniffed.gzipped or sniffed.inner_name:
+            movie_path = workdir / "movie.fm2"
+            movie_path.write_bytes(sniffed.data)
+            notes.append(
+                f"movie was {'gzip' if sniffed.gzipped else 'zip'}-wrapped "
+                f"({sniffed.inner_name or movie.path.name}); unwrapped for FCEUX, "
+                "which cannot read containers"
+            )
+        else:
+            movie_path = movie.path
+
+        lua_path.write_text(
+            build_lua_script(
+                n_frames=total,
+                fifo=fifo,
+                frame_skip=self.frame_skip,
+                want_screen=want_screen,
+            )
+        )
+
+        env = dict(os.environ)
+        if not self.show_window:
+            env["QT_QPA_PLATFORM"] = "offscreen"
+
+        start = time.perf_counter()
+        captured = 0
+        next_capture = 0
+        ram_view = np.empty(RAM_BYTES, dtype=np.uint8)
+        log_handle = log_path.open("wb")
+        process = subprocess.Popen(
+            self._command(movie_path, lua_path),
+            stdout=log_handle,
+            stderr=subprocess.STDOUT,
+            env=env,
+        )
+        reader = _FifoReader(fifo, process)
+        try:
+            last_report = start
+            for i in range(total):
+                timeout = _STARTUP_TIMEOUT if i == 0 else _STALL_TIMEOUT
+                header = reader.read_exact(6, timeout)
+                if header is None:
+                    break
+                if header[:2] != _RECORD_MAGIC:
+                    raise FceuxError(
+                        f"capture stream desynchronised at record {i}: expected "
+                        f"magic {_RECORD_MAGIC!r}, got {bytes(header[:2])!r}"
+                    )
+                framecount = int.from_bytes(header[2:6], "little")
+                if framecount != i:
+                    raise FrameCountMismatchError(
+                        f"frame misalignment at record {i}: FCEUX reported "
+                        f"emu.framecount()={framecount}, expected {i}. "
+                        "Capture is not frame-exact; refusing to continue."
+                    )
+                ram_bytes = reader.read_exact(RAM_BYTES, _STALL_TIMEOUT)
+                if ram_bytes is None:
+                    raise FceuxError(f"stream ended inside RAM of record {i}")
+                ram_view[:] = np.frombuffer(ram_bytes, dtype=np.uint8)
+                probe(ram_view, i, trace[i])
+
+                screen_len = int.from_bytes(
+                    reader.read_exact(4, _STALL_TIMEOUT) or b"\0\0\0\0", "little"
+                )
+                if screen_len:
+                    if screen_len != GD_LEN:
+                        raise FceuxError(
+                            f"record {i}: unexpected screen payload {screen_len} B "
+                            f"(expected {GD_LEN} for {GD_WIDTH}x{GD_HEIGHT} GD)"
+                        )
+                    blob = reader.read_exact(screen_len, _STALL_TIMEOUT)
+                    if blob is None:
+                        raise FceuxError(f"stream ended inside screen of record {i}")
+                    # GD truecolor stores 4 bytes per pixel as (alpha, R, G, B).
+                    px = np.frombuffer(blob[GD_HEADER:], dtype=np.uint8).reshape(
+                        GD_HEIGHT, GD_WIDTH, 4
+                    )
+                    frames[next_capture] = _resize_gray(
+                        px[:, :, 1:], self.observation_shape
+                    )
+                    next_capture += 1
+                captured += 1
+
+                if progress is not None:
+                    now = time.perf_counter()
+                    if now - last_report > 1.0:
+                        progress(captured, total)
+                        last_report = now
+            if progress is not None:
+                progress(captured, total)
+        finally:
+            reader.close()
+            if process.poll() is None:
+                process.terminate()
+                try:
+                    process.wait(timeout=30)
+                except subprocess.TimeoutExpired:  # pragma: no cover
+                    process.kill()
+            log_handle.close()
+
+        elapsed = time.perf_counter() - start
+        log_tail = ""
+        try:
+            log_tail = "\n".join(
+                log_path.read_text(errors="replace").splitlines()[-12:]
+            )
+        except OSError:  # pragma: no cover
+            pass
+
+        # Frame-exactness is the whole point: refuse a short capture loudly.
+        if captured != total:
+            raise FrameCountMismatchError(
+                f"captured {captured} frames but the movie has {total} "
+                f"({movie.path.name}). FCEUX exited with code {process.returncode}.\n"
+                f"--- FCEUX log tail ---\n{log_tail}"
+            )
+        if want_screen and next_capture != len(capture_idx):
+            raise FrameCountMismatchError(
+                f"captured {next_capture} observations, expected "
+                f"{len(capture_idx)} at frame_skip={self.frame_skip}"
+            )
+        if process.returncode not in (0, None):
+            notes.append(
+                f"FCEUX exited with code {process.returncode} after a complete "
+                f"capture; log tail:\n{log_tail}"
+            )
+
+        shutil.rmtree(workdir, ignore_errors=True)
+
+        result = ReplayResult(
+            movie=movie,
+            rom_path=self.rom_path,
+            frames=frames,
+            trace=trace,
+            frame_indices=capture_idx,
+            n_frames=total,
+            frame_skip=self.frame_skip,
+            observation_shape=self.observation_shape,
+            wall_seconds=elapsed,
+            rom=self.rom,
+            rom_check=rom_check,
+            warnings=notes,
+            trace_columns=tuple(trace_columns),
+            backend=f"fceux {self.version}",
+        )
+        # FCEUX supplies the inputs, but the labels still belong in the dataset.
+        result.actions = actions_from_states(
+            movie.states[:total], movie.button_names, self.player
+        )
+        return result

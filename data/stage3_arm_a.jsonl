@@ -1,0 +1,1 @@
+{"round": 1, "acceptance_rate": 0.26, "accepted": 39, "self_frames": 19240, "score_median": 80.5, "a_onset_recall": 0.0, "exact_match": 0.15646666666666667, "pipe1_rate": 0.5333333333333333, "pipe1_k": 32, "pipe1_n": 60, "x_median": 594.0, "furthest_level": "1-1", "checkpoint": "stage3_round1.pt", "round_seconds": 373.4}

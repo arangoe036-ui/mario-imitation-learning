@@ -1,0 +1,66 @@
+{
+  "frames": {
+    "pub-1022": 17912,
+    "pub-1080": 17891,
+    "pub-1106": 67779,
+    "pub-1194": 67729,
+    "pub-1330": 17869,
+    "pub-1331": 67580,
+    "pub-1349": 67413,
+    "pub-1715": 17868,
+    "pub-1962": 67204,
+    "pub-243": 17995,
+    "pub-262": 68357,
+    "pub-3648": 71520,
+    "pub-3665": 67158,
+    "pub-3728": 67117,
+    "pub-374": 17996,
+    "pub-4313": 71438,
+    "user-4686736457": 78130,
+    "user-4836183441": 26177,
+    "user-6378219479": 69998,
+    "user-6378829043": 68509,
+    "user-6385868188": 18396,
+    "user-6386331589": 18544,
+    "user-6388032955": 18392,
+    "user-6389096164": 67117,
+    "user-6764233309": 67708
+  },
+  "policy": "whole-run holdout; obsoletion chains kept together; stratified by measured route; groups placed largest-first by remaining deficit toward val~10% test~10% of frames",
+  "seed": 20260729,
+  "sha256": "a1465b9725ef24ad63f6a88a1742b8c5a2c46e7d081a5020e80a088d205f1b6d",
+  "splits": {
+    "test": [
+      "user-6378829043",
+      "user-6388032955",
+      "user-6389096164"
+    ],
+    "train": [
+      "pub-1022",
+      "pub-1080",
+      "pub-1106",
+      "pub-1194",
+      "pub-1330",
+      "pub-1331",
+      "pub-1349",
+      "pub-1715",
+      "pub-1962",
+      "pub-243",
+      "pub-262",
+      "pub-3648",
+      "pub-3665",
+      "pub-3728",
+      "pub-374",
+      "pub-4313",
+      "user-4686736457",
+      "user-4836183441",
+      "user-6386331589",
+      "user-6764233309"
+    ],
+    "val": [
+      "user-6378219479",
+      "user-6385868188"
+    ]
+  },
+  "unit": "whole run; whole obsoletion chain kept together"
+}

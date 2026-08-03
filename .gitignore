@@ -1,0 +1,28 @@
+# Captured run data — 11 GB, regenerable from movies via `tasdata batch`
+data/runs/
+data/runs_self/
+data/movies/pool/
+
+# Checkpoints — regenerable, and large
+data/bc/
+data/bc2/
+data/bc3/
+data/bc_overnight/
+data/bc_followup/
+data/bc_stage3/
+
+# ROM: copyrighted, must never be committed. md5(prg+chr) 8e3630186e35d477231bf8fd50e54cdd
+*.nes
+
+# Video artifacts
+data/video/
+data/plots/*.png
+
+# Logs and pid files from detached jobs
+data/*.log
+data/*.pid
+
+__pycache__/
+*.pyc
+*.egg-info/
+.DS_Store

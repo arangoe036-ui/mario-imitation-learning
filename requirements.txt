@@ -1,0 +1,14 @@
+# Python 3.11 recommended (3.12+ breaks nes-py's build).
+#
+# The default replay backend is FCEUX, which is NOT a pip package:
+#     brew install fceux      # verified against 2.6.6
+# `pip install -e .` only covers the nes-py backend and the parsers.
+numpy>=1.21,<2
+nes-py>=8.2.1
+opencv-python-headless<5
+pillow>=9
+pytest>=7
+
+# Optional: ships an SMB ROM so `tasdata verify` has something to run.
+# Careful: it is the PAL (Europe) dump. See README "ROMs".
+# gym-super-mario-bros>=7.4.0

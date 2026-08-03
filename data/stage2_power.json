@@ -1,0 +1,120 @@
+{
+  "seeds": 200,
+  "levels": [
+    "1-1",
+    "2-1"
+  ],
+  "arms": {
+    "A_bernoulli_only": {
+      "1-1": {
+        "n": 200,
+        "pipe1_k": 59,
+        "pipe1_rate": 0.295,
+        "pipe1_ci": [
+          0.23613844271901735,
+          0.3615884197074943
+        ],
+        "pipe2_k": 0,
+        "pipe2_rate": 0.0,
+        "x_median": 435.0,
+        "x_median_ci": [
+          435.0,
+          435.0
+        ],
+        "x_mean": 473.015,
+        "x_p90": 595.0,
+        "deaths_mean": 0.415,
+        "a_presses_median": 89.0,
+        "longest_a_hold_max": 11,
+        "seconds": 229.0
+      },
+      "2-1": {
+        "n": 200,
+        "pipe1_k": 0,
+        "pipe1_rate": 0.0,
+        "pipe1_ci": [
+          0.0,
+          0.018846005918320894
+        ],
+        "pipe2_k": 0,
+        "pipe2_rate": 0.0,
+        "x_median": 530.0,
+        "x_median_ci": [
+          530.0,
+          531.0
+        ],
+        "x_mean": 499.47,
+        "x_p90": 532.0,
+        "deaths_mean": 0.115,
+        "a_presses_median": 83.5,
+        "longest_a_hold_max": 11,
+        "seconds": 254.4
+      }
+    },
+    "B_bernoulli_onset10x": {
+      "1-1": {
+        "n": 200,
+        "pipe1_k": 119,
+        "pipe1_rate": 0.595,
+        "pipe1_ci": [
+          0.5257958199999483,
+          0.6606234388755706
+        ],
+        "pipe2_k": 3,
+        "pipe2_rate": 0.015,
+        "x_median": 594.0,
+        "x_median_ci": [
+          594.0,
+          594.0
+        ],
+        "x_mean": 529.46,
+        "x_p90": 596.0,
+        "deaths_mean": 0.315,
+        "a_presses_median": 105.5,
+        "longest_a_hold_max": 10,
+        "seconds": 230.4
+      },
+      "2-1": {
+        "n": 200,
+        "pipe1_k": 0,
+        "pipe1_rate": 0.0,
+        "pipe1_ci": [
+          0.0,
+          0.018846005918320894
+        ],
+        "pipe2_k": 0,
+        "pipe2_rate": 0.0,
+        "x_median": 531.0,
+        "x_median_ci": [
+          530.0,
+          531.0
+        ],
+        "x_mean": 530.66,
+        "x_p90": 532.0,
+        "deaths_mean": 0.105,
+        "a_presses_median": 147.0,
+        "longest_a_hold_max": 14,
+        "seconds": 223.1
+      }
+    }
+  },
+  "difference": {
+    "1-1": {
+      "delta_pipe1": 0.3,
+      "ci": [
+        0.2039623190168517,
+        0.38815394860922653
+      ],
+      "excludes_zero": true
+    },
+    "2-1": {
+      "delta_pipe1": 0.0,
+      "ci": [
+        -0.018846005918320894,
+        0.018846005918320894
+      ],
+      "excludes_zero": false
+    }
+  },
+  "wall_seconds": 940.9
+}

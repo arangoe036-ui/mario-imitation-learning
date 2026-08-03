@@ -1,0 +1,156 @@
+{
+  "method": "thresholds calibrated on a random TRAIN subset against expert press rates; onset recall on a contiguous VAL slice; no double normalisation; categorical heads marginalised to per-button probabilities",
+  "expert_A_rate": 0.15247532823509632,
+  "checkpoints": [
+    {
+      "label": "stage2 categorical (small_lr3e-4)",
+      "head": "categorical",
+      "checkpoint": "small_lr3e-4_step3000.pt",
+      "A_onset_recall": 0.2192513368983957,
+      "A_onsets": 374,
+      "A_threshold": 0.29,
+      "A_realized_rate": 0.11766666666666667,
+      "exact_match": 0.6749666666666667,
+      "onset_recall_all": {
+        "Up": 0.0,
+        "Down": 0.0,
+        "Left": 0.0,
+        "Right": 0.10256410256410256,
+        "Start": 0.0,
+        "Select": 0.0,
+        "B": 0.05555555555555555,
+        "A": 0.2192513368983957
+      }
+    },
+    {
+      "label": "stage2 categorical (tiny_lr1e-3)",
+      "head": "categorical",
+      "checkpoint": "tiny_lr1e-3_step3000.pt",
+      "A_onset_recall": 0.24866310160427807,
+      "A_onsets": 374,
+      "A_threshold": 0.3,
+      "A_realized_rate": 0.11916666666666667,
+      "exact_match": 0.6911666666666667,
+      "onset_recall_all": {
+        "Up": 0.0,
+        "Down": 0.0,
+        "Left": 0.0,
+        "Right": 0.15384615384615385,
+        "Start": 0.0,
+        "Select": 0.0,
+        "B": 0.1111111111111111,
+        "A": 0.24866310160427807
+      }
+    },
+    {
+      "label": "stage2 blind (control)",
+      "head": "categorical",
+      "checkpoint": "blind_lr3e-4_step3000.pt",
+      "A_onset_recall": 0.0,
+      "A_onsets": 374,
+      "A_threshold": 0.15999999999999998,
+      "A_realized_rate": 0.0,
+      "exact_match": 0.004866666666666667,
+      "onset_recall_all": {
+        "Up": 0.0,
+        "Down": 0.0,
+        "Left": 0.0,
+        "Right": 0.0,
+        "Start": 0.0,
+        "Select": 0.0,
+        "B": 1.0,
+        "A": 0.0
+      }
+    },
+    {
+      "label": "stage2 bernoulli only (arm A)",
+      "head": "bernoulli",
+      "checkpoint": "A_bernoulli_only_step3000_recal.pt",
+      "A_onset_recall": 0.2967914438502674,
+      "A_onsets": 374,
+      "A_threshold": 0.22999999999999995,
+      "A_realized_rate": 0.13373333333333334,
+      "exact_match": 0.6628,
+      "onset_recall_all": {
+        "Up": 0.0,
+        "Down": 0.0,
+        "Left": 0.0,
+        "Right": 0.15384615384615385,
+        "Start": 0.0,
+        "Select": 0.0,
+        "B": 0.1111111111111111,
+        "A": 0.2967914438502674
+      }
+    },
+    {
+      "label": "stage2 bernoulli + reweight (arm B)",
+      "head": "bernoulli",
+      "checkpoint": "B_bernoulli_onset10x_step3000_recal.pt",
+      "A_onset_recall": 0.5,
+      "A_onsets": 374,
+      "A_threshold": 0.32999999999999996,
+      "A_realized_rate": 0.1576,
+      "exact_match": 0.6446666666666667,
+      "onset_recall_all": {
+        "Up": 0.0,
+        "Down": 0.0,
+        "Left": 0.0,
+        "Right": 0.07692307692307693,
+        "Start": 0.0,
+        "Select": 0.0,
+        "B": 0.1111111111111111,
+        "A": 0.5
+      }
+    }
+  ],
+  "arm_a_rounds": [
+    {
+      "label": "round1_contaminated_for_reference",
+      "head": "bernoulli",
+      "A_onset_recall": 0.4893048128342246,
+      "A_threshold": 0.36,
+      "pipe1_rate": 0.5333333333333333,
+      "pipe1_n": 60
+    },
+    {
+      "label": "stage2_armB_baseline",
+      "head": "bernoulli",
+      "A_onset_recall": 0.5,
+      "A_threshold": 0.32999999999999996,
+      "pipe1_rate": 0.595,
+      "pipe1_n": 200
+    },
+    {
+      "label": "round2_ratio3to1",
+      "head": "bernoulli",
+      "A_onset_recall": 0.4732620320855615,
+      "A_threshold": 0.6000000000000001,
+      "pipe1_rate": 0.92,
+      "pipe1_n": 200
+    },
+    {
+      "label": "round3_ratio3to1",
+      "head": "bernoulli",
+      "A_onset_recall": 0.4411764705882353,
+      "A_threshold": 0.6500000000000001,
+      "pipe1_rate": 0.965,
+      "pipe1_n": 200
+    },
+    {
+      "label": "round2_ratio1to1",
+      "head": "bernoulli",
+      "A_onset_recall": 0.3877005347593583,
+      "A_threshold": 0.7000000000000002,
+      "pipe1_rate": 0.965,
+      "pipe1_n": 200
+    },
+    {
+      "label": "round3_ratio1to1",
+      "head": "bernoulli",
+      "A_onset_recall": 0.39572192513368987,
+      "A_threshold": 0.7500000000000002,
+      "pipe1_rate": 0.99,
+      "pipe1_n": 200
+    }
+  ]
+}

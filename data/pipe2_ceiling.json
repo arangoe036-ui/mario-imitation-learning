@@ -1,0 +1,140 @@
+{
+  "ground_y": 176,
+  "n_runs": 12,
+  "n_jumps": 368,
+  "hold_to_height": {
+    "1": {
+      "n": 123,
+      "median_height": 61.0,
+      "max_height": 176
+    },
+    "2": {
+      "n": 52,
+      "median_height": 32.5,
+      "max_height": 176
+    },
+    "3": {
+      "n": 42,
+      "median_height": 35.0,
+      "max_height": 176
+    },
+    "4": {
+      "n": 21,
+      "median_height": 38.0,
+      "max_height": 176
+    },
+    "5": {
+      "n": 9,
+      "median_height": 42.0,
+      "max_height": 105
+    },
+    "6": {
+      "n": 9,
+      "median_height": 93.0,
+      "max_height": 131
+    },
+    "7": {
+      "n": 6,
+      "median_height": 36.5,
+      "max_height": 157
+    },
+    "8": {
+      "n": 6,
+      "median_height": 110.0,
+      "max_height": 175
+    },
+    "9": {
+      "n": 5,
+      "median_height": 77.0,
+      "max_height": 124
+    },
+    "10": {
+      "n": 8,
+      "median_height": 82.0,
+      "max_height": 157
+    },
+    "11": {
+      "n": 3,
+      "median_height": 175.0,
+      "max_height": 175
+    },
+    "12": {
+      "n": 9,
+      "median_height": 64.0,
+      "max_height": 176
+    },
+    "13": {
+      "n": 8,
+      "median_height": 112.0,
+      "max_height": 176
+    },
+    "14": {
+      "n": 5,
+      "median_height": 65.0,
+      "max_height": 65
+    },
+    "15": {
+      "n": 5,
+      "median_height": 115.0,
+      "max_height": 175
+    },
+    "16": {
+      "n": 3,
+      "median_height": 117.0,
+      "max_height": 122
+    },
+    "18": {
+      "n": 9,
+      "median_height": 88.0,
+      "max_height": 136
+    },
+    "20": {
+      "n": 6,
+      "median_height": 105.5,
+      "max_height": 123
+    },
+    "21": {
+      "n": 3,
+      "median_height": 76.0,
+      "max_height": 124
+    },
+    "25": {
+      "n": 4,
+      "median_height": 115.5,
+      "max_height": 123
+    },
+    "26": {
+      "n": 3,
+      "median_height": 122.0,
+      "max_height": 175
+    },
+    "31": {
+      "n": 3,
+      "median_height": 83.0,
+      "max_height": 83
+    },
+    "32": {
+      "n": 3,
+      "median_height": 83.0,
+      "max_height": 83
+    }
+  },
+  "pipe1_required_height": 66,
+  "pipe2_required_height": 65,
+  "expert_holds_near_pipe1": {
+    "median": 2.5,
+    "p90": 17.700000000000006,
+    "max": 26,
+    "n": 32
+  },
+  "expert_holds_near_pipe2": {
+    "median": 18.0,
+    "p90": 46.60000000000001,
+    "max": 72,
+    "n": 23
+  },
+  "model_max_hold": 8,
+  "model_best_height": 176,
+  "pipe1_reachable": true,
+  "pipe2_reachable": true
+}

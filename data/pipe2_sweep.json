@@ -1,0 +1,3253 @@
+{
+  "handover_x": 500,
+  "n_configs": 323,
+  "distinct_max_x": 26,
+  "min_hold_clearing_from_running": 6,
+  "standstill_ever_cleared": true,
+  "working_trigger_range": [
+    540,
+    590
+  ],
+  "working_triggers": [
+    540,
+    550,
+    560,
+    570,
+    580,
+    590
+  ],
+  "any_cleared": true,
+  "results": [
+    {
+      "hold": 1,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 12,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 14,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 16,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 18,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 20,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 24,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 28,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 32,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 36,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 40,
+      "trigger": 510,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 1,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 12,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 14,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 16,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 18,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 20,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 24,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 28,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 32,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 36,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 40,
+      "trigger": 520,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 1,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 12,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 14,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 16,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 18,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 20,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 24,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 28,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 32,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 36,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 40,
+      "trigger": 530,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 1,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 12,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 14,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 16,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 18,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 20,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 24,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 28,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 32,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 36,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 40,
+      "trigger": 540,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 1,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 10,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 12,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 14,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 16,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 18,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 20,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 24,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 28,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 32,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 36,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 40,
+      "trigger": 550,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 1,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 8,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 10,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 12,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 14,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 16,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 18,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 20,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 24,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 28,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 32,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 36,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 40,
+      "trigger": 560,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 1,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 8,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 10,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 12,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 14,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 16,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 18,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 681,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 20,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 24,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 28,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 32,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 36,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 40,
+      "trigger": 570,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 722,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 1,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 697,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 10,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 697,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 12,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 696,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 14,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 696,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 16,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 696,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 18,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 695,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 20,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 695,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 24,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 695,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 28,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 695,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 32,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 697,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 36,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 697,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 40,
+      "trigger": 580,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 697,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 1,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 698,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 10,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 697,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 12,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 701,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 14,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 701,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 16,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 701,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 18,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 700,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 20,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 700,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 24,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 700,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 28,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 702,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 32,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 699,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 36,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 699,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 40,
+      "trigger": 590,
+      "with_b": true,
+      "standstill": false,
+      "max_x": 699,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 1,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 12,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 14,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 16,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 18,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 20,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 24,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 28,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 32,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 36,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 40,
+      "trigger": 510,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.5,
+      "died": false
+    },
+    {
+      "hold": 1,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 12,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 14,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 16,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 18,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 20,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 24,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 28,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 32,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 36,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 40,
+      "trigger": 520,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 1,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 12,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 14,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 16,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 18,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 20,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 24,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 28,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 32,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 36,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 40,
+      "trigger": 530,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 1,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 695,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 12,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 692,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 14,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 692,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 16,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 691,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 18,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 690,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 20,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 689,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 24,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 687,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 28,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 679,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": true
+    },
+    {
+      "hold": 32,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 723,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 36,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 723,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 40,
+      "trigger": 540,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 723,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 2.6,
+      "died": false
+    },
+    {
+      "hold": 1,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 12,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 14,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 16,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 18,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 20,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 24,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 28,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 32,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 36,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 40,
+      "trigger": 550,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 1,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.4,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.4,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.4,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.4,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.4,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.4,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.4,
+      "died": false
+    },
+    {
+      "hold": 12,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 14,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 16,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 18,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 20,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 24,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 28,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 32,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 36,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 40,
+      "trigger": 560,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 1,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 12,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 14,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 16,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 18,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 20,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 24,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 28,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 32,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 36,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 40,
+      "trigger": 570,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 706,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 1,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.6,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 705,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 12,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 705,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 14,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 705,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 16,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 705,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 18,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 705,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 20,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 705,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 24,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 705,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 28,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 705,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 32,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 705,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 36,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 705,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 40,
+      "trigger": 580,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 705,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.6,
+      "died": true
+    },
+    {
+      "hold": 1,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.4,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.4,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.4,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.4,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.4,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 1.4,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 704,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 12,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 704,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 14,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 704,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 16,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 704,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 18,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 704,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 20,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 704,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 24,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 704,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 28,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 704,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 32,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 704,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 36,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 704,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 40,
+      "trigger": 590,
+      "with_b": false,
+      "standstill": false,
+      "max_x": 704,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 1.4,
+      "died": true
+    },
+    {
+      "hold": 1,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 0.4,
+      "died": false
+    },
+    {
+      "hold": 2,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 0.4,
+      "died": false
+    },
+    {
+      "hold": 3,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 0.4,
+      "died": false
+    },
+    {
+      "hold": 4,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 0.4,
+      "died": false
+    },
+    {
+      "hold": 6,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 594,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 0.4,
+      "died": false
+    },
+    {
+      "hold": 8,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 595,
+      "cleared_pipe2": false,
+      "takeoff_velocity": 0.4,
+      "died": false
+    },
+    {
+      "hold": 10,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 711,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 0.4,
+      "died": true
+    },
+    {
+      "hold": 12,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 710,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 0.4,
+      "died": true
+    },
+    {
+      "hold": 14,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 710,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 0.4,
+      "died": true
+    },
+    {
+      "hold": 16,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 709,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 0.4,
+      "died": true
+    },
+    {
+      "hold": 18,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 709,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 0.4,
+      "died": true
+    },
+    {
+      "hold": 20,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 709,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 0.4,
+      "died": true
+    },
+    {
+      "hold": 24,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 713,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 0.4,
+      "died": true
+    },
+    {
+      "hold": 28,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 713,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 0.4,
+      "died": true
+    },
+    {
+      "hold": 32,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 710,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 0.4,
+      "died": true
+    },
+    {
+      "hold": 36,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 710,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 0.4,
+      "died": true
+    },
+    {
+      "hold": 40,
+      "trigger": 0,
+      "with_b": true,
+      "standstill": true,
+      "max_x": 710,
+      "cleared_pipe2": true,
+      "takeoff_velocity": 0.4,
+      "died": true
+    }
+  ],
+  "verdict": "pipe 2 IS clearable by this action space: minimum 6-frame A-hold from a running takeoff (v>=2.0), trigger window x=[540, 550, 560, 570, 580, 590]. Standstill takeoff: also clears. The ceiling is placement."
+}

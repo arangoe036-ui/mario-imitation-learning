@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tasdata"
+version = "0.1.0"
+description = "Data pipeline for TAS imitation learning: parse .bk2/.fm2, replay on nes-py, verify sync"
+readme = "README.md"
+requires-python = ">=3.9,<3.12"
+dependencies = [
+    # nes-py's ROM loader indexes numpy scalars in a way numpy 2 rejects, and
+    # the gym it depends on is numpy-1 only. This pin is load-bearing.
+    "numpy>=1.21,<2",
+    "nes-py>=8.2.1",
+    "opencv-python-headless<5; platform_system!='Emscripten'",
+    "pillow>=9",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+# The only redistributable source of an SMB ROM for smoke-testing. Note it ships
+# the *PAL* dump -- see README.
+smb = ["gym-super-mario-bros>=7.4.0"]
+
+[project.scripts]
+tasdata = "tasdata.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["tasdata*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "emulator: needs nes-py and a ROM",
+    "fceux: needs the fceux binary, a ROM, and a window",
+]
+filterwarnings = ["ignore::DeprecationWarning", "ignore::UserWarning"]
