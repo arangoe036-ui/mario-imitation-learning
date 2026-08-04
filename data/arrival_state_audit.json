@@ -1,0 +1,374 @@
+{
+  "gate_x": 630,
+  "face_x": 720,
+  "clear_x": 735,
+  "speed_bands": [
+    [
+      0,
+      20
+    ],
+    [
+      20,
+      32
+    ],
+    [
+      32,
+      64
+    ]
+  ],
+  "note": "`grounded` was absent from the retained script traces (recorded before the field existed); the canonical arm was re-run to obtain it",
+  "arms": {
+    "policy_pooled_3_seeds": {
+      "label": "policy_pooled_3_seeds",
+      "n_arrivals": 433,
+      "cleared": 238,
+      "conditional_rate": 0.5496535796766744,
+      "gate": {
+        "n": 433,
+        "x": {
+          "n": 433,
+          "median": 631.0,
+          "q1": 631.0,
+          "q3": 632.0,
+          "mean": 631.4341801385681,
+          "min": 631.0,
+          "max": 633.0
+        },
+        "speed": {
+          "n": 433,
+          "median": 24.0,
+          "q1": 24.0,
+          "q3": 39.0,
+          "mean": 28.5635103926097,
+          "min": 19.0,
+          "max": 40.0
+        },
+        "y": {
+          "n": 433,
+          "median": 367.0,
+          "q1": 355.0,
+          "q3": 384.0,
+          "mean": 365.72748267898385,
+          "min": 318.0,
+          "max": 384.0
+        },
+        "grounded_fraction": 0.2909930715935335,
+        "grounded_ci": [
+          0.2501962503578562,
+          0.3354659210104385
+        ],
+        "grounded_available": true
+      },
+      "face": {
+        "n": 322,
+        "x": {
+          "n": 322,
+          "median": 721.0,
+          "q1": 720.0,
+          "q3": 721.0,
+          "mean": 720.7360248447205,
+          "min": 720.0,
+          "max": 722.0
+        },
+        "speed": {
+          "n": 322,
+          "median": 40.0,
+          "q1": 35.0,
+          "q3": 40.0,
+          "mean": 36.201863354037265,
+          "min": 22.0,
+          "max": 40.0
+        },
+        "y": {
+          "n": 322,
+          "median": 412.0,
+          "q1": 393.0,
+          "q3": 427.75,
+          "mean": 405.58385093167703,
+          "min": 302.0,
+          "max": 432.0
+        },
+        "grounded_fraction": 0.1956521739130435,
+        "grounded_ci": [
+          0.15601698526468263,
+          0.24246374893254694
+        ],
+        "grounded_available": true
+      }
+    },
+    "base": {
+      "label": "base",
+      "n_arrivals": 137,
+      "cleared": 78,
+      "conditional_rate": 0.5693430656934306,
+      "gate": {
+        "n": 137,
+        "x": {
+          "n": 137,
+          "median": 631.0,
+          "q1": 631.0,
+          "q3": 632.0,
+          "mean": 631.5620437956204,
+          "min": 631.0,
+          "max": 633.0
+        },
+        "speed": {
+          "n": 137,
+          "median": 25.0,
+          "q1": 24.0,
+          "q3": 40.0,
+          "mean": 29.248175182481752,
+          "min": 22.0,
+          "max": 40.0
+        },
+        "y": {
+          "n": 137,
+          "median": 366.0,
+          "q1": 351.0,
+          "q3": 384.0,
+          "mean": 364.3284671532847,
+          "min": 320.0,
+          "max": 384.0
+        },
+        "grounded_fraction": 0.25547445255474455,
+        "grounded_ci": [
+          0.18980753746747142,
+          0.33448074099571007
+        ],
+        "grounded_available": true
+      },
+      "face": {
+        "n": 115,
+        "x": {
+          "n": 115,
+          "median": 721.0,
+          "q1": 720.0,
+          "q3": 721.0,
+          "mean": 720.7130434782608,
+          "min": 720.0,
+          "max": 722.0
+        },
+        "speed": {
+          "n": 115,
+          "median": 40.0,
+          "q1": 38.5,
+          "q3": 40.0,
+          "mean": 37.6,
+          "min": 24.0,
+          "max": 40.0
+        },
+        "y": {
+          "n": 115,
+          "median": 412.0,
+          "q1": 397.5,
+          "q3": 423.0,
+          "mean": 407.6521739130435,
+          "min": 309.0,
+          "max": 432.0
+        },
+        "grounded_fraction": 0.19130434782608696,
+        "grounded_ci": [
+          0.12986500788825311,
+          0.27270109691006666
+        ],
+        "grounded_available": true
+      }
+    },
+    "script_rng_matched": {
+      "label": "script_rng_matched",
+      "n_arrivals": 151,
+      "cleared": 47,
+      "conditional_rate": 0.31125827814569534,
+      "gate": {
+        "n": 151,
+        "x": {
+          "n": 151,
+          "median": 631.0,
+          "q1": 631.0,
+          "q3": 632.0,
+          "mean": 631.4701986754967,
+          "min": 631.0,
+          "max": 633.0
+        },
+        "speed": {
+          "n": 151,
+          "median": 24.0,
+          "q1": 24.0,
+          "q3": 30.0,
+          "mean": 27.920529801324502,
+          "min": 24.0,
+          "max": 40.0
+        },
+        "y": {
+          "n": 151,
+          "median": 361.0,
+          "q1": 350.5,
+          "q3": 380.0,
+          "mean": 361.7615894039735,
+          "min": 319.0,
+          "max": 384.0
+        },
+        "grounded_fraction": 0.2251655629139073,
+        "grounded_ci": [
+          0.16584059085308545,
+          0.2981277484045818
+        ],
+        "grounded_available": true
+      },
+      "face": {
+        "n": 133,
+        "x": {
+          "n": 133,
+          "median": 721.0,
+          "q1": 720.0,
+          "q3": 721.0,
+          "mean": 720.8345864661654,
+          "min": 720.0,
+          "max": 722.0
+        },
+        "speed": {
+          "n": 133,
+          "median": 40.0,
+          "q1": 40.0,
+          "q3": 40.0,
+          "mean": 37.774436090225564,
+          "min": 24.0,
+          "max": 40.0
+        },
+        "y": {
+          "n": 133,
+          "median": 412.0,
+          "q1": 398.0,
+          "q3": 425.0,
+          "mean": 407.5338345864662,
+          "min": 304.0,
+          "max": 432.0
+        },
+        "grounded_fraction": 0.16541353383458646,
+        "grounded_ci": [
+          0.11184773748930618,
+          0.23776524569709326
+        ],
+        "grounded_available": true
+      }
+    }
+  },
+  "standardisation": {
+    "A_among_face_reachers": {
+      "strata": [
+        {
+          "stratum": "(0, 1)",
+          "script_n": 12,
+          "script_rate": 0.25,
+          "script_weight": 0.09022556390977443,
+          "policy_n": 51,
+          "policy_rate": 0.803921568627451
+        },
+        {
+          "stratum": "(0, 2)",
+          "script_n": 99,
+          "script_rate": 0.41414141414141414,
+          "script_weight": 0.7443609022556391,
+          "policy_n": 208,
+          "policy_rate": 0.7548076923076923
+        },
+        {
+          "stratum": "(1, 1)",
+          "script_n": 6,
+          "script_rate": 0.16666666666666666,
+          "script_weight": 0.045112781954887216,
+          "policy_n": 20,
+          "policy_rate": 0.5
+        },
+        {
+          "stratum": "(1, 2)",
+          "script_n": 16,
+          "script_rate": 0.125,
+          "script_weight": 0.12030075187969924,
+          "policy_n": 43,
+          "policy_rate": 0.6976744186046512
+        }
+      ],
+      "weight_covered": 1.0,
+      "weight_uncovered": 0.0,
+      "standardised_policy_rate": 0.740870759847108,
+      "script_n": 133,
+      "script_rate": 0.3533834586466165,
+      "policy_n": 322,
+      "policy_rate": 0.7391304347826086,
+      "crude_advantage_pp": 38.57469761359921,
+      "crude_ci_pp": [
+        28.742398782660395,
+        47.41121042521968
+      ],
+      "standardised_advantage_pp": 38.74873012004915,
+      "explained_by_arrival_state_pp": -0.17403250644994017
+    },
+    "B_gate_conditional_with_stall_stratum": {
+      "strata": [
+        {
+          "stratum": "('never_reached_face',)",
+          "script_n": 18,
+          "script_rate": 0.0,
+          "script_weight": 0.11920529801324503,
+          "policy_n": 111,
+          "policy_rate": 0.0
+        },
+        {
+          "stratum": "(0, 1)",
+          "script_n": 12,
+          "script_rate": 0.25,
+          "script_weight": 0.07947019867549669,
+          "policy_n": 51,
+          "policy_rate": 0.803921568627451
+        },
+        {
+          "stratum": "(0, 2)",
+          "script_n": 99,
+          "script_rate": 0.41414141414141414,
+          "script_weight": 0.6556291390728477,
+          "policy_n": 208,
+          "policy_rate": 0.7548076923076923
+        },
+        {
+          "stratum": "(1, 1)",
+          "script_n": 6,
+          "script_rate": 0.16666666666666666,
+          "script_weight": 0.039735099337748346,
+          "policy_n": 20,
+          "policy_rate": 0.5
+        },
+        {
+          "stratum": "(1, 2)",
+          "script_n": 16,
+          "script_rate": 0.125,
+          "script_weight": 0.10596026490066225,
+          "policy_n": 43,
+          "policy_rate": 0.6976744186046512
+        }
+      ],
+      "weight_covered": 1.0,
+      "weight_uncovered": 0.0,
+      "standardised_policy_rate": 0.6525550401302341,
+      "script_n": 151,
+      "script_rate": 0.31125827814569534,
+      "policy_n": 433,
+      "policy_rate": 0.5496535796766744,
+      "crude_advantage_pp": 23.839530153097904,
+      "crude_ci_pp": [
+        14.748394036764322,
+        32.09456481880366
+      ],
+      "standardised_advantage_pp": 34.12967619845388,
+      "explained_by_arrival_state_pp": -10.290146045355975
+    }
+  },
+  "verdict": {
+    "arrival_states_match": true,
+    "speed_median_delta": 0.0,
+    "grounded_fraction_delta_pp": 3.023864007845703,
+    "advantage_shrinks_after_adjustment": false,
+    "statement": "THE POLICY ARRIVES AT PIPE 3 IN ESSENTIALLY THE SAME STATE AS THE SCRIPT. At the face, x median 721 against 721, speed median 40 against 40 (+0, units of 1/16 px/frame), y median 412 against 412, grounded 19.6% against 16.5% (+3.0 pp). Standardising on arrival state does NOT reduce the advantage -- among face-reachers it moves +38.6 -> +38.7 pp, and on the gate-conditional basis with stalling as a stratum +23.8 -> +34.1 pp. If anything the policy arrives slightly WORSE: it stalls between the gate and the face in 25.6% of arrivals against the script's 11.9%. So FINDINGS \u00a71b is a claim about pipe-3 behaviour, and the crude +23.8 pp is if anything conservative."
+  },
+  "minutes": 0.0
+}

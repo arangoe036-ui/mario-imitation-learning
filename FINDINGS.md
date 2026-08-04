@@ -59,7 +59,13 @@ lose at pipe 2, every interval excluding zero:**
 | `compose_round2` | 54.0% | −28.5 pp [−36.8, −19.5] |
 | `round3_ratio1to1` | 21.5% | −61.0 pp [−67.9, −52.5] |
 
-**Every clearance figure this project reported at or below pipe 2 is a statement about button rates.**
+**What this licenses, stated precisely: the marginal suffices to explain the level of performance at
+pipes 1–2, and no learned checkpoint exceeds it.** It does *not* show that the policy achieves its pipe-2
+clearance *by* that mechanism. The two are different claims, and the evidence separates them: an
+RNG-matched coincidence test — the script drawing its randomness exactly as the policy does, so that
+identical behaviour would produce identical episodes — found the policy matching the script's pipe-2 rate
+on a **different set of episodes** (104 shared clears against 103.4 expected under independence). **Same
+rate, different route.** `data/p1_control_ladder.json`
 
 ### 1b. Positive: the policy beats every fixed-rate script at pipe 3 by ~24 points
 
@@ -82,6 +88,27 @@ arrival.** It also holds unconditionally (+16.2 pp [+8.8, +22.8]).
 **Pipe 4 is not established.** Conditionally its interval includes zero — the script arm has only 41
 arrivals. Unconditionally it is +13.2 pp [+7.6, +17.7]. It improved in **3 of 3 seeds** with a seed spread
 of 4.5 pp, so the direction is probably real, but see §7.
+
+#### The advantage is not inherited from how the policy arrives
+
+Conditioning controls for *whether* the policy reaches pipe 3, not *how it arrives*. If it arrived faster
+or better positioned, part of the advantage would be upstream state quality. Measured at pipe 3's face —
+the first frame with x ≥ 720 — across 433 policy arrivals and 151 script arrivals
+(`data/arrival_state_audit.json`):
+
+| | x median | speed median | y median | grounded |
+|---|---|---|---|---|
+| policy (3 seeds) | 721 | 40 | 412 | 19.6% |
+| script | 721 | 40 | 412 | 16.5% |
+
+Speed median 40 is the maximum running speed in both arms. **Direct standardisation — reweighting the
+policy's per-stratum clearance onto the script's (grounded, speed-band) distribution — moves the advantage
+among face-reachers from +38.6 to +38.7 pp, so arrival state explains −0.2 pp of it.**
+
+If anything the policy arrives *worse*: it stalls between the arrival gate and the face in **25.6%** of
+arrivals against the script's **11.9%**. Treating that stall as a stratum and standardising the
+gate-conditional figure moves it **+23.8 → +34.1 pp**. **Adjustment never reduces the advantage, so the
++23.8 pp is a claim about pipe-3 behaviour and is if anything conservative.**
 
 **The pair is the honest headline:** *a fixed-rate script matches or beats every learned checkpoint at
 pipes 1–2 and no checkpoint beats it there — yet the policy beats every script at pipe 3 by ~24 points.
@@ -192,8 +219,9 @@ identical behaviour would still have produced independent episode sets (§4, fai
 
 ## 4. Measurement failures
 
-**Nineteen silent failures, none caught by 324 passing tests.** Every one ran to completion, produced
-plausible, well-formed numbers, and reported no error. No test covers the Bernoulli calibration path,
+**Twenty-four silent failures, none caught by 324 passing tests.** Nineteen were compiled during the
+project; five more were found in its final blocks and are tabled separately. Every one ran to completion,
+produced plausible, well-formed numbers, and reported no error. No test covers the Bernoulli calibration path,
 `overnight_lib`, `stage3_train`, or any script in `scripts/`; **every experimental number in this project
 came from untested code.**
 
@@ -219,7 +247,7 @@ came from untested code.**
 | 18 | **A guard clause that suppressed the only signal** — `if xs[f] > 0` excluded every x→0 transition, and a pipe transit *is* x→0 | **The owner watching footage and seeing the coin room** |
 | 19 | `y == 176` as a landing test — ambiguous across three absolute heights, so 91 falls scored as crossings | Re-scoring against corrected geometry |
 
-**Four found after that list was compiled**, in the final blocks:
+**Five found after that list was compiled**, in the final blocks:
 
 | # | failure | caught by |
 |---|---|---|
@@ -227,6 +255,7 @@ came from untested code.**
 | 21 | **A coincidence test that could not detect coincidence** — the two arms consumed the RNG at different rates, so identical behaviour would still give independent episode sets | Checking how each arm drew its randomness before reporting the number |
 | 22 | **A threshold left on a retired scale** — `min_progress=120` was 120 *pixels*, carried into a credit function ranging 0–4; it would have rejected every rollout and the training loop would have silently accepted nothing | Grepping for thresholds after changing a scoring scale |
 | 23 | **A marginal intervention calibrated on the wrong distribution** — a logit offset fitted on rows the *expert* visits realised 0.349 live against a 0.219 target, because the arm visits its own states | Measuring the realised rate instead of assuming the fitted one |
+| 24 | **A standardisation that silently changed its own denominator** — the arrival-state audit's first version dropped episodes that passed the gate but never reached the face. Those cannot clear pipe 3, so dropping them removed guaranteed failures — 25.6% of policy arrivals against 11.9% of script arrivals — and inflated the advantage from +23.8 to +43.0 pp | The adjusted figure moving *away* from the crude one when the distributions being adjusted for were nearly identical |
 
 **The defence that works** is cross-checking one measurement against an **independent** measurement of the
 same thing, and investigating the disagreement rather than the more convenient number. Failures 1, 14, 15
@@ -296,6 +325,12 @@ Retractions with mechanisms, not apologies.
 - **Pipe 4 is not resolved.** Conditional advantage +14.3 pp [−2.2, +29.1] pooled; improved in **3 of 3
   seeds** with a 4.5 pp spread, so the direction is probably real. Resolving +4.6 pp needs ~1,900 arrivals
   per arm ≈ 9,300 episodes. **Recorded as consistent across seeds, n-limited, not resolved.**
+- **The script baseline is the best of five arms tried, not the best possible fixed-rate agent.** The
+  arms were p(A) ∈ {0, 0.15, 0.5, 0.85, 1.0}, plus Left at 0.135, Down at 0.088, both together, and an
+  RNG-matched variant. **Left at another rate, or Left and Down combined differently, was never searched**,
+  and no search over the fixed-rate space was run at all. So **+23.8 pp is an advantage over scripts
+  tried**, and a better fixed-rate agent may exist. This cuts against the positive result, which is why it
+  is here.
 - **2 of ~88 checkpoints were trained under an unbiased loss.** Everything else inherits §2's bias, and
   only 7 checkpoints have ever been measured at all.
 - **324 tests pass and none covers the code that produced any experimental number.**
@@ -334,5 +369,6 @@ Retractions with mechanisms, not apologies.
 | `data/loss_provenance.json` | which loss produced every arm, with file:line evidence |
 | `data/stage2_marginal_test.json` | the founding result decomposed into marginal and residual |
 | `data/plain_three_seeds.json` | three seeds, conditional-on-arrival scoring, behaviour statistics |
+| `data/arrival_state_audit.json` | arrival state at pipe 3, policy vs script, with both standardisations |
 | `data/startlib_policy.json`, `data/reach_table.json` | policy-visited start states and the per-start script reach baseline |
 | `data/traces/*.json` | per-frame retention: (x, y_absolute, speed, buttons, player_state, grounded) |
