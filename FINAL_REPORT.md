@@ -1080,3 +1080,81 @@ composed-recipe run is now known to rest on an objective that inflates button ma
 stronger statement than the earlier "the figures are marginal artefacts" — it names the mechanism and
 predicts its magnitude in closed form. Reusable infrastructure that survives: `save_scratch`/`load_scratch`
 on the session, the start-state library, and the per-start reach table.
+
+---
+
+## The clean arm: plain BCE beats the script at pipes 3–4, and stage 2's founding win was mostly a button rate
+
+**What changed.** The previous entry found that the loss used by every "composed recipe" run inflates
+button marginals by construction. This entry re-runs the training round with that one line changed, traces
+which loss produced every historical result, and tests whether the project's founding win survives a
+marginal-matched control. Two of the three answers are unfavourable to earlier claims.
+
+**How we got there, including the wrong turns.**
+
+The training round was re-run with **only** the loss changed — `sustain_loss` → plain BCE. The rollout
+phase is deterministic given the base policy, the start library and the rollout seeds, so the identical
+237 accepted rollouts were reused rather than re-rolled, making the comparison exactly one variable.
+
+| | base | sustain arm | **plain arm** |
+|---|---|---|---|
+| x median | 723 | 311 | **723** |
+| pipe1 / pipe2 / pipe3 / pipe4 | 73.0 / 68.5 / 39.0 / 19.0 | 47.5 / 47.5 / 18.5 / 12.0 | **79.5 / 77.0 / 46.5 / 17.5** |
+| A / Down / Left | 0.852 / 0.281 / 0.108 | 0.970 / 0.756 / 0.398 | **0.831 / 0.256 / 0.096** |
+
+`vs_script` for the plain arm: pipe1 −7.5 [−14.8, −0.2], pipe2 −5.5 [−13.3, +2.4], **pipe3 +23.0
+[+13.7, +31.7]**, **pipe4 +9.5 [+3.0, +16.1]**. Movement from base: pipe1 +6.5, pipe2 +8.5, pipe3 +7.5,
+pipe4 −1.5.
+
+**What is solid and what is not.** Solid: the same data and seed under a press-weighted loss gives A 0.970
+and x median 311, and under plain BCE gives A 0.831 and x median 723. That is a one-variable comparison and
+the marginals read the objective directly. Not solid: the **+7.5 pp** pipe-3 gain comes from **one training
+seed**, and this project's measured training-seed spread is **14.5–24.5 pp** — the gain sits inside the
+noise band. Three obstacles also moved by a similar ~+7 to +8.5 pp, which looks more like a generally
+better policy than obstacle-specific learning. Reported as a screen, not a win.
+
+**Which loss produced every result — a code read.** Three objectives exist; the only plain-BCE arms in the
+project's history are stage-2 arm A and this new one.
+
+| loss | arms | measured A-rates |
+|---|---|---|
+| plain BCE (`onset_weight=1.0`) | 2 | 0.152 |
+| onset 10× (**the default in `train_policy`**) | 5 | 0.219, 0.628 |
+| onset 10× + sustain 5× (`compose.py`) | 6 | 0.822, 0.852, 0.865, 0.888, 0.926, 0.970 |
+
+**The A-rate is ordered by press-weighting strength with no exceptions** — which is what makes the
+mechanism a property of the objective rather than a coincidence in one run. `coverage_experiment`,
+`compose_top20` and `compose_survival` all import `train` from `compose.py`, so the checkpoint every recent
+figure rests on used the strongest-biased objective.
+
+**Was the founding result real?** Stage 2's lineage descends from "bernoulli-only 29.5% → +onset-reweight
+59.5% at pipe 1, +30.0 pp", and `arms.py` shows the two arms differ *only* in `onset_weight`. Re-measured
+single life (the archived figures were multi-life):
+
+| arm | A-rate | pipe 1 |
+|---|---|---|
+| arm A (plain BCE) | **0.152** — the expert's rate exactly | 23.0% |
+| arm B (onset 10×) | 0.219 | **44.0%** |
+| **arm A with A raised to 0.217** | 0.217 | **36.0%** |
+
+**A single constant added to one logit — which cannot add state-dependent behaviour — reproduces +13.0 of
+the +21.0 pp founding effect (62%).** The residual is +8.0 pp [−1.6, +17.4]: it neither excludes zero nor
+is shown to be zero, and by this project's own power rule ~600 episodes per arm would be needed to resolve
+8 pp. Both arms sit far below the script's 87.0%.
+
+**Two mistakes worth recording.** The marginal intervention **overshot on the first attempt** and would
+have been reported as marginal-matched when it was not: the logit offset was fitted offline on rows the
+*expert* visits, but arm A visits its own states, so it realised **0.349** live against a 0.219 target.
+Fixed with live bisection (δ=+0.387 → 0.218). Same failure family as calibrating on training rows. Second,
+the script's verdict logic read "the residual does not exclude zero" as "onset reweighting contributed
+nothing" — different claims; it now reports the decomposition and the power required instead.
+
+**Cost.** ~20 minutes. The clean arm was 4.9 minutes because the deterministic rollouts were reused; the
+loss provenance is a code read; the stage-2 test was 6.7 minutes and is now resumable from retained traces
+after a restart destroyed a 10-minute run.
+
+**Downstream effect.** Plain BCE is the default going forward, and `loss` is a required field beside every
+number. The project's founding win is restated: most of it was a button rate, and the remainder is
+unresolved rather than established. What survives as a genuine result is narrow and now measured under an
+unbiased objective — **the policy beats the best fixed-rate script at pipes 3 and 4**, pending replication
+across training seeds.
