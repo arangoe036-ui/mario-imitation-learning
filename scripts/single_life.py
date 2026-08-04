@@ -130,6 +130,14 @@ def summarise(rows):
         "deaths": len(d), "death_causes": dict(Counter(x["cause"] for x in d)),
         "death_x_histogram_32px": dict(sorted(Counter(
             [int(x["x"]) // 32 * 32 for x in d]).items())),
+        # Cause x bin, not pooled. A pooled cause count cannot say whether the deaths at an
+        # obstacle's face are enemies or falls, which is the question that decides how the
+        # obstacle is characterised.
+        "cause_by_bin_32px": {
+            str(b): dict(Counter(x["cause"] for x in d if int(x["x"]) // 32 * 32 == b))
+            for b in sorted({int(x["x"]) // 32 * 32 for x in d})},
+        "deaths_detail": [{"x": int(x["x"]), "y": int(x["y"]), "cause": x["cause"]}
+                          for x in d],
         "death_x_median": float(np.median([x["x"] for x in d])) if d else None,
         "deaths_past_470": int(sum(1 for x in d if x["x"] > 470)),
         "deaths_past_630": int(sum(1 for x in d if x["x"] > 630)),
