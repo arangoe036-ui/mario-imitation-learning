@@ -1,0 +1,8 @@
+{
+  "n": 19,
+  "median": 32.0,
+  "p90": 70.0,
+  "max": 72,
+  "frac_ge_required": 1.0,
+  "required_hold": 12
+}

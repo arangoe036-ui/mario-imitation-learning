@@ -1224,3 +1224,74 @@ checkpoint in this project at the obstacles it was measured on. And an unbiased 
 marginal can game, and practice states at the right obstacles do not recover the difference.** What
 survives as genuine learned value is narrow: a conditional advantage at pipes 3 and 4 over the best fixed
 script that is present in the base and is not improved by further training.
+
+---
+
+## The representational barrier: a per-frame policy never once produced the hold pipe 4 requires
+
+**What changed.** The action space. The expert corpus was re-expressed as runs of a constant action — a
+12-frame hold becomes **one** training sample with an explicit duration instead of twelve correlated ones —
+and the resulting policy was compared against a per-frame control that differed in nothing else.
+
+**Why this was the blocker.** Every solution the enumerative search finds is a macro-action: "jump at
+x=892, hold A for 12 frames". A policy emitting 8 independent Bernoulli buttons per frame produces one with
+probability ~p¹². That is why distilling 22 verified pipe-4 demonstrations moved the hold distribution the
+*wrong* way. No teacher fixes it; the student could not represent the answer.
+
+**How the implementation was chosen.** Two candidates existed: run-length tokens, or hold-duration counters
+as observation inputs. Eight checkpoints from an old prev-action ablation sat in `data/bc2/` with no results
+file, and reading their stored metrics decided it:
+
+| arm | accuracy | **copycat rate** | label repeat rate |
+|---|---|---|---|
+| `noprev` | 0.726 | 0.726 | 0.970 |
+| `prev4` | 0.967 | **0.995** | 0.970 |
+
+Feeding previous actions reaches 96.7% accuracy by **copying the previous action 99.5% of the time** — the
+counter approach's failure mode, already measured. Run-length tokens change the time base instead, so there
+is no per-frame label to copy.
+
+**Numbers.** Both arms: identical trunk, 3,000 steps, expert data only, unweighted loss. n=200, single life.
+The expert reference was recomputed with the same windowed-onset function applied to the policies
+(n=19, median 32.0, p90 70.0, max 72) and **independently reproduces the archived figure** of median 30,
+p90 66, max 72 from a different segmentation.
+
+| pipe-2 A-hold | expert | **run-length** | per-frame control |
+|---|---|---|---|
+| onsets measured | 19 | 237 | **2,852** |
+| median | 32 | 7 | 1 |
+| p90 | 70 | **30** | 2 |
+| max | 72 | **86** | **6** |
+| **fraction ≥ 12 frames** | 100% | **34.6%** | **0.0%** |
+
+**The per-frame control produced 2,852 A-hold onsets at pipe 2 and not one reached 12 frames; its longest
+was 6.** Pipe 4 requires ≥12. Per-frame independence did not make the macro-action merely unlikely — across
+nearly three thousand attempts it never produced one.
+
+Downstream of the representation, from the same data and budget: the control **never clears pipe 2 in 200
+episodes** (0.0%) while the run-length arm clears it 25.5%, reaches pipe 3 6.0% and pipe 4 1.5%, and travels
+to x=1,560 against the control's 596.
+
+| | run-length | per-frame |
+|---|---|---|
+| A-hold anywhere, median / p90 / max | 7 / 31 / 101 | 1 / 2 / 11 |
+| airborne | 42.6% | 77.7% |
+| A held while airborne | 51.2% | 23.0% |
+| A-onsets/1k grounded | 0.4 | 5.1 |
+
+*Expert airborne fraction 61.1%.*
+
+**What this is not.** `vs_script` is **negative at every obstacle for both arms** — run-length pipe1 −53.5,
+pipe2 −57.0 pp. An expert-only policy at 3,000 steps is far weaker than the fixed-rate script, and the trap
+of "finishing with a policy a tuned script also finishes" is fully in force. This result is about what the
+policy can *express*, not what it can *do*. The expert reference also rests on only 19 holds, so the
+comparison that does not depend on it is the ≥12 fraction and the maximum.
+
+**Cost.** 12.4 minutes of compute, spread across many restarts. One real defect fixed along the way:
+`build_index` walked ~1M rows in Python at every start, and with the environment killing this job every 2–3
+minutes that rebuild consumed most of each cycle — 2,000 steps took ~20 minutes until it was cached, after
+which the remaining 1,000 landed immediately.
+
+**Downstream effect.** The representational question, open since the pipe-4 distillation failed, is closed:
+**the barrier is real and removable.** Search-and-distil now has a student that can execute what search
+finds. The next constraint is absolute strength, not expressiveness.
