@@ -1,0 +1,21 @@
+{
+  "basis": "1-1 surface frames of every expert train run; denominator is TOTAL frames",
+  "grounded_available": false,
+  "why_not_grounded": "TRACE_COLUMNS has no on_ground field and deriving it from y is forbidden. Each publication has its OWN movie, so replaying its inputs against this session's savestate does not reproduce it -- validated and rejected: all 20 runs mismatched on x. An exact grounded figure needs a session per movie, which was not spent.",
+  "frames": 16095,
+  "a_onsets_per_1000_frames": 27.52407579993787,
+  "zero_button_fraction": 0.17011494252873563,
+  "noop_runs": {
+    "n": 230,
+    "median": 9.0,
+    "p90": 30.0,
+    "max": 53.0,
+    "mean": 11.904347826086957,
+    "frames_total": 2738.0
+  },
+  "stationary_fraction": 0.05100963031997515,
+  "stationary_attribution": {
+    "holding_nothing": 0.07186358099878197,
+    "holding_right": 0.7831912302070646
+  }
+}

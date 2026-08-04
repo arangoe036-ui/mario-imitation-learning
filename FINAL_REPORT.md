@@ -1295,3 +1295,79 @@ which the remaining 1,000 landed immediately.
 **Downstream effect.** The representational question, open since the pipe-4 distillation failed, is closed:
 **the barrier is real and removable.** Search-and-distil now has a student that can execute what search
 finds. The next constraint is absolute strength, not expressiveness.
+
+---
+
+## The owner's sixth observation: capping no-op runs doubled x median with no retraining
+
+**What changed.** One number in the generation rule. Runs whose button combo contains no A are capped at 4
+frames; A-containing runs are left uncapped. Same trained checkpoint, same weights — only how a predicted
+(combo, duration) gets executed.
+
+| | median rule | **capped** |
+|---|---|---|
+| longest no-op run | **347 frames** | **12** |
+| airborne | 42.6% | **66.7%** *(expert 61.1%)* |
+| pipe-2 holds ≥12 frames | 34.6% | **36.8%** |
+| x median | 314 | **702** |
+| pipe 1 / 2 / 3 / 4 | 33.5 / 25.5 / 6.0 / 1.5% | **64.5 / 61.0 / 18.0 / 9.5%** |
+| `vs_script` pipe 1 / 2 / 3 / 4 | −53.5 / −57.0 / −17.5 / −6.5 | **−22.5 / −21.5 / −5.5 / +1.5** |
+
+**How we got there.** The owner watched the run-length policy and said *"Mario stays still for a lot of
+time; in some instances he wasn't doing anything."* That is the sixth such observation and the sixth to be
+right. The discriminating measurement was: when stationary, is he holding Right (pressed against terrain —
+competence) or holding nothing (inside an emitted no-op block — generation)?
+
+**The answer was both, split by where you look:**
+
+- **In aggregate the no-op emission is correct** — zero-button fraction 17.6% against the expert's 17.0%,
+  no-op run median 10 against 9.
+- **The tail is fatal** — longest no-op run 347 frames against the expert's 53. Half a second is 30 frames;
+  this is nearly six seconds of holding nothing.
+- **Stationary frames are mostly Right** (52.4% vs 24.5% nothing), so most idling really is competence — but
+  holding-nothing at 24.5% is 3.4× the expert's 7.2%, which is the long blocks showing through.
+
+**A premise that did not survive checking.** The reasoning for this experiment held that the expert's most
+common action is *nothing* at 40.3% of frames, so a run-length encoding would emit those as blocks. On 1-1
+surface frames the expert's zero-button fraction is **17.0%** — the 40.3% is a whole-corpus figure including
+transitions. The mechanism was still real; the magnitude behind it was not.
+
+**Three variants, one checkpoint, no retraining** — the variants change execution, not training:
+
+| arm | ≥12 at pipe 2 | airborne | no-op max | x med | pipe 2 |
+|---|---|---|---|---|---|
+| median (baseline) | 34.6% | 42.8% | 347 | 314 | 25.5% |
+| (a) sample the length | 45.6% | 41.6% | 343 | 315 | 32.0% |
+| **(b) cap non-A runs** | 36.8% | **66.7%** | **12** | **702** | **61.0%** |
+| (c) re-decide every frame | **0.0%** | 82.4% | 4 | 436 | 2.0% |
+
+**(a) barely helps** — the expert's own length distribution contains the long runs, so sampling from it
+reproduces the tail. **(c) destroys the durations entirely** — ≥12 collapses to zero and pipe 2 to 2.0%,
+which confirms the committed duration is what produces long holds. Re-measuring the baseline through this
+new code reproduced phase 1 exactly (≥12 34.6%, x med 314, pipe 2 25.5%).
+
+**A gate declined, with the reason.** The pre-committed condition asked for A-onsets per 1,000 *grounded*
+frames above 2 while holding ≥12 above 20%. No variant passes: (c) gets the onsets and loses the holds; the
+rest keep the holds near 1 onset/1k. **That metric is not comparable across these arms** — airborne fraction
+ranges 41.6% to 82.4%, so identical jump rates divide by denominators differing threefold. On the
+total-frame denominator, which has an expert reference, `capped` sits at **48.0 against the expert's 27.5**:
+it jumps *too often*, not too rarely. The premise that it "almost never chooses to jump" was an artifact of
+the normalisation.
+
+**What this is not.** **No arm beats the fixed-rate script anywhere.** `capped` is 21.5 points short at pipe
+2, where the best per-frame checkpoint was 14.0 short — so it is not yet better than the old lineage at pipe
+2, and the script remains the bar. Its A marginal is also **0.572, 3.8× the expert's 0.152**: capping non-A
+runs necessarily gives A-runs more wall-clock, so some of the reach is bought by jumping more. Airborne
+66.7% against 61.1% says this is not the old 85% degeneracy, but it is the same direction.
+
+**A measurement that could not be taken.** The expert's A-onsets per 1,000 *grounded* frames is unavailable
+as a read: the trace schema has no `on_ground` column, and deriving it from y is the error that cost this
+project seven failures. Replaying expert inputs against the session's savestate was tried and **rejected by
+its own validation — all 20 runs mismatched on x**, because each publication has its own movie. The
+substitution to a total-frame denominator is stated wherever the number appears.
+
+**Cost.** ~40 minutes wall, most of it the four 200-episode evaluations. No training.
+
+**Downstream effect.** Phase 2 should take the capped rule. The generation rule, not the representation, was
+costing 31–36 points of script gap at every obstacle — and the fix was found by a human watching the game
+rather than by any metric in the artifact.

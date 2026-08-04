@@ -1,0 +1,153 @@
+{
+  "expert": {
+    "basis": "1-1 surface frames of every expert train run; denominator is TOTAL frames",
+    "grounded_available": false,
+    "why_not_grounded": "TRACE_COLUMNS has no on_ground field and deriving it from y is forbidden. Each publication has its OWN movie, so replaying its inputs against this session's savestate does not reproduce it -- validated and rejected: all 20 runs mismatched on x. An exact grounded figure needs a session per movie, which was not spent.",
+    "frames": 16095,
+    "a_onsets_per_1000_frames": 27.52407579993787,
+    "zero_button_fraction": 0.17011494252873563,
+    "noop_runs": {
+      "n": 230,
+      "median": 9.0,
+      "p90": 30.0,
+      "max": 53.0,
+      "mean": 11.904347826086957,
+      "frames_total": 2738.0
+    },
+    "stationary_fraction": 0.05100963031997515,
+    "stationary_attribution": {
+      "holding_nothing": 0.07186358099878197,
+      "holding_right": 0.7831912302070646
+    }
+  },
+  "arms": {
+    "runlength": {
+      "frames": 88590,
+      "zero_button_fraction": 0.1762501410994469,
+      "zero_button_ci": [
+        0.17375504748379095,
+        0.17877331155284892
+      ],
+      "noop_runs": {
+        "n": 769,
+        "median": 10.0,
+        "p90": 38.0,
+        "max": 347.0,
+        "mean": 20.304291287386217,
+        "frames_total": 15614.0
+      },
+      "stationary_frames": 42030,
+      "stationary_fraction": 0.47443278022350155,
+      "stationary_attribution": {
+        "holding_nothing": 0.2451582203188199,
+        "holding_right": 0.5244825124910778,
+        "other_buttons": 0.2303592671901023
+      },
+      "ended": {
+        "died": 151,
+        "stuck": 49
+      },
+      "death_x_histogram_64px": {
+        "192": 7,
+        "256": 107,
+        "640": 19,
+        "704": 10,
+        "768": 1,
+        "832": 2,
+        "896": 2,
+        "1216": 2,
+        "1536": 1
+      },
+      "n_deaths": 151,
+      "a_onsets_per_1000_grounded": 0.6298344716279253,
+      "a_onsets_per_1000_frames": 20.894006095496106,
+      "grounded_frames": 50807
+    },
+    "perframe": {
+      "frames": 99449,
+      "zero_button_fraction": 0.05802974388882744,
+      "zero_button_ci": [
+        0.05659362948854985,
+        0.05950000257112976
+      ],
+      "noop_runs": {
+        "n": 5356,
+        "median": 1.0,
+        "p90": 1.0,
+        "max": 5.0,
+        "mean": 1.0774831964152352,
+        "frames_total": 5771.0
+      },
+      "stationary_frames": 54089,
+      "stationary_fraction": 0.5438868163581333,
+      "stationary_attribution": {
+        "holding_nothing": 0.05886594316774205,
+        "holding_right": 0.6857586570282312,
+        "other_buttons": 0.2553753998040267
+      },
+      "ended": {
+        "died": 47,
+        "stuck": 153
+      },
+      "death_x_histogram_64px": {
+        "256": 47
+      },
+      "n_deaths": 47,
+      "a_onsets_per_1000_grounded": 22.774514234071397,
+      "a_onsets_per_1000_frames": 147.98539955152893,
+      "grounded_frames": 22130
+    },
+    "base_sustain": {
+      "frames": 132844,
+      "zero_button_fraction": 3.7638131944235344e-05,
+      "zero_button_ci": [
+        1.6076626826515247e-05,
+        8.811475357751533e-05
+      ],
+      "noop_runs": {
+        "n": 5,
+        "median": 1.0,
+        "p90": 1.0,
+        "max": 1.0,
+        "mean": 1.0,
+        "frames_total": 5.0
+      },
+      "stationary_frames": 53667,
+      "stationary_fraction": 0.40398512541025566,
+      "stationary_attribution": {
+        "holding_nothing": 9.316712318557028e-05,
+        "holding_right": 0.9980248569884659,
+        "other_buttons": 0.0018819758883485197
+      },
+      "ended": {
+        "stuck": 58,
+        "died": 142
+      },
+      "death_x_histogram_64px": {
+        "256": 54,
+        "640": 20,
+        "704": 14,
+        "768": 5,
+        "832": 6,
+        "896": 5,
+        "1216": 17,
+        "1280": 1,
+        "1472": 6,
+        "1536": 10,
+        "1664": 2,
+        "1728": 1,
+        "1920": 1
+      },
+      "n_deaths": 142,
+      "a_onsets_per_1000_grounded": 18.257865066375704,
+      "a_onsets_per_1000_frames": 116.51260124657493,
+      "grounded_frames": 27495
+    }
+  },
+  "verdict": {
+    "stationary_holding_nothing": 0.2451582203188199,
+    "stationary_holding_right": 0.5244825124910778,
+    "diagnosis": "COMPETENCE PROBLEM: when stationary the policy is mostly holding Right (52.4% against 24.5% holding nothing), so it is pressed against terrain it cannot clear rather than idling. Capping no-op runs will not address this."
+  },
+  "minutes": 0.0
+}
