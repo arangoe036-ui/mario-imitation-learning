@@ -1,0 +1,24 @@
+{
+  "note": "grounded measured from SMB 0x001D; 1 = on a surface",
+  "runs": {
+    "pub-3648": {
+      "n_frames": 61,
+      "n_grounded": 1,
+      "elevated": [],
+      "floor_grounded_x": [
+        995
+      ]
+    },
+    "pub-4313": {
+      "n_frames": 61,
+      "n_grounded": 4,
+      "elevated": [],
+      "floor_grounded_x": [
+        989,
+        992,
+        994,
+        997
+      ]
+    }
+  }
+}

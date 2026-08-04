@@ -1,0 +1,64 @@
+{
+  "note": "grounded measured from SMB 0x001D; 1 = on a surface",
+  "runs": {
+    "pub-3648": {
+      "n_frames": 159,
+      "airborne_stretches": [
+        [
+          1300,
+          1337,
+          38
+        ],
+        [
+          1345,
+          1435,
+          91
+        ],
+        [
+          1440,
+          1592,
+          153
+        ],
+        [
+          1599,
+          1650,
+          52
+        ]
+      ],
+      "grounded_x_min": 1340,
+      "grounded_x_max": 1620
+    },
+    "pub-4313": {
+      "n_frames": 158,
+      "airborne_stretches": [
+        [
+          1302,
+          1337,
+          36
+        ],
+        [
+          1344,
+          1412,
+          69
+        ],
+        [
+          1419,
+          1489,
+          71
+        ],
+        [
+          1499,
+          1569,
+          71
+        ],
+        [
+          1601,
+          1649,
+          49
+        ]
+      ],
+      "grounded_x_min": 1339,
+      "grounded_x_max": 1619
+    }
+  }
+}

@@ -25,6 +25,8 @@ ADDR_STAGE = 0x075C          # 0-based stage (level) within the world
 ADDR_AREA = 0x0760           # 0-based area within the stage (pipes/vines)
 ADDR_X_PAGE = 0x006D         # player x position, high byte (screen page)
 ADDR_X_IN_PAGE = 0x0086      # player x position, low byte
+ADDR_ON_GROUND = 0x001D      # 0 = standing on a surface, nonzero = airborne. VERIFIED:
+                             # standing 0, rising 1, apex 1, falling 1, landed 0.
 ADDR_Y_VIEWPORT = 0x00B5     # which vertical "page" the player is on
 ADDR_Y_PIXEL = 0x03B8        # player y position on screen
 ADDR_LEFT_X = 0x071C         # left edge of the screen, low byte
@@ -160,6 +162,30 @@ def level_ordinal(trace: np.ndarray) -> np.ndarray:
     world = trace[:, TRACE_COLUMNS.index("world")]
     stage = trace[:, TRACE_COLUMNS.index("stage")]
     return (world - 1) * 4 + (stage - 1)
+
+
+def on_ground(ram) -> bool:
+    """Is Mario standing on a surface?
+
+    Read SMB's own indicator instead of comparing y to a constant. Seven failures in this
+    project trace to the latter: the wrapped byte makes 176 mean three different heights
+    (air, floor, deep below), and even unwrapped, a value test cannot tell ground from a
+    platform at ground height. This byte answers the question directly.
+
+    Verified against a scripted probe: standing 0, rising 1, apex 1, falling 1, landed 0.
+    """
+    return int(ram[ADDR_ON_GROUND]) == 0
+
+
+def y_absolute(ram) -> int:
+    """Mario's vertical position including the page byte.
+
+    ``ADDR_Y_PIXEL`` alone is a single byte and wraps at 256, so a deep fall reads as a small
+    number -- which is why a ``y > 200`` pit test could never fire. ``ADDR_Y_VIEWPORT`` was
+    defined in this module from the start and read nowhere. This is the y counterpart of the
+    x fix (page * 256 + offset).
+    """
+    return int(ram[ADDR_Y_VIEWPORT]) * 256 + int(ram[ADDR_Y_PIXEL])
 
 
 def column(trace: np.ndarray, name: str) -> np.ndarray:
