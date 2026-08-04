@@ -1371,3 +1371,62 @@ substitution to a total-frame denominator is stated wherever the number appears.
 **Downstream effect.** Phase 2 should take the capped rule. The generation rule, not the representation, was
 costing 31–36 points of script gap at every obstacle — and the fix was found by a human watching the game
 rather than by any metric in the artifact.
+
+---
+
+## The first skill signal: at its own button rates, the policy beats the script by 54 points at pipe 2
+
+**What changed.** Nothing was built. A control was run — the one this project existed to run. `capped`'s
+reach might have been another marginal shift, since capping non-A runs raises its A-rate to 0.572 (3.8× the
+expert's). So a fixed-rate script was run at **that** rate, with `capped`'s other marginals matched, on the
+same 200 seeds.
+
+**Numbers.** Two readings of "rate-matched", because they bracket the answer:
+
+| | script, all 5 marginals matched | script, Right+B **held**, A=0.572 | **`capped`** |
+|---|---|---|---|
+| pipe 1 | 79.5% | **83.0%** | 64.5% |
+| **pipe 2** | **7.0%** | **7.0%** | **61.0%** |
+| pipe 3 | 0.0% | 0.0% | **18.0%** |
+| pipe 4 | 0.0% | 0.0% | **9.5%** |
+| x max | 724 | 724 | **1,559** |
+
+Against the stronger control: pipe 2 **+54.0 pp [+45.8, +61.1]**, pipe 3 **+18.0 [+12.9, +23.9]**, pipe 4
+**+9.5 [+5.7, +14.4]**. Conditional on arrival, pipe 2 is **+86.1 pp [+78.7, +90.5]**. **Neither script
+clears pipe 3 or pipe 4 once**, and both stop at x=724 — pipe 3's face. The pipe-4 conditional interval is
+undefined because the opponent never reaches pipe 4's gate at all.
+
+**It loses pipe 1** by −18.5 pp [−26.7, −9.9]. This is not "better everywhere": it is better exactly where a
+fixed rate cannot work, and worse on the one obstacle a fixed rate handles fine.
+
+**How we got there, and the prediction that failed.** The expectation was that p(A)=0.572 would interpolate
+between the p=0.50 arm's pipe-2 clearance of 10.0% and the p=0.85 arm's 68.5%. It landed at **7.0% — below
+the p=0.50 arm.** Pipe-2 clearance is not smooth in p(A), and the reason is the p^L arithmetic this whole
+phase was built on:
+
+| A-rate | P(10 consecutive A) | P(11) | measured pipe 2 |
+|---|---|---|---|
+| 0.500 | 0.10% | 0.05% | 10.0% |
+| **0.572** | **0.37%** | **0.21%** | **7.0%** |
+| 0.850 | 19.69% | 16.73% | 68.5% |
+
+Pipe 2 requires A held 10–11 frames. **A per-frame sampler at 0.572 produces that 0.2–0.4% of the time;
+`capped` produces ≥12-frame holds on 36.8% of its pipe-2 onsets — about 170× more often at the same
+marginal.** The sharp threshold between 0.572 and 0.85 is p^L turning over. The failed interpolation is the
+cleanest confirmation of the macro-action argument the project has: it predicts a threshold, and there is one.
+
+**Both bars are kept, because they answer different questions.** Against the *best* script (p(A)=0.85 with
+Left, pipe 2 82.5%) `capped` is still **−21.5 pp** — that is the bar `FINDINGS.md` uses and it remains unmet.
+Against a script at **its own rate** it wins by +54.0. The first asks whether this is the best way to play
+1-1; the second asks whether its play reduces to its button rates. **It does not.**
+
+`capped`'s pipe-2 hold distribution, reported with tails per the rule earned by a 347-frame idle run whose
+median looked fine: **median 7.0, p90 34.0, p99 68.6, max 90**, against the expert's median 32.0 / p90 70.0 /
+max 72. Its p99 and max now sit at or above the expert's; its median is still well short.
+
+**Cost.** 5 minutes. No training.
+
+**Downstream effect.** This is the first genuine skill signal from the run-length line and the first anywhere
+in this project outside pipe 3 — behaviour a marginal cannot reproduce at the rate the policy actually runs
+at. The frontier has also moved: **107 of `capped`'s 151 deaths are at x≈256, the first Goomba**, which is
+now the dominant single loss and the obstacle where 75 of 80 scripted timings succeed.
