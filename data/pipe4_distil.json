@@ -1,0 +1,550 @@
+{
+  "checkpoint_in": "C_control_matched_r2.pt",
+  "n_clearing_configs": 39,
+  "prefix_tail": 60,
+  "survive_frames": 40,
+  "baseline": {
+    "n": 200,
+    "measurement_basis": "single_life",
+    "grounded_enforced": false,
+    "stuck_at_pipe4": 29,
+    "arrived_at_880": 67,
+    "cleared_past_975": 38,
+    "cleared_given_arrived": 0.5671641791044776,
+    "x_median": 723.0,
+    "a_hold_880_924": {
+      "n": 1623,
+      "median": 4.0,
+      "p90": 14.0,
+      "max": 81,
+      "frac_ge_required": 0.1392483056069008,
+      "required_hold": 12
+    },
+    "episodes_with_a_hold_onset": 67
+  },
+  "measurement_basis": "single_life",
+  "seeds_training": 1,
+  "survival_check": {
+    "n": 39,
+    "cleared_again": 22,
+    "passed_search_bar": 22,
+    "bar": "max_x>975 and alive 40 frames after",
+    "grounded_enforced": true,
+    "rows": [
+      {
+        "seed": 8,
+        "hold": 16,
+        "trigger": 884,
+        "sweep_max_x": 1245,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 20,
+        "trigger": 884,
+        "sweep_max_x": 1244,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 26,
+        "trigger": 884,
+        "sweep_max_x": 1245,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 32,
+        "trigger": 884,
+        "sweep_max_x": 1248,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 16,
+        "trigger": 888,
+        "sweep_max_x": 1244,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 20,
+        "trigger": 888,
+        "sweep_max_x": 1246,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 26,
+        "trigger": 888,
+        "sweep_max_x": 1244,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 32,
+        "trigger": 888,
+        "sweep_max_x": 1244,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 12,
+        "trigger": 892,
+        "sweep_max_x": 1243,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 16,
+        "trigger": 892,
+        "sweep_max_x": 1245,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 20,
+        "trigger": 892,
+        "sweep_max_x": 1247,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 26,
+        "trigger": 892,
+        "sweep_max_x": 1243,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 32,
+        "trigger": 892,
+        "sweep_max_x": 1243,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 16,
+        "trigger": 896,
+        "sweep_max_x": 1246,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 20,
+        "trigger": 896,
+        "sweep_max_x": 1243,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 26,
+        "trigger": 896,
+        "sweep_max_x": 1242,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 8,
+        "hold": 32,
+        "trigger": 896,
+        "sweep_max_x": 1244,
+        "skipped": true,
+        "grounded_at_jump": false
+      },
+      {
+        "seed": 12,
+        "hold": 16,
+        "trigger": 884,
+        "sweep_max_x": 1245,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1076,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 20,
+        "trigger": 884,
+        "sweep_max_x": 1247,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1077,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 26,
+        "trigger": 884,
+        "sweep_max_x": 1246,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1076,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 32,
+        "trigger": 884,
+        "sweep_max_x": 1246,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1076,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 16,
+        "trigger": 888,
+        "sweep_max_x": 1245,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1078,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 20,
+        "trigger": 888,
+        "sweep_max_x": 1248,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1077,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 26,
+        "trigger": 888,
+        "sweep_max_x": 1251,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1076,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 32,
+        "trigger": 888,
+        "sweep_max_x": 1246,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1076,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 12,
+        "trigger": 892,
+        "sweep_max_x": 1245,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1076,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 16,
+        "trigger": 892,
+        "sweep_max_x": 1247,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1077,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 20,
+        "trigger": 892,
+        "sweep_max_x": 1246,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1077,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 26,
+        "trigger": 892,
+        "sweep_max_x": 1245,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1076,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 32,
+        "trigger": 892,
+        "sweep_max_x": 1247,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1078,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 12,
+        "trigger": 896,
+        "sweep_max_x": 1245,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1076,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 16,
+        "trigger": 896,
+        "sweep_max_x": 1251,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1077,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 20,
+        "trigger": 896,
+        "sweep_max_x": 1246,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1076,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 26,
+        "trigger": 896,
+        "sweep_max_x": 1245,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1076,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 12,
+        "hold": 32,
+        "trigger": 896,
+        "sweep_max_x": 1246,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1076,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 16,
+        "hold": 16,
+        "trigger": 896,
+        "sweep_max_x": 1252,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1077,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 16,
+        "hold": 20,
+        "trigger": 896,
+        "sweep_max_x": 1247,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1077,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 16,
+        "hold": 26,
+        "trigger": 896,
+        "sweep_max_x": 1246,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1076,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      },
+      {
+        "seed": 16,
+        "hold": 32,
+        "trigger": 896,
+        "sweep_max_x": 1247,
+        "skipped": false,
+        "grounded_at_jump": true,
+        "max_x": 1076,
+        "died": false,
+        "cleared_past_975": true,
+        "frames_after_clear": 41,
+        "survived": true
+      }
+    ]
+  },
+  "demonstrations": {
+    "dir": "pipe4_demos",
+    "frames": 3835,
+    "episodes": 22,
+    "a_press_rate": 0.44328552803129073
+  },
+  "training": {
+    "expert_frames": 3835,
+    "demo_frames": 3835,
+    "ratio": "1:1",
+    "steps": 800,
+    "lr": 0.0001,
+    "loss": "sustain+onset weighted BCE (composed recipe)",
+    "expert_data": [
+      "pub-1194",
+      "pub-1106",
+      "pub-262"
+    ]
+  },
+  "distilled": {
+    "n": 200,
+    "measurement_basis": "single_life",
+    "grounded_enforced": false,
+    "stuck_at_pipe4": 0,
+    "arrived_at_880": 0,
+    "cleared_past_975": 0,
+    "cleared_given_arrived": null,
+    "x_median": 437.0,
+    "a_hold_880_924": {
+      "n": 0,
+      "median": null,
+      "p90": null,
+      "max": null,
+      "frac_ge_required": null
+    },
+    "episodes_with_a_hold_onset": 0
+  },
+  "comparison": {
+    "method": "Newcombe on paired seed sets (same 200 seeds, same episode function)",
+    "a_hold_880_924": {
+      "baseline": {
+        "n": 1623,
+        "median": 4.0,
+        "p90": 14.0,
+        "max": 81,
+        "frac_ge_required": 0.1392483056069008,
+        "required_hold": 12
+      },
+      "distilled": {
+        "n": 0,
+        "median": null,
+        "p90": null,
+        "max": null,
+        "frac_ge_required": null
+      },
+      "rose": false
+    },
+    "stuck_at_pipe4": {
+      "baseline": 29,
+      "distilled": 0,
+      "delta_pp": -14.5,
+      "ci_pp": [
+        -20.048781284894375,
+        -9.886775632761244
+      ],
+      "excludes_zero": true,
+      "fell": true
+    },
+    "cleared_past_975": {
+      "baseline": 38,
+      "distilled": 0,
+      "ci_pp": [
+        -25.001358574479397,
+        -13.812640189687409
+      ],
+      "excludes_zero": true
+    },
+    "cleared_given_arrived": {
+      "baseline": 0.5671641791044776,
+      "distilled": null,
+      "baseline_wilson": [
+        0.4480852301650392,
+        0.6789587665826343
+      ],
+      "distilled_wilson": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "verdict": "CLEARANCE MOVED WITHOUT THE HOLD: stuck-at-pipe-4 fell 29->0 of 200 but the A-hold did not rise (median 4.0->None). Do not call this distillation working; the mechanism is unidentified and must be named before it is claimed.",
+  "minutes": 5.0
+}

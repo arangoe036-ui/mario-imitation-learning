@@ -1,0 +1,203 @@
+{
+  "expert_press_rates": {
+    "Up": 0.001,
+    "Down": 0.007,
+    "Left": 0.03,
+    "Right": 0.453,
+    "Start": 0.0,
+    "Select": 0.0,
+    "B": 0.514,
+    "A": 0.152
+  },
+  "arms": {
+    "baseline": {
+      "checkpoint": "C_control_matched_r2.pt",
+      "frames": 132844,
+      "press_rates": {
+        "Up": 0.008,
+        "Down": 0.281,
+        "Left": 0.108,
+        "Right": 0.999,
+        "Start": 0.0,
+        "Select": 0.0,
+        "B": 0.999,
+        "A": 0.852
+      },
+      "a_rate_over_expert": 5.6,
+      "a_holds_anywhere": {
+        "n": 15478,
+        "median": 4.0,
+        "p90": 17.0,
+        "max": 160,
+        "frac_ge_required": 0.18568290476805788,
+        "required_hold": 12,
+        "frames_in_a_hold_pct": 85.2
+      },
+      "frontier": {
+        "n": 200,
+        "measurement_basis": "single_life",
+        "grounded_enforced": false,
+        "stuck_at_pipe4": 29,
+        "arrived_at_880": 67,
+        "cleared_past_975": 38,
+        "cleared_given_arrived": 0.5671641791044776,
+        "x_median": 723.0,
+        "a_hold_880_924": {
+          "n": 1623,
+          "median": 4.0,
+          "p90": 14.0,
+          "max": 81,
+          "frac_ge_required": 0.1392483056069008,
+          "required_hold": 12
+        },
+        "episodes_with_a_hold_onset": 67
+      },
+      "ended": {
+        "died": 142,
+        "stuck": 58
+      }
+    },
+    "distilled": {
+      "checkpoint": "pipe4_distilled.pt",
+      "frames": 86498,
+      "press_rates": {
+        "Up": 0.0,
+        "Down": 0.014,
+        "Left": 0.008,
+        "Right": 0.999,
+        "Start": 0.0,
+        "Select": 0.0,
+        "B": 0.998,
+        "A": 0.37
+      },
+      "a_rate_over_expert": 2.44,
+      "a_holds_anywhere": {
+        "n": 13710,
+        "median": 1.0,
+        "p90": 4.0,
+        "max": 48,
+        "frac_ge_required": 0.02662290299051787,
+        "required_hold": 12,
+        "frames_in_a_hold_pct": 37.0
+      },
+      "frontier": {
+        "n": 200,
+        "measurement_basis": "single_life",
+        "grounded_enforced": false,
+        "stuck_at_pipe4": 0,
+        "arrived_at_880": 0,
+        "cleared_past_975": 0,
+        "cleared_given_arrived": null,
+        "x_median": 437.0,
+        "a_hold_880_924": {
+          "n": 0,
+          "median": null,
+          "p90": null,
+          "max": null,
+          "frac_ge_required": null
+        },
+        "episodes_with_a_hold_onset": 0
+      },
+      "ended": {
+        "died": 66,
+        "stuck": 134
+      }
+    }
+  },
+  "windows": {
+    "pipe1_approach_300_470": {
+      "x_range": [
+        300,
+        470
+      ],
+      "baseline": {
+        "episodes_reaching_lo": 191,
+        "measurable": true,
+        "n": 1886,
+        "median": 4.0,
+        "p90": 16.0,
+        "max": 63,
+        "frac_ge_required": 0.17073170731707318,
+        "required_hold": 12
+      },
+      "distilled": {
+        "episodes_reaching_lo": 198,
+        "measurable": true,
+        "n": 2980,
+        "median": 1.0,
+        "p90": 7.0,
+        "max": 40,
+        "frac_ge_required": 0.05704697986577181,
+        "required_hold": 12
+      },
+      "paired_comparison_possible": true,
+      "hold_direction": "fell"
+    },
+    "pipe2_560_640": {
+      "x_range": [
+        560,
+        640
+      ],
+      "baseline": {
+        "episodes_reaching_lo": 146,
+        "measurable": true,
+        "n": 2347,
+        "median": 4.0,
+        "p90": 15.0,
+        "max": 81,
+        "frac_ge_required": 0.16403919897741798,
+        "required_hold": 12
+      },
+      "distilled": {
+        "episodes_reaching_lo": 95,
+        "measurable": true,
+        "n": 6828,
+        "median": 1.0,
+        "p90": 3.0,
+        "max": 13,
+        "frac_ge_required": 0.00029291154071470416,
+        "required_hold": 12
+      },
+      "paired_comparison_possible": true,
+      "hold_direction": "fell"
+    },
+    "pipe4_880_924": {
+      "x_range": [
+        880,
+        924
+      ],
+      "baseline": {
+        "episodes_reaching_lo": 67,
+        "measurable": true,
+        "n": 1623,
+        "median": 4.0,
+        "p90": 14.0,
+        "max": 81,
+        "frac_ge_required": 0.1392483056069008,
+        "required_hold": 12
+      },
+      "distilled": {
+        "episodes_reaching_lo": 0,
+        "measurable": false,
+        "n": 0,
+        "median": null,
+        "p90": null,
+        "max": null,
+        "frac_ge_required": null
+      },
+      "paired_comparison_possible": false,
+      "hold_direction": "unmeasurable -- one arm never reached this window"
+    }
+  },
+  "measurement_basis": "single_life",
+  "n_per_arm": 200,
+  "note": "paired: identical episode function, identical seeds 0-199",
+  "verdict": {
+    "answer_to_the_one_question": "NEITHER",
+    "hold_at_pipe4": "unmeasurable: the distilled policy never reached x=880, so there were zero A-hold onsets in 880-924. This is missing data, not a decrease.",
+    "hold_where_measurable": "fell in 2 of 2 windows both arms reach: pipe1_approach_300_470 median 4.0->1.0, >=12 17.1%->5.7%; pipe2_560_640 median 4.0->1.0, >=12 16.4%->0.0%",
+    "stuck_at_pipe4": "0 of 200 versus 29 of 200, but only because 0 of 200 arrived at x=880. The count fell for the wrong reason and must not be read as progress.",
+    "mechanism": "The baseline checkpoint presses A on 85.2% of frames, 5.6x the expert's 15.2%, and spends 85.2% of all frames inside an A-hold. Fine-tuning on demonstrations whose A-rate is near the expert's pulled the marginal to 37.0% (2.44x expert), and holds shortened everywhere: median 4.0->1.0, >=12 18.6%->2.7%. Down and Left were also erased (0.281->0.014 and 0.108->0.008), because the scripted demonstrations contain neither. x_median fell 723->437.",
+    "consequence_for_prior_results": "The frontier map -- 29 stuck at pipe 4, 38 clearing it, x_median 723 -- is a property of a policy that holds A on 85% of frames. That is the always-jump degeneracy the ledger already records as a known objective flaw, still present in the checkpoint every recent figure rests on."
+  }
+}

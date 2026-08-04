@@ -751,3 +751,80 @@ rather than as a confirmation.
 **Cost.** ~40 minutes, reusing the existing base checkpoint.
 
 **Downstream.** The Goomba fix becomes the whole plan, and `surv_round2` is the model to freeze.
+
+---
+
+## Distilling 22 verified demonstrations at pipe 4 — and discovering the baseline held A on 85% of frames
+
+**What changed.** Search-and-distil was closed for the first time: the 39 clearing (trigger, hold)
+configurations found at pipe 4 were re-run against the search's own bar, the survivors were recorded
+frame by frame as demonstrations, and a checkpoint was fine-tuned on them. The distilled policy was
+then measured at n=200, single life, against the identical baseline seeds. **It regressed badly, and
+the regression is what taught us something.**
+
+**How we got there, including the wrong turns.**
+
+The plan was to distil 39 demonstrations. Three things went differently:
+
+1. **Only 22 of the 39 reproduced.** All 17 failures were seed 8 — one prefix out of three diverged
+   between scripts, while seeds 12 and 16 reproduced exactly, 22 of 22. Of the 22 that were attempted,
+   **zero failed to clear**; the 17 were refused because Mario was airborne at the trigger frame. The
+   headline requirement survived only because hold 12 at trigger 892 also reproduced on seed 12, a
+   different prefix. **A sweep result is not a result until it has been re-run from a fresh process.**
+2. **The eval said "stuck at pipe 4 fell 29 → 0", which looks like total success and is the opposite.**
+   Zero episodes were stuck at pipe 4 because **zero reached it.** The denominator moved. The script's
+   own pre-committed verdict string caught that the A-hold had not risen, but mislabelled the outcome
+   as "clearance moved without the hold" — clearance had gone to zero.
+3. **The A-hold at pipe 4 was reported as `median 4.0 → None` and scored as "did not rise".** `None`
+   was missing data, not a decrease. This was fixed in code rather than in prose: the audit script now
+   separates `measurable: false` from a measured fall, and refuses to score a window no episode
+   reached. **The fix that mattered was measuring the hold in windows both arms actually reach.**
+
+**Numbers.** n=200 per arm, single life, seeds 0–199, identical episode function. Baseline is
+`C_control_matched_r2.pt`, the checkpoint every recent figure in this project rests on.
+
+| metric | baseline | distilled |
+|---|---|---|
+| arrived at x=880 | 67 | **0** |
+| stuck at pipe 4 (max_x 896–928) | 29 | 0 *(no arrivals)* |
+| cleared past x=975 | 38 | 0 |
+| x_median | 723 | **437** |
+| x_p90 / x_max | 1306 / 1939 | 596 / 696 |
+| deaths at x≈256 | 54 of 142 | **65 of 66** |
+
+A-hold length, holds counted where they begin:
+
+| window | baseline median (frac ≥12) | distilled median (frac ≥12) |
+|---|---|---|
+| pipe 1, x 300–470 | 4.0 (17.1%) | 1.0 (5.7%) |
+| pipe 2, x 560–640 | 4.0 (16.4%) | 1.0 (**0.0%**) |
+| pipe 4, x 880–924 | 4.0 (13.9%) | unmeasurable — 0 arrivals |
+| anywhere | 4.0 (18.6%), max 160 | 1.0 (2.7%), max 48 |
+
+**The finding.** Button marginals against the expert's own press rates:
+
+| button | expert | baseline | distilled |
+|---|---|---|---|
+| **A** | **0.152** | **0.852 (5.6×)** | 0.370 (2.4×) |
+| Down | 0.007 | 0.281 | 0.014 |
+| Left | 0.030 | 0.108 | 0.008 |
+
+**The baseline presses A on 85.2% of every frame and spends 85.2% of its frames inside an A-hold.** It
+was not clearing pipes by jumping well; it was airborne almost permanently. Fine-tuning on
+demonstrations whose A-rate is 44% — near the expert's — pulled the marginal down and shortened holds
+everywhere, and the policy lost the level. The demonstrations *were* absorbed. **What broke is that the
+old score depended on the degeneracy they removed.**
+
+This is the always-jump failure mode already recorded twice in this log as understood and fixed. It was
+still in the checkpoint, visible in retained per-frame traces for six reports, and nobody — including
+me — had looked at the A-press rate.
+
+**Cost.** 5.0 minutes of compute for the distillation and eval; the audit is a read over files already
+on disk. The expensive part was six reports of building on an unaudited baseline.
+
+**Downstream effect.** The frontier map is demoted from a description of *the policy* to a description
+of *an always-jump policy*: 29 stuck at pipe 4, 38 clearing it, 67 arrivals, x_median 723, the 17 deaths
+at x≈1,216–1,248, the 11 gap falls, the pipe-3 dwell median of 161 frames. Every number is real and
+every one describes a policy airborne 85% of the time. **New required field: report `a_press_rate`
+beside every clearance figure.** A marginal that far from the expert's is a defect regardless of what
+the clearance rate says.
