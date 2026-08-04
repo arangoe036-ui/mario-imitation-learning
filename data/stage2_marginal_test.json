@@ -1,0 +1,620 @@
+{
+  "n": 200,
+  "measurement_basis": "single_life",
+  "archived_figures_not_reused": {
+    "arm_A_pipe1": 0.295,
+    "arm_B_pipe1": 0.595,
+    "delta_pp": 30.0,
+    "why": "they predate the single-life harness; LEDGER.md \u00a72 forbids comparing across measurement bases, so both arms are re-measured here"
+  },
+  "arms": {
+    "armA_plain_bce": {
+      "n": 200,
+      "measurement_basis": "single_life",
+      "x_median": 435.0,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 46,
+          "n": 200,
+          "rate": 0.23,
+          "ci": [
+            0.1770925624139232,
+            0.2930842807819702
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 0,
+          "n": 200,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.018846005918320894
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 0,
+          "n": 200,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.018846005918320894
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 0,
+          "n": 200,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.018846005918320894
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 95488,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.003,
+          "Left": 0.013,
+          "Right": 0.677,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.744,
+          "A": 0.152
+        },
+        "over_expert": {
+          "Up": 0.02,
+          "Down": 0.4,
+          "Left": 0.44,
+          "Right": 1.49,
+          "Start": null,
+          "Select": null,
+          "B": 1.45,
+          "A": 1.0
+        },
+        "frames_inside_a_hold_pct": 15.2,
+        "a_holds": {
+          "n": 12007,
+          "median": 1.0,
+          "p90": 2.0,
+          "max": 11,
+          "frac_ge_required": 0.0,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "vs_script": {
+        "n": 200,
+        "measurement_basis": "single_life",
+        "per_obstacle": {
+          "pipe1": {
+            "obstacle": "pipe1",
+            "threshold_x": 470,
+            "rate": 0.23,
+            "script_rate": 0.87,
+            "script_arm": "left",
+            "advantage_pp": -64.0,
+            "ci_pp": [
+              -70.61571088650932,
+              -55.717778635609875
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe2": {
+            "obstacle": "pipe2",
+            "threshold_x": 630,
+            "rate": 0.0,
+            "script_rate": 0.825,
+            "script_arm": "left",
+            "advantage_pp": -82.5,
+            "ci_pp": [
+              -87.13955882539106,
+              -76.3400765566278
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe3": {
+            "obstacle": "pipe3",
+            "threshold_x": 735,
+            "rate": 0.0,
+            "script_rate": 0.235,
+            "script_arm": "rng_matched",
+            "advantage_pp": -23.5,
+            "ci_pp": [
+              -29.841492986724656,
+              -17.834695211532235
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe4": {
+            "obstacle": "pipe4",
+            "threshold_x": 975,
+            "rate": 0.0,
+            "script_rate": 0.08,
+            "script_arm": "down",
+            "advantage_pp": -8.0,
+            "ci_pp": [
+              -12.599048979512318,
+              -4.443613942686937
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          }
+        },
+        "beats_script_at": [],
+        "beats_script_at_pipe2": false
+      },
+      "ended": {
+        "died": 58,
+        "stuck": 142
+      },
+      "resumed": true
+    },
+    "armB_onset10x": {
+      "n": 200,
+      "measurement_basis": "single_life",
+      "x_median": 436.0,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 88,
+          "n": 200,
+          "rate": 0.44,
+          "ci": [
+            0.3729770042058236,
+            0.509284516504375
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 2,
+          "n": 200,
+          "rate": 0.01,
+          "ci": [
+            0.0027466006037749346,
+            0.03572248519617954
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 0,
+          "n": 200,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.018846005918320894
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 0,
+          "n": 200,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.018846005918320894
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 100377,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.054,
+          "Left": 0.071,
+          "Right": 0.781,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.874,
+          "A": 0.219
+        },
+        "over_expert": {
+          "Up": 0.13,
+          "Down": 7.68,
+          "Left": 2.37,
+          "Right": 1.72,
+          "Start": null,
+          "Select": null,
+          "B": 1.7,
+          "A": 1.44
+        },
+        "frames_inside_a_hold_pct": 21.9,
+        "a_holds": {
+          "n": 17034,
+          "median": 1.0,
+          "p90": 2.0,
+          "max": 10,
+          "frac_ge_required": 0.0,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "vs_script": {
+        "n": 200,
+        "measurement_basis": "single_life",
+        "per_obstacle": {
+          "pipe1": {
+            "obstacle": "pipe1",
+            "threshold_x": 470,
+            "rate": 0.44,
+            "script_rate": 0.87,
+            "script_arm": "left",
+            "advantage_pp": -43.0,
+            "ci_pp": [
+              -50.790794610750154,
+              -34.236303965596136
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe2": {
+            "obstacle": "pipe2",
+            "threshold_x": 630,
+            "rate": 0.01,
+            "script_rate": 0.825,
+            "script_arm": "left",
+            "advantage_pp": -81.5,
+            "ci_pp": [
+              -86.19591568517532,
+              -75.09614179699852
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe3": {
+            "obstacle": "pipe3",
+            "threshold_x": 735,
+            "rate": 0.0,
+            "script_rate": 0.235,
+            "script_arm": "rng_matched",
+            "advantage_pp": -23.5,
+            "ci_pp": [
+              -29.841492986724656,
+              -17.834695211532235
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe4": {
+            "obstacle": "pipe4",
+            "threshold_x": 975,
+            "rate": 0.0,
+            "script_rate": 0.08,
+            "script_arm": "down",
+            "advantage_pp": -8.0,
+            "ci_pp": [
+              -12.599048979512318,
+              -4.443613942686937
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          }
+        },
+        "beats_script_at": [],
+        "beats_script_at_pipe2": false
+      },
+      "ended": {
+        "died": 51,
+        "stuck": 149
+      },
+      "resumed": true
+    },
+    "armA_plain_bce_A_raised": {
+      "n": 200,
+      "measurement_basis": "single_life",
+      "x_median": 435.0,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 72,
+          "n": 200,
+          "rate": 0.36,
+          "ci": [
+            0.29669087731339805,
+            0.42858600434373184
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 1,
+          "n": 200,
+          "rate": 0.005,
+          "ci": [
+            0.0008831459893662054,
+            0.02777439986977148
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 0,
+          "n": 200,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.018846005918320894
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 0,
+          "n": 200,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.018846005918320894
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 99419,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.003,
+          "Left": 0.013,
+          "Right": 0.676,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.744,
+          "A": 0.217
+        },
+        "over_expert": {
+          "Up": 0.04,
+          "Down": 0.42,
+          "Left": 0.44,
+          "Right": 1.49,
+          "Start": null,
+          "Select": null,
+          "B": 1.45,
+          "A": 1.43
+        },
+        "frames_inside_a_hold_pct": 21.7,
+        "a_holds": {
+          "n": 16459,
+          "median": 1.0,
+          "p90": 2.0,
+          "max": 11,
+          "frac_ge_required": 0.0,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "vs_script": {
+        "n": 200,
+        "measurement_basis": "single_life",
+        "per_obstacle": {
+          "pipe1": {
+            "obstacle": "pipe1",
+            "threshold_x": 470,
+            "rate": 0.36,
+            "script_rate": 0.87,
+            "script_arm": "left",
+            "advantage_pp": -51.0,
+            "ci_pp": [
+              -58.47369461298118,
+              -42.29142228435895
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe2": {
+            "obstacle": "pipe2",
+            "threshold_x": 630,
+            "rate": 0.005,
+            "script_rate": 0.825,
+            "script_arm": "left",
+            "advantage_pp": -82.0,
+            "ci_pp": [
+              -86.65778820511547,
+              -75.70876241652287
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe3": {
+            "obstacle": "pipe3",
+            "threshold_x": 735,
+            "rate": 0.0,
+            "script_rate": 0.235,
+            "script_arm": "rng_matched",
+            "advantage_pp": -23.5,
+            "ci_pp": [
+              -29.841492986724656,
+              -17.834695211532235
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe4": {
+            "obstacle": "pipe4",
+            "threshold_x": 975,
+            "rate": 0.0,
+            "script_rate": 0.08,
+            "script_arm": "down",
+            "advantage_pp": -8.0,
+            "ci_pp": [
+              -12.599048979512318,
+              -4.443613942686937
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          }
+        },
+        "beats_script_at": [],
+        "beats_script_at_pipe2": false
+      },
+      "ended": {
+        "died": 54,
+        "stuck": 146
+      }
+    }
+  },
+  "marginal_intervention": {
+    "target_a_rate": 0.219,
+    "logit_delta": 0.38706821948017023,
+    "offline_fitted_p_a": 0.21899999678134918,
+    "offline_delta_rejected": 0.5160909593068936,
+    "live_calibration": [
+      {
+        "iteration": 0,
+        "delta": 0.5160909593068936,
+        "realised_a_rate": 0.23562741846323937,
+        "probe_n": 40
+      },
+      {
+        "iteration": 1,
+        "delta": 0.2580454796534468,
+        "realised_a_rate": 0.195029974859795,
+        "probe_n": 40
+      },
+      {
+        "iteration": 2,
+        "delta": 0.38706821948017023,
+        "realised_a_rate": 0.2184873949579832,
+        "probe_n": 40
+      }
+    ],
+    "why_live": "the offline fit is taken on rows the expert visits; arm A visits its own states, so an offline-matched delta overshot the live rate (0.349 against a 0.219 target) and the comparison would not have been marginal-matched",
+    "realised_a_rate": 0.217,
+    "realised_vs_target_gap": -0.0020000000000000018
+  },
+  "comparisons": {
+    "onset_reweight_effect_A_to_B": {
+      "pipe1": {
+        "a": 0.23,
+        "b": 0.44,
+        "delta_pp": 21.0,
+        "ci_pp": [
+          11.79581158004431,
+          29.71753473131574
+        ],
+        "excludes_zero": true
+      },
+      "pipe2": {
+        "a": 0.0,
+        "b": 0.01,
+        "delta_pp": 1.0,
+        "ci_pp": [
+          -1.0193655980890246,
+          3.572248519617954
+        ],
+        "excludes_zero": false
+      }
+    },
+    "marginal_only_A_to_Araised": {
+      "pipe1": {
+        "a": 0.23,
+        "b": 0.36,
+        "delta_pp": 12.999999999999998,
+        "ci_pp": [
+          4.062622589861347,
+          21.662122686595367
+        ],
+        "excludes_zero": true
+      },
+      "pipe2": {
+        "a": 0.0,
+        "b": 0.005,
+        "delta_pp": 0.5,
+        "ci_pp": [
+          -1.4290423168459983,
+          2.777439986977148
+        ],
+        "excludes_zero": false
+      }
+    },
+    "residual_Araised_to_B": {
+      "pipe1": {
+        "a": 0.36,
+        "b": 0.44,
+        "delta_pp": 8.000000000000002,
+        "ci_pp": [
+          -1.5896412639183706,
+          17.38530193578887
+        ],
+        "excludes_zero": false
+      },
+      "pipe2": {
+        "a": 0.005,
+        "b": 0.01,
+        "delta_pp": 0.5,
+        "ci_pp": [
+          -1.8901570915515264,
+          3.1049850894247886
+        ],
+        "excludes_zero": false
+      }
+    }
+  },
+  "decomposition": {
+    "total_founding_effect_pp": 21.0,
+    "explained_by_marginal_pp": 12.999999999999998,
+    "share_explained_by_marginal": 0.619047619047619,
+    "residual_pp": 8.000000000000002,
+    "residual_ci_pp": [
+      -1.5896412639183706,
+      17.38530193578887
+    ],
+    "residual_resolved": false,
+    "power_note": "LEDGER.md: ~600 episodes per arm are needed to detect 8 pp. The residual is +8.0 pp at n=200, so this test is underpowered to say whether it is real; it is not evidence that the residual is zero."
+  },
+  "verdict": "MOST OF STAGE 2'S FOUNDING RESULT IS A MARGINAL SHIFT: a single constant added to one logit -- which cannot add state-dependent behaviour -- reproduces +13.0 pp of the +21.0 pp founding effect at pipe 1 (62%), taking arm A from 23.0% to 36.0% at a matched A-rate of 0.217 against arm B's 0.219. The residual against arm B's 44.0% is +8.0 pp [-1.6, +17.4], which does NOT exclude zero and is also NOT shown to be zero -- ~600 episodes per arm would be needed to resolve 8 pp.",
+  "minutes": 6.7
+}

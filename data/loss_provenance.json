@@ -1,0 +1,138 @@
+{
+  "objectives": {
+    "plain_BCE": {
+      "where": "tasdata/bc/bernoulli.py:41 bce_with_onset_weights, onset_weight=1.0",
+      "bias": "none; optimum is the conditional base rate"
+    },
+    "onset_10x": {
+      "where": "same, onset_weight=10.0 (default in overnight_lib.train_policy:186)",
+      "bias": "up-weights onset frames only; onsets are pressed frames"
+    },
+    "onset_10x_sustain_5x": {
+      "where": "scripts/compose.py:62 sustain_loss, ONSET_W=10 SUSTAIN_W=5",
+      "bias": "up-weights onsets AND every sustained press; strongest"
+    }
+  },
+  "default_is_biased": "tasdata/bc/overnight_lib.py:186 train_policy defaults to onset_weight=10.0, so any caller that does not override it trains under a press-weighted objective",
+  "arms": {
+    "stage2 arm A (A_bernoulli_only)": {
+      "loss": "plain_BCE",
+      "bias_rank": 0,
+      "evidence": "tasdata/bc/arms.py:48 TrainConfig(onset_weight=1.0)",
+      "measured_a_rate_n200_single_life": null,
+      "a_rate_source": null,
+      "interpretation": "skill claim admissible; objective is unbiased"
+    },
+    "stage2 arm B (B_bernoulli_onset10x)": {
+      "loss": "onset_10x",
+      "bias_rank": 1,
+      "evidence": "tasdata/bc/arms.py:49 TrainConfig(onset_weight=10.0)",
+      "measured_a_rate_n200_single_life": null,
+      "a_rate_source": null,
+      "interpretation": "marginal-inflating objective: any clearance figure is confounded with the button marginal and must be read beside `vs_script`"
+    },
+    "stage3 round1 (stage3_arm_a)": {
+      "loss": "onset_10x",
+      "bias_rank": 1,
+      "evidence": "scripts/stage3_arm_a.py:168 onset_weight=10.0",
+      "measured_a_rate_n200_single_life": null,
+      "a_rate_source": null,
+      "interpretation": "marginal-inflating objective: any clearance figure is confounded with the button marginal and must be read beside `vs_script`"
+    },
+    "chain arms (earliest/latest, t4 glitch)": {
+      "loss": "onset_10x",
+      "bias_rank": 1,
+      "evidence": "scripts/chain_position.py:96 onset_weight=10.0",
+      "measured_a_rate_n200_single_life": null,
+      "a_rate_source": null,
+      "interpretation": "marginal-inflating objective: any clearance figure is confounded with the button marginal and must be read beside `vs_script`"
+    },
+    "overnight self-imitation rounds (round2/round3, ratio arms)": {
+      "loss": "onset_10x",
+      "bias_rank": 1,
+      "evidence": "scripts/overnight.py:381 onset_weight=10.0",
+      "measured_a_rate_n200_single_life": 0.628,
+      "a_rate_source": "data/p2_marginals.json:round3_ratio1to1",
+      "interpretation": "marginal-inflating objective: any clearance figure is confounded with the button marginal and must be read beside `vs_script`"
+    },
+    "scaling / subset table arms": {
+      "loss": "onset_10x",
+      "bias_rank": 1,
+      "evidence": "scripts/overnight.py:514,539 train_policy(onset_weight=10.0)",
+      "measured_a_rate_n200_single_life": null,
+      "a_rate_source": null,
+      "interpretation": "marginal-inflating objective: any clearance figure is confounded with the button marginal and must be read beside `vs_script`"
+    },
+    "followup sustain arms (a_sustain_and_onset, b_onset3x, d_control_onset10x)": {
+      "loss": "onset_10x_sustain_5x",
+      "bias_rank": 2,
+      "evidence": "scripts/followup.py:227 local sustain_loss(onset_w, sustain_w)",
+      "measured_a_rate_n200_single_life": null,
+      "a_rate_source": null,
+      "interpretation": "marginal-inflating objective: any clearance figure is confounded with the button marginal and must be read beside `vs_script`"
+    },
+    "compose_base / compose_round1-3": {
+      "loss": "onset_10x_sustain_5x",
+      "bias_rank": 2,
+      "evidence": "scripts/compose.py:62,78 sustain_loss; ONSET_W=10, SUSTAIN_W=5",
+      "measured_a_rate_n200_single_life": 0.888,
+      "a_rate_source": "data/p2_marginals.json:compose_round2",
+      "interpretation": "marginal-inflating objective: any clearance figure is confounded with the button marginal and must be read beside `vs_script`"
+    },
+    "compose_top20 (top20_round1-3)": {
+      "loss": "onset_10x_sustain_5x",
+      "bias_rank": 2,
+      "evidence": "scripts/compose_top20.py:27 imports train from scripts.compose",
+      "measured_a_rate_n200_single_life": 0.822,
+      "a_rate_source": "data/p2_marginals.json:top20_round2",
+      "interpretation": "marginal-inflating objective: any clearance figure is confounded with the button marginal and must be read beside `vs_script`"
+    },
+    "compose_survival (surv_round1-3)": {
+      "loss": "onset_10x_sustain_5x",
+      "bias_rank": 2,
+      "evidence": "scripts/compose_survival.py:18 imports train from scripts.compose",
+      "measured_a_rate_n200_single_life": 0.865,
+      "a_rate_source": "data/p2_marginals.json:surv_round2",
+      "interpretation": "marginal-inflating objective: any clearance figure is confounded with the button marginal and must be read beside `vs_script`"
+    },
+    "coverage experiment (B_coverage_x20, C_control_matched)": {
+      "loss": "onset_10x_sustain_5x",
+      "bias_rank": 2,
+      "evidence": "scripts/coverage_experiment.py:26 imports train from scripts.compose",
+      "measured_a_rate_n200_single_life": 0.852,
+      "a_rate_source": "data/p1_script_control.json:policy_baseline_n200",
+      "interpretation": "marginal-inflating objective: any clearance figure is confounded with the button marginal and must be read beside `vs_script`"
+    },
+    "script_net_round1 (sustain arm)": {
+      "loss": "onset_10x_sustain_5x",
+      "bias_rank": 2,
+      "evidence": "scripts/train_script_net.py LOSS=sustain",
+      "measured_a_rate_n200_single_life": 0.97,
+      "a_rate_source": "data/train_script_net.json:eval",
+      "interpretation": "marginal-inflating objective: any clearance figure is confounded with the button marginal and must be read beside `vs_script`"
+    },
+    "script_net (plain arm)": {
+      "loss": "plain_BCE",
+      "bias_rank": 0,
+      "evidence": "scripts/train_script_net.py LOSS=plain",
+      "measured_a_rate_n200_single_life": null,
+      "a_rate_source": null,
+      "interpretation": "skill claim admissible; objective is unbiased"
+    }
+  },
+  "a_rate_ordered_by_bias": true,
+  "ordering_evidence": {
+    "onset_10x": [
+      0.628
+    ],
+    "sustain": [
+      0.822,
+      0.852,
+      0.865,
+      0.888,
+      0.97
+    ]
+  },
+  "conclusion": "Every historical arm in this project was trained under a press-weighted objective. 5 arms used onset-10x and 6 used onset-10x + sustain-5x; the only plain-BCE arms are stage-2 arm A and the new script_net plain arm. The measured A-rate is ordered by press-weighting strength -- onset-10x at [0.628] sits strictly below every sustain arm at [0.822, 0.852, 0.865, 0.888, 0.97] -- which is what the mechanism predicts across arms, not just within one run.",
+  "retraction_scope": "No clearance figure from an onset-10x or sustain arm can be read as a skill claim on its own. It must be reported beside `vs_script`, because the objective moved the marginal and a fixed-rate script with the same marginal already matches or beats these arms at pipes 1-2. Stage-2 arm A is the one historical arm whose objective was unbiased."
+}

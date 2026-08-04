@@ -30,7 +30,8 @@ from torch.utils.data import ConcatDataset, Subset
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import scripts.overnight as O  # noqa: E402
-from scripts.compose import EARLIEST, session_when_free, train  # noqa: E402
+from scripts.compose import EARLIEST, session_when_free  # noqa: E402
+from tasdata.bc.train import make_loader  # noqa: E402
 from scripts.overnight import write_self_run  # noqa: E402
 from scripts.p1_run import episode as traced_episode  # noqa: E402
 from tasdata.bc.overnight_lib import (  # noqa: E402
@@ -52,10 +53,15 @@ ROOT = Path(__file__).resolve().parent.parent
 LIB = ROOT / "data/startlib_policy.json"
 TRACES = ROOT / "data/traces/p1_200.json"
 BASE = ROOT / "data/bc_coverage/C_control_matched_r2.pt"
-NEW = ROOT / "data/bc_coverage/script_net_round1.pt"
+#: The rollout phase is deterministic given the base policy, the start library and the rollout seeds,
+#: so the accepted self-data is identical across loss arms and is reused rather than re-rolled. That
+#: makes the comparison exactly one variable.
 SELFDIR = ROOT / "data/runs_self/script_net_round1"
-OUT = ROOT / "data/train_script_net.json"
-EVAL_TRACES = ROOT / "data/traces/script_net_round1_200.json"
+
+#: Which objective. `plain` is unweighted BCE; `sustain` is the composed recipe's press-weighted loss,
+#: which `data/loss_bias_probe.json` shows inflates every button marginal above the training data's.
+#: Recorded in the artifact, because a number without its loss is not interpretable.
+LOSS = sys.argv[1] if len(sys.argv) > 1 else "plain"
 
 ROLLOUTS_PER_STATE = 8
 ACCEPT_Q = 0.60          # a rollout must land above the 60th percentile of the script from that state
@@ -102,8 +108,54 @@ def policy_rollout(session, policy, cfg, win, seed, record=None):
     return {"max_x": int(maxx), "died": died}
 
 
+def plain_bce(logits, bits, onset):
+    """Unweighted BCE. The optimum is the conditional base rate, which is the point."""
+    return torch.nn.functional.binary_cross_entropy_with_logits(logits, bits.float())
+
+
+def sustain_onset(logits, bits, onset):
+    """The composed recipe's loss. Biased: see data/loss_bias_probe.json."""
+    from scripts.compose import sustain_loss
+    return sustain_loss(logits, bits, onset)
+
+
+LOSSES = {"plain": plain_bce, "sustain": sustain_onset}
+
+
+def train_with(policy, ds, steps, lr, seed, loss_fn, log=print):
+    policy = policy.to(torch.device("cpu"))
+    policy.train()
+    opt = torch.optim.AdamW(policy.parameters(), lr=lr, weight_decay=1e-4)
+    loader = make_loader(ds, batch_size=128, shuffle=True, num_workers=0, seed=seed)
+    step, running = 0, 0.0
+    while step < steps:
+        for obs, _p, bits, onset in loader:
+            loss = loss_fn(policy(obs), bits.float(), onset.float())
+            opt.zero_grad(set_to_none=True)
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(policy.parameters(), 1.0)
+            opt.step()
+            running += float(loss.detach())
+            step += 1
+            if step % 200 == 0:
+                log(f"    step {step}/{steps} loss {running / 200:.4f}")
+                running = 0.0
+            if step >= steps:
+                break
+    policy.eval()
+    return policy
+
+
 def main() -> None:
     t0 = time.time()
+    new_ckpt = ROOT / f"data/bc_coverage/script_net_{LOSS}.pt"
+    out_path = ROOT / f"data/train_script_net_{LOSS}.json"
+    eval_traces = ROOT / f"data/traces/script_net_{LOSS}_200.json"
+    if LOSS not in LOSSES:
+        raise SystemExit(f"loss must be one of {sorted(LOSSES)}")
+    print(f"LOSS ARM: {LOSS}"
+          + ("  (unweighted BCE; optimum is the base rate)" if LOSS == "plain"
+             else "  (BIASED ARM -- press-weighted, inflates every marginal)"), flush=True)
     lib = json.loads(LIB.read_text())
     states = lib["states"]
     table = reach_table()
@@ -120,19 +172,25 @@ def main() -> None:
     print(f"acceptance: reach quantile > {ACCEPT_Q}  (0.5 = matching the canonical script)\n",
           flush=True)
 
-    out = {"base_checkpoint": BASE.name, "label": "SCREEN -- one arm, one training seed",
+    out = {"base_checkpoint": BASE.name, "loss": LOSS, "label": "SCREEN -- one arm, one training seed",
            "start_library": LIB.name, "n_states": len(states),
            "acceptance": {"rule": "per-start script reach quantile", "threshold": ACCEPT_Q,
                           "rollouts_per_state": ROLLOUTS_PER_STATE},
            "training": {"steps": STEPS, "lr": LR, "expert_per_self": EXPERT_PER_SELF,
+                        "loss": LOSS,
                         "note": "expert is a deliberate minority; pulling A toward 0.152 lost the "
                                 "level in 4 of 4 previous schedules"},
            "measurement_basis": "single_life", "seeds_training": 1}
 
+    reuse = (SELFDIR / "frames.npy").exists()
     frames_all, bytes_all, per_state = [], [], []
     s = session_when_free(O.ROM, O.MOVIE, ctx.frames_needed())
     try:
-        for si, stt in enumerate(states):
+        if reuse:
+            print(f"reusing {SELFDIR.name} (rollouts are deterministic given the base policy, "
+                  f"the start library and the rollout seeds -- so this arm differs only in the "
+                  f"loss)", flush=True)
+        for si, stt in enumerate([] if reuse else states):
             key = f"{stt['seed']}:{stt['frame_index']}"
             if key not in table:
                 continue
@@ -175,12 +233,19 @@ def main() -> None:
                 print(f"  {si + 1}/{len(states)} states, accepted {acc}, "
                       f"{sum(len(f) for f in frames_all):,} frames", flush=True)
 
+        if reuse:
+            prev = json.loads((ROOT / "data/train_script_net.json").read_text())
+            out["rollout_summary"] = {**prev["rollout_summary"], "reused_from": "script_net_round1"}
+            per_state = prev["rollout_summary"]["per_state"]
+            print(f"  reused: {prev['rollout_summary']['accepted']} accepted rollouts, "
+                  f"median quantile {prev['rollout_summary']['median_state_quantile']:.3f}",
+                  flush=True)
         n_acc = sum(p["accepted"] for p in per_state)
         q_all = [p["q_median"] for p in per_state]
         print(f"\naccepted {n_acc} of {len(per_state) * ROLLOUTS_PER_STATE} rollouts; "
               f"median per-state reach quantile {np.median(q_all):.3f}", flush=True)
         sat = sum(1 for p in per_state if p["q_max"] >= 1.0)
-        out["rollout_summary"] = {
+        out["rollout_summary"] = out.get("rollout_summary") or {
             "states_scored": len(per_state), "accepted": n_acc,
             "acceptance_rate": n_acc / max(len(per_state) * ROLLOUTS_PER_STATE, 1),
             "median_state_quantile": float(np.median(q_all)),
@@ -190,18 +255,22 @@ def main() -> None:
                                f"unbounded fallback"),
             "per_state": per_state,
         }
-        if not frames_all:
+        if not frames_all and not reuse:
             out["verdict"] = ("NO ROLLOUT BEAT THE SCRIPT from any of the 72 states, so there was "
                               "nothing to train on. Under a degeneracy-proof credit the policy does "
                               "not outperform a fixed-rate script from its own visited states.")
-            OUT.write_text(json.dumps(out, indent=2, default=str))
+            out_path.write_text(json.dumps(out, indent=2, default=str))
             print("\n" + out["verdict"])
             return
 
-        frames = np.concatenate(frames_all)
-        bytes_ = np.concatenate(bytes_all)
-        write_self_run(SELFDIR, frames, bytes_)
-        print(f"wrote {SELFDIR.name}: {len(frames):,} frames, A on "
+        if not reuse:
+            frames = np.concatenate(frames_all)
+            bytes_ = np.concatenate(bytes_all)
+            write_self_run(SELFDIR, frames, bytes_)
+        else:
+            bytes_ = np.load(SELFDIR / "actions.npy")
+            frames = np.load(SELFDIR / "frames.npy", mmap_mode="r")
+        print(f"{'reused' if reuse else 'wrote'} {SELFDIR.name}: {len(frames):,} frames, A on "
               f"{float(((bytes_ & NES_BUTTON_BITS['A']) > 0).mean()) * 100:.1f}%", flush=True)
 
         expert = ctx.dataset([load_run_dir(ROOT / "data/runs" / n) for n in EARLIEST])
@@ -212,17 +281,18 @@ def main() -> None:
               f"(~{STEPS * 128 / max(len(mixed), 1):.1f} epochs)", flush=True)
         out["training"].update({"expert_frames": n_exp, "self_frames": len(selfds),
                                 "epochs": round(STEPS * 128 / max(len(mixed), 1), 1)})
-        policy = train(policy, mixed, STEPS, LR, 0)
+        policy = train_with(policy, mixed, STEPS, LR, 0, LOSSES[LOSS])
         cal, _ = calibrate(policy, expert, ctx.target_rates)
         thr = cal.vector.astype(np.float64)
-        save_policy(NEW, policy, cfg, {n: 0.5 for n in NES_BUTTON_ORDER}, base=BASE.name)
+        save_policy(new_ckpt, policy, cfg, {n: 0.5 for n in NES_BUTTON_ORDER},
+                    base=BASE.name, loss=LOSS)
 
         print(f"\nevaluating n={N_EVAL}, single life, seeds 0-{N_EVAL - 1}", flush=True)
         traces = [traced_episode(s, policy, cfg, thr, start, i) for i in range(N_EVAL)]
     finally:
         s.close()
 
-    write_traces(EVAL_TRACES, traces, checkpoint=NEW.name)
+    write_traces(eval_traces, traces, checkpoint=new_ckpt.name, loss=LOSS)
     xs = [max(f[0] for f in t.frames) for t in traces]
     allf = [f for t in traces for f in t.frames]
     out["eval"] = {"n": N_EVAL, "x_median": float(np.median(xs)), "x_max": int(max(xs)),
@@ -260,10 +330,10 @@ def main() -> None:
         "matter, this corpus and this method did not improve where the credit paid 6.5x. They are "
         "exhausted; the remaining question is a different corpus or a different method.")
     out["minutes"] = round((time.time() - t0) / 60, 1)
-    OUT.write_text(json.dumps(out, indent=2, default=str))
+    out_path.write_text(json.dumps(out, indent=2, default=str))
     print("\n" + "=" * 78)
     print(out["verdict"])
-    print(f"\nwrote {OUT} ({out['minutes']} min)")
+    print(f"\nwrote {out_path} ({out['minutes']} min)")
 
 
 if __name__ == "__main__":
