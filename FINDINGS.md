@@ -161,7 +161,7 @@ Measured per frame with a `grounded` flag (`data/plain_three_seeds.json`, pooled
 | A held while airborne | **87.0%** | — |
 | **A-onsets while grounded, per 1,000 frames** | **2.8** | — |
 
-**2.8 onsets per 1,000 grounded frames is about one jump start every 360 frames.** The policy is not
+**2.8 onsets per 1,000 grounded frames is about one jump start every 352 frames.** The policy is not
 jumping often — **it is staying airborne by never releasing the button.**
 
 **In SMB you must release A to jump again.** This is precisely the pathology that killed "frame-level
