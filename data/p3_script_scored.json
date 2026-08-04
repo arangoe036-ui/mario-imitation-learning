@@ -1,0 +1,479 @@
+{
+  "baseline": {
+    "pipe1": {
+      "obstacle": "pipe1",
+      "threshold_x": 470,
+      "k": 174,
+      "n": 200,
+      "rate": 0.87,
+      "ci": [
+        0.8163353692726989,
+        0.9097185863477437
+      ],
+      "method": "Wilson",
+      "arm": "left",
+      "source": "data/p1_control_ladder.json"
+    },
+    "pipe2": {
+      "obstacle": "pipe2",
+      "threshold_x": 630,
+      "k": 165,
+      "n": 200,
+      "rate": 0.825,
+      "ci": [
+        0.7663545078991807,
+        0.8713955882539106
+      ],
+      "method": "Wilson",
+      "arm": "left",
+      "source": "data/p1_control_ladder.json"
+    },
+    "pipe3": {
+      "obstacle": "pipe3",
+      "threshold_x": 735,
+      "k": 47,
+      "n": 200,
+      "rate": 0.235,
+      "ci": [
+        0.18157345326946356,
+        0.29841492986724655
+      ],
+      "method": "Wilson",
+      "arm": "rng_matched",
+      "source": "data/p1_control_ladder.json"
+    },
+    "pipe4": {
+      "obstacle": "pipe4",
+      "threshold_x": 975,
+      "k": 16,
+      "n": 200,
+      "rate": 0.08,
+      "ci": [
+        0.04984015517626642,
+        0.12599048979512317
+      ],
+      "method": "Wilson",
+      "arm": "down",
+      "source": "data/p1_control_ladder.json"
+    }
+  },
+  "arms": {
+    "C_control_matched_r2": {
+      "n": 200,
+      "measurement_basis": "single_life",
+      "per_obstacle": {
+        "pipe1": {
+          "obstacle": "pipe1",
+          "threshold_x": 470,
+          "rate": 0.73,
+          "script_rate": 0.87,
+          "script_arm": "left",
+          "advantage_pp": -14.000000000000002,
+          "ci_pp": [
+            -21.65466254371362,
+            -6.188263482389108
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": true
+        },
+        "pipe2": {
+          "obstacle": "pipe2",
+          "threshold_x": 630,
+          "rate": 0.685,
+          "script_rate": 0.825,
+          "script_arm": "left",
+          "advantage_pp": -13.99999999999999,
+          "ci_pp": [
+            -22.178439000265662,
+            -5.5828895708933635
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": true
+        },
+        "pipe3": {
+          "obstacle": "pipe3",
+          "threshold_x": 735,
+          "rate": 0.39,
+          "script_rate": 0.235,
+          "script_arm": "rng_matched",
+          "advantage_pp": 15.500000000000004,
+          "ci_pp": [
+            6.424890376663614,
+            24.2316709144636
+          ],
+          "method": "Newcombe",
+          "beats_script": true,
+          "loses_to_script": false
+        },
+        "pipe4": {
+          "obstacle": "pipe4",
+          "threshold_x": 975,
+          "rate": 0.19,
+          "script_rate": 0.08,
+          "script_arm": "down",
+          "advantage_pp": 11.0,
+          "ci_pp": [
+            4.328550837571665,
+            17.71658150679304
+          ],
+          "method": "Newcombe",
+          "beats_script": true,
+          "loses_to_script": false
+        }
+      },
+      "beats_script_at": [
+        "pipe3",
+        "pipe4"
+      ],
+      "beats_script_at_pipe2": false
+    },
+    "round3_ratio1to1": {
+      "n": 200,
+      "measurement_basis": "single_life",
+      "per_obstacle": {
+        "pipe1": {
+          "obstacle": "pipe1",
+          "threshold_x": 470,
+          "rate": 0.815,
+          "script_rate": 0.87,
+          "script_arm": "left",
+          "advantage_pp": -5.500000000000005,
+          "ci_pp": [
+            -12.659865850201502,
+            1.679882743165434
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": false
+        },
+        "pipe2": {
+          "obstacle": "pipe2",
+          "threshold_x": 630,
+          "rate": 0.215,
+          "script_rate": 0.825,
+          "script_arm": "left",
+          "advantage_pp": -61.0,
+          "ci_pp": [
+            -67.91549113254234,
+            -52.46401308958322
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": true
+        },
+        "pipe3": {
+          "obstacle": "pipe3",
+          "threshold_x": 735,
+          "rate": 0.0,
+          "script_rate": 0.235,
+          "script_arm": "rng_matched",
+          "advantage_pp": -23.5,
+          "ci_pp": [
+            -29.841492986724656,
+            -17.834695211532235
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": true
+        },
+        "pipe4": {
+          "obstacle": "pipe4",
+          "threshold_x": 975,
+          "rate": 0.0,
+          "script_rate": 0.08,
+          "script_arm": "down",
+          "advantage_pp": -8.0,
+          "ci_pp": [
+            -12.599048979512318,
+            -4.443613942686937
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": true
+        }
+      },
+      "beats_script_at": [],
+      "beats_script_at_pipe2": false
+    },
+    "compose_round2": {
+      "n": 200,
+      "measurement_basis": "single_life",
+      "per_obstacle": {
+        "pipe1": {
+          "obstacle": "pipe1",
+          "threshold_x": 470,
+          "rate": 0.64,
+          "script_rate": 0.87,
+          "script_arm": "left",
+          "advantage_pp": -23.0,
+          "ci_pp": [
+            -30.925658391137972,
+            -14.700640020793879
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": true
+        },
+        "pipe2": {
+          "obstacle": "pipe2",
+          "threshold_x": 630,
+          "rate": 0.54,
+          "script_rate": 0.825,
+          "script_arm": "left",
+          "advantage_pp": -28.499999999999993,
+          "ci_pp": [
+            -36.82958423677982,
+            -19.54532756710528
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": true
+        },
+        "pipe3": {
+          "obstacle": "pipe3",
+          "threshold_x": 735,
+          "rate": 0.315,
+          "script_rate": 0.235,
+          "script_arm": "rng_matched",
+          "advantage_pp": 8.000000000000002,
+          "ci_pp": [
+            -0.7561032336868251,
+            16.596820187854593
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": false
+        },
+        "pipe4": {
+          "obstacle": "pipe4",
+          "threshold_x": 975,
+          "rate": 0.195,
+          "script_rate": 0.08,
+          "script_arm": "down",
+          "advantage_pp": 11.5,
+          "ci_pp": [
+            4.783754486737321,
+            18.254856807165464
+          ],
+          "method": "Newcombe",
+          "beats_script": true,
+          "loses_to_script": false
+        }
+      },
+      "beats_script_at": [
+        "pipe4"
+      ],
+      "beats_script_at_pipe2": false
+    },
+    "top20_round2": {
+      "n": 200,
+      "measurement_basis": "single_life",
+      "per_obstacle": {
+        "pipe1": {
+          "obstacle": "pipe1",
+          "threshold_x": 470,
+          "rate": 0.83,
+          "script_rate": 0.87,
+          "script_arm": "left",
+          "advantage_pp": -4.0000000000000036,
+          "ci_pp": [
+            -11.042835303067774,
+            3.0500791121500934
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": false
+        },
+        "pipe2": {
+          "obstacle": "pipe2",
+          "threshold_x": 630,
+          "rate": 0.62,
+          "script_rate": 0.825,
+          "script_arm": "left",
+          "advantage_pp": -20.499999999999996,
+          "ci_pp": [
+            -28.809308885284867,
+            -11.789042055853036
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": true
+        },
+        "pipe3": {
+          "obstacle": "pipe3",
+          "threshold_x": 735,
+          "rate": 0.285,
+          "script_rate": 0.235,
+          "script_arm": "rng_matched",
+          "advantage_pp": 4.999999999999999,
+          "ci_pp": [
+            -3.5973053480681196,
+            13.503437131167772
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": false
+        },
+        "pipe4": {
+          "obstacle": "pipe4",
+          "threshold_x": 975,
+          "rate": 0.175,
+          "script_rate": 0.08,
+          "script_arm": "down",
+          "advantage_pp": 9.499999999999998,
+          "ci_pp": [
+            2.96725497128371,
+            16.094626588017658
+          ],
+          "method": "Newcombe",
+          "beats_script": true,
+          "loses_to_script": false
+        }
+      },
+      "beats_script_at": [
+        "pipe4"
+      ],
+      "beats_script_at_pipe2": false
+    },
+    "surv_round2": {
+      "n": 200,
+      "measurement_basis": "single_life",
+      "per_obstacle": {
+        "pipe1": {
+          "obstacle": "pipe1",
+          "threshold_x": 470,
+          "rate": 0.66,
+          "script_rate": 0.87,
+          "script_arm": "left",
+          "advantage_pp": -20.999999999999996,
+          "ci_pp": [
+            -28.885049441983547,
+            -12.79359074563558
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": true
+        },
+        "pipe2": {
+          "obstacle": "pipe2",
+          "threshold_x": 630,
+          "rate": 0.6,
+          "script_rate": 0.825,
+          "script_arm": "left",
+          "advantage_pp": -22.499999999999996,
+          "ci_pp": [
+            -30.828437534673814,
+            -13.716010647414084
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": true
+        },
+        "pipe3": {
+          "obstacle": "pipe3",
+          "threshold_x": 735,
+          "rate": 0.23,
+          "script_rate": 0.235,
+          "script_arm": "rng_matched",
+          "advantage_pp": -0.49999999999999767,
+          "ci_pp": [
+            -8.758722832249795,
+            7.766814608619603
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": false
+        },
+        "pipe4": {
+          "obstacle": "pipe4",
+          "threshold_x": 975,
+          "rate": 0.105,
+          "script_rate": 0.08,
+          "script_arm": "down",
+          "advantage_pp": 2.4999999999999996,
+          "ci_pp": [
+            -3.297174872520607,
+            8.354730873962268
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": false
+        }
+      },
+      "beats_script_at": [],
+      "beats_script_at_pipe2": false
+    },
+    "surv_round3": {
+      "n": 200,
+      "measurement_basis": "single_life",
+      "per_obstacle": {
+        "pipe1": {
+          "obstacle": "pipe1",
+          "threshold_x": 470,
+          "rate": 0.58,
+          "script_rate": 0.87,
+          "script_arm": "left",
+          "advantage_pp": -29.000000000000004,
+          "ci_pp": [
+            -36.98583681911974,
+            -20.473003924331778
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": true
+        },
+        "pipe2": {
+          "obstacle": "pipe2",
+          "threshold_x": 630,
+          "rate": 0.555,
+          "script_rate": 0.825,
+          "script_arm": "left",
+          "advantage_pp": -26.99999999999999,
+          "ci_pp": [
+            -35.33704995273155,
+            -18.081207275893806
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": true
+        },
+        "pipe3": {
+          "obstacle": "pipe3",
+          "threshold_x": 735,
+          "rate": 0.32,
+          "script_rate": 0.235,
+          "script_arm": "rng_matched",
+          "advantage_pp": 8.500000000000002,
+          "ci_pp": [
+            -0.2808194726253918,
+            17.110100013061075
+          ],
+          "method": "Newcombe",
+          "beats_script": false,
+          "loses_to_script": false
+        },
+        "pipe4": {
+          "obstacle": "pipe4",
+          "threshold_x": 975,
+          "rate": 0.24,
+          "script_rate": 0.08,
+          "script_arm": "down",
+          "advantage_pp": 15.999999999999998,
+          "ci_pp": [
+            8.911925218094542,
+            23.051044200207166
+          ],
+          "method": "Newcombe",
+          "beats_script": true,
+          "loses_to_script": false
+        }
+      },
+      "beats_script_at": [
+        "pipe4"
+      ],
+      "beats_script_at_pipe2": false
+    }
+  }
+}

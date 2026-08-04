@@ -240,8 +240,14 @@ def eval_live(session, policy, thresholds_vec, starts, vocab, cfg, *, seeds: int
             continue
         xs = [e.furthest_x for e in eps]
         k1 = sum(e.cleared_pipe1 for e in eps)
+        # §3: a raw clearance rate cannot distinguish learning from a tuned button marginal, so
+        # every obstacle is also reported net of the best fixed-rate script. Required field.
+        from .pipe4_metrics import PIPE_THRESHOLDS, clearance
+        from .script_baseline import vs_script
         out[start.label] = {
             "n": len(eps),
+            "clearance": clearance(xs, PIPE_THRESHOLDS),
+            "vs_script": vs_script(xs),
             "pipe1_k": k1, "pipe1_rate": k1 / len(eps), "pipe1_ci": wilson(k1, len(eps)),
             "x_median": float(np.median(xs)), "x_median_ci": boot_ci(xs),
             "x_mean": float(np.mean(xs)), "x_p90": float(np.percentile(xs, 90)),

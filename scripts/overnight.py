@@ -232,7 +232,7 @@ def tier1(ctx) -> dict:
 # ------------------------------------------------------------------ TIER 2
 
 def rollout_round(ctx, session, policy, cfg, thr, rnd: int, *, episodes: int = 150,
-                  accept_frac: float = 0.25, min_progress: int = 120,
+                  accept_frac: float = 0.25, min_credit: float = 0.0,
                   max_frames: int = 500):
     """Score rollouts, accept the best, re-roll those with recording."""
     from tasdata.bc.session_player import play_episode
@@ -241,6 +241,7 @@ def rollout_round(ctx, session, policy, cfg, thr, rnd: int, *, episodes: int = 1
     picks = [ctx.traj[i] for i in
              rng.choice(len(ctx.traj), size=min(episodes, len(ctx.traj)), replace=False)]
     scored = []
+    unbaselined = 0
     for k, start in enumerate(picks):
         try:
             ep = play_episode(session, policy, start, ctx.vocab, seed=rnd * 10_000 + k,
@@ -248,11 +249,27 @@ def rollout_round(ctx, session, policy, cfg, thr, rnd: int, *, episodes: int = 1
                               stack=cfg.stack, max_frames=max_frames)
         except Exception:
             continue
-        gained = ep.max_x_by_level.get(start.label, start.x) - start.x
-        score = gained + 4000 * max(0, ep.levels_reached - 1) - 2000 * ep.deaths
+        # §3: the old score was `gained + 4000*levels - 2000*deaths`, and `gained` is maximised by
+        # raising the A-rate -- a three-button script with A at p=0.85 matches or beats every learned
+        # checkpoint at pipes 1 and 2. Selecting on progress-from-start therefore selected for the
+        # marginal. Obstacle credit net of the best fixed-rate script makes that worth ~nothing.
+        from tasdata.bc.script_baseline import rollout_credit
+        max_x = ep.max_x_by_level.get(start.label, start.x)
+        credit = rollout_credit(max_x, ep.deaths, label=start.label)
+        if credit is None:
+            # no measured script baseline for this level; dropping it beats scoring it on progress
+            unbaselined += 1
+            continue
+        score = credit + 4.0 * max(0, ep.levels_reached - 1)
         scored.append((score, k, start))
     scores = np.array([s for s, _, _ in scored], dtype=float)
-    cutoff = max(float(np.quantile(scores, 1 - accept_frac)), min_progress)
+    # `min_progress=120` was 120 *pixels*; script-net credit runs 0-4, so that floor would have
+    # rejected every rollout. The floor is now a credit floor.
+    if not len(scores):
+        return {"acceptance_rate": 0.0, "accepted": 0, "scored": 0, "cutoff": None,
+                "score_median": None, "score_p90": None, "unbaselined_dropped": unbaselined,
+                "scoring": "script_net_obstacle_credit"}, [], []
+    cutoff = max(float(np.quantile(scores, 1 - accept_frac)), min_credit)
     accepted = [t for t in scored if t[0] >= cutoff]
 
     frames, bytes_ = [], []
@@ -272,6 +289,9 @@ def rollout_round(ctx, session, policy, cfg, thr, rnd: int, *, episodes: int = 1
         "accepted": len(accepted), "scored": len(scored),
         "cutoff": cutoff, "score_median": float(np.median(scores)),
         "score_p90": float(np.percentile(scores, 90)),
+        # §3 bookkeeping: what the new signal refused to score, and under which rule
+        "unbaselined_dropped": unbaselined,
+        "scoring": "script_net_obstacle_credit (1 - p_script per obstacle cleared)",
     }, frames, bytes_
 
 

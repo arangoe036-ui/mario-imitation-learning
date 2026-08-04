@@ -1,0 +1,925 @@
+{
+  "n": 200,
+  "measurement_basis": "single_life",
+  "seeds": "0-199",
+  "thresholds": {
+    "pipe1": 470,
+    "pipe2": 630,
+    "pipe3": 735,
+    "pipe4": 975
+  },
+  "arm_rates": {
+    "left": {
+      "p_A": 0.85,
+      "p_Left": 0.135,
+      "p_Down": 0.0,
+      "rng_matched": false
+    },
+    "down": {
+      "p_A": 0.85,
+      "p_Left": 0.0,
+      "p_Down": 0.086,
+      "rng_matched": false
+    },
+    "match_top20": {
+      "p_A": 0.85,
+      "p_Left": 0.135,
+      "p_Down": 0.086,
+      "rng_matched": false
+    },
+    "rng_matched": {
+      "p_A": 0.85,
+      "p_Left": 0.0,
+      "p_Down": 0.0,
+      "rng_matched": true
+    }
+  },
+  "policy": {
+    "checkpoint": "C_control_matched_r2.pt",
+    "clearance": {
+      "pipe1": {
+        "threshold_x": 470,
+        "k": 146,
+        "n": 200,
+        "rate": 0.73,
+        "ci": [
+          0.664564384587978,
+          0.7867664526895944
+        ],
+        "method": "Wilson"
+      },
+      "pipe2": {
+        "threshold_x": 630,
+        "k": 137,
+        "n": 200,
+        "rate": 0.685,
+        "ci": [
+          0.617649158589664,
+          0.7453778192205573
+        ],
+        "method": "Wilson"
+      },
+      "pipe3": {
+        "threshold_x": 735,
+        "k": 78,
+        "n": 200,
+        "rate": 0.39,
+        "ci": [
+          0.325082297194914,
+          0.45906382410711677
+        ],
+        "method": "Wilson"
+      },
+      "pipe4": {
+        "threshold_x": 975,
+        "k": 38,
+        "n": 200,
+        "rate": 0.19,
+        "ci": [
+          0.14167093792456506,
+          0.250013585744794
+        ],
+        "method": "Wilson"
+      }
+    }
+  },
+  "script_p085_left0_down0": {
+    "clearance": {
+      "pipe1": {
+        "threshold_x": 470,
+        "k": 145,
+        "n": 200,
+        "rate": 0.725,
+        "ci": [
+          0.6593153404748534,
+          0.7822039568619022
+        ],
+        "method": "Wilson"
+      },
+      "pipe2": {
+        "threshold_x": 630,
+        "k": 137,
+        "n": 200,
+        "rate": 0.685,
+        "ci": [
+          0.617649158589664,
+          0.7453778192205573
+        ],
+        "method": "Wilson"
+      },
+      "pipe3": {
+        "threshold_x": 735,
+        "k": 26,
+        "n": 200,
+        "rate": 0.13,
+        "ci": [
+          0.09028141365225628,
+          0.18366463072730121
+        ],
+        "method": "Wilson"
+      },
+      "pipe4": {
+        "threshold_x": 975,
+        "k": 8,
+        "n": 200,
+        "rate": 0.04,
+        "ci": [
+          0.02040538715065641,
+          0.07693293829419882
+        ],
+        "method": "Wilson"
+      }
+    }
+  },
+  "overlap_test_defect": "The paired-seed episode-set test cannot detect coincidence between the policy and the plain script: the policy draws rng.random(8) per frame, the script drew rng.random() once, so the streams diverge at frame 1 and identical behaviour would still give independent episode sets. The rng_matched arm repairs this.",
+  "arms": {
+    "left": {
+      "rates": {
+        "A": 0.85,
+        "Left": 0.135,
+        "Down": 0.0
+      },
+      "rng_matched": false,
+      "n": 200,
+      "x_median": 723.0,
+      "x_max": 2023,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 174,
+          "n": 200,
+          "rate": 0.87,
+          "ci": [
+            0.8163353692726989,
+            0.9097185863477437
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 165,
+          "n": 200,
+          "rate": 0.825,
+          "ci": [
+            0.7663545078991807,
+            0.8713955882539106
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 44,
+          "n": 200,
+          "rate": 0.22,
+          "ci": [
+            0.16816453539463405,
+            0.2823892279196257
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 12,
+          "n": 200,
+          "rate": 0.06,
+          "ci": [
+            0.0346518499012715,
+            0.10193263530685089
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 139246,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.135,
+          "Right": 1.0,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 1.0,
+          "A": 0.85
+        },
+        "over_expert": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 4.5,
+          "Right": 2.21,
+          "Start": null,
+          "Select": null,
+          "B": 1.95,
+          "A": 5.59
+        },
+        "frames_inside_a_hold_pct": 85.0,
+        "a_holds": {
+          "n": 17717,
+          "median": 5.0,
+          "p90": 15.0,
+          "max": 71,
+          "frac_ge_required": 0.16752271829316476,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "vs_policy": {
+        "pipe1": {
+          "script": 0.87,
+          "policy": 0.73,
+          "policy_minus_script_pp": -14.000000000000002,
+          "ci_pp": [
+            -21.65466254371362,
+            -6.188263482389108
+          ],
+          "gap_remains": false
+        },
+        "pipe2": {
+          "script": 0.825,
+          "policy": 0.685,
+          "policy_minus_script_pp": -13.99999999999999,
+          "ci_pp": [
+            -22.178439000265662,
+            -5.5828895708933635
+          ],
+          "gap_remains": false
+        },
+        "pipe3": {
+          "script": 0.22,
+          "policy": 0.39,
+          "policy_minus_script_pp": 17.0,
+          "ci_pp": [
+            7.996265276066565,
+            25.635234328698274
+          ],
+          "gap_remains": true
+        },
+        "pipe4": {
+          "script": 0.06,
+          "policy": 0.19,
+          "policy_minus_script_pp": 13.0,
+          "ci_pp": [
+            6.601528194272792,
+            19.514721166232217
+          ],
+          "gap_remains": true
+        }
+      },
+      "overlap_with_policy": {
+        "pipe1": {
+          "n_common_seeds": 200,
+          "a_clears": 174,
+          "b_clears": 146,
+          "both": 127,
+          "a_only": 47,
+          "b_only": 19,
+          "jaccard": 0.6580310880829016,
+          "expected_if_independent": 127.0,
+          "excess_over_independence": -0.0
+        },
+        "pipe2": {
+          "n_common_seeds": 200,
+          "a_clears": 165,
+          "b_clears": 137,
+          "both": 113,
+          "a_only": 52,
+          "b_only": 24,
+          "jaccard": 0.5978835978835979,
+          "expected_if_independent": 113.0,
+          "excess_over_independence": -0.0
+        },
+        "pipe3": {
+          "n_common_seeds": 200,
+          "a_clears": 44,
+          "b_clears": 78,
+          "both": 18,
+          "a_only": 26,
+          "b_only": 60,
+          "jaccard": 0.17307692307692307,
+          "expected_if_independent": 17.2,
+          "excess_over_independence": 0.8
+        },
+        "pipe4": {
+          "n_common_seeds": 200,
+          "a_clears": 12,
+          "b_clears": 38,
+          "both": 1,
+          "a_only": 11,
+          "b_only": 37,
+          "jaccard": 0.02040816326530612,
+          "expected_if_independent": 2.3,
+          "excess_over_independence": -1.3
+        }
+      }
+    },
+    "down": {
+      "rates": {
+        "A": 0.85,
+        "Left": 0.0,
+        "Down": 0.086
+      },
+      "rng_matched": false,
+      "n": 200,
+      "x_median": 723.0,
+      "x_max": 2019,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 162,
+          "n": 200,
+          "rate": 0.81,
+          "ci": [
+            0.7499864142552062,
+            0.8583290620754351
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 153,
+          "n": 200,
+          "rate": 0.765,
+          "ci": [
+            0.7015850701327535,
+            0.8184265467305365
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 41,
+          "n": 200,
+          "rate": 0.205,
+          "ci": [
+            0.15486094831106376,
+            0.26625819518074556
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 16,
+          "n": 200,
+          "rate": 0.08,
+          "ci": [
+            0.04984015517626642,
+            0.12599048979512317
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 127278,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.088,
+          "Left": 0.0,
+          "Right": 1.0,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 1.0,
+          "A": 0.85
+        },
+        "over_expert": {
+          "Up": 0.0,
+          "Down": 12.52,
+          "Left": 0.0,
+          "Right": 2.21,
+          "Start": null,
+          "Select": null,
+          "B": 1.95,
+          "A": 5.59
+        },
+        "frames_inside_a_hold_pct": 85.0,
+        "a_holds": {
+          "n": 16211,
+          "median": 5.0,
+          "p90": 15.0,
+          "max": 61,
+          "frac_ge_required": 0.16846585651717969,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "vs_policy": {
+        "pipe1": {
+          "script": 0.81,
+          "policy": 0.73,
+          "policy_minus_script_pp": -8.000000000000007,
+          "ci_pp": [
+            -16.13481284691991,
+            0.2607872656954918
+          ],
+          "gap_remains": false
+        },
+        "pipe2": {
+          "script": 0.765,
+          "policy": 0.685,
+          "policy_minus_script_pp": -7.9999999999999964,
+          "ci_pp": [
+            -16.5968201878546,
+            0.7561032336868306
+          ],
+          "gap_remains": false
+        },
+        "pipe3": {
+          "script": 0.205,
+          "policy": 0.39,
+          "policy_minus_script_pp": 18.500000000000004,
+          "ci_pp": [
+            9.574264952234024,
+            27.034480830469178
+          ],
+          "gap_remains": true
+        },
+        "pipe4": {
+          "script": 0.08,
+          "policy": 0.19,
+          "policy_minus_script_pp": 11.0,
+          "ci_pp": [
+            4.328550837571665,
+            17.71658150679304
+          ],
+          "gap_remains": true
+        }
+      },
+      "overlap_with_policy": {
+        "pipe1": {
+          "n_common_seeds": 200,
+          "a_clears": 162,
+          "b_clears": 146,
+          "both": 118,
+          "a_only": 44,
+          "b_only": 28,
+          "jaccard": 0.6210526315789474,
+          "expected_if_independent": 118.3,
+          "excess_over_independence": -0.3
+        },
+        "pipe2": {
+          "n_common_seeds": 200,
+          "a_clears": 153,
+          "b_clears": 137,
+          "both": 106,
+          "a_only": 47,
+          "b_only": 31,
+          "jaccard": 0.5760869565217391,
+          "expected_if_independent": 104.8,
+          "excess_over_independence": 1.2
+        },
+        "pipe3": {
+          "n_common_seeds": 200,
+          "a_clears": 41,
+          "b_clears": 78,
+          "both": 23,
+          "a_only": 18,
+          "b_only": 55,
+          "jaccard": 0.23958333333333334,
+          "expected_if_independent": 16.0,
+          "excess_over_independence": 7.0
+        },
+        "pipe4": {
+          "n_common_seeds": 200,
+          "a_clears": 16,
+          "b_clears": 38,
+          "both": 4,
+          "a_only": 12,
+          "b_only": 34,
+          "jaccard": 0.08,
+          "expected_if_independent": 3.0,
+          "excess_over_independence": 1.0
+        }
+      }
+    },
+    "match_top20": {
+      "rates": {
+        "A": 0.85,
+        "Left": 0.135,
+        "Down": 0.086
+      },
+      "rng_matched": false,
+      "n": 200,
+      "x_median": 722.0,
+      "x_max": 3266,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 164,
+          "n": 200,
+          "rate": 0.82,
+          "ci": [
+            0.7608840628376157,
+            0.8670544933746589
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 146,
+          "n": 200,
+          "rate": 0.73,
+          "ci": [
+            0.664564384587978,
+            0.7867664526895944
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 43,
+          "n": 200,
+          "rate": 0.215,
+          "ci": [
+            0.16371792563672208,
+            0.2770242977367209
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 13,
+          "n": 200,
+          "rate": 0.065,
+          "ci": [
+            0.03837598764975976,
+            0.10802003749917945
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 132906,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.086,
+          "Left": 0.136,
+          "Right": 1.0,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 1.0,
+          "A": 0.848
+        },
+        "over_expert": {
+          "Up": 0.0,
+          "Down": 12.34,
+          "Left": 4.52,
+          "Right": 2.21,
+          "Start": null,
+          "Select": null,
+          "B": 1.95,
+          "A": 5.58
+        },
+        "frames_inside_a_hold_pct": 84.8,
+        "a_holds": {
+          "n": 17078,
+          "median": 5.0,
+          "p90": 15.0,
+          "max": 60,
+          "frac_ge_required": 0.1647733926689308,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "vs_policy": {
+        "pipe1": {
+          "script": 0.82,
+          "policy": 0.73,
+          "policy_minus_script_pp": -8.999999999999996,
+          "ci_pp": [
+            -17.059742620639863,
+            -0.8041936470247563
+          ],
+          "gap_remains": false
+        },
+        "pipe2": {
+          "script": 0.73,
+          "policy": 0.685,
+          "policy_minus_script_pp": -4.499999999999993,
+          "ci_pp": [
+            -13.308272242409517,
+            4.40353908183727
+          ],
+          "gap_remains": false
+        },
+        "pipe3": {
+          "script": 0.215,
+          "policy": 0.39,
+          "policy_minus_script_pp": 17.5,
+          "ci_pp": [
+            8.521513687027825,
+            26.102129359233984
+          ],
+          "gap_remains": true
+        },
+        "pipe4": {
+          "script": 0.065,
+          "policy": 0.19,
+          "policy_minus_script_pp": 12.5,
+          "ci_pp": [
+            6.029743538682528,
+            19.06541583418254
+          ],
+          "gap_remains": true
+        }
+      },
+      "overlap_with_policy": {
+        "pipe1": {
+          "n_common_seeds": 200,
+          "a_clears": 164,
+          "b_clears": 146,
+          "both": 120,
+          "a_only": 44,
+          "b_only": 26,
+          "jaccard": 0.631578947368421,
+          "expected_if_independent": 119.7,
+          "excess_over_independence": 0.3
+        },
+        "pipe2": {
+          "n_common_seeds": 200,
+          "a_clears": 146,
+          "b_clears": 137,
+          "both": 100,
+          "a_only": 46,
+          "b_only": 37,
+          "jaccard": 0.546448087431694,
+          "expected_if_independent": 100.0,
+          "excess_over_independence": -0.0
+        },
+        "pipe3": {
+          "n_common_seeds": 200,
+          "a_clears": 43,
+          "b_clears": 78,
+          "both": 15,
+          "a_only": 28,
+          "b_only": 63,
+          "jaccard": 0.14150943396226415,
+          "expected_if_independent": 16.8,
+          "excess_over_independence": -1.8
+        },
+        "pipe4": {
+          "n_common_seeds": 200,
+          "a_clears": 13,
+          "b_clears": 38,
+          "both": 2,
+          "a_only": 11,
+          "b_only": 36,
+          "jaccard": 0.04081632653061224,
+          "expected_if_independent": 2.5,
+          "excess_over_independence": -0.5
+        }
+      }
+    },
+    "rng_matched": {
+      "rates": {
+        "A": 0.85,
+        "Left": 0.0,
+        "Down": 0.0
+      },
+      "rng_matched": true,
+      "n": 200,
+      "x_median": 722.0,
+      "x_max": 2023,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 156,
+          "n": 200,
+          "rate": 0.78,
+          "ci": [
+            0.7176107720803744,
+            0.8318354646053661
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 151,
+          "n": 200,
+          "rate": 0.755,
+          "ci": [
+            0.6909563161285153,
+            0.809432220853141
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 47,
+          "n": 200,
+          "rate": 0.235,
+          "ci": [
+            0.18157345326946356,
+            0.29841492986724655
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 13,
+          "n": 200,
+          "rate": 0.065,
+          "ci": [
+            0.03837598764975976,
+            0.10802003749917945
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 128329,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 1.0,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 1.0,
+          "A": 0.851
+        },
+        "over_expert": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 2.21,
+          "Start": null,
+          "Select": null,
+          "B": 1.95,
+          "A": 5.6
+        },
+        "frames_inside_a_hold_pct": 85.1,
+        "a_holds": {
+          "n": 16245,
+          "median": 5.0,
+          "p90": 15.0,
+          "max": 88,
+          "frac_ge_required": 0.16928285626346568,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "vs_policy": {
+        "pipe1": {
+          "script": 0.78,
+          "policy": 0.73,
+          "policy_minus_script_pp": -5.000000000000004,
+          "ci_pp": [
+            -13.347895037196034,
+            3.434954600569558
+          ],
+          "gap_remains": false
+        },
+        "pipe2": {
+          "script": 0.755,
+          "policy": 0.685,
+          "policy_minus_script_pp": -6.999999999999995,
+          "ci_pp": [
+            -15.659678115083352,
+            1.801746700320897
+          ],
+          "gap_remains": false
+        },
+        "pipe3": {
+          "script": 0.235,
+          "policy": 0.39,
+          "policy_minus_script_pp": 15.500000000000004,
+          "ci_pp": [
+            6.424890376663614,
+            24.2316709144636
+          ],
+          "gap_remains": true
+        },
+        "pipe4": {
+          "script": 0.065,
+          "policy": 0.19,
+          "policy_minus_script_pp": 12.5,
+          "ci_pp": [
+            6.029743538682528,
+            19.06541583418254
+          ],
+          "gap_remains": true
+        }
+      },
+      "overlap_with_policy": {
+        "pipe1": {
+          "n_common_seeds": 200,
+          "a_clears": 156,
+          "b_clears": 146,
+          "both": 115,
+          "a_only": 41,
+          "b_only": 31,
+          "jaccard": 0.6149732620320856,
+          "expected_if_independent": 113.9,
+          "excess_over_independence": 1.1
+        },
+        "pipe2": {
+          "n_common_seeds": 200,
+          "a_clears": 151,
+          "b_clears": 137,
+          "both": 104,
+          "a_only": 47,
+          "b_only": 33,
+          "jaccard": 0.5652173913043478,
+          "expected_if_independent": 103.4,
+          "excess_over_independence": 0.6
+        },
+        "pipe3": {
+          "n_common_seeds": 200,
+          "a_clears": 47,
+          "b_clears": 78,
+          "both": 21,
+          "a_only": 26,
+          "b_only": 57,
+          "jaccard": 0.20192307692307693,
+          "expected_if_independent": 18.3,
+          "excess_over_independence": 2.7
+        },
+        "pipe4": {
+          "n_common_seeds": 200,
+          "a_clears": 13,
+          "b_clears": 38,
+          "both": 3,
+          "a_only": 10,
+          "b_only": 35,
+          "jaccard": 0.0625,
+          "expected_if_independent": 2.5,
+          "excess_over_independence": 0.5
+        }
+      }
+    }
+  },
+  "verdict": {
+    "question": "Does adding Left at p~0.15 (or Down, or both) close the pipe-3 gap?",
+    "best_script_arm_at_pipe3": "rng_matched",
+    "pipe3": {
+      "script": 0.235,
+      "policy": 0.39,
+      "policy_minus_script_pp": 15.500000000000004,
+      "ci_pp": [
+        6.424890376663614,
+        24.2316709144636
+      ],
+      "gap_remains": true
+    },
+    "pipe4": {
+      "script": 0.065,
+      "policy": 0.19,
+      "policy_minus_script_pp": 12.5,
+      "ci_pp": [
+        6.029743538682528,
+        19.06541583418254
+      ],
+      "gap_remains": true
+    },
+    "answer": "NO -- the gap remains",
+    "statement": "THE PIPE-3/4 ADVANTAGE IS REAL: the best script arm `rng_matched` still trails by +15.5 pp [+6.4, +24.2] at pipe 3 and +12.5 pp [+6.0, +19.1] at pipe 4, with every button marginal matched. Pipes 3 and 4 are state-conditional wins and are the whole of what this project has earned."
+  },
+  "overlap_conclusion": {
+    "arm": "rng_matched",
+    "n_common_seeds": 200,
+    "a_clears": 151,
+    "b_clears": 137,
+    "both": 104,
+    "a_only": 47,
+    "b_only": 33,
+    "jaccard": 0.5652173913043478,
+    "expected_if_independent": 103.4,
+    "excess_over_independence": 0.6,
+    "reading": "104 of the pipe-2 clears coincide against 103.4 expected under independence (excess +0.6). With the RNG consumed identically, a policy behaving as the script would coincide almost exactly; it does not, so the policy matches the script's rate at pipe 2 while clearing a different set of episodes."
+  },
+  "minutes": 6.3
+}

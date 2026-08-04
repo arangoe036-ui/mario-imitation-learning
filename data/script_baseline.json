@@ -1,0 +1,69 @@
+{
+  "note": "best fixed-rate script clearance per obstacle; the opponent is the strongest script at each obstacle, taken independently per obstacle",
+  "arms_considered": [
+    "data/p2_marginals.json:script_p0.85 (n=200)",
+    "data/p1_control_ladder.json:left (n=200)",
+    "data/p1_control_ladder.json:down (n=200)",
+    "data/p1_control_ladder.json:match_top20 (n=200)",
+    "data/p1_control_ladder.json:rng_matched (n=200)"
+  ],
+  "measurement_basis": "single_life",
+  "baseline": {
+    "pipe1": {
+      "obstacle": "pipe1",
+      "threshold_x": 470,
+      "k": 174,
+      "n": 200,
+      "rate": 0.87,
+      "ci": [
+        0.8163353692726989,
+        0.9097185863477437
+      ],
+      "method": "Wilson",
+      "arm": "left",
+      "source": "data/p1_control_ladder.json"
+    },
+    "pipe2": {
+      "obstacle": "pipe2",
+      "threshold_x": 630,
+      "k": 165,
+      "n": 200,
+      "rate": 0.825,
+      "ci": [
+        0.7663545078991807,
+        0.8713955882539106
+      ],
+      "method": "Wilson",
+      "arm": "left",
+      "source": "data/p1_control_ladder.json"
+    },
+    "pipe3": {
+      "obstacle": "pipe3",
+      "threshold_x": 735,
+      "k": 47,
+      "n": 200,
+      "rate": 0.235,
+      "ci": [
+        0.18157345326946356,
+        0.29841492986724655
+      ],
+      "method": "Wilson",
+      "arm": "rng_matched",
+      "source": "data/p1_control_ladder.json"
+    },
+    "pipe4": {
+      "obstacle": "pipe4",
+      "threshold_x": 975,
+      "k": 16,
+      "n": 200,
+      "rate": 0.08,
+      "ci": [
+        0.04984015517626642,
+        0.12599048979512317
+      ],
+      "method": "Wilson",
+      "arm": "down",
+      "source": "data/p1_control_ladder.json"
+    }
+  }
+}

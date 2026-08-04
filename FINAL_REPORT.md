@@ -919,3 +919,91 @@ about button marginals, and none of them beats a three-button script. **The lear
 demonstrated value is at pipes 3 and 4**: +26.0 and +15.0 pp over the best script, reproduced across four
 independent checkpoints. If the project restarts from a different objective, that is the result worth
 carrying forward, and the always-jump marginal is the thing to design against.
+
+---
+
+## The pipe-3 advantage survives every fixed-rate control, and the objective gets rebuilt around it
+
+**What changed.** Three things. The control ladder was climbed to its last rung — scripts with Left, with
+Down, and with *every* button marginal matched to a real checkpoint — and none of them closed the pipe-3
+gap. The A-rate was plotted against x, showing the policy is not a fixed-rate agent. And the project's
+scoring function was replaced: every clearance is now measured **net of the best fixed-rate script at that
+obstacle**, in both the reporting path and the self-imitation training signal.
+
+**How we got there, including the wrong turns.**
+
+The previous entry found a three-button script matching the policy at pipe 2 (137/200 vs 137/200) and
+losing badly at pipes 3–4. Two readings were possible: the policy has real state-conditional skill past
+pipe 3, or it just presses Left and Down sometimes — which the script never did. So the ladder was
+extended.
+
+Three corrections came out of it:
+
+1. **"Pipe 2 is a tie" was wrong.** Adding Left at the policy's own rate (0.135) took the script from
+   68.5% to **82.5%** at pipe 2. The tie was an artefact of testing a weaker script; the script actually
+   **wins** pipe 2 by 14.0 pp. The retraction was under-reported, not over-reported.
+2. **The episode-overlap test could not work as designed.** The plan was to check whether the *same*
+   seeds clear pipe 2 in both arms — coinciding sets would mean the policy is *behaving as* the script.
+   But the policy draws `rng.random(8)` per frame (one uniform per button) while the script drew
+   `rng.random()` once, so the streams diverge at frame 1 and **identical behaviour would still produce
+   independent episode sets.** The test was structurally incapable of detecting what it was for. Repaired
+   with an arm that consumes eight uniforms per frame and reads A from slot 7.
+3. **`min_progress=120` was 120 pixels.** The replacement credit runs 0–4, so the old floor would have
+   silently rejected every rollout and self-imitation would have accepted nothing. Caught while wiring.
+
+**Numbers.** n=200, single life, seeds 0–199 throughout. Rates matched to `top20_round2`.
+
+| arm | A | Left | Down | pipe1 | pipe2 | pipe3 | pipe4 | pipe-3 gap vs policy |
+|---|---|---|---|---|---|---|---|---|
+| script (plain) | 0.850 | 0 | 0 | 72.5 | 68.5 | 13.0 | 4.0 | +26.0 [+17.6, +34.0] |
+| **left** | 0.850 | 0.135 | 0 | **87.0** | **82.5** | 22.0 | 6.0 | **+17.0 [+8.0, +25.6]** |
+| down | 0.850 | 0 | 0.088 | 81.0 | 76.5 | 20.5 | 8.0 | **+18.5 [+9.6, +27.0]** |
+| match_top20 | 0.848 | 0.136 | 0.086 | 82.0 | 73.0 | 21.5 | 6.5 | **+17.5 [+8.5, +26.1]** |
+| rng_matched | 0.851 | 0 | 0 | 78.0 | 75.5 | 23.5 | 6.5 | **+15.5 [+6.4, +24.2]** |
+| *policy* | *0.852* | *0.108* | *0.281* | *73.0* | *68.5* | ***39.0*** | ***19.0*** | — |
+
+**No arm closes it.** Every interval excludes zero. Left and Down lift pipes 1–2 substantially and pipe 3
+barely (13.0% → 20.5–23.5% against 39.0%).
+
+**Why: the policy conditions on position.** A-rate by x, 100 px bins:
+
+| | x 400 | **x 500** | x 600 | x 800 | **x 900** | spread across 11 bins |
+|---|---|---|---|---|---|---|
+| `top20_round2` | 0.816 | **0.718** | 0.750 | 0.878 | **0.737** | **0.204** |
+| `surv_round3` | 0.904 | 0.903 | 0.908 | 0.936 | 0.882 | 0.082 |
+| script p=0.85 | 0.853 | 0.856 | 0.852 | 0.842 | 0.838 | **0.025** *(noise floor)* |
+
+The script's 0.025 spread over bins of 7k–27k frames is the sampling floor. `top20_round2` swings **8×**
+that, and its two lowest bins are **x 500–599, immediately before pipe 2 (592–630)**, and **x 900–999,
+at pipe 4**. It backs off jumping right before the tall pipes. That is the mechanism, and it needs no
+appeal to Left.
+
+**The new objective, and what it says about every model.** Best fixed-rate script per obstacle, measured
+from artifacts and taking the per-obstacle maximum: pipe1 **87.0%**, pipe2 **82.5%**, pipe3 **23.5%**,
+pipe4 **8.0%**. Scored as clearance minus that:
+
+| checkpoint | pipe1 | pipe2 | pipe3 | pipe4 | beats script at |
+|---|---|---|---|---|---|
+| `C_control_matched_r2` | −14.0 | −14.0 | **+15.5** | **+11.0** | pipe3, pipe4 |
+| `round3_ratio1to1` | −5.5 | −61.0 | −23.5 | −8.0 | **nothing** |
+| `compose_round2` | −23.0 | −28.5 | +8.0 | **+11.5** | pipe4 |
+| `top20_round2` | −4.0 | −20.5 | +5.0 | **+9.5** | pipe4 |
+| `surv_round2` | −21.0 | −22.5 | −0.5 | +2.5 | **nothing** |
+| `surv_round3` | −29.0 | −27.0 | +8.5 | **+16.0** | pipe4 |
+
+**Not one checkpoint beats the script at pipe 2.** `surv_round2`, recorded earlier in this log as the
+project's best model, beats nothing at all. **Supervised imitation on this corpus did not produce skill at
+pipes 1–2.** What it did produce is robust at pipe 4 — four of six checkpoints, +9.5 to +16.0 pp — and at
+pipe 3 for one.
+
+**Cost.** 6.3 minutes of emulator time plus reads over traces already on disk. No training was run.
+
+**Downstream effect.** The training signal changed, not just the report. `rollout_round`'s acceptance
+score was `gained + 4000·levels − 2000·deaths`, and `gained` is precisely what raising the A-rate
+maximises — so self-imitation had been optimising the marginal all along, which is one mechanism behind
+the death escalation, the reckless models and the composition "gain." It is now
+`Σ(1 − p_script(obstacle))` over obstacles cleared: past pipe 2 earns 0.305, past pipe 4 earns 1.990, so
+the obstacle the script cannot do is worth **6.5×** the one it can. A known cost of the change: the
+obstacle table is 1-1-only, so 484 of 500 trajectory start points now return no credit and are dropped
+rather than scored on progress — **self-imitation trains on 1-1 until a per-start script *reach* table
+exists.** The thesis is restated around pipes 3–4.
