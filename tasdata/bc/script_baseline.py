@@ -159,6 +159,52 @@ def rollout_credit(max_x: int, deaths: int = 0, table: dict | None = None,
     return credit - death_penalty * deaths
 
 
+REACH_TABLE = ROOT / "data/reach_table.json"
+
+
+def reach_table(path: Path | None = None) -> dict:
+    """Per-start script reach distributions, keyed ``"<seed>:<frame_index>"``."""
+    p = path or REACH_TABLE
+    if not p.exists():
+        raise FileNotFoundError(
+            f"{p.name} missing -- run scripts/build_reach_table.py. Falling back to progress is "
+            "forbidden: progress is the signal being retired.")
+    return json.loads(p.read_text())["states"]
+
+
+def reach_quantile(max_x: float, state_key: str, table: dict) -> float | None:
+    """Where a rollout lands in the script's own distribution from the same start.
+
+    Mid-quantile, so ties are credited half -- matching the script exactly earns 0.5 rather than 1.0.
+    Bounded on [0, 1], which is the saturation the directive flagged; :func:`reach_margin` is the
+    unbounded fallback.
+    """
+    row = table.get(state_key)
+    if not row:
+        return None
+    xs = row["script_max_x"]
+    below = sum(1 for v in xs if v < max_x)
+    ties = sum(1 for v in xs if v == max_x)
+    return (below + 0.5 * ties) / len(xs)
+
+
+def reach_margin(max_x: float, state_key: str, table: dict) -> float | None:
+    """``(max_x - script_median) / script_IQR``. None when the IQR is 0 (undefined, not zero)."""
+    row = table.get(state_key)
+    if not row or not row.get("iqr"):
+        return None
+    return (max_x - row["median"]) / row["iqr"]
+
+
+def reach_credit(max_x: float, state_key: str, table: dict, deaths: int = 0,
+                 death_penalty: float = 0.25) -> float | None:
+    """Training signal for starts outside 1-1's obstacle table. None if the start is unknown."""
+    q = reach_quantile(max_x, state_key, table)
+    if q is None:
+        return None
+    return q - death_penalty * deaths
+
+
 def report_line(label: str, v: dict) -> str:
     parts = []
     for ob, r in v["per_obstacle"].items():

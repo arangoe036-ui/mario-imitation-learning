@@ -1007,3 +1007,76 @@ the obstacle the script cannot do is worth **6.5×** the one it can. A known cos
 obstacle table is 1-1-only, so 484 of 500 trajectory start points now return no credit and are dropped
 rather than scored on progress — **self-imitation trains on 1-1 until a per-start script *reach* table
 exists.** The thesis is restated around pipes 3–4.
+
+---
+
+## The always-jump degeneracy had a root cause all along: the loss function
+
+**What changed.** A start-state library built from the policy's own traces, a per-start reach table that
+scores rollouts against a fixed-rate script from the identical state, in-memory savestates so restoring a
+policy-visited state is O(1), and a training run under the new objective. The run failed — and chasing why
+found the cause of the degeneracy that has distorted every number in this project.
+
+**How we got there, including the wrong turns.**
+
+The new objective had a blocker: all 16 of 1-1's start points sit at x = 2,616–2,636, past every obstacle
+the credit pays for, so self-imitation had nowhere useful to practise. Fixed by mining the policy's own
+retained traces — every grounded frame is a restorable start state, since replaying a recorded byte prefix
+reproduces the state. That measurement came out **132,844 of 132,844 frames exact (100.000%)**, which also
+bounds an older mystery: the seed-8 divergence was in prefix *generation*, not replay. It also **closed the
+early-1-1 absence open since 2026-08-03** — 403 grounded candidates in x 0–120, where the expert-based
+filter found none, because the expert is airborne there and the policy is not.
+
+Then the training run produced a policy pressing **A on 0.970 of frames, Down 0.756, Left 0.398**, with x
+median collapsing 723 → **311** (the first Goomba). The obvious suspects were the acceptance filter and
+the data. Both were wrong: **the self-data it trained on had A on 0.871, Down 0.314, Left 0.122 — every
+marginal came out above its own training data.** Supervised learning on i.i.d. targets cannot do that.
+
+So the objective was probed directly, with no emulator: two policies from the same seed on the same expert
+data, differing only in loss.
+
+| button | expert data | plain BCE | `sustain_loss` | closed-form optimum |
+|---|---|---|---|---|
+| **A** | 0.147 | **0.130** | **0.403** | 0.463 |
+| B | 0.509 | 0.511 | 0.745 | 0.838 |
+| Right | 0.453 | 0.444 | 0.725 | 0.805 |
+| Left | 0.028 | 0.023 | 0.112 | 0.126 |
+
+`sustain_loss` — used by **every "composed recipe" run in this project** — up-weights onset frames 10× and
+sustained presses 5×, and never up-weights released frames. For a Bernoulli head with weight `a` on
+positives the weighted optimum is `a·p / (a·p + (1−p))`; 5× turns p=0.5 into 0.833, and the measured values
+track that closed form. **Plain BCE recovers the base rate on every button. The recipe's loss inflates
+every button by construction.**
+
+**One pass inflates A from 0.147 to 0.403. Iterated self-imitation rounds compound it to 0.85–0.97.** That
+is the origin of the always-jump degeneracy: not emergent selection pressure, not the data — the
+objective. It explains composition's A-rate climb from 0.628 to 0.888, the frontier checkpoint's 85.2%,
+and why distilling toward the expert's rate destroyed reach in 4 of 4 schedules — the reach depended on
+the inflated marginal.
+
+**Numbers for the training run itself.** 237 of 576 rollouts accepted (41.1%), median per-state reach
+quantile 0.539 (0.5 = matching the script), 400 steps, 0.5 epochs.
+
+| | base | trained |
+|---|---|---|
+| x median | 723 | **311** |
+| pipe1 / pipe2 / pipe3 / pipe4 | 73.0 / 68.5 / 39.0 / 19.0 | 47.5 / 47.5 / 18.5 / 12.0 |
+| **`vs_script` pipe3** | **+15.5** | **−5.0** |
+| **`vs_script` pipe4** | **+11.0** | **+4.0** |
+| A / Down / Left | 0.852 / 0.281 / 0.108 | **0.970 / 0.756 / 0.398** |
+
+**A kill condition declined, on the record.** The pre-committed condition said that if `vs_script` failed
+to improve at pipes 3–4 under a degeneracy-proof objective, the corpus and method were exhausted. It
+failed — but the run had a degeneracy-proof *credit* sitting on top of a degeneracy-*producing* loss, so it
+never tested the stated conditions. Declaring exhaustion here would have been a hard conclusion to walk
+back from, on a confounded experiment. One re-run with plain BCE decides it cleanly.
+
+**Cost.** ~17 minutes total: 1.6 for the library, 3.6 for the reach table, 9.9 for the training run, 1.8
+for the loss probe. The in-memory savestates paid for themselves immediately — 539,040 prefix frames
+avoided in the reach table alone (35,936 replayed instead of 574,976).
+
+**Downstream effect.** `sustain_loss` is retired as a default. Every clearance figure produced by a
+composed-recipe run is now known to rest on an objective that inflates button marginals, which is a
+stronger statement than the earlier "the figures are marginal artefacts" — it names the mechanism and
+predicts its magnitude in closed form. Reusable infrastructure that survives: `save_scratch`/`load_scratch`
+on the session, the start-state library, and the per-start reach table.

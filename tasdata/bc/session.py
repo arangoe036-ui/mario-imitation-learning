@@ -59,6 +59,12 @@ from ..fceux_backend import (
 OP_STEP = 0
 OP_RESET = 1
 OP_QUIT = 2
+#: Scratch savestates. The movie-frame library is built once at startup and covers only
+#: positions the *expert* visits. Practising an obstacle needs states the *policy* visits, and
+#: replaying a policy prefix costs its full length on every rollout. These two ops let a prefix be
+#: replayed once, snapshotted, and then restored for free any number of times.
+OP_SAVE_SCRATCH = 3
+OP_LOAD_SCRATCH = 4
 
 #: Cross-process guard. Only one FCEUX may exist at a time, ever.
 LOCK_PATH = Path.home() / ".tasdata_fceux.lock"
@@ -138,6 +144,7 @@ table.sort(order)
 -- states are stored by ORDINAL (1..N), not by frame number: frame numbers reach
 -- 67,117 which does not fit the uint16 command argument.
 local states = {}
+local scratch = {}      -- caller-managed in-memory snapshots, keyed by slot number
 local captured = 0
 local target = 1
 while target <= #order do
@@ -177,6 +184,22 @@ while true do
   local arg = string.byte(c, 2) + string.byte(c, 3) * 256
   if op == 2 then
     break
+  elseif op == 3 then
+    -- snapshot the live state into a scratch slot (no frameadvance: the caller is already
+    -- standing where it wants to be, and advancing would move it)
+    local s = savestate.object()
+    savestate.save(s)
+    scratch[arg] = s
+    send()
+  elseif op == 4 then
+    local s = scratch[arg]
+    if s ~= nil then savestate.load(s) end
+    if movie.active() then movie.stop() end
+    -- one null-input frame, exactly as op 1 does, so restored states are indistinguishable
+    -- from reset() states to every caller
+    press(0)
+    emu.frameadvance()
+    send()
   elseif op == 1 then
     local s = states[arg + 1]   -- arg is a 0-based ordinal
     if s ~= nil then savestate.load(s) end
@@ -251,6 +274,8 @@ class FceuxSession:
         self.build_seconds = 0.0
         self.steps_served = 0
         self.resets_served = 0
+        self.scratch_saves = 0
+        self.scratch_loads = 0
 
     # -- lifecycle ----------------------------------------------------------- #
 
@@ -400,6 +425,24 @@ class FceuxSession:
             ) from None
         self.resets_served += 1
         return self._command(OP_RESET, ordinal)
+
+    def save_scratch(self, slot: int) -> Observation:
+        """Snapshot the live state into scratch ``slot``. No frame is advanced."""
+        if not 0 <= slot <= 0xFFFF:
+            raise KeyError(f"scratch slot {slot} out of range")
+        self.scratch_saves += 1
+        return self._command(OP_SAVE_SCRATCH, slot)
+
+    def load_scratch(self, slot: int) -> Observation:
+        """Restore scratch ``slot``, then advance one null-input frame as ``reset`` does.
+
+        Restoring is O(1) instead of O(prefix length), which is what makes practising from
+        policy-visited states affordable: replay the prefix once, snapshot, then reload per rollout.
+        """
+        if not 0 <= slot <= 0xFFFF:
+            raise KeyError(f"scratch slot {slot} out of range")
+        self.scratch_loads += 1
+        return self._command(OP_LOAD_SCRATCH, slot)
 
     def reset_ordinal(self, ordinal: int) -> Observation:
         """Load the ``ordinal``-th savestate (0-based, sorted by movie frame)."""

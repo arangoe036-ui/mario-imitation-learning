@@ -1,0 +1,94 @@
+{
+  "steps": 400,
+  "lr": 0.0003,
+  "probe_rows": 8000,
+  "onset_weight": 10.0,
+  "sustain_weight": 5.0,
+  "data_press_rate": {
+    "Up": 0.0006249999860301614,
+    "Down": 0.007375000044703484,
+    "Left": 0.02800000086426735,
+    "Right": 0.45274999737739563,
+    "Start": 0.0002500000118743628,
+    "Select": 0.0,
+    "B": 0.5088750123977661,
+    "A": 0.14687499403953552
+  },
+  "arms": {
+    "plain_bce": {
+      "mean_predicted_prob": {
+        "Up": 0.006385856308043003,
+        "Down": 0.008668956346809864,
+        "Left": 0.022751525044441223,
+        "Right": 0.44448888301849365,
+        "Start": 0.005061706528067589,
+        "Select": 0.007577560842037201,
+        "B": 0.5112680196762085,
+        "A": 0.1296963095664978
+      },
+      "over_data_rate": {
+        "Up": null,
+        "Down": 1.1754517009170276,
+        "Left": 0.812554440792034,
+        "Right": 0.9817534745295298,
+        "Start": null,
+        "Select": null,
+        "B": 1.0047025442793247,
+        "A": 0.8830387392668517
+      }
+    },
+    "sustain_onset": {
+      "mean_predicted_prob": {
+        "Up": 0.013565544039011002,
+        "Down": 0.05302153155207634,
+        "Left": 0.1119077131152153,
+        "Right": 0.7251617908477783,
+        "Start": 0.00990693736821413,
+        "Select": 0.016123944893479347,
+        "B": 0.744570791721344,
+        "A": 0.402707576751709
+      },
+      "over_data_rate": {
+        "Up": null,
+        "Down": 7.1893601668728,
+        "Left": 3.9967039164640927,
+        "Right": 1.601682595358052,
+        "Start": null,
+        "Select": null,
+        "B": 1.4631702747851656,
+        "A": 2.741838931706162
+      }
+    }
+  },
+  "closed_form": {
+    "Down": {
+      "true_p": 0.007375000044703484,
+      "optimum_at_sustain_weight": 0.03581835863731189
+    },
+    "Left": {
+      "true_p": 0.02800000086426735,
+      "optimum_at_sustain_weight": 0.12589928407022857
+    },
+    "Right": {
+      "true_p": 0.45274999737739563,
+      "optimum_at_sustain_weight": 0.8053183903717909
+    },
+    "B": {
+      "true_p": 0.5088750123977661,
+      "optimum_at_sustain_weight": 0.8382062330493465
+    },
+    "A": {
+      "true_p": 0.14687499403953552,
+      "optimum_at_sustain_weight": 0.46259841337126506
+    }
+  },
+  "buttons_inflated_by_sustain_loss": [
+    "A",
+    "B",
+    "Right",
+    "Down",
+    "Left"
+  ],
+  "verdict": "THE LOSS INFLATES THE MARGINAL on ['A', 'B', 'Right', 'Down', 'Left']: `sustain_loss` up-weights pressed frames (10.0x onsets, 5.0x sustained) and never up-weights released frames, so its optimum is above the base rate by construction. Every 'composed recipe' run used it, which is a mechanism for the always-jump degeneracy that is independent of the data and of the acceptance filter.",
+  "minutes": 1.8
+}

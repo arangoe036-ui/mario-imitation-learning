@@ -1,0 +1,951 @@
+{
+  "source_traces": "p1_200.json",
+  "source_checkpoint": "C_control_matched_r2.pt",
+  "restore": "replay data/traces/p1_200.json episode `seed`, stepping its recorded buttons for `frame_index` frames from the 1-1 level_start savestate; then session.save_scratch() to make further restores O(1)",
+  "grounded_enforced": true,
+  "player_state_required": 8,
+  "min_frame_gap": 24,
+  "bins": [
+    [
+      0,
+      120
+    ],
+    [
+      120,
+      240
+    ],
+    [
+      240,
+      360
+    ],
+    [
+      360,
+      470
+    ],
+    [
+      470,
+      592
+    ],
+    [
+      592,
+      700
+    ],
+    [
+      700,
+      760
+    ],
+    [
+      760,
+      880
+    ],
+    [
+      880,
+      975
+    ],
+    [
+      975,
+      1216
+    ],
+    [
+      1216,
+      1400
+    ],
+    [
+      1400,
+      4000
+    ]
+  ],
+  "per_bin": 6,
+  "n_candidates": 3485,
+  "n_selected": 72,
+  "replay_determinism": {
+    "frames": 132844,
+    "reproduced": 132844,
+    "mismatched_seeds": {}
+  },
+  "existing_library_1_1_x": [
+    2616,
+    2616,
+    2617,
+    2617,
+    2618,
+    2619,
+    2621,
+    2622,
+    2623,
+    2624,
+    2625,
+    2626,
+    2627,
+    2628,
+    2630,
+    2636
+  ],
+  "states": [
+    {
+      "seed": 105,
+      "frame_index": 29,
+      "x": 56,
+      "y_absolute": 432,
+      "speed": 17,
+      "recorded_x": 56,
+      "bin": [
+        0,
+        120
+      ]
+    },
+    {
+      "seed": 6,
+      "frame_index": 21,
+      "x": 48,
+      "y_absolute": 432,
+      "speed": 13,
+      "recorded_x": 48,
+      "bin": [
+        0,
+        120
+      ]
+    },
+    {
+      "seed": 168,
+      "frame_index": 60,
+      "x": 100,
+      "y_absolute": 432,
+      "speed": 24,
+      "recorded_x": 100,
+      "bin": [
+        0,
+        120
+      ]
+    },
+    {
+      "seed": 90,
+      "frame_index": 58,
+      "x": 96,
+      "y_absolute": 432,
+      "speed": 24,
+      "recorded_x": 96,
+      "bin": [
+        0,
+        120
+      ]
+    },
+    {
+      "seed": 65,
+      "frame_index": 21,
+      "x": 48,
+      "y_absolute": 432,
+      "speed": 13,
+      "recorded_x": 48,
+      "bin": [
+        0,
+        120
+      ]
+    },
+    {
+      "seed": 159,
+      "frame_index": 37,
+      "x": 66,
+      "y_absolute": 432,
+      "speed": 22,
+      "recorded_x": 66,
+      "bin": [
+        0,
+        120
+      ]
+    },
+    {
+      "seed": 82,
+      "frame_index": 80,
+      "x": 130,
+      "y_absolute": 432,
+      "speed": 24,
+      "recorded_x": 130,
+      "bin": [
+        120,
+        240
+      ]
+    },
+    {
+      "seed": 3,
+      "frame_index": 86,
+      "x": 163,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 163,
+      "bin": [
+        120,
+        240
+      ]
+    },
+    {
+      "seed": 182,
+      "frame_index": 82,
+      "x": 158,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 158,
+      "bin": [
+        120,
+        240
+      ]
+    },
+    {
+      "seed": 196,
+      "frame_index": 79,
+      "x": 144,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 144,
+      "bin": [
+        120,
+        240
+      ]
+    },
+    {
+      "seed": 134,
+      "frame_index": 92,
+      "x": 175,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 175,
+      "bin": [
+        120,
+        240
+      ]
+    },
+    {
+      "seed": 101,
+      "frame_index": 83,
+      "x": 151,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 151,
+      "bin": [
+        120,
+        240
+      ]
+    },
+    {
+      "seed": 118,
+      "frame_index": 158,
+      "x": 287,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 287,
+      "bin": [
+        240,
+        360
+      ]
+    },
+    {
+      "seed": 175,
+      "frame_index": 161,
+      "x": 258,
+      "y_absolute": 368,
+      "speed": 17,
+      "recorded_x": 258,
+      "bin": [
+        240,
+        360
+      ]
+    },
+    {
+      "seed": 36,
+      "frame_index": 135,
+      "x": 282,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 282,
+      "bin": [
+        240,
+        360
+      ]
+    },
+    {
+      "seed": 19,
+      "frame_index": 129,
+      "x": 279,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 279,
+      "bin": [
+        240,
+        360
+      ]
+    },
+    {
+      "seed": 128,
+      "frame_index": 138,
+      "x": 254,
+      "y_absolute": 432,
+      "speed": 27,
+      "recorded_x": 254,
+      "bin": [
+        240,
+        360
+      ]
+    },
+    {
+      "seed": 40,
+      "frame_index": 172,
+      "x": 345,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 345,
+      "bin": [
+        240,
+        360
+      ]
+    },
+    {
+      "seed": 2,
+      "frame_index": 206,
+      "x": 456,
+      "y_absolute": 400,
+      "speed": 40,
+      "recorded_x": 456,
+      "bin": [
+        360,
+        470
+      ]
+    },
+    {
+      "seed": 151,
+      "frame_index": 165,
+      "x": 365,
+      "y_absolute": 368,
+      "speed": 40,
+      "recorded_x": 365,
+      "bin": [
+        360,
+        470
+      ]
+    },
+    {
+      "seed": 157,
+      "frame_index": 199,
+      "x": 381,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 381,
+      "bin": [
+        360,
+        470
+      ]
+    },
+    {
+      "seed": 126,
+      "frame_index": 218,
+      "x": 463,
+      "y_absolute": 400,
+      "speed": 40,
+      "recorded_x": 463,
+      "bin": [
+        360,
+        470
+      ]
+    },
+    {
+      "seed": 114,
+      "frame_index": 200,
+      "x": 391,
+      "y_absolute": 432,
+      "speed": 27,
+      "recorded_x": 391,
+      "bin": [
+        360,
+        470
+      ]
+    },
+    {
+      "seed": 67,
+      "frame_index": 298,
+      "x": 437,
+      "y_absolute": 400,
+      "speed": 7,
+      "recorded_x": 437,
+      "bin": [
+        360,
+        470
+      ]
+    },
+    {
+      "seed": 31,
+      "frame_index": 368,
+      "x": 541,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 541,
+      "bin": [
+        470,
+        592
+      ]
+    },
+    {
+      "seed": 59,
+      "frame_index": 291,
+      "x": 555,
+      "y_absolute": 432,
+      "speed": 24,
+      "recorded_x": 555,
+      "bin": [
+        470,
+        592
+      ]
+    },
+    {
+      "seed": 166,
+      "frame_index": 340,
+      "x": 576,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 576,
+      "bin": [
+        470,
+        592
+      ]
+    },
+    {
+      "seed": 43,
+      "frame_index": 269,
+      "x": 534,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 534,
+      "bin": [
+        470,
+        592
+      ]
+    },
+    {
+      "seed": 22,
+      "frame_index": 281,
+      "x": 577,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 577,
+      "bin": [
+        470,
+        592
+      ]
+    },
+    {
+      "seed": 41,
+      "frame_index": 248,
+      "x": 534,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 534,
+      "bin": [
+        470,
+        592
+      ]
+    },
+    {
+      "seed": 21,
+      "frame_index": 401,
+      "x": 594,
+      "y_absolute": 432,
+      "speed": 3,
+      "recorded_x": 594,
+      "bin": [
+        592,
+        700
+      ]
+    },
+    {
+      "seed": 161,
+      "frame_index": 347,
+      "x": 611,
+      "y_absolute": 384,
+      "speed": 40,
+      "recorded_x": 611,
+      "bin": [
+        592,
+        700
+      ]
+    },
+    {
+      "seed": 43,
+      "frame_index": 294,
+      "x": 596,
+      "y_absolute": 384,
+      "speed": 40,
+      "recorded_x": 596,
+      "bin": [
+        592,
+        700
+      ]
+    },
+    {
+      "seed": 196,
+      "frame_index": 438,
+      "x": 672,
+      "y_absolute": 432,
+      "speed": 29,
+      "recorded_x": 672,
+      "bin": [
+        592,
+        700
+      ]
+    },
+    {
+      "seed": 0,
+      "frame_index": 369,
+      "x": 617,
+      "y_absolute": 384,
+      "speed": 40,
+      "recorded_x": 617,
+      "bin": [
+        592,
+        700
+      ]
+    },
+    {
+      "seed": 41,
+      "frame_index": 288,
+      "x": 633,
+      "y_absolute": 384,
+      "speed": 40,
+      "recorded_x": 633,
+      "bin": [
+        592,
+        700
+      ]
+    },
+    {
+      "seed": 197,
+      "frame_index": 641,
+      "x": 730,
+      "y_absolute": 368,
+      "speed": 14,
+      "recorded_x": 730,
+      "bin": [
+        700,
+        760
+      ]
+    },
+    {
+      "seed": 42,
+      "frame_index": 672,
+      "x": 722,
+      "y_absolute": 432,
+      "speed": 4,
+      "recorded_x": 722,
+      "bin": [
+        700,
+        760
+      ]
+    },
+    {
+      "seed": 46,
+      "frame_index": 503,
+      "x": 722,
+      "y_absolute": 432,
+      "speed": 0,
+      "recorded_x": 722,
+      "bin": [
+        700,
+        760
+      ]
+    },
+    {
+      "seed": 85,
+      "frame_index": 675,
+      "x": 722,
+      "y_absolute": 432,
+      "speed": 1,
+      "recorded_x": 722,
+      "bin": [
+        700,
+        760
+      ]
+    },
+    {
+      "seed": 99,
+      "frame_index": 548,
+      "x": 722,
+      "y_absolute": 432,
+      "speed": 255,
+      "recorded_x": 722,
+      "bin": [
+        700,
+        760
+      ]
+    },
+    {
+      "seed": 174,
+      "frame_index": 567,
+      "x": 722,
+      "y_absolute": 432,
+      "speed": 2,
+      "recorded_x": 722,
+      "bin": [
+        700,
+        760
+      ]
+    },
+    {
+      "seed": 5,
+      "frame_index": 470,
+      "x": 818,
+      "y_absolute": 432,
+      "speed": 24,
+      "recorded_x": 818,
+      "bin": [
+        760,
+        880
+      ]
+    },
+    {
+      "seed": 108,
+      "frame_index": 712,
+      "x": 847,
+      "y_absolute": 432,
+      "speed": 24,
+      "recorded_x": 847,
+      "bin": [
+        760,
+        880
+      ]
+    },
+    {
+      "seed": 182,
+      "frame_index": 661,
+      "x": 854,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 854,
+      "bin": [
+        760,
+        880
+      ]
+    },
+    {
+      "seed": 63,
+      "frame_index": 774,
+      "x": 836,
+      "y_absolute": 432,
+      "speed": 24,
+      "recorded_x": 836,
+      "bin": [
+        760,
+        880
+      ]
+    },
+    {
+      "seed": 181,
+      "frame_index": 629,
+      "x": 840,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 840,
+      "bin": [
+        760,
+        880
+      ]
+    },
+    {
+      "seed": 190,
+      "frame_index": 454,
+      "x": 859,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 859,
+      "bin": [
+        760,
+        880
+      ]
+    },
+    {
+      "seed": 180,
+      "frame_index": 1036,
+      "x": 898,
+      "y_absolute": 432,
+      "speed": 2,
+      "recorded_x": 898,
+      "bin": [
+        880,
+        975
+      ]
+    },
+    {
+      "seed": 99,
+      "frame_index": 804,
+      "x": 898,
+      "y_absolute": 432,
+      "speed": 0,
+      "recorded_x": 898,
+      "bin": [
+        880,
+        975
+      ]
+    },
+    {
+      "seed": 138,
+      "frame_index": 656,
+      "x": 898,
+      "y_absolute": 432,
+      "speed": 2,
+      "recorded_x": 898,
+      "bin": [
+        880,
+        975
+      ]
+    },
+    {
+      "seed": 123,
+      "frame_index": 494,
+      "x": 898,
+      "y_absolute": 432,
+      "speed": 0,
+      "recorded_x": 898,
+      "bin": [
+        880,
+        975
+      ]
+    },
+    {
+      "seed": 175,
+      "frame_index": 687,
+      "x": 898,
+      "y_absolute": 432,
+      "speed": 3,
+      "recorded_x": 898,
+      "bin": [
+        880,
+        975
+      ]
+    },
+    {
+      "seed": 95,
+      "frame_index": 1113,
+      "x": 903,
+      "y_absolute": 368,
+      "speed": 9,
+      "recorded_x": 903,
+      "bin": [
+        880,
+        975
+      ]
+    },
+    {
+      "seed": 51,
+      "frame_index": 826,
+      "x": 1051,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 1051,
+      "bin": [
+        975,
+        1216
+      ]
+    },
+    {
+      "seed": 128,
+      "frame_index": 761,
+      "x": 1027,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 1027,
+      "bin": [
+        975,
+        1216
+      ]
+    },
+    {
+      "seed": 150,
+      "frame_index": 1064,
+      "x": 1030,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 1030,
+      "bin": [
+        975,
+        1216
+      ]
+    },
+    {
+      "seed": 91,
+      "frame_index": 699,
+      "x": 990,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 990,
+      "bin": [
+        975,
+        1216
+      ]
+    },
+    {
+      "seed": 17,
+      "frame_index": 604,
+      "x": 1026,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 1026,
+      "bin": [
+        975,
+        1216
+      ]
+    },
+    {
+      "seed": 77,
+      "frame_index": 819,
+      "x": 1015,
+      "y_absolute": 432,
+      "speed": 24,
+      "recorded_x": 1015,
+      "bin": [
+        975,
+        1216
+      ]
+    },
+    {
+      "seed": 22,
+      "frame_index": 900,
+      "x": 1284,
+      "y_absolute": 432,
+      "speed": 28,
+      "recorded_x": 1284,
+      "bin": [
+        1216,
+        1400
+      ]
+    },
+    {
+      "seed": 161,
+      "frame_index": 1137,
+      "x": 1300,
+      "y_absolute": 432,
+      "speed": 22,
+      "recorded_x": 1300,
+      "bin": [
+        1216,
+        1400
+      ]
+    },
+    {
+      "seed": 146,
+      "frame_index": 1047,
+      "x": 1321,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 1321,
+      "bin": [
+        1216,
+        1400
+      ]
+    },
+    {
+      "seed": 174,
+      "frame_index": 977,
+      "x": 1264,
+      "y_absolute": 432,
+      "speed": 24,
+      "recorded_x": 1264,
+      "bin": [
+        1216,
+        1400
+      ]
+    },
+    {
+      "seed": 189,
+      "frame_index": 1114,
+      "x": 1327,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 1327,
+      "bin": [
+        1216,
+        1400
+      ]
+    },
+    {
+      "seed": 5,
+      "frame_index": 654,
+      "x": 1261,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 1261,
+      "bin": [
+        1216,
+        1400
+      ]
+    },
+    {
+      "seed": 117,
+      "frame_index": 881,
+      "x": 1516,
+      "y_absolute": 368,
+      "speed": 24,
+      "recorded_x": 1516,
+      "bin": [
+        1400,
+        4000
+      ]
+    },
+    {
+      "seed": 147,
+      "frame_index": 1307,
+      "x": 1692,
+      "y_absolute": 432,
+      "speed": 24,
+      "recorded_x": 1692,
+      "bin": [
+        1400,
+        4000
+      ]
+    },
+    {
+      "seed": 157,
+      "frame_index": 901,
+      "x": 1412,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 1412,
+      "bin": [
+        1400,
+        4000
+      ]
+    },
+    {
+      "seed": 17,
+      "frame_index": 861,
+      "x": 1519,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 1519,
+      "bin": [
+        1400,
+        4000
+      ]
+    },
+    {
+      "seed": 174,
+      "frame_index": 1049,
+      "x": 1425,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 1425,
+      "bin": [
+        1400,
+        4000
+      ]
+    },
+    {
+      "seed": 95,
+      "frame_index": 1398,
+      "x": 1511,
+      "y_absolute": 432,
+      "speed": 40,
+      "recorded_x": 1511,
+      "bin": [
+        1400,
+        4000
+      ]
+    }
+  ],
+  "minutes": 1.6
+}
