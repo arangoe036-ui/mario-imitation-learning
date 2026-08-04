@@ -1,0 +1,1904 @@
+{
+  "checkpoint": "top20_round2.pt",
+  "n_per_block": 200,
+  "blocks": [
+    {
+      "n": 200,
+      "pipe1": {
+        "k": 166,
+        "n": 200,
+        "rate": 0.83,
+        "ci": [
+          0.7718399896049648,
+          0.8757216464889435
+        ]
+      },
+      "pipe2": {
+        "k": 124,
+        "n": 200,
+        "rate": 0.62,
+        "ci": [
+          0.5510658951919951,
+          0.6844110633876079
+        ]
+      },
+      "past720": {
+        "k": 110,
+        "n": 200,
+        "rate": 0.55,
+        "ci": [
+          0.48075488574571107,
+          0.6173605136624569
+        ]
+      },
+      "x_median": 722.0,
+      "x_p90": 1298.5999999999985,
+      "x_max": 2746,
+      "ended": {
+        "died": 103,
+        "stuck": 97
+      },
+      "deaths": 103,
+      "death_causes": {
+        "unknown": 31,
+        "enemy:goomba": 72
+      },
+      "death_x_histogram_32px": {
+        "256": 1,
+        "288": 33,
+        "640": 1,
+        "672": 13,
+        "704": 12,
+        "800": 3,
+        "832": 3,
+        "864": 2,
+        "1216": 9,
+        "1248": 6,
+        "1504": 7,
+        "1536": 10,
+        "1760": 2,
+        "2720": 1
+      },
+      "cause_by_bin_32px": {
+        "256": {
+          "enemy:goomba": 1
+        },
+        "288": {
+          "enemy:goomba": 33
+        },
+        "640": {
+          "enemy:goomba": 1
+        },
+        "672": {
+          "enemy:goomba": 13
+        },
+        "704": {
+          "enemy:goomba": 12
+        },
+        "800": {
+          "enemy:goomba": 3
+        },
+        "832": {
+          "enemy:goomba": 3
+        },
+        "864": {
+          "enemy:goomba": 2
+        },
+        "1216": {
+          "unknown": 8,
+          "enemy:goomba": 1
+        },
+        "1248": {
+          "unknown": 6
+        },
+        "1504": {
+          "unknown": 7
+        },
+        "1536": {
+          "unknown": 10
+        },
+        "1760": {
+          "enemy:goomba": 2
+        },
+        "2720": {
+          "enemy:goomba": 1
+        }
+      },
+      "deaths_detail": [
+        {
+          "x": 1243,
+          "y": 3,
+          "cause": "unknown"
+        },
+        {
+          "x": 881,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 315,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 877,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1248,
+          "y": 2,
+          "cause": "unknown"
+        },
+        {
+          "x": 1237,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 722,
+          "y": 172,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 299,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 682,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 315,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1545,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 1529,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 1534,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 819,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 315,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1248,
+          "y": 3,
+          "cause": "unknown"
+        },
+        {
+          "x": 1273,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 306,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1237,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 308,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1534,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 1533,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 685,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 314,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 306,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 821,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 309,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 297,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 854,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1534,
+          "y": 3,
+          "cause": "unknown"
+        },
+        {
+          "x": 300,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1249,
+          "y": 3,
+          "cause": "unknown"
+        },
+        {
+          "x": 310,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1248,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 310,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 308,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 172,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1246,
+          "y": 3,
+          "cause": "unknown"
+        },
+        {
+          "x": 682,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 808,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 295,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 312,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1243,
+          "y": 2,
+          "cause": "unknown"
+        },
+        {
+          "x": 307,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 298,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1554,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 681,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 309,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 312,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 296,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1561,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 1558,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 1783,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 845,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 284,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 298,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 687,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1530,
+          "y": 3,
+          "cause": "unknown"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1539,
+          "y": 2,
+          "cause": "unknown"
+        },
+        {
+          "x": 1791,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1244,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 668,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 301,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 311,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 672,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 305,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 2746,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 305,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 674,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 312,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1548,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 689,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1242,
+          "y": 112,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 678,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1241,
+          "y": 3,
+          "cause": "unknown"
+        },
+        {
+          "x": 1256,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 308,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 687,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1538,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 312,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1531,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 1552,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 1560,
+          "y": 3,
+          "cause": "unknown"
+        },
+        {
+          "x": 309,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1550,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 676,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 681,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 839,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 311,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 168,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1246,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 303,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 689,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 309,
+          "y": 171,
+          "cause": "enemy:goomba"
+        }
+      ],
+      "death_x_median": 722.0,
+      "deaths_past_470": 69,
+      "deaths_past_630": 69,
+      "cleared_pipe2_outcomes": {
+        "died": 69,
+        "stuck": 55
+      },
+      "n_cleared_pipe2": 124,
+      "eval_seed_block": [
+        0,
+        199
+      ]
+    },
+    {
+      "n": 200,
+      "pipe1": {
+        "k": 168,
+        "n": 200,
+        "rate": 0.84,
+        "ci": [
+          0.7828581380609876,
+          0.8843265779145542
+        ]
+      },
+      "pipe2": {
+        "k": 118,
+        "n": 200,
+        "rate": 0.59,
+        "ci": [
+          0.5207633107255152,
+          0.655844408209187
+        ]
+      },
+      "past720": {
+        "k": 105,
+        "n": 200,
+        "rate": 0.525,
+        "ci": [
+          0.45597270710507,
+          0.5930849925990139
+        ]
+      },
+      "x_median": 722.0,
+      "x_p90": 1244.2,
+      "x_max": 2754,
+      "ended": {
+        "stuck": 104,
+        "died": 96
+      },
+      "deaths": 96,
+      "death_causes": {
+        "enemy:goomba": 81,
+        "unknown": 15
+      },
+      "death_x_histogram_32px": {
+        "256": 1,
+        "288": 31,
+        "672": 11,
+        "704": 10,
+        "800": 2,
+        "832": 5,
+        "864": 1,
+        "896": 8,
+        "1216": 9,
+        "1248": 3,
+        "1504": 3,
+        "1536": 6,
+        "1760": 2,
+        "1792": 1,
+        "2016": 2,
+        "2752": 1
+      },
+      "cause_by_bin_32px": {
+        "256": {
+          "enemy:goomba": 1
+        },
+        "288": {
+          "enemy:goomba": 31
+        },
+        "672": {
+          "enemy:goomba": 11
+        },
+        "704": {
+          "enemy:goomba": 10
+        },
+        "800": {
+          "enemy:goomba": 2
+        },
+        "832": {
+          "enemy:goomba": 5
+        },
+        "864": {
+          "enemy:goomba": 1
+        },
+        "896": {
+          "enemy:goomba": 8
+        },
+        "1216": {
+          "unknown": 4,
+          "enemy:goomba": 5
+        },
+        "1248": {
+          "unknown": 3
+        },
+        "1504": {
+          "enemy:goomba": 1,
+          "unknown": 2
+        },
+        "1536": {
+          "unknown": 6
+        },
+        "1760": {
+          "enemy:goomba": 2
+        },
+        "1792": {
+          "enemy:goomba": 1
+        },
+        "2016": {
+          "enemy:goomba": 2
+        },
+        "2752": {
+          "enemy:goomba": 1
+        }
+      },
+      "deaths_detail": [
+        {
+          "x": 310,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 312,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 677,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 898,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 701,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 898,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1247,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 1556,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 898,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 311,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 679,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 308,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 817,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 308,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1521,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 310,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 291,
+          "y": 172,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 854,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 307,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 706,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 691,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 292,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 305,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1549,
+          "y": 2,
+          "cause": "unknown"
+        },
+        {
+          "x": 307,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 2754,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1244,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 1243,
+          "y": 107,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1551,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 293,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 691,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 674,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 280,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1259,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 311,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 898,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 2021,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1243,
+          "y": 112,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 311,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 308,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1526,
+          "y": 2,
+          "cause": "unknown"
+        },
+        {
+          "x": 1238,
+          "y": 112,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 898,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 295,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1536,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 1251,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 311,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1246,
+          "y": 2,
+          "cause": "unknown"
+        },
+        {
+          "x": 1253,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 309,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 870,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 858,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 861,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1788,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 681,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 818,
+          "y": 172,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1785,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1229,
+          "y": 112,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 311,
+          "y": 172,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 314,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 172,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 305,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1242,
+          "y": 3,
+          "cause": "unknown"
+        },
+        {
+          "x": 1532,
+          "y": 2,
+          "cause": "unknown"
+        },
+        {
+          "x": 701,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 314,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 306,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 305,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 306,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 312,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1561,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 700,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1555,
+          "y": 2,
+          "cause": "unknown"
+        },
+        {
+          "x": 305,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1798,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 691,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 898,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 837,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 714,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 313,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 898,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 311,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 898,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1231,
+          "y": 112,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 863,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 2024,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 292,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 691,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 305,
+          "y": 176,
+          "cause": "enemy:goomba"
+        }
+      ],
+      "death_x_median": 722.0,
+      "deaths_past_470": 64,
+      "deaths_past_630": 64,
+      "cleared_pipe2_outcomes": {
+        "stuck": 54,
+        "died": 64
+      },
+      "n_cleared_pipe2": 118,
+      "eval_seed_block": [
+        200,
+        399
+      ]
+    },
+    {
+      "n": 200,
+      "pipe1": {
+        "k": 168,
+        "n": 200,
+        "rate": 0.84,
+        "ci": [
+          0.7828581380609876,
+          0.8843265779145542
+        ]
+      },
+      "pipe2": {
+        "k": 121,
+        "n": 200,
+        "rate": 0.605,
+        "ci": [
+          0.5358822087449843,
+          0.6701601300121683
+        ]
+      },
+      "past720": {
+        "k": 101,
+        "n": 200,
+        "rate": 0.505,
+        "ci": [
+          0.4362687594824017,
+          0.5735427804584151
+        ]
+      },
+      "x_median": 722.0,
+      "x_p90": 1242.0,
+      "x_max": 1784,
+      "ended": {
+        "stuck": 106,
+        "died": 94
+      },
+      "deaths": 94,
+      "death_causes": {
+        "enemy:goomba": 79,
+        "enemy:green_koopa": 1,
+        "unknown": 14
+      },
+      "death_x_histogram_32px": {
+        "256": 2,
+        "288": 30,
+        "672": 17,
+        "704": 11,
+        "800": 3,
+        "832": 4,
+        "896": 6,
+        "1216": 4,
+        "1248": 4,
+        "1504": 6,
+        "1536": 5,
+        "1664": 1,
+        "1760": 1
+      },
+      "cause_by_bin_32px": {
+        "256": {
+          "enemy:goomba": 2
+        },
+        "288": {
+          "enemy:goomba": 30
+        },
+        "672": {
+          "enemy:goomba": 17
+        },
+        "704": {
+          "enemy:goomba": 11
+        },
+        "800": {
+          "enemy:goomba": 3
+        },
+        "832": {
+          "enemy:goomba": 4
+        },
+        "896": {
+          "enemy:goomba": 6
+        },
+        "1216": {
+          "enemy:goomba": 1,
+          "unknown": 3
+        },
+        "1248": {
+          "unknown": 4
+        },
+        "1504": {
+          "enemy:goomba": 4,
+          "unknown": 2
+        },
+        "1536": {
+          "unknown": 5
+        },
+        "1664": {
+          "enemy:green_koopa": 1
+        },
+        "1760": {
+          "enemy:goomba": 1
+        }
+      },
+      "deaths_detail": [
+        {
+          "x": 313,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 293,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 312,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1521,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 297,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1670,
+          "y": 176,
+          "cause": "enemy:green_koopa"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 287,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 682,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 851,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 308,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 307,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 301,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1258,
+          "y": 4,
+          "cause": "unknown"
+        },
+        {
+          "x": 859,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 306,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 853,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 313,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 685,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 311,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 898,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1260,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 704,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 308,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 312,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 678,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 898,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 693,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 824,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 294,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 684,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 306,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1243,
+          "y": 112,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 693,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 172,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 898,
+          "y": 168,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 898,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 815,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 680,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 898,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 293,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 308,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 309,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 898,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1565,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 689,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1529,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 311,
+          "y": 171,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 315,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 692,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 709,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 823,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1545,
+          "y": 2,
+          "cause": "unknown"
+        },
+        {
+          "x": 707,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 312,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 695,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 677,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 682,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1242,
+          "y": 1,
+          "cause": "unknown"
+        },
+        {
+          "x": 312,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1520,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1253,
+          "y": 2,
+          "cause": "unknown"
+        },
+        {
+          "x": 686,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 297,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1544,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 287,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 687,
+          "y": 166,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1556,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 314,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1550,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 1242,
+          "y": 3,
+          "cause": "unknown"
+        },
+        {
+          "x": 311,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 315,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 674,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 722,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1275,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 1521,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 295,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 697,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 689,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1533,
+          "y": 2,
+          "cause": "unknown"
+        },
+        {
+          "x": 308,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 305,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 311,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1784,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 1246,
+          "y": 0,
+          "cause": "unknown"
+        },
+        {
+          "x": 1525,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 311,
+          "y": 176,
+          "cause": "enemy:goomba"
+        },
+        {
+          "x": 862,
+          "y": 176,
+          "cause": "enemy:goomba"
+        }
+      ],
+      "death_x_median": 694.0,
+      "deaths_past_470": 62,
+      "deaths_past_630": 62,
+      "cleared_pipe2_outcomes": {
+        "stuck": 59,
+        "died": 62
+      },
+      "n_cleared_pipe2": 121,
+      "eval_seed_block": [
+        400,
+        599
+      ]
+    }
+  ],
+  "pipe2_rates": [
+    0.62,
+    0.59,
+    0.605
+  ],
+  "observed_spread_pp": 3.0000000000000027,
+  "predicted_95_width_pp": 13.550249886994703,
+  "deaths": [
+    103,
+    96,
+    94
+  ],
+  "cause_by_bin_pooled": {
+    "256": {
+      "enemy:goomba": 4
+    },
+    "288": {
+      "enemy:goomba": 94
+    },
+    "640": {
+      "enemy:goomba": 1
+    },
+    "672": {
+      "enemy:goomba": 41
+    },
+    "704": {
+      "enemy:goomba": 33
+    },
+    "800": {
+      "enemy:goomba": 8
+    },
+    "832": {
+      "enemy:goomba": 12
+    },
+    "864": {
+      "enemy:goomba": 3
+    },
+    "1216": {
+      "unknown": 15,
+      "enemy:goomba": 7
+    },
+    "1248": {
+      "unknown": 13
+    },
+    "1504": {
+      "unknown": 11,
+      "enemy:goomba": 5
+    },
+    "1536": {
+      "unknown": 21
+    },
+    "1760": {
+      "enemy:goomba": 5
+    },
+    "2720": {
+      "enemy:goomba": 1
+    },
+    "896": {
+      "enemy:goomba": 14
+    },
+    "1792": {
+      "enemy:goomba": 1
+    },
+    "2016": {
+      "enemy:goomba": 2
+    },
+    "2752": {
+      "enemy:goomba": 1
+    },
+    "1664": {
+      "enemy:green_koopa": 1
+    }
+  },
+  "pipe3_face": "pipe-3 face deaths: 75 total, 75 enemy (100%)",
+  "verdict": "TRAINING-DOMINATED: same checkpoint spans only 3.0 pp across evaluation seeds against 14.5-24.5 pp across training seeds, so the training pipeline is the unstable part and larger evaluations will not fix it."
+}
