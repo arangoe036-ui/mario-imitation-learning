@@ -828,3 +828,94 @@ at x≈1,216–1,248, the 11 gap falls, the pipe-3 dwell median of 161 frames. E
 every one describes a policy airborne 85% of the time. **New required field: report `a_press_rate`
 beside every clearance figure.** A marginal that far from the expert's is a defect regardless of what
 the clearance rate says.
+
+---
+
+## The trivial baseline that should have come first: a three-button script matches the policy through pipe 2
+
+**What changed.** A control that had never been run: Right+B held on every frame, plus the A button
+flipped as an i.i.d. coin at a fixed probability. No network, no observations, no learning. It matches
+the learned policy through pipe 2 and loses to it past pipe 3, and that split reorganises what every
+performance figure in this project means.
+
+**How we got there, including the wrong turn.** The previous entry found that the checkpoint carrying
+every recent headline presses A on 85.2% of frames against the expert's 15.2%. The obvious next question
+— *is a fixed button rate enough on its own?* — had never been asked in ~35 blocks of work, because each
+new result was compared against the previous model rather than against nothing at all. Two framings were
+wrong along the way: the binary question "is the learned component worth anything" turned out to have
+different answers at different obstacles, and the earlier claim that the demonstrations "were absorbed,
+so this is not a limit of imitation" was too generous — P3 below shows absorbing them is incompatible
+with keeping the level.
+
+**Numbers.** Single life throughout. Thresholds: pipe1 x>470, pipe2 x>630, **pipe3 x>735**, pipe4 x>975.
+pipe3=735 is derived, not chosen: the max_x histogram over 200 baseline episodes has a 37-episode spike
+in the 720–735 bin and **nothing at all in 736–783**.
+
+The scripted curve, n=20 per arm:
+
+| p(A) | x median | pipe1 | pipe2 | pipe3 | pipe4 |
+|---|---|---|---|---|---|
+| 0.00 | 312 | 0.0 | 0.0 | 0.0 | 0.0 |
+| 0.15 *(the expert's own rate)* | 436 | 45.0 | 0.0 | 0.0 | 0.0 |
+| 0.50 | 595 | 85.0 | 10.0 | 0.0 | 0.0 |
+| **0.85** | **722** | 70.0 | **70.0** | 10.0 | 0.0 |
+| 1.00 | 316 | 0.0 | 0.0 | 0.0 | 0.0 |
+
+A sharp interior optimum at ~0.85 — and the learned policy's A-rate is 0.852. Both extremes die at
+x≈312. At n=200, paired against the policy on identical seeds:
+
+| | script p=0.85 | policy | policy − script, pp |
+|---|---|---|---|
+| pipe1 | 145 (72.5%) | 146 (73.0%) | +0.5 [−8.2, +9.2] |
+| **pipe2** | **137 (68.5%)** | **137 (68.5%)** | **+0.0 [−9.0, +9.0]** |
+| pipe3 | 26 (13.0%) | 78 (39.0%) | **+26.0 [+17.6, +34.0]** |
+| pipe4 | 8 (4.0%) | 38 (19.0%) | **+15.0 [+8.9, +21.3]** |
+
+Identical counts at pipe 2: 137 and 137.
+
+**Then: did composition's headline gain come from the A-rate?** Five checkpoints re-measured at n=200,
+ordered by A-rate. All three archived pipe-2 figures reproduced to the decimal (21.5%, 62.0%, 60.0%), so
+this is re-measurement rather than trust in the archive.
+
+| arm | A | ×expert | pipe1 | pipe2 | pipe3 | pipe4 | x_med |
+|---|---|---|---|---|---|---|---|
+| `round3_ratio1to1` | 0.628 | 4.13 | 81.5 | **21.5** | 0.0 | 0.0 | 595 |
+| `top20_round2` | 0.822 | 5.41 | 83.0 | **62.0** | 28.5 | 17.5 | 722 |
+| *script p=0.85* | *0.850* | *5.59* | *72.5* | ***68.5*** | *13.0* | *4.0* | *722* |
+| `surv_round2` | 0.865 | 5.69 | 66.0 | 60.0 | 23.0 | 10.5 | 698 |
+| `compose_round2` | 0.888 | 5.84 | 64.0 | 54.0 | 31.5 | 19.5 | 688 |
+| `surv_round3` | 0.926 | 6.09 | 58.0 | 55.5 | 32.0 | 24.0 | 682 |
+
+**Yes.** The A-rate rose 0.628 → 0.822 across the sequence that took pipe 2 from 21.5% to 62.0%
+[+31.2, +48.7] pp. And **no checkpoint beats the script at pipe 2; four of five are worse.** At pipe 3
+and 4 every checkpoint but the first beats it, all intervals excluding zero.
+
+A pattern nobody asked for: among learned models, as A rises 0.822 → 0.926, **pipe 1/2 fall (83.0 → 58.0,
+62.0 → 55.5) while pipe 3/4 rise (28.5 → 32.0, 17.5 → 24.0)**. The A-rate trades obstacles against each
+other, so no single fixed rate is right for the level — which is what a state-conditional policy is for.
+
+**And: was the distillation collapse forgetting, or removal of a load-bearing degeneracy?** Four
+schedules, one seed each, all from the same baseline (A 0.852, x_med 723):
+
+| arm | epochs | A | x_med | pipe2 | pipe4 | reach kept? |
+|---|---|---|---|---|---|---|
+| `steps100_1to1` | 1.7 | 0.468 | 594 | **1.5** | 0.0 | no |
+| `steps800_1to4` | 5.3 | 0.299 | 436 | 0.5 | 0.0 | no |
+| `steps100_1to4` | **0.7** | 0.481 | 594 | 1.5 | 0.0 | no |
+| 13-epoch 1:1 (prior entry) | 13 | 0.370 | 437 | — | 0.0 | no |
+
+**Zero of four.** Not forgetting — **degeneracy-removal.** Even at 0.7 epochs the A-rate falls and pipe 2
+collapses. Diluting with *more* expert data pushed A *lower* (0.299), which follows, since the expert's
+own rate is 0.152. Tight cross-check: the distilled arm at A=0.468 clears pipe 2 at 1.5%, and the
+*script* at p=0.50 clears it at 10.0% — pipe-2 performance tracks the A-rate whether that rate comes
+from a network or a coin.
+
+**Cost.** 0.6 + 18.1 + 10.0 minutes. The expensive part was ~35 blocks of comparing each model to the
+previous one instead of to a coin flip.
+
+**Downstream effect.** Every clearance figure this project has reported at or below pipe 2 — the 21.5%
+baseline, composition's 54–62%, the survival gate's 60%, the frontier checkpoint's 68.5% — is a statement
+about button marginals, and none of them beats a three-button script. **The learned component's only
+demonstrated value is at pipes 3 and 4**: +26.0 and +15.0 pp over the best script, reproduced across four
+independent checkpoints. If the project restarts from a different objective, that is the result worth
+carrying forward, and the always-jump marginal is the thing to design against.

@@ -35,6 +35,73 @@ ARRIVE_X = 880
 #: The hold the requirement sweep proved sufficient from real states (min over 39 clearing configs).
 REQUIRED_HOLD = 12
 
+#: Clearance thresholds, each named for its semantics and each *past* an obstacle's far edge.
+#:
+#: `pipe1`/`pipe2` are the project's canonical 470/630 so figures stay comparable with the 21.5%
+#: and 62% history. `pipe3` is 735, derived rather than chosen: the max_x histogram of 200 baseline
+#: episodes has a 37-episode spike in the 720-735 bin and then **nothing at all in 736-783**, so 735
+#: is the last x at which an episode can be stalled against pipe 3's face. `pipe4` is the 975 the
+#: requirement sweep and the search scorer both used.
+#:
+#: `past720` is deliberately absent -- LEDGER.md §3 voids it as an arrival at a face.
+PIPE_THRESHOLDS = {"pipe1": 470, "pipe2": 630, "pipe3": 735, "pipe4": CLEAR_X}
+
+#: Expert press rates, for the ratio that exposes a degenerate marginal. See `button_marginals`.
+EXPERT_RATES = {"Up": 0.001, "Down": 0.007, "Left": 0.030, "Right": 0.453,
+                "Start": 0.0, "Select": 0.0, "B": 0.514, "A": 0.152}
+
+
+def button_marginals(frames) -> dict:
+    """Press rate per button, plus the ratio to the expert's own rate and A-hold occupancy.
+
+    **Required beside every clearance figure** (LEDGER.md §2). A policy that holds A on 85% of frames
+    against the expert's 15% clears obstacles by being permanently airborne, and its clearance rate is
+    a statement about button rates rather than about skill. That went unnoticed for six reports
+    because the marginals were never printed next to the rates.
+    """
+    from ..buttons import NES_BUTTON_ORDER
+
+    bits = np.asarray([f[3] for f in frames], dtype=np.int64)
+    if not len(bits):
+        return {"frames": 0}
+    rates = {n: float(((bits & NES_BUTTON_BITS[n]) > 0).mean()) for n in NES_BUTTON_ORDER}
+    a = (bits & A_BIT) > 0
+    runs, i = [], 0
+    while i < len(a):
+        if a[i] and (i == 0 or not a[i - 1]):
+            j = i
+            while j < len(a) and a[j]:
+                j += 1
+            runs.append(j - i)
+            i = j
+        else:
+            i += 1
+    return {
+        "frames": int(len(bits)),
+        "rates": {k: round(v, 3) for k, v in rates.items()},
+        "over_expert": {k: (round(rates[k] / EXPERT_RATES[k], 2) if EXPERT_RATES.get(k) else None)
+                        for k in rates},
+        "frames_inside_a_hold_pct": round(float(a.mean()) * 100, 1),
+        "a_holds": hold_stats(runs),
+        "expert_rates": EXPERT_RATES,
+    }
+
+
+def clearance(max_xs, thresholds=None) -> dict:
+    """Wilson-bounded clearance at each named threshold."""
+    from .overnight_lib import wilson
+
+    thresholds = thresholds or PIPE_THRESHOLDS
+    xs = np.asarray(list(max_xs))
+    n = len(xs)
+    out = {}
+    for name, th in thresholds.items():
+        k = int((xs > th).sum())
+        lo, hi = wilson(k, n) if n else (0.0, 0.0)
+        out[name] = {"threshold_x": th, "k": k, "n": n,
+                     "rate": (k / n) if n else None, "ci": [lo, hi], "method": "Wilson"}
+    return out
+
 
 def a_hold_onsets(frames, window=A_HOLD_ONSET_WINDOW) -> list[int]:
     """Lengths of A-holds whose first pressed frame has x inside `window`.

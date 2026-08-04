@@ -1,0 +1,678 @@
+{
+  "n_per_arm": 20,
+  "cap": 3000,
+  "stall": 300,
+  "measurement_basis": "single_life",
+  "thresholds": {
+    "pipe1": 470,
+    "pipe2": 630,
+    "pipe3": 735,
+    "pipe4": 975
+  },
+  "seeds_training": 0,
+  "policy_baseline_n200": {
+    "x_median": 723.0,
+    "clearance": {
+      "pipe1": {
+        "threshold_x": 470,
+        "k": 146,
+        "n": 200,
+        "rate": 0.73,
+        "ci": [
+          0.664564384587978,
+          0.7867664526895944
+        ],
+        "method": "Wilson"
+      },
+      "pipe2": {
+        "threshold_x": 630,
+        "k": 137,
+        "n": 200,
+        "rate": 0.685,
+        "ci": [
+          0.617649158589664,
+          0.7453778192205573
+        ],
+        "method": "Wilson"
+      },
+      "pipe3": {
+        "threshold_x": 735,
+        "k": 78,
+        "n": 200,
+        "rate": 0.39,
+        "ci": [
+          0.325082297194914,
+          0.45906382410711677
+        ],
+        "method": "Wilson"
+      },
+      "pipe4": {
+        "threshold_x": 975,
+        "k": 38,
+        "n": 200,
+        "rate": 0.19,
+        "ci": [
+          0.14167093792456506,
+          0.250013585744794
+        ],
+        "method": "Wilson"
+      }
+    },
+    "button_marginals": {
+      "frames": 132844,
+      "rates": {
+        "Up": 0.008,
+        "Down": 0.281,
+        "Left": 0.108,
+        "Right": 0.999,
+        "Start": 0.0,
+        "Select": 0.0,
+        "B": 0.999,
+        "A": 0.852
+      },
+      "over_expert": {
+        "Up": 7.6,
+        "Down": 40.1,
+        "Left": 3.61,
+        "Right": 2.2,
+        "Start": null,
+        "Select": null,
+        "B": 1.94,
+        "A": 5.6
+      },
+      "frames_inside_a_hold_pct": 85.2,
+      "a_holds": {
+        "n": 15353,
+        "median": 4.0,
+        "p90": 17.0,
+        "max": 160,
+        "frac_ge_required": 0.18836709437894875,
+        "required_hold": 12
+      },
+      "expert_rates": {
+        "Up": 0.001,
+        "Down": 0.007,
+        "Left": 0.03,
+        "Right": 0.453,
+        "Start": 0.0,
+        "Select": 0.0,
+        "B": 0.514,
+        "A": 0.152
+      }
+    }
+  },
+  "arms": {
+    "p0": {
+      "p_a": 0.0,
+      "n": 20,
+      "x_median": 312.0,
+      "x_max": 312,
+      "x_p90": 312.0,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 2620,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 1.0,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 1.0,
+          "A": 0.0
+        },
+        "over_expert": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 2.21,
+          "Start": null,
+          "Select": null,
+          "B": 1.95,
+          "A": 0.0
+        },
+        "frames_inside_a_hold_pct": 0.0,
+        "a_holds": {
+          "n": 0,
+          "median": null,
+          "p90": null,
+          "max": null,
+          "frac_ge_required": null
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "ended": {
+        "died": 20,
+        "stuck": 0
+      },
+      "death_x": [
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312,
+        312
+      ]
+    },
+    "p0.15": {
+      "p_a": 0.15,
+      "n": 20,
+      "x_median": 435.5,
+      "x_max": 596,
+      "x_p90": 595.1,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 9,
+          "n": 20,
+          "rate": 0.45,
+          "ci": [
+            0.25819502085709295,
+            0.6579179916924003
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 10235,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 1.0,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 1.0,
+          "A": 0.149
+        },
+        "over_expert": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 2.21,
+          "Start": null,
+          "Select": null,
+          "B": 1.95,
+          "A": 0.98
+        },
+        "frames_inside_a_hold_pct": 14.9,
+        "a_holds": {
+          "n": 1314,
+          "median": 1.0,
+          "p90": 2.0,
+          "max": 4,
+          "frac_ge_required": 0.0,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "ended": {
+        "died": 2,
+        "stuck": 18
+      },
+      "death_x": [
+        312,
+        313
+      ]
+    },
+    "p0.5": {
+      "p_a": 0.5,
+      "n": 20,
+      "x_median": 595.0,
+      "x_max": 724,
+      "x_p90": 608.7000000000002,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 17,
+          "n": 20,
+          "rate": 0.85,
+          "ci": [
+            0.6395767041130426,
+            0.9476322080405041
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 2,
+          "n": 20,
+          "rate": 0.1,
+          "ci": [
+            0.027865893984153206,
+            0.30103820641179335
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 11350,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 1.0,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 1.0,
+          "A": 0.498
+        },
+        "over_expert": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 2.21,
+          "Start": null,
+          "Select": null,
+          "B": 1.95,
+          "A": 3.28
+        },
+        "frames_inside_a_hold_pct": 49.8,
+        "a_holds": {
+          "n": 2896,
+          "median": 1.0,
+          "p90": 4.0,
+          "max": 11,
+          "frac_ge_required": 0.0,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "ended": {
+        "died": 4,
+        "stuck": 16
+      },
+      "death_x": [
+        315,
+        315,
+        316,
+        722
+      ]
+    },
+    "p0.85": {
+      "p_a": 0.85,
+      "n": 20,
+      "x_median": 722.0,
+      "x_max": 900,
+      "x_p90": 741.5000000000002,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 14,
+          "n": 20,
+          "rate": 0.7,
+          "ci": [
+            0.4810232237710206,
+            0.854524726031006
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 14,
+          "n": 20,
+          "rate": 0.7,
+          "ci": [
+            0.4810232237710206,
+            0.854524726031006
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 2,
+          "n": 20,
+          "rate": 0.1,
+          "ci": [
+            0.027865893984153206,
+            0.30103820641179335
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 10800,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 1.0,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 1.0,
+          "A": 0.851
+        },
+        "over_expert": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 2.21,
+          "Start": null,
+          "Select": null,
+          "B": 1.95,
+          "A": 5.6
+        },
+        "frames_inside_a_hold_pct": 85.1,
+        "a_holds": {
+          "n": 1382,
+          "median": 5.0,
+          "p90": 14.900000000000091,
+          "max": 44,
+          "frac_ge_required": 0.15629522431259044,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "ended": {
+        "died": 11,
+        "stuck": 9
+      },
+      "death_x": [
+        299,
+        307,
+        313,
+        313,
+        314,
+        315,
+        678,
+        687,
+        707,
+        722,
+        722
+      ]
+    },
+    "p1": {
+      "p_a": 1.0,
+      "n": 20,
+      "x_median": 316.0,
+      "x_max": 316,
+      "x_p90": 316.0,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 0,
+          "n": 20,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.16113012549493322
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 2940,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 1.0,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 1.0,
+          "A": 1.0
+        },
+        "over_expert": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 2.21,
+          "Start": null,
+          "Select": null,
+          "B": 1.95,
+          "A": 6.58
+        },
+        "frames_inside_a_hold_pct": 100.0,
+        "a_holds": {
+          "n": 1,
+          "median": 2940.0,
+          "p90": 2940.0,
+          "max": 2940,
+          "frac_ge_required": 1.0,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "ended": {
+        "died": 20,
+        "stuck": 0
+      },
+      "death_x": [
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316,
+        316
+      ]
+    }
+  },
+  "verdict": {
+    "question": "Does Right+B held permanently with A at p=0.85 reach an x median near 723?",
+    "script_p085_x_median": 722.0,
+    "policy_x_median": 723.0,
+    "script_p085_pipe2": 0.7,
+    "policy_pipe2": 0.685,
+    "answer": "YES",
+    "caveat": "script arms are n=20 (wide intervals); the policy figure is n=200. A near-miss at n=20 is not a clean negative.",
+    "statement": "THE LEARNED COMPONENT IS WORTH APPROXIMATELY NOTHING over a three-button script: Right+B+A(0.85) reaches x median 722 against the policy's 723 and clears pipe 2 at 70.0% against 68.5%. Every performance figure in NORTH_STAR.md restates as a claim about button marginals."
+  },
+  "minutes": 0.6
+}

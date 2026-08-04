@@ -1,0 +1,437 @@
+{
+  "n": 200,
+  "measurement_basis": "single_life",
+  "seeds_training": 1,
+  "label": "SCREENS -- one seed each, not a ranking",
+  "thresholds": {
+    "pipe1": 470,
+    "pipe2": 630,
+    "pipe3": 735,
+    "pipe4": 975
+  },
+  "baseline": {
+    "checkpoint": "C_control_matched_r2.pt",
+    "a_rate": 0.852,
+    "x_median": 723.0,
+    "clearance": {
+      "pipe1": {
+        "threshold_x": 470,
+        "k": 146,
+        "n": 200,
+        "rate": 0.73,
+        "ci": [
+          0.664564384587978,
+          0.7867664526895944
+        ],
+        "method": "Wilson"
+      },
+      "pipe2": {
+        "threshold_x": 630,
+        "k": 137,
+        "n": 200,
+        "rate": 0.685,
+        "ci": [
+          0.617649158589664,
+          0.7453778192205573
+        ],
+        "method": "Wilson"
+      },
+      "pipe3": {
+        "threshold_x": 735,
+        "k": 78,
+        "n": 200,
+        "rate": 0.39,
+        "ci": [
+          0.325082297194914,
+          0.45906382410711677
+        ],
+        "method": "Wilson"
+      },
+      "pipe4": {
+        "threshold_x": 975,
+        "k": 38,
+        "n": 200,
+        "rate": 0.19,
+        "ci": [
+          0.14167093792456506,
+          0.250013585744794
+        ],
+        "method": "Wilson"
+      }
+    },
+    "button_marginals": {
+      "frames": 132844,
+      "rates": {
+        "Up": 0.008,
+        "Down": 0.281,
+        "Left": 0.108,
+        "Right": 0.999,
+        "Start": 0.0,
+        "Select": 0.0,
+        "B": 0.999,
+        "A": 0.852
+      },
+      "over_expert": {
+        "Up": 7.6,
+        "Down": 40.1,
+        "Left": 3.61,
+        "Right": 2.2,
+        "Start": null,
+        "Select": null,
+        "B": 1.94,
+        "A": 5.6
+      },
+      "frames_inside_a_hold_pct": 85.2,
+      "a_holds": {
+        "n": 15353,
+        "median": 4.0,
+        "p90": 17.0,
+        "max": 160,
+        "frac_ge_required": 0.18836709437894875,
+        "required_hold": 12
+      },
+      "expert_rates": {
+        "Up": 0.001,
+        "Down": 0.007,
+        "Left": 0.03,
+        "Right": 0.453,
+        "Start": 0.0,
+        "Select": 0.0,
+        "B": 0.514,
+        "A": 0.152
+      }
+    }
+  },
+  "prior_13_epoch_1to1": {
+    "a_rate": 0.37,
+    "x_median": 437.0,
+    "pipe4_rate": 0.0
+  },
+  "arms": {
+    "steps100_1to1": {
+      "steps": 100,
+      "expert_per_demo": 1,
+      "epochs": 1.7,
+      "n": 200,
+      "x_median": 594.0,
+      "x_max": 724,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 150,
+          "n": 200,
+          "rate": 0.75,
+          "ci": [
+            0.6856577652038048,
+            0.8049192318370347
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 3,
+          "n": 200,
+          "rate": 0.015,
+          "ci": [
+            0.005114145184492387,
+            0.043166480556278884
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 0,
+          "n": 200,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.018846005918320894
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 0,
+          "n": 200,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.018846005918320894
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 96799,
+        "rates": {
+          "Up": 0.002,
+          "Down": 0.05,
+          "Left": 0.033,
+          "Right": 0.999,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.996,
+          "A": 0.468
+        },
+        "over_expert": {
+          "Up": 1.59,
+          "Down": 7.2,
+          "Left": 1.11,
+          "Right": 2.21,
+          "Start": null,
+          "Select": null,
+          "B": 1.94,
+          "A": 3.08
+        },
+        "frames_inside_a_hold_pct": 46.8,
+        "a_holds": {
+          "n": 19504,
+          "median": 1.0,
+          "p90": 4.0,
+          "max": 57,
+          "frac_ge_required": 0.02132895816242822,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "a_rate_moved_down": true,
+      "reach_preserved": false,
+      "pipe4_delta_ci_pp": [
+        -25.001358574479397,
+        -13.812640189687409
+      ],
+      "ended": {
+        "died": 53,
+        "stuck": 147
+      }
+    },
+    "steps800_1to4": {
+      "steps": 800,
+      "expert_per_demo": 4,
+      "epochs": 5.3,
+      "n": 200,
+      "x_median": 436.0,
+      "x_max": 722,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 89,
+          "n": 200,
+          "rate": 0.445,
+          "ci": [
+            0.3778048169746545,
+            0.5142682436763609
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 1,
+          "n": 200,
+          "rate": 0.005,
+          "ci": [
+            0.0008831459893662054,
+            0.02777439986977148
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 0,
+          "n": 200,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.018846005918320894
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 0,
+          "n": 200,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.018846005918320894
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 87518,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.011,
+          "Left": 0.009,
+          "Right": 0.999,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.997,
+          "A": 0.299
+        },
+        "over_expert": {
+          "Up": 0.22,
+          "Down": 1.53,
+          "Left": 0.29,
+          "Right": 2.21,
+          "Start": null,
+          "Select": null,
+          "B": 1.94,
+          "A": 1.97
+        },
+        "frames_inside_a_hold_pct": 29.9,
+        "a_holds": {
+          "n": 14261,
+          "median": 1.0,
+          "p90": 3.0,
+          "max": 38,
+          "frac_ge_required": 0.010027347310847767,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "a_rate_moved_down": true,
+      "reach_preserved": false,
+      "pipe4_delta_ci_pp": [
+        -25.001358574479397,
+        -13.812640189687409
+      ],
+      "ended": {
+        "died": 68,
+        "stuck": 132
+      }
+    },
+    "steps100_1to4": {
+      "steps": 100,
+      "expert_per_demo": 4,
+      "epochs": 0.7,
+      "n": 200,
+      "x_median": 594.0,
+      "x_max": 722,
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 166,
+          "n": 200,
+          "rate": 0.83,
+          "ci": [
+            0.7718399896049648,
+            0.8757216464889435
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 3,
+          "n": 200,
+          "rate": 0.015,
+          "ci": [
+            0.005114145184492387,
+            0.043166480556278884
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 0,
+          "n": 200,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.018846005918320894
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 0,
+          "n": 200,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.018846005918320894
+          ],
+          "method": "Wilson"
+        }
+      },
+      "button_marginals": {
+        "frames": 111407,
+        "rates": {
+          "Up": 0.001,
+          "Down": 0.051,
+          "Left": 0.026,
+          "Right": 0.999,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.997,
+          "A": 0.481
+        },
+        "over_expert": {
+          "Up": 1.5,
+          "Down": 7.33,
+          "Left": 0.86,
+          "Right": 2.21,
+          "Start": null,
+          "Select": null,
+          "B": 1.94,
+          "A": 3.17
+        },
+        "frames_inside_a_hold_pct": 48.1,
+        "a_holds": {
+          "n": 23683,
+          "median": 1.0,
+          "p90": 4.0,
+          "max": 41,
+          "frac_ge_required": 0.016087488916100155,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "a_rate_moved_down": true,
+      "reach_preserved": false,
+      "pipe4_delta_ci_pp": [
+        -25.001358574479397,
+        -13.812640189687409
+      ],
+      "ended": {
+        "died": 30,
+        "stuck": 170
+      }
+    }
+  },
+  "verdict": {
+    "question": "degeneracy-removal or catastrophic forgetting?",
+    "discriminator": "an arm that lowers the A-rate AND preserves reach (x_median >= 90% of 723)",
+    "arms_satisfying_both": [],
+    "answer": "DEGENERACY-REMOVAL -- no schedule lowered the A-rate while preserving reach. Every arm that moved the marginal toward the expert lost the level, which is what it means for reach to depend on the degeneracy rather than on skill."
+  },
+  "minutes": 10.0
+}
