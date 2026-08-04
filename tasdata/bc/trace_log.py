@@ -25,7 +25,7 @@ from pathlib import Path
 
 import numpy as np
 
-from ..ram import ADDR_Y_PIXEL, ADDR_Y_VIEWPORT, read_smb, y_absolute
+from ..ram import ADDR_Y_PIXEL, ADDR_Y_VIEWPORT, on_ground, read_smb, y_absolute
 
 ADDR_X_SPEED = 0x0057
 ENEMY_SLOTS = 5
@@ -55,14 +55,20 @@ class EpisodeTrace:
     """One episode, every frame, plus the enemy field at death."""
 
     seed: int
-    frames: list = field(default_factory=list)   # (x, y_absolute, speed, buttons, player_state)
+    #: (x, y_absolute, speed, buttons, player_state, grounded) -- grounded appended 2026-08-04
+    frames: list = field(default_factory=list)
     death: dict | None = None
     ended: str = "budget"
 
     def record(self, obs, byte: int) -> None:
+        # A sixth field was appended rather than inserted: every reader indexes f[0] for x and f[3]
+        # for buttons, so appending is backward-compatible with the traces already on disk.
+        # `grounded` is here because the behaviour statistics that matter -- airborne fraction,
+        # A-onsets while grounded, A still held while airborne -- cannot be derived from x and y.
         st = read_smb(obs.ram, obs.framecount)
         self.frames.append((int(st.x_position), y_absolute(obs.ram),
-                            int(obs.ram[ADDR_X_SPEED]), int(byte), int(st.player_state)))
+                            int(obs.ram[ADDR_X_SPEED]), int(byte), int(st.player_state),
+                            int(on_ground(obs.ram))))
 
     def record_death(self, obs) -> None:
         st = read_smb(obs.ram, obs.framecount)
@@ -93,7 +99,8 @@ def write_traces(path: Path | str, traces: list[EpisodeTrace], **meta) -> Path:
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(
-        {"schema": "per-frame (x, y_absolute, speed_byte, buttons, player_state); "
+        {"schema": "per-frame (x, y_absolute, speed_byte, buttons, player_state, grounded); "
+                   "grounded absent in traces written before 2026-08-04; "
                    "enemy raw_id always persisted",
          "enemy_table_unverified": True, "n_episodes": len(traces), **meta,
          "episodes": [t.to_dict() for t in traces]}, separators=(",", ":")))

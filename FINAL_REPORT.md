@@ -1158,3 +1158,69 @@ number. The project's founding win is restated: most of it was a button rate, an
 unresolved rather than established. What survives as a genuine result is narrow and now measured under an
 unbiased objective — **the policy beats the best fixed-rate script at pipes 3 and 4**, pending replication
 across training seeds.
+
+---
+
+## Exhausted: three seeds, conditioned on arrival, show no improvement — and the loop is stable-degenerate
+
+**What changed.** The single-seed result from the previous entry was replicated across three training
+seeds and re-scored **conditional on arrival at each obstacle**, which is the form that separates
+obstacle-specific learning from simply getting further up the level. It does not survive. This is the
+project's terminal result.
+
+**How we got there, including the wrong turns.**
+
+The previous entry reported +7.5 pp unconditional at pipe 3 from one seed and flagged that the number sat
+inside the known 14.5–24.5 pp training-seed band. Two things were then fixed about the measurement: the
+metric was made conditional on arrival, and three seeds were spent.
+
+Conditional advantage over the strongest fixed-rate script per obstacle:
+
+| arm | pipe1 | pipe2 | pipe3 | pipe4 | airborne | A held while airborne | A-onsets/1k grounded |
+|---|---|---|---|---|---|---|---|
+| base | −14.0 | −3.0 | +25.8 | +9.7 | 79.3% | 85.2% | 3.8 |
+| plain_s0 | −10.5 | −5.3 | **+28.9** | +14.5 | 79.1% | 85.5% | 3.2 |
+| plain_s1 | −10.5 | +1.2 | +24.9 | +12.2 | 77.6% | 87.8% | 2.7 |
+| plain_s2 | −15.0 | +2.5 | +17.8 | +16.7 | 77.3% | 87.8% | 2.6 |
+| **pooled (n=600)** | −12.0 | −0.6 | **+23.8** | **+14.3** | **78.0%** | **87.0%** | **2.8** |
+| *expert* | | | | | *61.1%* | | |
+
+**The gate:** pipe 3 goes 56.9% → 55.0%, **−2.0 pp [−11.2, +7.6]**; pipe 4 goes 48.7% → 53.4%, **+4.6 pp
+[−8.0, +17.1]**. Neither excludes zero.
+
+**The previous entry's single-seed arm was an outlier in both directions.** Its +7.5 pp unconditional gain
+at pipe 3 becomes −2.0 pp once conditioned and pooled, and its pipe-4 *conditional* advantage was −1.4 pp
+while all three new seeds land at +12.2 to +16.7. One seed hid both errors at once.
+
+**An honest rider:** pipe 4 improved in **3 of 3 seeds**, and the seed spread there is only 4.5 pp — the
+wide interval comes from scarce *arrivals* (78 for the base, 238 pooled), not from disagreement between
+seeds. Recorded as a fact, not as grounds for reopening a gate that fired.
+
+**Why it cannot be fixed by fixing the loss.** The pooled policy's A-rate is **0.871 — exactly its
+training data's 0.871.** Plain BCE faithfully reproduced a degenerate marginal, which is correct behaviour
+on degenerate data. **The loss fix stopped amplification; it cannot stop inheritance.** Each round starts
+from the previous round's marginal, and the self-data came from a sustain-trained base.
+
+**The pathology, quantified for the first time.** The policy is airborne **78.0%** of frames against the
+expert's **61.1%**, holds A on **87.0% of airborne frames**, and initiates only **2.8 A-onsets per 1,000
+grounded frames** — roughly one jump start every 360 frames. It is not jumping often; **it is staying
+airborne by never releasing the button**, which is exactly what blocks the next jump. No policy-side
+clearance figure would have revealed this, which is why the A press *rate* was retired as a headline
+statistic in favour of these three.
+
+**Cost.** ~35 minutes wall, most of it spent making the run survive an environment that began killing long
+jobs every 2–3 minutes. Three rounds of hardening, each a real lesson: per-arm resumption was too coarse
+(a 200-episode arm exceeded the kill interval, so nothing ever completed); training had the same shape
+(400 steps never reached a save, so model and optimiser state now bank every 100); and restart overhead
+then dominated, until arm scores were cached, the training dataset built lazily, and **calibration dropped
+from the eval path entirely — `traced_episode` samples from the sigmoid and never reads the thresholds, so
+calibrating before an evaluation was pure cost.**
+
+**Downstream effect — the project's conclusion.** Supervised imitation on this corpus is exhausted, and
+the negative result is the contribution. Stated plainly: **up-weighting rare positive frames — a standard
+trick for imbalanced action labels — manufactures a degenerate policy whose apparent competence is a
+button rate. A three-button script (Right+B held, A flipped as a coin) matches or beats every learned
+checkpoint in this project at the obstacles it was measured on. And an unbiased objective, a credit no
+marginal can game, and practice states at the right obstacles do not recover the difference.** What
+survives as genuine learned value is narrow: a conditional advantage at pipes 3 and 4 over the best fixed
+script that is present in the base and is not improved by further training.

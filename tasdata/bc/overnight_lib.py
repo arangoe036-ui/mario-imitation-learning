@@ -183,7 +183,11 @@ def _describe(arr: np.ndarray) -> dict:
 # ---------------------------------------------------------------- training
 
 
-def train_policy(policy, dataset, *, steps: int, lr: float = 1e-4, onset_weight: float = 10.0,
+def train_policy(policy, dataset, *, steps: int, lr: float = 1e-4, onset_weight: float = 1.0,
+                 # onset_weight defaulted to 10.0 for most of this project's history, so every
+                 # caller that did not override it trained under a press-weighted objective.
+                 # data/loss_bias_probe.json: that inflates EVERY button marginal above the
+                 # training data's. The unbiased path is now the default; ask for the bias.
                  batch_size: int = 128, seed: int = 0, weight_decay: float = 1e-4,
                  grad_clip: float = 1.0, log=print, log_every: int = 200):
     """Train (or fine-tune) a Bernoulli-head policy on CPU.
@@ -243,11 +247,14 @@ def eval_live(session, policy, thresholds_vec, starts, vocab, cfg, *, seeds: int
         # §3: a raw clearance rate cannot distinguish learning from a tuned button marginal, so
         # every obstacle is also reported net of the best fixed-rate script. Required field.
         from .pipe4_metrics import PIPE_THRESHOLDS, clearance
-        from .script_baseline import vs_script
+        from .script_baseline import conditional_rates, vs_script
+        # Unconditional `vs_script` alone is misleading: improving early inflates the apparent
+        # advantage at every later obstacle. The conditional form ships beside it, always.
         out[start.label] = {
             "n": len(eps),
             "clearance": clearance(xs, PIPE_THRESHOLDS),
             "vs_script": vs_script(xs),
+            "conditional_on_arrival": conditional_rates(xs),
             "pipe1_k": k1, "pipe1_rate": k1 / len(eps), "pipe1_ci": wilson(k1, len(eps)),
             "x_median": float(np.median(xs)), "x_median_ci": boot_ci(xs),
             "x_mean": float(np.mean(xs)), "x_p90": float(np.percentile(xs, 90)),

@@ -29,6 +29,7 @@ import json
 from pathlib import Path
 
 from .overnight_lib import diff_ci, wilson
+from .pipe4_metrics import A_BIT
 from .pipe4_metrics import PIPE_THRESHOLDS
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -157,6 +158,139 @@ def rollout_credit(max_x: int, deaths: int = 0, table: dict | None = None,
             b = table.get(ob)
             credit += (1.0 - b["rate"]) if b else 1.0
     return credit - death_penalty * deaths
+
+
+#: Arrival gate per obstacle: you have "arrived" at pipe N once you cleared pipe N-1.
+#: Unconditional clearance conflates two different things -- getting further up the level, and being
+#: better at a particular obstacle. A +7.5 pp unconditional gain at pipe 3 decomposed into ~+3.5 pp of
+#: pipe-3 skill and the rest simply more episodes arriving, while pipe 4 got conditionally *worse*.
+#: So the conditional form is not an extra: it is the one that answers "did this obstacle improve".
+ARRIVAL_GATE = {"pipe1": None, "pipe2": "pipe1", "pipe3": "pipe2", "pipe4": "pipe3"}
+
+
+def conditional_rates(max_xs, table: dict | None = None) -> dict:
+    """Clearance of each obstacle among episodes that reached it, plus the script's own."""
+    table = table or baseline()
+    xs = list(max_xs)
+    out = {}
+    for ob, prev in ARRIVAL_GATE.items():
+        th = PIPE_THRESHOLDS[ob]
+        gate = PIPE_THRESHOLDS[prev] if prev else None
+        arrived = [x for x in xs if gate is None or x > gate]
+        k = sum(1 for x in arrived if x > th)
+        n = len(arrived)
+        lo, hi = wilson(k, n) if n else (0.0, 0.0)
+        out[ob] = {"obstacle": ob, "threshold_x": th, "arrival_gate": prev,
+                   "k": k, "n_arrived": n, "rate": (k / n) if n else None,
+                   "ci": [lo, hi], "method": "Wilson"}
+    return out
+
+
+#: Retained traces of every fixed-rate script arm, for building a *conditional* baseline. The
+#: unconditional table takes the per-obstacle maximum over arms; the conditional form does the same, so
+#: both report against the strongest fixed-rate opponent at each obstacle rather than a convenient one.
+SCRIPT_ARM_TRACES = (
+    "data/traces/p2_script_p085_200.json",
+    "data/traces/ladder_left_200.json",
+    "data/traces/ladder_down_200.json",
+    "data/traces/ladder_match_top20_200.json",
+    "data/traces/ladder_rng_matched_200.json",
+)
+
+
+def conditional_script_baseline() -> dict:
+    """Per-obstacle strongest fixed-rate script *conditional* rate, from retained traces."""
+    best: dict[str, dict] = {}
+    for rel in SCRIPT_ARM_TRACES:
+        f = ROOT / rel
+        if not f.exists():
+            continue
+        eps = json.loads(f.read_text())["episodes"]
+        xs = [max(fr[0] for fr in e["frames"]) for e in eps]
+        for ob, r in conditional_rates(xs).items():
+            if r["rate"] is None:
+                continue
+            if ob not in best or r["rate"] > best[ob]["rate"]:
+                best[ob] = {**r, "arm": Path(rel).stem}
+    return best
+
+
+def vs_script_conditional(max_xs, table: dict | None = None,
+                          script_max_xs: dict | None = None) -> dict:
+    """Per-obstacle advantage over the fixed-rate script, **conditional on arrival**.
+
+    The script's conditional rates are read from the same arms that set the unconditional baseline, so
+    the two forms are commensurable. `script_max_xs` may supply the raw per-arm max_x lists; when
+    absent the stored per-obstacle k/n are used, which is the unconditional denominator and is
+    therefore *not* a valid conditional -- so this returns `available: False` rather than a wrong
+    number. Silence about a missing denominator is how three figures were lost already.
+    """
+    table = table or baseline()
+    ours = conditional_rates(max_xs, table)
+    if script_max_xs:
+        theirs = conditional_rates(script_max_xs, table)
+        source = "supplied max_x list"
+    else:
+        theirs = conditional_script_baseline()
+        source = "strongest fixed-rate arm per obstacle, from retained traces"
+    if not theirs:
+        return {"available": False,
+                "reason": ("no fixed-rate script traces on disk; a conditional rate cannot be built "
+                           "from a stored unconditional k/n"),
+                "policy_conditional": ours}
+    out = {"available": True, "script_baseline_source": source,
+           "policy_conditional": ours, "script_conditional": theirs, "per_obstacle": {}}
+    for ob in ARRIVAL_GATE:
+        a, b = theirs[ob], ours[ob]
+        if not a["n_arrived"] or not b["n_arrived"]:
+            out["per_obstacle"][ob] = {"obstacle": ob, "available": False,
+                                       "reason": "no arrivals in one arm"}
+            continue
+        lo, hi = diff_ci(a["k"], a["n_arrived"], b["k"], b["n_arrived"])
+        out["per_obstacle"][ob] = {
+            "obstacle": ob, "arrival_gate": ARRIVAL_GATE[ob],
+            "policy_rate": b["rate"], "policy_n": b["n_arrived"],
+            "script_rate": a["rate"], "script_n": a["n_arrived"],
+            "advantage_pp": (b["rate"] - a["rate"]) * 100,
+            "ci_pp": [lo * 100, hi * 100], "method": "Newcombe",
+            "beats_script": bool(lo > 0), "loses_to_script": bool(hi < 0)}
+    out["beats_script_at"] = [o for o, r in out["per_obstacle"].items() if r.get("beats_script")]
+    return out
+
+
+def behaviour_stats(frames) -> dict:
+    """Airborne fraction, A-onsets while grounded, and A held while airborne.
+
+    The A press *rate* is retired as a headline (LEDGER.md §2): a high jump rate can be correct, while
+    holding A permanently cannot. These three separate them, and all three need the `grounded` field
+    that `EpisodeTrace` records from 2026-08-04 onward.
+
+    `a_held_while_airborne` is the pathology: A held during a descent does nothing and blocks the next
+    jump, because a jump requires a fresh onset from the ground.
+    """
+    import numpy as _np
+
+    if not frames or len(frames[0]) < 6:
+        return {"available": False,
+                "reason": "traces predate the `grounded` field; re-run the eval to populate it"}
+    g = _np.asarray([f[5] for f in frames], dtype=bool)      # 1 = grounded
+    a = (_np.asarray([f[3] for f in frames], dtype=_np.int64) & A_BIT) > 0
+    prev_a = _np.zeros_like(a)
+    prev_a[1:] = a[:-1]
+    onset = a & ~prev_a
+    airborne = ~g
+    n = len(g)
+    return {
+        "available": True, "frames": int(n),
+        "airborne_fraction": float(airborne.mean()),
+        "expert_airborne_fraction": 0.611,
+        "a_onsets_while_grounded_per_1000": float((onset & g).sum()) / n * 1000.0,
+        "a_onsets_total_per_1000": float(onset.sum()) / n * 1000.0,
+        "a_held_while_airborne": float(a[airborne].mean()) if airborne.any() else None,
+        "a_held_while_grounded": float(a[g].mean()) if g.any() else None,
+        "note": ("a_held_while_airborne is the pathology: A during a descent does nothing and blocks "
+                 "the next jump, which needs a fresh onset from the ground"),
+    }
 
 
 REACH_TABLE = ROOT / "data/reach_table.json"
