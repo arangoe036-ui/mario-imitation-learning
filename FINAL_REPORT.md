@@ -1605,3 +1605,65 @@ artifact records this; the log line did not.
 marginal, but a middling probability that sampling turns into a coin flip.** The indicated lever is the
 generation rule — converting a middling p(A) into a decision when grounded — which is one screen over the
 existing checkpoint with no retraining, the same shape as the change that doubled x median from 314 to 702.
+
+---
+
+## Can the network read the timing? It reads *where* the Goomba is, barely *when* to jump
+
+**What changed.** Forward passes over expert frames — no emulator, no training — to decide whether the 84×84
+observation carries the Goomba's timing at all. If it did not, no amount of imitation, search or distillation
+on this input could ever fix the obstacle.
+
+**First measurement.** For each expert A-onset in x=272–304, p(A) at the onset against its ±10 neighbours:
+
+| offset | −10 | −5 | −1 | **0** | +1 | +5 | +10 |
+|---|---|---|---|---|---|---|---|
+| p(A) median | 0.402 | 0.331 | 0.448 | **0.458** | 0.459 | 0.379 | 0.308 |
+
+Onset 0.458 against flanks 0.366, paired difference **+0.103 [+0.093, +0.124]** — a clean unimodal peak.
+
+**Then the check that changed the reading.** ±10 frames is ~50 px at expert speed while the window is 32 px
+wide, so the flanks sit at *different x*. If p(A) varies with position, the peak could be spatial rather than
+temporal. It does vary:
+
+| x bin | 180–195 | 228–243 | 260–275 | **276–291** | 292–307 | 308–323 |
+|---|---|---|---|---|---|---|
+| p(A) mean | 0.299 | 0.282 | 0.399 | **0.439** | 0.326 | 0.299 |
+
+**p(A) swings 0.157 across x and peaks exactly at 276–291 — the Goomba's position.** Comparing onset frames
+against non-onset frames *at the same x*:
+
+| | value |
+|---|---|
+| pooled onset mean | **0.413** (n=30) |
+| pooled non-onset mean | **0.345** (n=1,191) |
+| difference | **+0.067** |
+| per-bin | +0.082, +0.029, +0.017, +0.006, +0.031, +0.034, **−0.024**, +0.035 |
+
+**So most of the +0.103 was the spatial gradient.** The state-conditional component — higher p(A) where the
+expert actually jumps, holding position fixed — is **+0.067 pooled**, +0.006 to +0.082 per bin, negative in one
+of eight. **0.157 of spatial swing against 0.067 of timing lift.**
+
+**What this settles.** **The observation is not blind.** The pessimistic branch is refuted: the network resolves
+the Goomba's position, so the obstacle is not unfixable in principle and the project's shape need not change.
+**What remains open** is whether a +0.067 margin, on a policy whose p(A) never exceeds 0.53, is enough to
+sharpen into a decision.
+
+**A planned build declined, for a reason worth recording.** The follow-up was to temperature-sharpen the
+policy's signal and accept the change only if the **A-rate-by-x spread** widened rather than its level. **But
+sharpening a mostly-spatial signal widens the by-x spread** — that is exactly what a sharpened spatial profile
+looks like — so the test would pass for "jump harder where the Goomba roughly is", which is nearer the airborne
+exploit than to timing. **The discriminator that does separate them is the x-matched onset gap** (does the
++0.067 widen?), which isolates state-conditional lift from positional lift by construction. One line in the
+acceptance criterion, not a different experiment.
+
+**Sample size, stated plainly.** The specified window x=272–304 contains only **7** expert onsets, not the ~30
+assumed — 30 is the count for the wider 180–320 window, which is where the x-matched control was run. Thirty
+onsets across eight bins is a screen and is labelled one.
+
+**Cost.** ~1 minute of forward passes. No emulator, no training.
+
+**Downstream effect.** The Goomba is now characterised on both axes: **coarse spatial conditioning (0.157),
+weak temporal conditioning (+0.067), and a policy that never exceeds p(A)=0.53 anywhere.** That is a complete
+mechanical account of why it dies there — and it says the lever is sharpening the signal that exists, judged by
+the x-matched gap rather than by positional spread.
