@@ -1,0 +1,144 @@
+{
+  "question": "how much of this project's reach measurement was the stall rule?",
+  "old_condition": {
+    "stall": 300,
+    "cap_frames": 3000,
+    "note": "reused from hidden_area_check.partial.json -- identical arms, states and RNG seeds, so the pairing is exact and the control is the condition EVERY prior figure was measured under"
+  },
+  "new_condition": {
+    "stall": 1200,
+    "cap_frames": 9000
+  },
+  "arms": [
+    "P_84_cnn32_seed1",
+    "P_84_cnn32_seed4"
+  ],
+  "temperature": 0.7,
+  "reps": 3,
+  "measurement_basis": "conditional_on_arrival",
+  "skipped": [],
+  "per_arm": {
+    "P_84_cnn32_seed1": {
+      "n_paired": 216,
+      "old_max_x_median": 899.0,
+      "new_max_x_median": 899.5,
+      "old_max_x_p90": 1562.5,
+      "new_max_x_p90": 1644.0,
+      "new_max_x_max": 3267,
+      "delta_median": 0.0,
+      "delta_mean": 84.20833333333333,
+      "delta_max": 2536.0,
+      "frac_improved": 0.14351851851851852,
+      "frac_unchanged": 0.8564814814814815,
+      "longest_freeze": {
+        "median": 157.0,
+        "p90": 644.5,
+        "p99": 1201.0,
+        "max": 1201.0,
+        "frac_above_300": 0.22685185185185186
+      },
+      "n_left_surface": 2,
+      "n_completed_1_1": 2,
+      "ended_new": {
+        "died": 203,
+        "stuck": 13
+      },
+      "new_wall_histogram_32px": {
+        "256": 2,
+        "288": 11,
+        "672": 25,
+        "704": 16,
+        "800": 7,
+        "832": 6,
+        "864": 2,
+        "896": 48,
+        "1216": 10,
+        "1248": 22,
+        "1280": 1,
+        "1472": 1,
+        "1504": 20,
+        "1536": 21,
+        "1568": 1,
+        "1632": 2,
+        "1664": 9,
+        "1728": 3,
+        "1760": 1,
+        "1792": 2,
+        "1952": 2,
+        "2016": 1,
+        "3104": 1,
+        "3264": 2
+      }
+    },
+    "P_84_cnn32_seed4": {
+      "n_paired": 216,
+      "old_max_x_median": 899.5,
+      "new_max_x_median": 916.0,
+      "old_max_x_p90": 1659.0,
+      "new_max_x_p90": 1785.5,
+      "new_max_x_max": 3267,
+      "delta_median": 0.0,
+      "delta_mean": 139.8935185185185,
+      "delta_max": 2348.0,
+      "frac_improved": 0.16666666666666666,
+      "frac_unchanged": 0.8333333333333334,
+      "longest_freeze": {
+        "median": 155.0,
+        "p90": 1201.0,
+        "p99": 1201.0,
+        "max": 1201.0,
+        "frac_above_300": 0.2638888888888889
+      },
+      "n_left_surface": 2,
+      "n_completed_1_1": 2,
+      "ended_new": {
+        "died": 193,
+        "stuck": 23
+      },
+      "new_wall_histogram_32px": {
+        "288": 10,
+        "640": 1,
+        "672": 29,
+        "704": 18,
+        "768": 2,
+        "800": 4,
+        "832": 6,
+        "864": 2,
+        "896": 45,
+        "1216": 14,
+        "1248": 20,
+        "1440": 1,
+        "1504": 14,
+        "1536": 13,
+        "1632": 2,
+        "1664": 8,
+        "1728": 4,
+        "1760": 2,
+        "1792": 4,
+        "1920": 1,
+        "1952": 2,
+        "2016": 4,
+        "2688": 3,
+        "2720": 1,
+        "3104": 1,
+        "3136": 3,
+        "3264": 2
+      }
+    }
+  },
+  "summary": {
+    "n_paired_total": 432,
+    "median_delta_per_arm": [
+      0.0,
+      0.0
+    ],
+    "n_left_surface": 4,
+    "n_completed_1_1": 4,
+    "frac_longest_freeze_above_300": [
+      0.22685185185185186,
+      0.2638888888888889
+    ]
+  },
+  "verdict": "**THE STALL RULE WAS NOT THE BINDING CONSTRAINT.** Raising it from 300 to 1200 moves median max_x by +0 and +0 px per arm and 14%/17% of episodes get further. The walls in `reach_walls.json` are genuine.",
+  "minutes": 8.6
+}

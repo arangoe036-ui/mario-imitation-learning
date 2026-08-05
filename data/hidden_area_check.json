@@ -1,0 +1,155 @@
+{
+  "arms": [
+    "P_84_cnn32_seed1",
+    "P_84_cnn32_seed4"
+  ],
+  "temperature": 0.7,
+  "repeats": 5,
+  "measurement_basis": "conditional_on_arrival",
+  "n_episodes": 720,
+  "skipped": [],
+  "method": "reach-curve episodes re-run with world/stage/area logged; EpisodeTrace does not record those bytes so the existing artifacts could not answer this",
+  "per_arm": {
+    "P_84_cnn32_seed1": {
+      "n": 360,
+      "n_left_surface": 0,
+      "frac_left_surface": 0.0,
+      "n_entered_pipe_state": 7,
+      "areas_seen_union": [
+        1
+      ],
+      "world_stage_union": [
+        [
+          1,
+          1
+        ]
+      ],
+      "start_x_of_leavers": [],
+      "x_at_entry": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24
+      ],
+      "max_x_off_surface": [],
+      "wall_histogram_surface_x_stayers": {
+        "256": 2,
+        "288": 22,
+        "576": 2,
+        "640": 1,
+        "672": 43,
+        "704": 51,
+        "800": 8,
+        "832": 5,
+        "864": 2,
+        "896": 94,
+        "1216": 14,
+        "1248": 25,
+        "1280": 1,
+        "1344": 1,
+        "1472": 2,
+        "1504": 28,
+        "1536": 29,
+        "1568": 1,
+        "1632": 2,
+        "1664": 10,
+        "1728": 4,
+        "1760": 3,
+        "1792": 2,
+        "1952": 3,
+        "2016": 4,
+        "2208": 1
+      },
+      "wall_histogram_surface_x_leavers": {},
+      "naive_vs_surface_disagreements": 0
+    },
+    "P_84_cnn32_seed4": {
+      "n": 360,
+      "n_left_surface": 0,
+      "frac_left_surface": 0.0,
+      "n_entered_pipe_state": 31,
+      "areas_seen_union": [
+        1
+      ],
+      "world_stage_union": [
+        [
+          1,
+          1
+        ]
+      ],
+      "start_x_of_leavers": [],
+      "x_at_entry": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24,
+        24
+      ],
+      "max_x_off_surface": [],
+      "wall_histogram_surface_x_stayers": {
+        "288": 16,
+        "576": 8,
+        "640": 1,
+        "672": 34,
+        "704": 52,
+        "768": 2,
+        "800": 5,
+        "832": 5,
+        "864": 3,
+        "896": 95,
+        "1216": 22,
+        "1248": 29,
+        "1280": 1,
+        "1504": 24,
+        "1536": 17,
+        "1632": 4,
+        "1664": 11,
+        "1728": 6,
+        "1760": 6,
+        "1792": 5,
+        "1920": 2,
+        "1952": 5,
+        "2016": 7
+      },
+      "wall_histogram_surface_x_leavers": {},
+      "naive_vs_surface_disagreements": 0
+    }
+  },
+  "decision": {
+    "rule": "zero pipe entries -> the wall map stands and \u00a75 targets pipe 3's face; non-zero -> \u00a75 re-points at the largest surviving genuine stall",
+    "n_episodes_leaving_surface": 0,
+    "n_episodes_in_pipe_entry_state": 38,
+    "branch": "wall_map_stands"
+  },
+  "verdict": "**NOTHING LEAVES THE 1-1 SURFACE.** Across 720 episodes, every frame is world 1, stage 1, area 1; 38 episodes ever entered the pipe-entry player state (0x07). **`reach_walls.json`'s bins are genuine stalls, x is one coordinate system throughout, and the wall map stands.** The owner's 'hidden level' observation therefore describes depth on the surface, not a bonus area. **\u00a75 targets pipe 3's face as specified.**",
+  "minutes": 10.9
+}

@@ -2187,3 +2187,128 @@ The practical consequence is that the per-obstacle study which has sat near the 
 — restore to a saved position just before one obstacle, and measure that obstacle in isolation — is now the
 highest-value thing available, because the map says the problem lives at three addresses and we finally know
 which three.
+
+---
+
+## Block 57 — The training objective has come apart from the goal, and two of my measurements were wrong
+
+### What changed
+
+**Making the network train longer, and making its visual encoder bigger, both make it play worse.** Not
+"no better" — measurably worse, by 300 to 800 pixels of furthest progress.
+
+**And the reason is the finding.** Over the same range, the training loss *halves*. The network gets steadily
+better at predicting what a human expert pressed, in three independent training runs, and steadily worse at
+playing the game. The quantity we have been minimising for fifty-seven blocks has stopped tracking the thing
+we want, and over this range it points the wrong way.
+
+Separately: two measurement bugs in this block were mine, and both of them, uncorrected, would have produced
+a more exciting result than the truth.
+
+### How we got there, including the wrong turns
+
+The block had three jobs: check whether the policy was slipping into a hidden bonus area (which would mean
+some of last block's map was mislabelled), scale up training length and encoder width, and measure what it
+actually takes to clear the third pipe.
+
+**The first wrong turn nearly became a headline.** Checking the bonus-area question, I found four episodes
+whose game state briefly entered the "entering a pipe" value. I re-ran those four with our episode terminator
+switched off — a rule that ends an episode after 300 frames without new forward progress — and they went from
+stopping around x=900 to reaching 2710, 2712, and 3266. The last of those is the flagpole: **it finished the
+level, starting from x=158, nearly the beginning.** For a few minutes the conclusion looked like "the wall we
+have been mapping for two blocks is our own stopwatch."
+
+It is not, and the thing that showed it was pairing. Run the same starting positions with the same random
+seeds and change only the terminator, and the *median* furthest position does not move at all: 899 to 900, and
+900 to 916. What moves is the tail — the top tenth improves by 80 to 130 pixels, one episode in six gets
+further, and level completions go from zero to four out of 432. **My four episodes were selected precisely
+because they were the ones most likely to have been cut short.** Choosing the cases that show an effect and
+then measuring the effect is the oldest error there is, and I walked into it because the number was thrilling.
+
+What survives is worth knowing: about a quarter of episodes legitimately freeze their forward progress for
+more than 300 frames, so the rule was too tight, every distance we have ever reported is a mild lower bound,
+and last block's "zero completions in 720 attempts" was partly this.
+
+**The second wrong turn produced a beautifully clean answer that was entirely an artifact.** The pipe-clearing
+sweep reported that *nothing* clears the third pipe — zero of 350 action sequences, from all twelve arrival
+positions, every single one stopping at exactly x=724. An identical number in every cell of a grid should have
+been an immediate alarm and instead I nearly wrote it up as "the policy must not arrive this way."
+
+Two faults. My probe released every button after the jump ended, so the character decelerated into the pipe and
+the grid literally could not express the actual solution, which is to hold rightward movement continuously and
+add the jump for a burst. And all twelve arrival positions were being saved into the same memory slot, so each
+one overwrote the last and all twelve sweeps ran from a single state. **An identical result across every cell
+of a grid is evidence about the grid, not about the world.**
+
+Fixed, the pipe is clearly solvable, and the real numbers are more interesting than the false one.
+
+### The numbers, with sample size and baseline
+
+Furthest position reached, 200 episodes per training run, terminator held identical to the baseline so it
+cannot confound the comparison:
+
+| configuration | per-run furthest x | vs baseline | p (exact) |
+|---|---|---|---|
+| baseline: 15,000 steps, encoder 32/64/64 | 1800 · 2025 · 1563 · 2019 · 2227 | — | — |
+| **60,000 steps** | 1663 · 1563 · 900 | **−551 px** | 0.071 |
+| **encoder 48/96/96** | 1266 · 1250 · 903 | **−787 px** | **0.018** |
+
+Three runs against five gives 56 possible arrangements, so the smallest p this test could return is 0.036 —
+stated because it means the test sees clean separations and nothing subtler. The baseline also beats both
+alternatives at *every* named obstacle, at both sampling temperatures, so this is not a tail artifact.
+
+Meanwhile the training loss, recorded inside the checkpoints themselves:
+
+| run | at 15,000 steps | at 30,000 | at 60,000 |
+|---|---|---|---|
+| seed 0 | 2.593 | 1.979 | **1.292** |
+| seed 1 | 2.635 | 2.011 | **1.303** |
+| seed 2 | 2.600 | 1.994 | **1.302** |
+
+The wider encoder also fits better than the narrower one at equal steps — 2.267 against 2.593 — and is the
+worst arm of the three on distance.
+
+The stall-rule audit, 216 paired episodes per run: median furthest position 899→900 and 900→916; top decile
+1562→1644 and 1659→1786; 14% and 17% of episodes improved; completions 0→2 each; and 23–26% of episodes freeze
+for longer than 300 frames.
+
+The third pipe, from twelve arrival positions captured live from the policy's own play, each verified to
+restore correctly: **seven of twelve are solvable**, about 9% of the 350 tested sequences work, and the jump
+must be held for **12 to 20 frames**. The policy puts **0.148 of its probability** on the combinations that
+work, with a confidence interval of 0.038 to 0.298 computed across arrival positions. Arrival speed averaged
+2.13 pixels per frame against a running maximum of 2.5 — the first time speed has been measured at one of
+these walls.
+
+One caution attached to that: three of the failures are *indistinguishable* from a success on position, height,
+grounded-ness and speed. Something else — enemy positions, sub-pixel offset, an animation counter — decides it,
+so "the arrival state" is not yet properly characterised.
+
+### Cost
+
+About four and a quarter hours unattended: six network trainings, twenty-four evaluation configurations, and
+roughly 1,900 rollouts. The most expensive planned experiment — combining longer training with the wider
+encoder — was skipped, correctly, by a rule written in advance: run it only if either change helps on its own.
+Neither did, which saved about ninety-five minutes. A small piece of infrastructure came out of the block: a
+shared wall-clock budget and per-experiment timeouts, so that one hung emulator holding the single-instance
+lock cannot consume the remaining hours.
+
+### Downstream effect
+
+The scaling story is closed in both directions. Encoder width is a peak, not a ladder: the previous step up
+helped, this one hurt, so there is no reason to try a third. Training length has a ceiling below 60,000 steps.
+Neither is where the remaining progress lives.
+
+The loss result is larger than either. Every recent decision has been justified by some version of "it fits
+the expert data better," and this block shows that over the range we are working in, fitting the expert data
+better makes the policy worse at the level. That indicts the objective rather than the architecture, and it
+means the current operating point may simply be the accidental best of a curve nobody has plotted. Plotting it
+is nearly free — the checkpoints are banked every 250 steps and the distance measurement takes minutes.
+
+The pipe study gives the first target in this project with a *measured* requirement: hold the jump for 12 to 20
+frames from a position the policy actually reaches, which it currently aims at about one time in seven. That is
+a well-posed thing to teach, which "get further in the level" never was.
+
+And the two bugs are worth carrying forward as a rule rather than as embarrassment. Both produced cleaner,
+more dramatic results than the truth, and in both cases the tell was the cleanliness itself: four hand-picked
+episodes all breaking a wall, and 350 action sequences all failing at exactly the same pixel. When a result
+looks too good or too tidy, the measurement is the first suspect.

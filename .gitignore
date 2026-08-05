@@ -36,3 +36,6 @@ data/runlength_index_*.npz
 data/traces/gen_*.json
 data/argmax_startstates.partial.json
 data/reach_curve.partial.json
+data/hidden_area_check.partial.json
+data/stall_rule_audit.partial.json
+data/pipe3_requirement.partial.json

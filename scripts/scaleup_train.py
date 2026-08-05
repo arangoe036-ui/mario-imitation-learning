@@ -95,6 +95,22 @@ ARMS = {
                                     steps=15_000, batch=64, seed=1, cnn=(48, 96, 96)),
     "W_84_cnn48_seed2":        dict(size=84, d_model=64, n_layers=1, corpus="runs",
                                     steps=15_000, batch=64, seed=2, cnn=(48, 96, 96)),
+    # ---- block 57 §3: TRAINING LENGTH, the cheapest untested axis. Only ever varied 3k -> 15k.
+    # 60k steps is ~100 epochs over 77,916 run samples. If x_max improves while loss falls, longer
+    # works; if x_max degrades, that is the ceiling and it is a result.
+    "L_84_cnn32_60k":          dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=60_000, batch=64, seed=0, cnn=(32, 64, 64)),
+    "L_84_cnn32_60k_seed1":    dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=60_000, batch=64, seed=1, cnn=(32, 64, 64)),
+    "L_84_cnn32_60k_seed2":    dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=60_000, batch=64, seed=2, cnn=(32, 64, 64)),
+    # ---- block 57 §6: the compound arm. Gated -- only run if L or W beats the P baseline on x_max.
+    "WL_84_cnn48_60k":         dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=60_000, batch=64, seed=0, cnn=(48, 96, 96)),
+    "WL_84_cnn48_60k_seed1":   dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=60_000, batch=64, seed=1, cnn=(48, 96, 96)),
+    "WL_84_cnn48_60k_seed2":   dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=60_000, batch=64, seed=2, cnn=(48, 96, 96)),
 }
 
 
@@ -182,6 +198,9 @@ def train_arm(name: str, size: int, d_model: int, n_layers: int, corpus: str,
         loader = DataLoader(ds, batch_size=BATCH, shuffle=True, num_workers=0,
                             collate_fn=collate, generator=torch.Generator().manual_seed(SEED))
         step, t0, losses = done, time.time(), []
+        # Loss history at every bank point, so "did loss still fall at 60k" is answerable from the
+        # checkpoint instead of from a log that may not survive.
+        hist = list(blob.get("loss_history", [])) if partial.exists() else []
         while step < STEPS:
             for obs, prev, y in loader:
                 obs, prev, y = obs.to(dev), prev.to(dev), y.to(dev)
@@ -193,9 +212,11 @@ def train_arm(name: str, size: int, d_model: int, n_layers: int, corpus: str,
                 step += 1
                 losses.append(float(loss.detach()))
                 if step % CHUNK_STEPS == 0 or step >= STEPS:
+                    hist.append([step, float(np.mean(losses[-CHUNK_STEPS:]))])
                     torch.save({"model_state": {k: v.cpu() for k, v in
                                                 policy.state_dict().items()},
                                 "opt_state": opt.state_dict(), "step": step,
+                                "loss_history": hist,
                                 "policy_config": cfg.to_dict()}, partial)
                     rate = (step - done) / max(time.time() - t0, 1e-9)
                     print(f"    step {step}/{STEPS} loss {np.mean(losses[-CHUNK_STEPS:]):.4f} "
@@ -205,6 +226,7 @@ def train_arm(name: str, size: int, d_model: int, n_layers: int, corpus: str,
         policy.eval()
     blob = torch.load(partial, map_location="cpu", weights_only=False)
     torch.save({"model_state": blob["model_state"], "policy_config": cfg.to_dict(),
+                "loss_history": blob.get("loss_history", []),
                 "step": blob["step"], "arm": name,
                 "stored_size": stored, "corpus": corpus, "loss": "plain cross-entropy",
                 "lr": LR, "n_train_runs": len(runs), "n_samples": len(ds),

@@ -1,0 +1,2141 @@
+{
+  "arm": "P_84_cnn32_seed4",
+  "target": "pipe3",
+  "clear_threshold_x": 735,
+  "capture_window_x": [
+    660,
+    700
+  ],
+  "temperature_for_arrival": 0.7,
+  "measurement_basis": "conditional_on_arrival",
+  "grounded_enforced": true,
+  "holds_swept": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14,
+    16,
+    20,
+    24,
+    28,
+    32
+  ],
+  "n_combos": 25,
+  "locomotion_baseline": "Right+B (0x82) held for all probe frames",
+  "note": "arrival states are the POLICY'S OWN, captured live at the first grounded frame in the window, not library states merely near x=700",
+  "arrivals": [
+    {
+      "from_start_x": 56,
+      "x": 663,
+      "y_absolute": 432,
+      "grounded": true,
+      "speed_byte": 24,
+      "speed_px_per_frame": 1.5,
+      "scratch_slot": 1,
+      "restore_verified_x": 664,
+      "restore_ok": true,
+      "n_configs": 350,
+      "n_cleared": 11,
+      "frac_cleared": 0.03142857142857143,
+      "minimum_hold_that_works": 32,
+      "winning_combos": [
+        1,
+        3,
+        17,
+        33,
+        35,
+        65,
+        67,
+        129,
+        131,
+        193,
+        195
+      ],
+      "winners": [
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 32
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 32
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 32
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 32
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 32
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 32
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 32
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 32
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 32
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 32
+        },
+        {
+          "token": 24,
+          "byte": 17,
+          "hold": 32
+        }
+      ],
+      "policy_mass_on_winning_combos_T0.7": 0.833398945183087,
+      "policy_mass_on_winning_combos_T1.0": 0.7164835398107012,
+      "best_max_x_over_all_configs": 737
+    },
+    {
+      "from_start_x": 96,
+      "x": 678,
+      "y_absolute": 432,
+      "grounded": true,
+      "speed_byte": 40,
+      "speed_px_per_frame": 2.5,
+      "scratch_slot": 2,
+      "restore_verified_x": 681,
+      "restore_ok": true,
+      "n_configs": 350,
+      "n_cleared": 0,
+      "frac_cleared": 0.0,
+      "minimum_hold_that_works": null,
+      "winning_combos": [],
+      "winners": [],
+      "policy_mass_on_winning_combos_T0.7": 0.0,
+      "policy_mass_on_winning_combos_T1.0": 0.0,
+      "best_max_x_over_all_configs": 681
+    },
+    {
+      "from_start_x": 66,
+      "x": 672,
+      "y_absolute": 432,
+      "grounded": true,
+      "speed_byte": 40,
+      "speed_px_per_frame": 2.5,
+      "scratch_slot": 3,
+      "restore_verified_x": 675,
+      "restore_ok": true,
+      "n_configs": 350,
+      "n_cleared": 66,
+      "frac_cleared": 0.18857142857142858,
+      "minimum_hold_that_works": 14,
+      "winning_combos": [
+        1,
+        3,
+        17,
+        33,
+        35,
+        65,
+        67,
+        129,
+        131,
+        193,
+        195
+      ],
+      "winners": [
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 14
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 16
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 20
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 24
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 28
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 32
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 14
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 16
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 20
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 24
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 28
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 32
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 14
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 16
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 20
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 24
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 28
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 32
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 14
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 16
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 20
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 24
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 28
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 32
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 14
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 16
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 20
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 24
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 28
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 32
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 14
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 16
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 20
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 24
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 28
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 32
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 14
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 16
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 20
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 24
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 28
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 32
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 14
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 16
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 20
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 24
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 28
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 32
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 14
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 16
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 20
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 24
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 28
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 32
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 14
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 16
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 20
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 24
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 28
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 32
+        }
+      ],
+      "policy_mass_on_winning_combos_T0.7": 0.052277435538016934,
+      "policy_mass_on_winning_combos_T1.0": 0.11298645551282893,
+      "best_max_x_over_all_configs": 737
+    },
+    {
+      "from_start_x": 130,
+      "x": 669,
+      "y_absolute": 432,
+      "grounded": true,
+      "speed_byte": 39,
+      "speed_px_per_frame": 2.4375,
+      "scratch_slot": 4,
+      "restore_verified_x": 671,
+      "restore_ok": true,
+      "n_configs": 350,
+      "n_cleared": 0,
+      "frac_cleared": 0.0,
+      "minimum_hold_that_works": null,
+      "winning_combos": [],
+      "winners": [],
+      "policy_mass_on_winning_combos_T0.7": 0.0,
+      "policy_mass_on_winning_combos_T1.0": 0.0,
+      "best_max_x_over_all_configs": 678
+    },
+    {
+      "from_start_x": 144,
+      "x": 678,
+      "y_absolute": 432,
+      "grounded": true,
+      "speed_byte": 40,
+      "speed_px_per_frame": 2.5,
+      "scratch_slot": 5,
+      "restore_verified_x": 681,
+      "restore_ok": true,
+      "n_configs": 350,
+      "n_cleared": 0,
+      "frac_cleared": 0.0,
+      "minimum_hold_that_works": null,
+      "winning_combos": [],
+      "winners": [],
+      "policy_mass_on_winning_combos_T0.7": 0.0,
+      "policy_mass_on_winning_combos_T1.0": 0.0,
+      "best_max_x_over_all_configs": 683
+    },
+    {
+      "from_start_x": 279,
+      "x": 697,
+      "y_absolute": 432,
+      "grounded": true,
+      "speed_byte": 24,
+      "speed_px_per_frame": 1.5,
+      "scratch_slot": 6,
+      "restore_verified_x": 699,
+      "restore_ok": true,
+      "n_configs": 350,
+      "n_cleared": 44,
+      "frac_cleared": 0.12571428571428572,
+      "minimum_hold_that_works": 20,
+      "winning_combos": [
+        1,
+        3,
+        17,
+        33,
+        35,
+        65,
+        67,
+        129,
+        131,
+        193,
+        195
+      ],
+      "winners": [
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 20
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 24
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 28
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 32
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 20
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 24
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 28
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 32
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 20
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 24
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 28
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 32
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 20
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 24
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 28
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 32
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 20
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 24
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 28
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 32
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 20
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 24
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 28
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 32
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 20
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 24
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 28
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 32
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 20
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 24
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 28
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 32
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 20
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 24
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 28
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 32
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 20
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 24
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 28
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 32
+        },
+        {
+          "token": 24,
+          "byte": 17,
+          "hold": 20
+        },
+        {
+          "token": 24,
+          "byte": 17,
+          "hold": 24
+        },
+        {
+          "token": 24,
+          "byte": 17,
+          "hold": 28
+        },
+        {
+          "token": 24,
+          "byte": 17,
+          "hold": 32
+        }
+      ],
+      "policy_mass_on_winning_combos_T0.7": 0.38999000487727375,
+      "policy_mass_on_winning_combos_T1.0": 0.4803516525267246,
+      "best_max_x_over_all_configs": 737
+    },
+    {
+      "from_start_x": 254,
+      "x": 678,
+      "y_absolute": 432,
+      "grounded": true,
+      "speed_byte": 40,
+      "speed_px_per_frame": 2.5,
+      "scratch_slot": 7,
+      "restore_verified_x": 681,
+      "restore_ok": true,
+      "n_configs": 350,
+      "n_cleared": 0,
+      "frac_cleared": 0.0,
+      "minimum_hold_that_works": null,
+      "winning_combos": [],
+      "winners": [],
+      "policy_mass_on_winning_combos_T0.7": 0.0,
+      "policy_mass_on_winning_combos_T1.0": 0.0,
+      "best_max_x_over_all_configs": 683
+    },
+    {
+      "from_start_x": 345,
+      "x": 673,
+      "y_absolute": 432,
+      "grounded": true,
+      "speed_byte": 36,
+      "speed_px_per_frame": 2.25,
+      "scratch_slot": 8,
+      "restore_verified_x": 675,
+      "restore_ok": true,
+      "n_configs": 350,
+      "n_cleared": 66,
+      "frac_cleared": 0.18857142857142858,
+      "minimum_hold_that_works": 14,
+      "winning_combos": [
+        1,
+        3,
+        17,
+        33,
+        35,
+        65,
+        67,
+        129,
+        131,
+        193,
+        195
+      ],
+      "winners": [
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 14
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 16
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 20
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 24
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 28
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 32
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 14
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 16
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 20
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 24
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 28
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 32
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 14
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 16
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 20
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 24
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 28
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 32
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 14
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 16
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 20
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 24
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 28
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 32
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 14
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 16
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 20
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 24
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 28
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 32
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 14
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 16
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 20
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 24
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 28
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 32
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 14
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 16
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 20
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 24
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 28
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 32
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 14
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 16
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 20
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 24
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 28
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 32
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 14
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 16
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 20
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 24
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 28
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 32
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 14
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 16
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 20
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 24
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 28
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 32
+        }
+      ],
+      "policy_mass_on_winning_combos_T0.7": 0.012158053058486211,
+      "policy_mass_on_winning_combos_T1.0": 0.049078390081805034,
+      "best_max_x_over_all_configs": 737
+    },
+    {
+      "from_start_x": 456,
+      "x": 677,
+      "y_absolute": 432,
+      "grounded": true,
+      "speed_byte": 40,
+      "speed_px_per_frame": 2.5,
+      "scratch_slot": 9,
+      "restore_verified_x": 679,
+      "restore_ok": true,
+      "n_configs": 350,
+      "n_cleared": 77,
+      "frac_cleared": 0.22,
+      "minimum_hold_that_works": 12,
+      "winning_combos": [
+        1,
+        3,
+        17,
+        33,
+        35,
+        65,
+        67,
+        129,
+        131,
+        193,
+        195
+      ],
+      "winners": [
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 12
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 14
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 16
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 20
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 24
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 28
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 32
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 12
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 14
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 16
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 20
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 24
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 28
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 32
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 12
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 14
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 16
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 20
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 24
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 28
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 32
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 12
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 14
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 16
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 20
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 24
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 28
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 32
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 12
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 14
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 16
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 20
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 24
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 28
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 32
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 12
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 14
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 16
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 20
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 24
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 28
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 32
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 12
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 14
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 16
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 20
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 24
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 28
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 32
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 12
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 14
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 16
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 20
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 24
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 28
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 32
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 12
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 14
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 16
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 20
+        }
+      ],
+      "policy_mass_on_winning_combos_T0.7": 0.1581784221562877,
+      "policy_mass_on_winning_combos_T1.0": 0.22565810929315022,
+      "best_max_x_over_all_configs": 737
+    },
+    {
+      "from_start_x": 463,
+      "x": 678,
+      "y_absolute": 432,
+      "grounded": true,
+      "speed_byte": 38,
+      "speed_px_per_frame": 2.375,
+      "scratch_slot": 10,
+      "restore_verified_x": 681,
+      "restore_ok": true,
+      "n_configs": 350,
+      "n_cleared": 77,
+      "frac_cleared": 0.22,
+      "minimum_hold_that_works": 12,
+      "winning_combos": [
+        1,
+        3,
+        17,
+        33,
+        35,
+        65,
+        67,
+        129,
+        131,
+        193,
+        195
+      ],
+      "winners": [
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 12
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 14
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 16
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 20
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 24
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 28
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 32
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 12
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 14
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 16
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 20
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 24
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 28
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 32
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 12
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 14
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 16
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 20
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 24
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 28
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 32
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 12
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 14
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 16
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 20
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 24
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 28
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 32
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 12
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 14
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 16
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 20
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 24
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 28
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 32
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 12
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 14
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 16
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 20
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 24
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 28
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 32
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 12
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 14
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 16
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 20
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 24
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 28
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 32
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 12
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 14
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 16
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 20
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 24
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 28
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 32
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 12
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 14
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 16
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 20
+        }
+      ],
+      "policy_mass_on_winning_combos_T0.7": 0.2006259811412661,
+      "policy_mass_on_winning_combos_T1.0": 0.2828818530068329,
+      "best_max_x_over_all_configs": 738
+    },
+    {
+      "from_start_x": 576,
+      "x": 679,
+      "y_absolute": 432,
+      "grounded": true,
+      "speed_byte": 24,
+      "speed_px_per_frame": 1.5,
+      "scratch_slot": 11,
+      "restore_verified_x": 680,
+      "restore_ok": true,
+      "n_configs": 350,
+      "n_cleared": 44,
+      "frac_cleared": 0.12571428571428572,
+      "minimum_hold_that_works": 20,
+      "winning_combos": [
+        1,
+        3,
+        17,
+        33,
+        35,
+        65,
+        67,
+        129,
+        131,
+        193,
+        195
+      ],
+      "winners": [
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 20
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 24
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 28
+        },
+        {
+          "token": 2,
+          "byte": 131,
+          "hold": 32
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 20
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 24
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 28
+        },
+        {
+          "token": 4,
+          "byte": 1,
+          "hold": 32
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 20
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 24
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 28
+        },
+        {
+          "token": 6,
+          "byte": 3,
+          "hold": 32
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 20
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 24
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 28
+        },
+        {
+          "token": 8,
+          "byte": 129,
+          "hold": 32
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 20
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 24
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 28
+        },
+        {
+          "token": 12,
+          "byte": 67,
+          "hold": 32
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 20
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 24
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 28
+        },
+        {
+          "token": 14,
+          "byte": 35,
+          "hold": 32
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 20
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 24
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 28
+        },
+        {
+          "token": 15,
+          "byte": 33,
+          "hold": 32
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 20
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 24
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 28
+        },
+        {
+          "token": 17,
+          "byte": 193,
+          "hold": 32
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 20
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 24
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 28
+        },
+        {
+          "token": 18,
+          "byte": 65,
+          "hold": 32
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 20
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 24
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 28
+        },
+        {
+          "token": 19,
+          "byte": 195,
+          "hold": 32
+        },
+        {
+          "token": 24,
+          "byte": 17,
+          "hold": 20
+        },
+        {
+          "token": 24,
+          "byte": 17,
+          "hold": 24
+        },
+        {
+          "token": 24,
+          "byte": 17,
+          "hold": 28
+        },
+        {
+          "token": 24,
+          "byte": 17,
+          "hold": 32
+        }
+      ],
+      "policy_mass_on_winning_combos_T0.7": 0.13535552803080161,
+      "policy_mass_on_winning_combos_T1.0": 0.20157763424198993,
+      "best_max_x_over_all_configs": 737
+    },
+    {
+      "from_start_x": 534,
+      "x": 662,
+      "y_absolute": 432,
+      "grounded": true,
+      "speed_byte": 24,
+      "speed_px_per_frame": 1.5,
+      "scratch_slot": 12,
+      "restore_verified_x": 663,
+      "restore_ok": true,
+      "n_configs": 350,
+      "n_cleared": 0,
+      "frac_cleared": 0.0,
+      "minimum_hold_that_works": null,
+      "winning_combos": [],
+      "winners": [],
+      "policy_mass_on_winning_combos_T0.7": 0.0,
+      "policy_mass_on_winning_combos_T1.0": 0.0,
+      "best_max_x_over_all_configs": 724
+    }
+  ],
+  "skipped": [],
+  "summary": {
+    "n_arrival_states": 12,
+    "frac_configs_clearing": {
+      "mean": 0.09166666666666666,
+      "ci_boot_over_arrivals": [
+        0.04190476190476191,
+        0.14404761904761904
+      ],
+      "per_arrival": [
+        0.03142857142857143,
+        0.0,
+        0.18857142857142858,
+        0.0,
+        0.0,
+        0.12571428571428572,
+        0.0,
+        0.18857142857142858,
+        0.22,
+        0.22,
+        0.12571428571428572,
+        0.0
+      ]
+    },
+    "policy_mass_on_solution_set": {
+      "mean": 0.14849869749876826,
+      "ci_boot_over_arrivals": [
+        0.03779411648504576,
+        0.29848791979280603
+      ],
+      "per_arrival": [
+        0.833398945183087,
+        0.0,
+        0.052277435538016934,
+        0.0,
+        0.0,
+        0.38999000487727375,
+        0.0,
+        0.012158053058486211,
+        0.1581784221562877,
+        0.2006259811412661,
+        0.13535552803080161,
+        0.0
+      ]
+    },
+    "arrival_speed_px_per_frame": {
+      "mean": 2.1302083333333335,
+      "min": 1.5,
+      "max": 2.5,
+      "per_arrival": [
+        1.5,
+        2.5,
+        2.5,
+        2.4375,
+        2.5,
+        1.5,
+        2.5,
+        2.25,
+        2.5,
+        2.375,
+        1.5,
+        1.5
+      ],
+      "expert_max_running": 2.5
+    },
+    "minimum_hold_that_works": {
+      "values": [
+        32,
+        14,
+        20,
+        14,
+        12,
+        12,
+        20
+      ],
+      "median": 14.0
+    },
+    "n_arrivals_with_no_solution": 5,
+    "interval_basis": "bootstrap over ARRIVAL STATES, not over sweep configurations"
+  },
+  "verdict": "**PIPE 3 IS SOLVABLE FROM THE POLICY'S OWN ARRIVAL STATE, AND THE POLICY BARELY AIMS AT THE SOLUTION.** 7 of 12 arrival states have at least one clearing sequence; on average 9.2% of 25\u00d714 sequences work, minimum hold 14.0. **The policy puts 0.148 of its probability mass on the winning combos** (CI [0.03779411648504576, 0.29848791979280603]). Arrival speed 2.13 px/frame vs the expert's 2.5 running maximum.",
+  "minutes": 2.1
+}
