@@ -1,0 +1,109 @@
+{
+  "window_x": [
+    575,
+    640
+  ],
+  "checkpoint": "runlength.pt",
+  "note": "p(A) is the summed softmax over classes whose combo contains A; the head is a 300-way (combo, length-bucket) softmax, not a per-button logit",
+  "caveat": "the policy decides only at run boundaries, so pa_all is its assessment of the state and pa_decision is the subset where a new run actually began",
+  "reconstruction": "frame stacks rebuilt by replaying each episode's recorded bytes; the traces store RAM fields, not observations, so this needed the emulator",
+  "groups": {
+    "death_no_jump": {
+      "n_episodes": 34,
+      "pa_all": {
+        "n": 0
+      },
+      "pa_grounded": {
+        "n": 0
+      },
+      "pa_decision": {
+        "n": 0
+      },
+      "per_episode_mean_pa": {
+        "n": 0
+      }
+    },
+    "death_jumped": {
+      "n_episodes": 35,
+      "pa_all": {
+        "n": 0
+      },
+      "pa_grounded": {
+        "n": 0
+      },
+      "pa_decision": {
+        "n": 0
+      },
+      "per_episode_mean_pa": {
+        "n": 0
+      }
+    },
+    "cleared": {
+      "n_episodes": 130,
+      "pa_all": {
+        "n": 19728,
+        "median": 0.2898768484592438,
+        "mean": 0.2787100058683441,
+        "p10": 0.1962766170501709,
+        "p90": 0.3467722058296204,
+        "p99": 0.36959654241800305,
+        "max": 0.3987102806568146,
+        "min": 0.08454319834709167
+      },
+      "pa_grounded": {
+        "n": 7254,
+        "median": 0.2879490554332733,
+        "mean": 0.2784422693816729,
+        "p10": 0.19970886260271073,
+        "p90": 0.34368233382701874,
+        "p99": 0.36399732112884525,
+        "max": 0.398560494184494,
+        "min": 0.08729681372642517
+      },
+      "pa_decision": {
+        "n": 3813,
+        "median": 0.28525254130363464,
+        "mean": 0.2763194902078267,
+        "p10": 0.1941019058227539,
+        "p90": 0.34547691941261294,
+        "p99": 0.36762451171875005,
+        "max": 0.3971911072731018,
+        "min": 0.08729681372642517
+      },
+      "per_episode_mean_pa": {
+        "n": 129,
+        "median": 0.28447951968782437,
+        "mean": 0.2817458343910804,
+        "p10": 0.25147447657688354,
+        "p90": 0.30569721809218803,
+        "p99": 0.32281954984924727,
+        "max": 0.3265545625170624,
+        "min": 0.21013479965900067
+      }
+    }
+  },
+  "comparison": {
+    "grounded_median_death_no_jump": null,
+    "grounded_median_cleared": 0.2879490554332733,
+    "median_gap": 0.2879490554332733,
+    "frac_pa_above_0.5_grounded": {
+      "death_no_jump": {
+        "k": 0,
+        "n": 0,
+        "rate": null
+      },
+      "cleared": {
+        "k": 0,
+        "n": 7254,
+        "rate": 0.0
+      },
+      "difference_pp": null,
+      "ci_pp": [
+        0,
+        0
+      ]
+    }
+  },
+  "verdict": "IT FAILS TO RECOGNISE THE STATE: while grounded in x 575-640, p(A) median is None in the deaths that never jumped against 0.2879490554332733 in the clearers, a gap of +0.288. The policy discriminates these states and gets them wrong, so targeted demonstrations from exactly those states are the right fix.",
+  "minutes": 1.9
+}

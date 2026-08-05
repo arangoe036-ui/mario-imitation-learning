@@ -1551,3 +1551,57 @@ demonstration nor a marginal. If that generalises to pipe 1, then the project's 
 performance, which argues for a higher airborne fraction, and defensibility, which argues for the run-length
 line's expert-like behaviour — stop competing, because the fix would be to act more often *when grounded*
 rather than to spend more time in the air.
+
+---
+
+## The policy never decides to jump: p(A) is 0.43 where it dies and 0.46 where it survives
+
+**What changed.** A read of the policy's own output probability at the obstacle it fails, to separate two
+diagnoses whose fixes do not overlap: does it fail to recognise the state, or does it recognise the state and
+gamble?
+
+**Numbers.** p(A) is the summed softmax over the 107 (of 300) classes whose button combo contains A — the
+quantity the sampler draws against. Grounded frames only, x 272–304:
+
+| group | p(A) median | p90 | p99 | max | frames |
+|---|---|---|---|---|---|
+| deaths that never jumped | **0.430** | 0.491 | 0.511 | **0.526** | 364 |
+| deaths that jumped | 0.424 | 0.482 | 0.499 | 0.505 | 202 |
+| clearers | **0.459** | 0.488 | 0.504 | **0.507** | 338 |
+
+**Gap: +0.029.** The fraction of grounded frames with p(A) > 0.5 is 3.8% in the deaths against 2.1% in the
+clearers — if anything backwards, −1.8 pp [−4.5, +0.9]. **The policy assigns the states where it dies and the
+states where it survives essentially the same probability of jumping. It knows and gambles.**
+
+**A contrast that makes it sharper.** At pipe 2 — where this same policy *succeeds*, clearing 61% — p(A) is
+**lower still: median 0.288, max 0.399 over 7,254 grounded frames.**
+
+**So the policy is never confident about jumping anywhere.** It runs at 0.29–0.46 and never exceeds 0.53. What
+makes it clear pipe 2 is not a higher probability of jumping — it is the **duration attached to the A-class it
+happens to sample**, since one sampled class carries a 20–70 frame hold. **The run-length representation
+converted "jump" from a per-frame coin into a single coin with a long payoff, and that is the entirety of its
+advantage over the per-frame line.**
+
+It also explains the Goomba specifically: non-A runs are capped at 4 frames, so crossing the 32-px approach
+gives ~4–5 decisions at p≈0.44 each. Whether an A-run starts before the enemy is close to a fair coin, and the
+policy's own probability barely distinguishes the states where it matters.
+
+**A planned build, cancelled by its own precondition.** The next step was to be the project's first properly
+DAgger-shaped experiment: sweep from the 34 states where the policy actually fails, distil those solutions,
+and measure whether the decision transferred. **Its premise was that the policy discriminates those states and
+gets them wrong. It does not discriminate them** — so the demonstrations would have been aimed at a network
+that already treats both groups alike, and this project has twice measured what distilling into the wrong
+constraint produces. **Not built.**
+
+**A defect flagged rather than left standing.** The pipe-2 contrast reused the same probe with a different
+window, and its printed verdict line — *"it fails to recognise the state"* — is **invalid there**: the death
+groups are defined by the Goomba death band, so at pipe 2 that group has no grounded frames, the median
+returns `None`, and the gap is computed against zero. Only the `cleared` row of that run is meaningful. The
+artifact records this; the log line did not.
+
+**Cost.** ~3 minutes of emulator replay. No training.
+
+**Downstream effect.** The Goomba deficit is now located precisely: **not a missing demonstration, not a
+marginal, but a middling probability that sampling turns into a coin flip.** The indicated lever is the
+generation rule — converting a middling p(A) into a decision when grounded — which is one screen over the
+existing checkpoint with no retraining, the same shape as the change that doubled x median from 314 to 702.

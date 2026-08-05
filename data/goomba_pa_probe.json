@@ -1,0 +1,165 @@
+{
+  "window_x": [
+    272,
+    304
+  ],
+  "checkpoint": "runlength.pt",
+  "note": "p(A) is the summed softmax over classes whose combo contains A; the head is a 300-way (combo, length-bucket) softmax, not a per-button logit",
+  "caveat": "the policy decides only at run boundaries, so pa_all is its assessment of the state and pa_decision is the subset where a new run actually began",
+  "reconstruction": "frame stacks rebuilt by replaying each episode's recorded bytes; the traces store RAM fields, not observations, so this needed the emulator",
+  "groups": {
+    "death_no_jump": {
+      "n_episodes": 34,
+      "pa_all": {
+        "n": 435,
+        "median": 0.43562278151512146,
+        "mean": 0.4049773565654097,
+        "p10": 0.29312639832496645,
+        "p90": 0.49087305665016173,
+        "p99": 0.5107910883426666,
+        "max": 0.5258100628852844,
+        "min": 0.26727133989334106
+      },
+      "pa_grounded": {
+        "n": 364,
+        "median": 0.42977821826934814,
+        "mean": 0.39986088487145666,
+        "p10": 0.29297923147678373,
+        "p90": 0.49087934792041776,
+        "p99": 0.5112557971477508,
+        "max": 0.5258100628852844,
+        "min": 0.2675761282444
+      },
+      "pa_decision": {
+        "n": 31,
+        "median": 0.3809439539909363,
+        "mean": 0.3710174618228789,
+        "p10": 0.27899467945098877,
+        "p90": 0.4617976248264313,
+        "p99": 0.48046428859233853,
+        "max": 0.48460856080055237,
+        "min": 0.27406421303749084
+      },
+      "per_episode_mean_pa": {
+        "n": 34,
+        "median": 0.4086405665992381,
+        "mean": 0.4147114901317092,
+        "p10": 0.3875677885540894,
+        "p90": 0.47490471035242077,
+        "p99": 0.4928893386820952,
+        "max": 0.4937993337710698,
+        "min": 0.3479143393039703
+      }
+    },
+    "death_jumped": {
+      "n_episodes": 35,
+      "pa_all": {
+        "n": 513,
+        "median": 0.42872950434684753,
+        "mean": 0.4038691256362328,
+        "p10": 0.3018453776836395,
+        "p90": 0.47823872566223147,
+        "p99": 0.4976162028312683,
+        "max": 0.507199227809906,
+        "min": 0.2761455476284027
+      },
+      "pa_grounded": {
+        "n": 202,
+        "median": 0.4235345870256424,
+        "mean": 0.39715508423229257,
+        "p10": 0.29595416486263276,
+        "p90": 0.4824674040079117,
+        "p99": 0.4990827435255051,
+        "max": 0.5053936839103699,
+        "min": 0.28152158856391907
+      },
+      "pa_decision": {
+        "n": 107,
+        "median": 0.4304457902908325,
+        "mean": 0.40140798827198065,
+        "p10": 0.3010211408138275,
+        "p90": 0.47038471698760986,
+        "p99": 0.49258032321929934,
+        "max": 0.507199227809906,
+        "min": 0.2795041799545288
+      },
+      "per_episode_mean_pa": {
+        "n": 35,
+        "median": 0.3992646336555481,
+        "mean": 0.4039214136103434,
+        "p10": 0.3866648202414041,
+        "p90": 0.4315074521303177,
+        "p99": 0.447156442957265,
+        "max": 0.4492626062461308,
+        "min": 0.37149127040590557
+      }
+    },
+    "cleared": {
+      "n_episodes": 130,
+      "pa_all": {
+        "n": 2090,
+        "median": 0.3986670523881912,
+        "mean": 0.38549519837187807,
+        "p10": 0.2917880415916443,
+        "p90": 0.47361333966255187,
+        "p99": 0.49881073951721194,
+        "max": 0.5151869058609009,
+        "min": 0.22467662394046783
+      },
+      "pa_grounded": {
+        "n": 338,
+        "median": 0.459273099899292,
+        "mean": 0.4234221703731097,
+        "p10": 0.2992219507694244,
+        "p90": 0.4881603330373764,
+        "p99": 0.5037141853570938,
+        "max": 0.5066596269607544,
+        "min": 0.25534987449645996
+      },
+      "pa_decision": {
+        "n": 426,
+        "median": 0.3999244421720505,
+        "mean": 0.38675048590545924,
+        "p10": 0.29299305379390717,
+        "p90": 0.47476425766944885,
+        "p99": 0.5042419284582138,
+        "max": 0.5151869058609009,
+        "min": 0.22543570399284363
+      },
+      "per_episode_mean_pa": {
+        "n": 130,
+        "median": 0.39124060323932663,
+        "mean": 0.3897961066713168,
+        "p10": 0.3730511935732581,
+        "p90": 0.40694263677348147,
+        "p99": 0.4140975463161102,
+        "max": 0.4155444663304549,
+        "min": 0.3172036654808942
+      }
+    }
+  },
+  "comparison": {
+    "grounded_median_death_no_jump": 0.42977821826934814,
+    "grounded_median_cleared": 0.459273099899292,
+    "median_gap": 0.029494881629943848,
+    "frac_pa_above_0.5_grounded": {
+      "death_no_jump": {
+        "k": 14,
+        "n": 364,
+        "rate": 0.038461538461538464
+      },
+      "cleared": {
+        "k": 7,
+        "n": 338,
+        "rate": 0.020710059171597635
+      },
+      "difference_pp": -1.7751479289940828,
+      "ci_pp": [
+        -4.497349319364531,
+        0.8634839684485158
+      ]
+    }
+  },
+  "verdict": "IT KNOWS AND GAMBLES: while grounded in x 272-304, p(A) median is 0.42977821826934814 in the deaths that never jumped and 0.459273099899292 in the clearers, a gap of +0.029. The policy assigns similar probability in both and the sampler decides. **More demonstrations will not fix this**; the lever is the sampling or generation rule.",
+  "minutes": 0.9
+}
