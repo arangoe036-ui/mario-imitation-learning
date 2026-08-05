@@ -1958,3 +1958,128 @@ random seeds cannot rescue a sample of one, because the trajectory does not depe
 starting positions can** — and a library of seventy-two of them, harvested from the policy's own earlier
 play, already sits in the repository. That would turn "two of six trajectories" into an actual rate, and it is
 the cheapest remaining way to find out whether the most expert-like thing we have built is any good.
+
+---
+
+## Block 55 — The level was finished, twice, from halfway; and the part that sees turned out to matter
+
+### What changed
+
+**Super Mario Bros. level 1-1 was completed.** The policy touched the flagpole and the game advanced to the
+next level. That is the goal this project was set, and it had never happened before.
+
+**It was not completed from the beginning of the level.** Both completions started from a saved position 39%
+and 46% of the way in, and they happened on two out of five hundred and seventy-six attempts. The honest
+statement is that the back half of the level is now within reach, occasionally, given a good handoff. The
+front half is not.
+
+Two other things changed, both of which overturn positions this document has previously recorded. **Sharpening
+the policy's action choice makes it worse, not better** — and the sharper it gets, the more its button
+statistics resemble a human expert's while its actual performance declines. And **making the part of the
+network that *sees* bigger is the first change in five blocks to improve anything**, which also means the
+higher-resolution input we spent 26 GB capturing is now a settled loss.
+
+### How we got there, including the wrong turn
+
+The previous block had ended on a genuinely exciting number: choosing the single most likely action instead of
+sampling produced the deepest trajectory the project had recorded. We correctly refused to call it a result,
+because a deterministic policy in a deterministic game from a fixed start produces exactly one trajectory —
+a sample of one. The proposed remedy was to run it from many starting positions instead of many random seeds,
+which gives genuinely independent attempts.
+
+**That remedy was right, and it was still not enough, and the gap is the lesson of this block.** Running the
+greedy policy from seventy-two starting positions produces real numbers with real intervals. It produces
+nothing to compare them *to*. A rate of 40% at the second pipe means nothing without knowing what ordinary
+sampling does from those same positions.
+
+So we ran that control: identical starting positions, ordinary sampling. **Sampling beat the greedy policy at
+the second pipe on all four checkpoints — by 37, 67, 43 and 43 points.** The greedy policy is not the
+most-expert-like-thing-we-cannot-measure that the last entry described. It is measurably worse. The x=916
+trajectory was a lucky path, and the previous entry's framing of it as "unmeasurable rather than null" was
+too generous to a number we wanted to be true.
+
+The same shape appeared again from a different direction. We swept temperature — the knob that runs from
+ordinary sampling at 1.0 down toward greedy at zero — and clearance falls the whole way down, in every
+checkpoint. Meanwhile the policy's button statistics converge steadily on the expert's: jump-button rate from
+0.54 toward 0.28 against the expert's 0.15, jump starts from 48 per thousand frames to 33 against the
+expert's 27, time airborne from 67% to 48%. **Looking more like the expert and playing better are, here,
+opposite directions.** This project has repeatedly used expert-like button statistics as evidence of
+progress, including in the previous entry. That proxy is now retired.
+
+The encoder result came from an instruction to stop widening the reasoning and widen the vision. Every
+network this project has trained used the same three convolutional layers, sixteen channels then thirty-two
+then thirty-two, while earlier "bigger model" experiments had grown the transformer behind them. Doubling the
+encoder's channels is a one-line change nobody had made.
+
+### The numbers, with sample size and baseline
+
+Temperature, pipe-2 clearance, 200 episodes per rung, three independently trained networks:
+
+| network | T=1.0 | T=0.7 | T=0.5 | T=0.3 | T=0.15 |
+|---|---|---|---|---|---|
+| seed 0 | 63.5% | 65.5% | 51.5% | 45.5% | 54.0% |
+| seed 1 | 51.5% | 41.0% | 25.0% | 11.0% | 9.5% |
+| seed 2 | 67.5% | 73.5% | 71.0% | 49.0% | 48.0% |
+
+Every rung had two hundred genuinely distinct trajectories, so none of this is the sample-of-one problem.
+
+Encoder width, 200 episodes, cell means over the seeds in each cell:
+
+| input | encoder | parameters | pipe 2 | pipe 3 |
+|---|---|---|---|---|
+| 84×84 | 16/32/32 | 172,284 | 53.2% | 20.0% |
+| **84×84** | **32/64/64** | **325,964** | **66.3%** | **28.5%** |
+| 128×128 | 16/32/32 | 366,844 | 48.0% | 29.5% |
+| 128×128 | 32/64/64 | 715,084 | 39.2% | 12.8% |
+
+Widening the encoder at the lower resolution is worth **+13.0 points [+6.2, +19.6]** at the second pipe and
+**+8.5 [+2.6, +14.4]** at the third. Widening it at the higher resolution *costs* 9 to 17 points. Comparing
+the two at matched encoder width, the higher resolution is worse by 15 to 27 points.
+
+**The most useful part of that result is not the mean.** The two networks in the narrow-encoder cell clear the
+second pipe at 65.5% and 41.0% — a 24-point disagreement between two runs of the identical recipe. The two
+wide-encoder networks land at 67.5% and 65.0%, a 2.5-point spread. **The wide encoder barely improves the
+good network; it rescues the bad one.** Given that this project has now lost three separate claims to
+single-run flukes, a change that makes independent runs agree is worth more than a change that raises an
+average.
+
+The completion itself: two of 576 attempts, both with ordinary sampling and neither with the greedy policy,
+starting from x=1264 and x=1516. We verified it rather than trusting the position counter — re-running one
+attempt with level logging showed the world/stage indicator advancing from 1-1 to 1-2 and the player state
+sitting in the flagpole-descent value for 660 consecutive frames. Both attempts had been scored as "stuck" by
+the harness, which is the flagpole freezing horizontal position, a false-positive class this project
+documented long ago.
+
+Against the standing benchmark — a script that holds three buttons at fixed random rates — the block's best
+configuration is still **15.0 points short [−23.2, −6.5]** at the second pipe. That is better than the
+previous block's 19.0-point deficit and it is still a loss.
+
+### Cost
+
+Four network trainings at roughly 4 to 10 minutes each on the GPU, twenty-four evaluation configurations, and
+about ninety minutes of emulator time. One incidental piece of engineering: the previous block's discovery
+that the first episode of every session behaves slightly differently was chased to its root. The emulator
+restores game memory perfectly — all 2048 bytes, verified — but the *image* it hands back differs between a
+session's very first restore and every later one. Crucially, that later image is *constant*: it does not vary
+with what the previous episode did. So there is no episode-by-episode contamination and no published rate can
+have shifted by more than one episode in two hundred. It only matters for a deterministic policy, which is
+exactly how it surfaced.
+
+### Downstream effect
+
+Three levers are now closed by measurement rather than argument: bounding the jump duration, sharpening the
+action distribution, and raising the input resolution. The resolution one is worth stating bluntly because it
+cost real disk and real time: 84×84 beats 128×128, and the higher-resolution corpus should be treated as a
+sunk expense rather than an asset awaiting the right experiment.
+
+One lever is open and barely explored. The encoder was widened once, in one step, and the step helped and
+halved-then-halved-again the disagreement between training runs. Nobody has tried going wider, and nobody has
+tried a fourth layer.
+
+But the completion points somewhere else entirely, and it may matter more. From x=1264 this policy finishes
+the level. Every measurement in this document — hundreds of evaluations across fifty-five blocks — is
+concentrated on four obstacles inside the first 975 pixels of a 3,266-pixel level. If the back half is
+already passable given a decent entry, then the thing worth mapping is **where reach actually collapses as a
+function of where you start**, which is a cheap sweep with a policy we already have. The difficulty may be
+early rather than late, and we have been measuring the early part hardest without ever asking whether the
+late part was the problem at all.

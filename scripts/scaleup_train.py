@@ -61,6 +61,20 @@ ARMS = {
                                     steps=15_000, batch=64, seed=0),
     "RT_128_d128_L2":          dict(size=128, d_model=128, n_layers=2, corpus="runs128",
                                     steps=15_000, batch=64, seed=0),
+    # ---- block 55 §3: the 2x2 on ENCODER WIDTH. `cnn_channels` has been (16, 32, 32) in every arm
+    # this project has ever trained -- block 53 widened `d_model` and `n_layers`, i.e. the reasoning,
+    # and never the vision. So "a bigger model did not clear more" was only ever tested as a bigger
+    # thinker behind the same small eyes. (32, 64, 64) is the standard encoder for this work.
+    # V - P is the parameter-matched resolution control: 84 -> 128 raised the count 172k -> 367k by
+    # itself, so B -> R was never a clean test of resolution.
+    "P_84_cnn32":              dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=15_000, batch=64, seed=0, cnn=(32, 64, 64)),
+    "P_84_cnn32_seed1":        dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=15_000, batch=64, seed=1, cnn=(32, 64, 64)),
+    "V_128_cnn32":             dict(size=128, d_model=64, n_layers=1, corpus="runs128",
+                                    steps=15_000, batch=64, seed=0, cnn=(32, 64, 64)),
+    "V_128_cnn32_seed1":       dict(size=128, d_model=64, n_layers=1, corpus="runs128",
+                                    steps=15_000, batch=64, seed=1, cnn=(32, 64, 64)),
 }
 
 
@@ -102,7 +116,7 @@ def runs_for(corpus: str):
 
 
 def train_arm(name: str, size: int, d_model: int, n_layers: int, corpus: str,
-              steps: int, batch: int, seed: int) -> dict:
+              steps: int, batch: int, seed: int, cnn: tuple[int, ...] = (16, 32, 32)) -> dict:
     STEPS, BATCH, SEED = steps, batch, seed
     # Seed BOTH weight init and shuffling. Seeding only the loader generator would make a "seed
     # replica" differ in data order alone, which understates the spread the ledger records at
@@ -117,7 +131,7 @@ def train_arm(name: str, size: int, d_model: int, n_layers: int, corpus: str,
     ds = RunLengthDataset(base, load_index(base, corpus, size))
     n_cls = joint_size(ctx.vocab.size)
     cfg = PolicyConfig(n_actions=n_cls, stack=4, frame_size=size, d_model=d_model,
-                       n_layers=n_layers, head_type="categorical")
+                       n_layers=n_layers, head_type="categorical", cnn_channels=tuple(cnn))
     policy = BCPolicy(cfg)
     ckpt = OUTDIR / f"{name}.pt"
     partial = OUTDIR / f"{name}.partial.pt"
@@ -138,7 +152,7 @@ def train_arm(name: str, size: int, d_model: int, n_layers: int, corpus: str,
                 st[k] = v.to(dev)
 
     print(f"[{name}] {stored}x{stored} stored -> {size}x{size} served | d_model {d_model} "
-          f"L{n_layers} | {sum(p.numel() for p in policy.parameters()):,} params | "
+          f"L{n_layers} cnn {tuple(cnn)} | {sum(p.numel() for p in policy.parameters()):,} params | "
           f"{len(ds):,} run samples | device {dev}", flush=True)
     if done >= STEPS:
         print("    already complete", flush=True)
@@ -181,6 +195,7 @@ def train_arm(name: str, size: int, d_model: int, n_layers: int, corpus: str,
     return {"arm": name, "checkpoint": str(ckpt.relative_to(ROOT)), "frame_size": size,
             "stored_size": stored, "d_model": d_model, "n_layers": n_layers, "corpus": corpus,
             "steps": int(blob["step"]), "batch": BATCH, "seed": SEED, "lr": LR,
+            "cnn_channels": list(cnn),
             "samples_seen": int(blob["step"]) * BATCH, "n_samples": len(ds),
             "params": sum(v.numel() for v in blob["model_state"].values())}
 
@@ -201,7 +216,7 @@ def main() -> None:
         a = ARMS[name]
         t0 = time.time()
         rec = train_arm(name, a["size"], a["d_model"], a["n_layers"], a["corpus"],
-                        a["steps"], a["batch"], a["seed"])
+                        a["steps"], a["batch"], a["seed"], a.get("cnn", (16, 32, 32)))
         rec["minutes"] = round((time.time() - t0) / 60, 1)
         out["arms"][name] = rec
         out_path.write_text(json.dumps(out, indent=2, default=str))

@@ -1,0 +1,770 @@
+{
+  "measurement_basis": "conditional_on_arrival",
+  "NOT_comparable_to": "any n=200 single-life figure in this project; each rate is 'given the policy stands here, does it pass the next obstacle'",
+  "start_library": {
+    "file": "data/startlib_policy.json",
+    "n_states": 72,
+    "x_range": [
+      48,
+      1692
+    ],
+    "caveat": "harvested from ONE policy's own play, so these are places that policy reached -- not a sample of the level. Five states sit at x=722 and five at x=898."
+  },
+  "eligibility_gate": {
+    "basis": "obstacle FACE, not clearance threshold",
+    "faces": {
+      "pipe1": 432,
+      "pipe2": 592,
+      "pipe3": 720,
+      "pipe4": 912
+    },
+    "cleared_thresholds": {
+      "pipe1": 470,
+      "pipe2": 630,
+      "pipe3": 735,
+      "pipe4": 975
+    },
+    "why": "a start at x=460 is already past pipe 1's face and would clear it for free; gating on the face is what makes the rate mean anything",
+    "eligible_n": {
+      "pipe1": 21,
+      "pipe2": 30,
+      "pipe3": 36,
+      "pipe4": 54
+    }
+  },
+  "generation": "argmax (T->0), non-A runs capped at 4, A-runs uncapped",
+  "episode0_guard": "compose.warm_session applied before any scored state",
+  "interval": "Wilson",
+  "checkpoints": {
+    "B_84_d64_L1": {
+      "argmax": {
+        "mode": "argmax",
+        "n_states": 72,
+        "argmax_probe": {
+          "distinct_classes_on_noise": 18
+        },
+        "restore_mismatches": 0,
+        "mean_a_rate": 0.3030999207912503,
+        "mean_airborne": 0.45532268321921,
+        "x_max_over_all_starts": 1801,
+        "per_obstacle": {
+          "pipe1": {
+            "eligible_n": 21,
+            "cleared": 13,
+            "rate": 0.6190476190476191,
+            "wilson": [
+              0.40878295815501514,
+              0.7924923220201749
+            ],
+            "threshold_x": 470,
+            "gate_face_x": 432,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe2": {
+            "eligible_n": 30,
+            "cleared": 12,
+            "rate": 0.4,
+            "wilson": [
+              0.24590394326083403,
+              0.5767994750172616
+            ],
+            "threshold_x": 630,
+            "gate_face_x": 592,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe3": {
+            "eligible_n": 36,
+            "cleared": 12,
+            "rate": 0.3333333333333333,
+            "wilson": [
+              0.20214424774586046,
+              0.49666302907033155
+            ],
+            "threshold_x": 735,
+            "gate_face_x": 720,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe4": {
+            "eligible_n": 54,
+            "cleared": 8,
+            "rate": 0.14814814814814814,
+            "wilson": [
+              0.07702971308229412,
+              0.266003674652485
+            ],
+            "threshold_x": 975,
+            "gate_face_x": 912,
+            "measurement_basis": "conditional_on_arrival"
+          }
+        },
+        "degenerate": false
+      },
+      "sampled_T1.0": {
+        "mode": "sampled_T1.0",
+        "n_states": 72,
+        "argmax_probe": {
+          "distinct_classes_on_noise": 18
+        },
+        "restore_mismatches": 0,
+        "mean_a_rate": 0.5662075071766212,
+        "mean_airborne": 0.6665732522114163,
+        "x_max_over_all_starts": 3266,
+        "per_obstacle": {
+          "pipe1": {
+            "eligible_n": 21,
+            "cleared": 15,
+            "rate": 0.7142857142857143,
+            "wilson": [
+              0.500432261771624,
+              0.8618632425437179
+            ],
+            "threshold_x": 470,
+            "gate_face_x": 432,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe2": {
+            "eligible_n": 30,
+            "cleared": 23,
+            "rate": 0.7666666666666667,
+            "wilson": [
+              0.5907132766967574,
+              0.8820776078949878
+            ],
+            "threshold_x": 630,
+            "gate_face_x": 592,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe3": {
+            "eligible_n": 36,
+            "cleared": 8,
+            "rate": 0.2222222222222222,
+            "wilson": [
+              0.11716192974839595,
+              0.38085019827859085
+            ],
+            "threshold_x": 735,
+            "gate_face_x": 720,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe4": {
+            "eligible_n": 54,
+            "cleared": 9,
+            "rate": 0.16666666666666666,
+            "wilson": [
+              0.0902428998661039,
+              0.28736767798789736
+            ],
+            "threshold_x": 975,
+            "gate_face_x": 912,
+            "measurement_basis": "conditional_on_arrival"
+          }
+        },
+        "degenerate": false
+      }
+    },
+    "B_84_seed1": {
+      "argmax": {
+        "mode": "argmax",
+        "n_states": 72,
+        "argmax_probe": {
+          "distinct_classes_on_noise": 17
+        },
+        "restore_mismatches": 0,
+        "mean_a_rate": 0.3303501344607667,
+        "mean_airborne": 0.40495894455274617,
+        "x_max_over_all_starts": 1778,
+        "per_obstacle": {
+          "pipe1": {
+            "eligible_n": 21,
+            "cleared": 12,
+            "rate": 0.5714285714285714,
+            "wilson": [
+              0.3654621629703244,
+              0.7553030051347894
+            ],
+            "threshold_x": 470,
+            "gate_face_x": 432,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe2": {
+            "eligible_n": 30,
+            "cleared": 1,
+            "rate": 0.03333333333333333,
+            "wilson": [
+              0.0059084379948573795,
+              0.16670751396958874
+            ],
+            "threshold_x": 630,
+            "gate_face_x": 592,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe3": {
+            "eligible_n": 36,
+            "cleared": 6,
+            "rate": 0.16666666666666666,
+            "wilson": [
+              0.07870340628564097,
+              0.3189111473467432
+            ],
+            "threshold_x": 735,
+            "gate_face_x": 720,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe4": {
+            "eligible_n": 54,
+            "cleared": 2,
+            "rate": 0.037037037037037035,
+            "wilson": [
+              0.010216153585413057,
+              0.12535409343403314
+            ],
+            "threshold_x": 975,
+            "gate_face_x": 912,
+            "measurement_basis": "conditional_on_arrival"
+          }
+        },
+        "degenerate": false
+      },
+      "sampled_T1.0": {
+        "mode": "sampled_T1.0",
+        "n_states": 72,
+        "argmax_probe": {
+          "distinct_classes_on_noise": 17
+        },
+        "restore_mismatches": 0,
+        "mean_a_rate": 0.5663455924628772,
+        "mean_airborne": 0.693077507024835,
+        "x_max_over_all_starts": 2592,
+        "per_obstacle": {
+          "pipe1": {
+            "eligible_n": 21,
+            "cleared": 13,
+            "rate": 0.6190476190476191,
+            "wilson": [
+              0.40878295815501514,
+              0.7924923220201749
+            ],
+            "threshold_x": 470,
+            "gate_face_x": 432,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe2": {
+            "eligible_n": 30,
+            "cleared": 21,
+            "rate": 0.7,
+            "wilson": [
+              0.5212387898833981,
+              0.8333543735604105
+            ],
+            "threshold_x": 630,
+            "gate_face_x": 592,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe3": {
+            "eligible_n": 36,
+            "cleared": 13,
+            "rate": 0.3611111111111111,
+            "wilson": [
+              0.2247538679218132,
+              0.5242521960916802
+            ],
+            "threshold_x": 735,
+            "gate_face_x": 720,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe4": {
+            "eligible_n": 54,
+            "cleared": 15,
+            "rate": 0.2777777777777778,
+            "wilson": [
+              0.1761667544821121,
+              0.4089069640872221
+            ],
+            "threshold_x": 975,
+            "gate_face_x": 912,
+            "measurement_basis": "conditional_on_arrival"
+          }
+        },
+        "degenerate": false
+      }
+    },
+    "B_84_seed2": {
+      "argmax": {
+        "mode": "argmax",
+        "n_states": 72,
+        "argmax_probe": {
+          "distinct_classes_on_noise": 15
+        },
+        "restore_mismatches": 0,
+        "mean_a_rate": 0.14401176370448504,
+        "mean_airborne": 0.40079750952203813,
+        "x_max_over_all_starts": 1953,
+        "per_obstacle": {
+          "pipe1": {
+            "eligible_n": 21,
+            "cleared": 13,
+            "rate": 0.6190476190476191,
+            "wilson": [
+              0.40878295815501514,
+              0.7924923220201749
+            ],
+            "threshold_x": 470,
+            "gate_face_x": 432,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe2": {
+            "eligible_n": 30,
+            "cleared": 12,
+            "rate": 0.4,
+            "wilson": [
+              0.24590394326083403,
+              0.5767994750172616
+            ],
+            "threshold_x": 630,
+            "gate_face_x": 592,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe3": {
+            "eligible_n": 36,
+            "cleared": 4,
+            "rate": 0.1111111111111111,
+            "wilson": [
+              0.04406568908741834,
+              0.2531512901503632
+            ],
+            "threshold_x": 735,
+            "gate_face_x": 720,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe4": {
+            "eligible_n": 54,
+            "cleared": 6,
+            "rate": 0.1111111111111111,
+            "wilson": [
+              0.05192951817556753,
+              0.2219494893207673
+            ],
+            "threshold_x": 975,
+            "gate_face_x": 912,
+            "measurement_basis": "conditional_on_arrival"
+          }
+        },
+        "degenerate": false
+      },
+      "sampled_T1.0": {
+        "mode": "sampled_T1.0",
+        "n_states": 72,
+        "argmax_probe": {
+          "distinct_classes_on_noise": 15
+        },
+        "restore_mismatches": 0,
+        "mean_a_rate": 0.5144801384429967,
+        "mean_airborne": 0.7038308925037673,
+        "x_max_over_all_starts": 2022,
+        "per_obstacle": {
+          "pipe1": {
+            "eligible_n": 21,
+            "cleared": 16,
+            "rate": 0.7619047619047619,
+            "wilson": [
+              0.5490841802765406,
+              0.8937214361088773
+            ],
+            "threshold_x": 470,
+            "gate_face_x": 432,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe2": {
+            "eligible_n": 30,
+            "cleared": 25,
+            "rate": 0.8333333333333334,
+            "wilson": [
+              0.6643529481431982,
+              0.9266356575964831
+            ],
+            "threshold_x": 630,
+            "gate_face_x": 592,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe3": {
+            "eligible_n": 36,
+            "cleared": 17,
+            "rate": 0.4722222222222222,
+            "wilson": [
+              0.31985792907209337,
+              0.6299432837306054
+            ],
+            "threshold_x": 735,
+            "gate_face_x": 720,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe4": {
+            "eligible_n": 54,
+            "cleared": 9,
+            "rate": 0.16666666666666666,
+            "wilson": [
+              0.0902428998661039,
+              0.28736767798789736
+            ],
+            "threshold_x": 975,
+            "gate_face_x": 912,
+            "measurement_basis": "conditional_on_arrival"
+          }
+        },
+        "degenerate": false
+      }
+    },
+    "R_128_d64_L1": {
+      "argmax": {
+        "mode": "argmax",
+        "n_states": 72,
+        "argmax_probe": {
+          "distinct_classes_on_noise": 21
+        },
+        "restore_mismatches": 0,
+        "mean_a_rate": 0.3010188443556922,
+        "mean_airborne": 0.4967304272311477,
+        "x_max_over_all_starts": 1976,
+        "per_obstacle": {
+          "pipe1": {
+            "eligible_n": 21,
+            "cleared": 13,
+            "rate": 0.6190476190476191,
+            "wilson": [
+              0.40878295815501514,
+              0.7924923220201749
+            ],
+            "threshold_x": 470,
+            "gate_face_x": 432,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe2": {
+            "eligible_n": 30,
+            "cleared": 6,
+            "rate": 0.2,
+            "wilson": [
+              0.09504978102401235,
+              0.37306047381027446
+            ],
+            "threshold_x": 630,
+            "gate_face_x": 592,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe3": {
+            "eligible_n": 36,
+            "cleared": 7,
+            "rate": 0.19444444444444445,
+            "wilson": [
+              0.09752972019453349,
+              0.350283620635152
+            ],
+            "threshold_x": 735,
+            "gate_face_x": 720,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe4": {
+            "eligible_n": 54,
+            "cleared": 3,
+            "rate": 0.05555555555555555,
+            "wilson": [
+              0.019072922503838907,
+              0.15107451463482943
+            ],
+            "threshold_x": 975,
+            "gate_face_x": 912,
+            "measurement_basis": "conditional_on_arrival"
+          }
+        },
+        "degenerate": false
+      },
+      "sampled_T1.0": {
+        "mode": "sampled_T1.0",
+        "n_states": 72,
+        "argmax_probe": {
+          "distinct_classes_on_noise": 21
+        },
+        "restore_mismatches": 0,
+        "mean_a_rate": 0.5423789387383889,
+        "mean_airborne": 0.6895567879401062,
+        "x_max_over_all_starts": 3266,
+        "per_obstacle": {
+          "pipe1": {
+            "eligible_n": 21,
+            "cleared": 13,
+            "rate": 0.6190476190476191,
+            "wilson": [
+              0.40878295815501514,
+              0.7924923220201749
+            ],
+            "threshold_x": 470,
+            "gate_face_x": 432,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe2": {
+            "eligible_n": 30,
+            "cleared": 19,
+            "rate": 0.6333333333333333,
+            "wilson": [
+              0.45513246433604937,
+              0.7812629779598231
+            ],
+            "threshold_x": 630,
+            "gate_face_x": 592,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe3": {
+            "eligible_n": 36,
+            "cleared": 14,
+            "rate": 0.3888888888888889,
+            "wilson": [
+              0.24784655417822943,
+              0.5513582970325652
+            ],
+            "threshold_x": 735,
+            "gate_face_x": 720,
+            "measurement_basis": "conditional_on_arrival"
+          },
+          "pipe4": {
+            "eligible_n": 54,
+            "cleared": 10,
+            "rate": 0.18518518518518517,
+            "wilson": [
+              0.10382574505942957,
+              0.3083620229137938
+            ],
+            "threshold_x": 975,
+            "gate_face_x": 912,
+            "measurement_basis": "conditional_on_arrival"
+          }
+        },
+        "degenerate": false
+      }
+    }
+  },
+  "argmax_minus_sampled": {
+    "B_84_d64_L1": {
+      "pipe1": {
+        "argmax_rate": 0.6190476190476191,
+        "sampled_rate": 0.7142857142857143,
+        "difference_pp": -9.523809523809524,
+        "n": 21,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      },
+      "pipe2": {
+        "argmax_rate": 0.4,
+        "sampled_rate": 0.7666666666666667,
+        "difference_pp": -36.66666666666667,
+        "n": 30,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      },
+      "pipe3": {
+        "argmax_rate": 0.3333333333333333,
+        "sampled_rate": 0.2222222222222222,
+        "difference_pp": 11.11111111111111,
+        "n": 36,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      },
+      "pipe4": {
+        "argmax_rate": 0.14814814814814814,
+        "sampled_rate": 0.16666666666666666,
+        "difference_pp": -1.8518518518518516,
+        "n": 54,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      }
+    },
+    "B_84_seed1": {
+      "pipe1": {
+        "argmax_rate": 0.5714285714285714,
+        "sampled_rate": 0.6190476190476191,
+        "difference_pp": -4.761904761904767,
+        "n": 21,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      },
+      "pipe2": {
+        "argmax_rate": 0.03333333333333333,
+        "sampled_rate": 0.7,
+        "difference_pp": -66.66666666666666,
+        "n": 30,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      },
+      "pipe3": {
+        "argmax_rate": 0.16666666666666666,
+        "sampled_rate": 0.3611111111111111,
+        "difference_pp": -19.444444444444446,
+        "n": 36,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      },
+      "pipe4": {
+        "argmax_rate": 0.037037037037037035,
+        "sampled_rate": 0.2777777777777778,
+        "difference_pp": -24.074074074074076,
+        "n": 54,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      }
+    },
+    "B_84_seed2": {
+      "pipe1": {
+        "argmax_rate": 0.6190476190476191,
+        "sampled_rate": 0.7619047619047619,
+        "difference_pp": -14.28571428571428,
+        "n": 21,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      },
+      "pipe2": {
+        "argmax_rate": 0.4,
+        "sampled_rate": 0.8333333333333334,
+        "difference_pp": -43.333333333333336,
+        "n": 30,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      },
+      "pipe3": {
+        "argmax_rate": 0.1111111111111111,
+        "sampled_rate": 0.4722222222222222,
+        "difference_pp": -36.11111111111111,
+        "n": 36,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      },
+      "pipe4": {
+        "argmax_rate": 0.1111111111111111,
+        "sampled_rate": 0.16666666666666666,
+        "difference_pp": -5.555555555555555,
+        "n": 54,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      }
+    },
+    "R_128_d64_L1": {
+      "pipe1": {
+        "argmax_rate": 0.6190476190476191,
+        "sampled_rate": 0.6190476190476191,
+        "difference_pp": 0.0,
+        "n": 21,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      },
+      "pipe2": {
+        "argmax_rate": 0.2,
+        "sampled_rate": 0.6333333333333333,
+        "difference_pp": -43.33333333333333,
+        "n": 30,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      },
+      "pipe3": {
+        "argmax_rate": 0.19444444444444445,
+        "sampled_rate": 0.3888888888888889,
+        "difference_pp": -19.444444444444446,
+        "n": 36,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      },
+      "pipe4": {
+        "argmax_rate": 0.05555555555555555,
+        "sampled_rate": 0.18518518518518517,
+        "difference_pp": -12.962962962962962,
+        "n": 54,
+        "note": "paired by start state; n is small (21-54) so read direction, not magnitude"
+      }
+    }
+  },
+  "summary": {
+    "n_non_degenerate": 4,
+    "argmax_pipe2_rates": {
+      "B_84_d64_L1": 0.4,
+      "B_84_seed1": 0.03333333333333333,
+      "B_84_seed2": 0.4,
+      "R_128_d64_L1": 0.2
+    },
+    "argmax_pipe2_wilson": {
+      "B_84_d64_L1": [
+        0.24590394326083403,
+        0.5767994750172616
+      ],
+      "B_84_seed1": [
+        0.0059084379948573795,
+        0.16670751396958874
+      ],
+      "B_84_seed2": [
+        0.24590394326083403,
+        0.5767994750172616
+      ],
+      "R_128_d64_L1": [
+        0.09504978102401235,
+        0.37306047381027446
+      ]
+    },
+    "argmax_minus_sampled_pipe2_pp": [
+      -36.66666666666667,
+      -66.66666666666666,
+      -43.333333333333336,
+      -43.33333333333333
+    ],
+    "argmax_beats_sampled_at_pipe2_in": 0,
+    "deepest_x_any_start": 3266
+  },
+  "verdict": "**ARGMAX IS NOT SYSTEMATICALLY BETTER, AND NOW THERE IS A CONTROL TO SAY SO.** Conditional on arrival at the 30 eligible start states, argmax clears pipe 2 at 3-40% across 4 checkpoints (Wilson ~\u00b118 pp at n=30) \u2014 a spread far wider than the interval, so the variation is between checkpoints, not noise. Against **sampling from the identical start states**, argmax wins pipe 2 on 0 of 4 checkpoints (deltas [-36.7, -66.7, -43.3, -43.3] pp). **Block 54's x=916 was one trajectory from one checkpoint, and on a proper multi-start basis determinism carries no consistent advantage.** These numbers are conditional-on-arrival and must never be placed beside an n=200 single-life figure.",
+  "minutes": 7.9,
+  "level_completion": {
+    "criterion": "max_x >= 3266 (the 1-1 flagpole); verified on one run by world/stage advancing 1-1 -> 1-2 with player_state 0x5 (flagpole) held for 660 frames at x>=3200",
+    "\u26a0 basis": "CONDITIONAL ON ARRIVAL at a library start state -- NOT a run from the level start. The two completions began at x=1264 and x=1516, i.e. already carried 39-46% through the level.",
+    "per_arm": {
+      "B_84_d64_L1/argmax": {
+        "n_starts": 72,
+        "completed_1_1": 0,
+        "rate": 0.0,
+        "max_x": 1801,
+        "completing_start_x": []
+      },
+      "B_84_d64_L1/sampled_T1.0": {
+        "n_starts": 72,
+        "completed_1_1": 1,
+        "rate": 0.013888888888888888,
+        "max_x": 3266,
+        "completing_start_x": [
+          1264
+        ]
+      },
+      "B_84_seed1/argmax": {
+        "n_starts": 72,
+        "completed_1_1": 0,
+        "rate": 0.0,
+        "max_x": 1778,
+        "completing_start_x": []
+      },
+      "B_84_seed1/sampled_T1.0": {
+        "n_starts": 72,
+        "completed_1_1": 0,
+        "rate": 0.0,
+        "max_x": 2592,
+        "completing_start_x": []
+      },
+      "B_84_seed2/argmax": {
+        "n_starts": 72,
+        "completed_1_1": 0,
+        "rate": 0.0,
+        "max_x": 1953,
+        "completing_start_x": []
+      },
+      "B_84_seed2/sampled_T1.0": {
+        "n_starts": 72,
+        "completed_1_1": 0,
+        "rate": 0.0,
+        "max_x": 2022,
+        "completing_start_x": []
+      },
+      "R_128_d64_L1/argmax": {
+        "n_starts": 72,
+        "completed_1_1": 0,
+        "rate": 0.0,
+        "max_x": 1976,
+        "completing_start_x": []
+      },
+      "R_128_d64_L1/sampled_T1.0": {
+        "n_starts": 72,
+        "completed_1_1": 1,
+        "rate": 0.013888888888888888,
+        "max_x": 3266,
+        "completing_start_x": [
+          1516
+        ]
+      }
+    },
+    "total_completions": 2
+  }
+}

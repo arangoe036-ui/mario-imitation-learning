@@ -103,6 +103,32 @@ def session_when_free(rom, movie, frames, *, tries: int = 240, wait: float = 30.
     raise SystemExit("emulator never became free")
 
 
+def warm_session(session, frame: int, *, steps: int = 1):
+    """Burn one throwaway reset+step so the FIRST scored episode sees what every later one sees.
+
+    **Measured defect, block 55.** `reset(frame)` restores RAM exactly -- all 2048 bytes, verified --
+    but the *framebuffer* it returns is not re-rendered identically. The session's very first reset
+    returns one frame; every reset after the emulator has stepped at all returns a different one.
+
+    The good news is that the second frame is **constant**: varying the prior episode's length
+    (77/150/300/420 steps) and its held button produced **one** distinct reset frame, byte-identical
+    across all of them and reproducible on repeats. So there is no per-episode contamination, and no
+    n=200 rate this project has ever reported can have moved by more than the one episode in 200 that
+    started from the odd frame.
+
+    It is only fatal for a *deterministic* policy, where that one episode is 100% of the observed
+    variation -- which is exactly how it was found: 200 argmax episodes yielded "2 distinct
+    trajectories", episode 0 and the other 199.
+
+    Call this immediately after acquiring a session, before the first scored episode. Cheap: one
+    savestate load plus one frame.
+    """
+    session.reset(frame)
+    for _ in range(max(1, steps)):
+        session.step(0)
+    return session
+
+
 def evaluate(ctx, policy, cfg, tag: str, log=print):
     cal, _ = calibrate(policy, ctx.dataset(ctx.expert_train), ctx.target_rates)
     thr = cal.vector.astype(np.float64)

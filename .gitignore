@@ -34,3 +34,4 @@ data/bc_scaleup/
 data/traces/scaleup_*.json
 data/runlength_index_*.npz
 data/traces/gen_*.json
+data/argmax_startstates.partial.json
