@@ -1667,3 +1667,67 @@ onsets across eight bins is a screen and is labelled one.
 weak temporal conditioning (+0.067), and a policy that never exceeds p(A)=0.53 anywhere.** That is a complete
 mechanical account of why it dies there — and it says the lever is sharpening the signal that exists, judged by
 the x-matched gap rather than by positional spread.
+
+---
+
+## The policy has no timing anywhere — at pipe 2, where it succeeds, the timing signal is negative
+
+**What changed.** One read, forward passes only, extending the Goomba probe to every obstacle. It closes the
+question the whole run-length line rested on.
+
+**Numbers.** Stratified estimator: within each 16-px bin, mean p(A) at expert A-onset frames minus mean at
+non-onset frames, weighted across bins by onset count — position held fixed by construction. Intervals
+bootstrapped over onsets.
+
+| obstacle | onsets | **x-matched lift** | 95% CI | positional swing |
+|---|---|---|---|---|
+| goomba 288 | 30 | **+0.035** | [+0.022, +0.048] | 0.144 |
+| pipe1 432 | 36 | **−0.011** | [−0.022, −0.001] | 0.072 |
+| **pipe2 592** | 32 | **−0.012** | **[−0.023, −0.002]** | 0.138 |
+| pipe3 720 | 8 | −0.014 | [−0.026, +0.005] | 0.147 |
+| pipe4 912 | 12 | −0.017 | [−0.032, −0.004] | 0.000 |
+
+**At pipe 1, pipe 2 and pipe 4 the policy assigns *lower* p(A) at the frames where the expert jumps than at
+neighbouring frames at the same x.** The only obstacle with a positive lift and enough onsets to say so is the
+Goomba — the one it fails. **Positional conditioning is 4–12× larger than temporal everywhere.**
+
+**So the policy has no timing signal anywhere, and the least of it where it performs best. Its competence is
+duration.** That is a one-sentence account of every result in this project: **it beats a rate-matched script
+wherever a long hold suffices and loses wherever placement matters.** The +53 pp at pipe 2 is representational
+— the run-length head turned "jump" from twelve coins that must all land into one coin with a long payoff —
+and there is no state-conditional component underneath it.
+
+It also explains, without further assumption: why distilling verified Goomba solutions changed nothing (the
+demonstrations encode *when*, which the policy cannot represent conditionally); why p(A) never exceeds 0.53
+anywhere (it never has a state-specific reason to commit); and why it loses pipe 1 and the Goomba to a script
+that merely jumps a lot.
+
+**A planned build cancelled by its own precondition, for the second block running.** Temperature sharpening
+amplifies whatever signal exists. **At pipe 2 that signal points the wrong way**, so sharpening would produce a
+more confident wrong answer. Not built.
+
+**Two corrections, and the second is to my own figure.**
+
+The **+0.103** onset-vs-flank result is **withdrawn**: it was a bootstrap of a median over **7** values, whose
+distribution is discrete over those seven points, so its interval understated uncertainty rather than measuring
+it.
+
+And my **x-matched +0.067 was inflated by a milder form of the confound I had just criticised.** I computed it
+as a pooled onset mean (0.413) minus a pooled non-onset mean (0.345) — but onsets and non-onsets have different
+x distributions inside the window, so the pooling re-imported part of the positional gradient. Stratifying and
+weighting by onset count gives **+0.035 [+0.022, +0.048]** over the identical window. **The Goomba
+decomposition is 0.144 positional against +0.035 temporal**, and the conclusion strengthens — my own number
+had been too generous to the timing story.
+
+**Sample sizes, stated because three windows cannot carry a claim.** pipe3 (8 onsets), pipe4 (12), koopas (7)
+and the gap (3) are too thin; the gap's +0.038 rests on three onsets and must not be cited. The load-bearing
+rows are goomba (30), pipe1 (36) and pipe2 (32) — and two of those three are where the policy performs best,
+both negative.
+
+**Cost.** 0.1 minutes. No emulator, no training.
+
+**Downstream effect.** The run-length line's advantage is now fully characterised and fully bounded: **it is a
+representational win with no timing content.** Sharpening and search are both ruled out as levers by
+measurement rather than by argument. What remains untested is the **observation** — resolution, or explicit
+enemy-relative features from RAM, which the trace logger already records at death. That is a change of input
+rather than of method, and therefore a different project than the one this document describes.
