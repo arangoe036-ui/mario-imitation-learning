@@ -1,0 +1,364 @@
+{
+  "arm": "P_84_cnn32_seed4",
+  "temperature": 0.7,
+  "repeats_per_state": 5,
+  "measurement_basis": "conditional_on_arrival",
+  "NOT_comparable_to": "any n=200 single-life figure in this project",
+  "start_library_caveat": "harvested from ONE policy's own play; these are places that policy reached, not a sample of the level. Five states at x=722, five at x=898.",
+  "flagpole_x": 3266,
+  "bin_edges": [
+    0,
+    200,
+    350,
+    500,
+    650,
+    800,
+    1000,
+    1300,
+    1600,
+    2000
+  ],
+  "n_states": 62,
+  "n_states_note": "distinct start_x values; the library has 72 states but duplicates x (five at 722, five at 898), so distinct-x is lower than 72",
+  "n_episodes": 360,
+  "restore_mismatches": 0,
+  "bins": {
+    "0-200": {
+      "n_states": 11,
+      "n_episodes": 60,
+      "thin": false,
+      "start_x_values": [
+        48,
+        56,
+        66,
+        96,
+        100,
+        130,
+        144,
+        151,
+        158,
+        163,
+        175
+      ],
+      "delta_x": {
+        "median": 672.5,
+        "max": 1729,
+        "p25": 536.25,
+        "p75": 783.0
+      },
+      "max_x": {
+        "median": 723.0,
+        "max": 1785
+      },
+      "reached_flagpole": {
+        "k": 0,
+        "n": 60,
+        "rate": 0.0,
+        "wilson": [
+          0.0,
+          0.06017393047793289
+        ]
+      },
+      "measurement_basis": "conditional_on_arrival"
+    },
+    "200-350": {
+      "n_states": 6,
+      "n_episodes": 30,
+      "thin": false,
+      "start_x_values": [
+        254,
+        258,
+        279,
+        282,
+        287,
+        345
+      ],
+      "delta_x": {
+        "median": 454.0,
+        "max": 1177,
+        "p25": 42.75,
+        "p75": 615.75
+      },
+      "max_x": {
+        "median": 722.5,
+        "max": 1522
+      },
+      "reached_flagpole": {
+        "k": 0,
+        "n": 30,
+        "rate": 0.0,
+        "wilson": [
+          0.0,
+          0.113517091390478
+        ]
+      },
+      "measurement_basis": "conditional_on_arrival"
+    },
+    "350-500": {
+      "n_states": 6,
+      "n_episodes": 30,
+      "thin": false,
+      "start_x_values": [
+        365,
+        381,
+        391,
+        437,
+        456,
+        463
+      ],
+      "delta_x": {
+        "median": 296.0,
+        "max": 884,
+        "p25": 260.25,
+        "p75": 421.0
+      },
+      "max_x": {
+        "median": 722.5,
+        "max": 1275
+      },
+      "reached_flagpole": {
+        "k": 0,
+        "n": 30,
+        "rate": 0.0,
+        "wilson": [
+          0.0,
+          0.113517091390478
+        ]
+      },
+      "measurement_basis": "conditional_on_arrival"
+    },
+    "500-650": {
+      "n_states": 10,
+      "n_episodes": 55,
+      "thin": false,
+      "start_x_values": [
+        534,
+        541,
+        555,
+        576,
+        577,
+        594,
+        596,
+        611,
+        617,
+        633
+      ],
+      "delta_x": {
+        "median": 283.0,
+        "max": 1020,
+        "p25": 145.5,
+        "p75": 366.5
+      },
+      "max_x": {
+        "median": 864.0,
+        "max": 1561
+      },
+      "reached_flagpole": {
+        "k": 0,
+        "n": 55,
+        "rate": 0.0,
+        "wilson": [
+          0.0,
+          0.06528714378942788
+        ]
+      },
+      "measurement_basis": "conditional_on_arrival"
+    },
+    "650-800": {
+      "n_states": 3,
+      "n_episodes": 35,
+      "thin": true,
+      "start_x_values": [
+        672,
+        722,
+        730
+      ],
+      "delta_x": {
+        "median": 176.0,
+        "max": 852,
+        "p25": 0.5,
+        "p75": 196.5
+      },
+      "max_x": {
+        "median": 898.0,
+        "max": 1538
+      },
+      "reached_flagpole": {
+        "k": 0,
+        "n": 35,
+        "rate": 0.0,
+        "wilson": [
+          0.0,
+          0.09890426758938868
+        ]
+      },
+      "measurement_basis": "conditional_on_arrival"
+    },
+    "800-1000": {
+      "n_states": 9,
+      "n_episodes": 65,
+      "thin": false,
+      "start_x_values": [
+        818,
+        836,
+        840,
+        847,
+        854,
+        859,
+        898,
+        903,
+        990
+      ],
+      "delta_x": {
+        "median": 59.0,
+        "max": 1030,
+        "p25": 1.0,
+        "p75": 344.0
+      },
+      "max_x": {
+        "median": 907.0,
+        "max": 2020
+      },
+      "reached_flagpole": {
+        "k": 0,
+        "n": 65,
+        "rate": 0.0,
+        "wilson": [
+          0.0,
+          0.055803467670710726
+        ]
+      },
+      "measurement_basis": "conditional_on_arrival"
+    },
+    "1000-1300": {
+      "n_states": 8,
+      "n_episodes": 40,
+      "thin": false,
+      "start_x_values": [
+        1015,
+        1026,
+        1027,
+        1030,
+        1051,
+        1261,
+        1264,
+        1284
+      ],
+      "delta_x": {
+        "median": 473.0,
+        "max": 998,
+        "p25": 230.75,
+        "p75": 656.75
+      },
+      "max_x": {
+        "median": 1665.5,
+        "max": 2025
+      },
+      "reached_flagpole": {
+        "k": 0,
+        "n": 40,
+        "rate": 0.0,
+        "wilson": [
+          0.0,
+          0.08762453925039232
+        ]
+      },
+      "measurement_basis": "conditional_on_arrival"
+    },
+    "1300-1600": {
+      "n_states": 8,
+      "n_episodes": 40,
+      "thin": false,
+      "start_x_values": [
+        1300,
+        1321,
+        1327,
+        1412,
+        1425,
+        1511,
+        1516,
+        1519
+      ],
+      "delta_x": {
+        "median": 209.5,
+        "max": 701,
+        "p25": 66.0,
+        "p75": 286.25
+      },
+      "max_x": {
+        "median": 1563.0,
+        "max": 2022
+      },
+      "reached_flagpole": {
+        "k": 0,
+        "n": 40,
+        "rate": 0.0,
+        "wilson": [
+          0.0,
+          0.08762453925039232
+        ]
+      },
+      "measurement_basis": "conditional_on_arrival"
+    },
+    "1600-2000": {
+      "n_states": 1,
+      "n_episodes": 5,
+      "thin": true,
+      "start_x_values": [
+        1692
+      ],
+      "delta_x": {
+        "median": 102.0,
+        "max": 281,
+        "p25": 97.0,
+        "p75": 261.0
+      },
+      "max_x": {
+        "median": 1794.0,
+        "max": 1973
+      },
+      "reached_flagpole": {
+        "k": 0,
+        "n": 5,
+        "rate": 0.0,
+        "wilson": [
+          0.0,
+          0.43449149475208104
+        ]
+      },
+      "measurement_basis": "conditional_on_arrival"
+    }
+  },
+  "analysis": {
+    "median_delta_x_by_bin": {
+      "0-200": 672.5,
+      "200-350": 454.0,
+      "350-500": 296.0,
+      "500-650": 283.0,
+      "800-1000": 59.0,
+      "1000-1300": 473.0,
+      "1300-1600": 209.5
+    },
+    "reach_ceiling_by_bin": {
+      "0-200": 1785,
+      "200-350": 1522,
+      "350-500": 1275,
+      "500-650": 1561,
+      "650-800": 1538,
+      "800-1000": 2020,
+      "1000-1300": 2025,
+      "1300-1600": 2022,
+      "1600-2000": 1973
+    },
+    "bins_reaching_flagpole": [],
+    "n_solid_bins": 7,
+    "thin_bins": [
+      "650-800",
+      "1600-2000"
+    ],
+    "flagpole_episodes": 0,
+    "flagpole_total_episodes": 360
+  },
+  "verdict": "Reach curve for P_84_cnn32_seed4 at T=0.7, conditional on arrival, 360 episodes over 5 repeats of 72 start states. Median \u0394x by start bin: 0-200:672, 200-350:454, 350-500:296, 500-650:283, 800-1000:59, 1000-1300:473, 1300-1600:210. Flagpole reached from 0 bin(s) (0/360 episodes). **Reach is worst from bins ['800-1000']** \u2014 the early segment is where it collapses, not the late one, which is where every prior measurement in this project has pointed. **conditional_on_arrival \u2014 do not table beside any n=200 single-life figure.**",
+  "minutes": 5.2
+}

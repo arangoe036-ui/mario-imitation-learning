@@ -1,0 +1,215 @@
+{
+  "measurement_basis": "conditional_on_arrival",
+  "NOT_comparable_to": "any n=200 single-life figure in this project",
+  "arms": [
+    "P_84_cnn32_seed1",
+    "P_84_cnn32_seed4"
+  ],
+  "temperature": 0.7,
+  "n_episodes_total": 720,
+  "repeats_per_state": 5,
+  "start_library_caveat": "harvested from ONE policy's own play; places that policy reached, not a sample of the level",
+  "question": "is the reach ceiling ABSOLUTE (obstacle-limited) or RELATIVE (distance-limited)?",
+  "per_arm": {
+    "P_84_cnn32_seed1": {
+      "median_max_x_by_start_bin": {
+        "0-200": {
+          "median_max_x": 701.0,
+          "n": 60
+        },
+        "200-350": {
+          "median_max_x": 716.0,
+          "n": 30
+        },
+        "350-500": {
+          "median_max_x": 707.0,
+          "n": 30
+        },
+        "500-650": {
+          "median_max_x": 819.0,
+          "n": 55
+        },
+        "650-800": {
+          "median_max_x": 845.0,
+          "n": 35
+        },
+        "800-1000": {
+          "median_max_x": 899.0,
+          "n": 65
+        }
+      },
+      "stop_histogram_32px_starts_below_650": {
+        "256": 2,
+        "288": 22,
+        "576": 2,
+        "640": 1,
+        "672": 42,
+        "704": 38,
+        "800": 6,
+        "832": 3,
+        "864": 1,
+        "896": 41,
+        "1216": 1,
+        "1248": 8,
+        "1504": 4,
+        "1536": 3,
+        "1728": 1
+      },
+      "top_stop_buckets": [
+        {
+          "x": 672,
+          "n": 42,
+          "near": null
+        },
+        {
+          "x": 896,
+          "n": 41,
+          "near": "pipe4 face"
+        },
+        {
+          "x": 704,
+          "n": 38,
+          "near": "pipe3 face"
+        },
+        {
+          "x": 288,
+          "n": 22,
+          "near": "goomba"
+        },
+        {
+          "x": 1248,
+          "n": 8,
+          "near": "koopas"
+        },
+        {
+          "x": 800,
+          "n": 6,
+          "near": null
+        }
+      ],
+      "flagpole_reached": 0,
+      "n_episodes": 360
+    },
+    "P_84_cnn32_seed4": {
+      "median_max_x_by_start_bin": {
+        "0-200": {
+          "median_max_x": 723.0,
+          "n": 60
+        },
+        "200-350": {
+          "median_max_x": 722.5,
+          "n": 30
+        },
+        "350-500": {
+          "median_max_x": 722.5,
+          "n": 30
+        },
+        "500-650": {
+          "median_max_x": 864.0,
+          "n": 55
+        },
+        "650-800": {
+          "median_max_x": 898.0,
+          "n": 35
+        },
+        "800-1000": {
+          "median_max_x": 907.0,
+          "n": 65
+        }
+      },
+      "stop_histogram_32px_starts_below_650": {
+        "288": 16,
+        "576": 8,
+        "640": 1,
+        "672": 32,
+        "704": 41,
+        "768": 1,
+        "800": 5,
+        "832": 4,
+        "864": 3,
+        "896": 39,
+        "1216": 6,
+        "1248": 11,
+        "1280": 1,
+        "1504": 2,
+        "1536": 3,
+        "1760": 2
+      },
+      "top_stop_buckets": [
+        {
+          "x": 704,
+          "n": 41,
+          "near": "pipe3 face"
+        },
+        {
+          "x": 896,
+          "n": 39,
+          "near": "pipe4 face"
+        },
+        {
+          "x": 672,
+          "n": 32,
+          "near": null
+        },
+        {
+          "x": 288,
+          "n": 16,
+          "near": "goomba"
+        },
+        {
+          "x": 1248,
+          "n": 11,
+          "near": "koopas"
+        },
+        {
+          "x": 576,
+          "n": 8,
+          "near": null
+        }
+      ],
+      "flagpole_reached": 0,
+      "n_episodes": 360
+    }
+  },
+  "absoluteness": {
+    "per_arm": {
+      "P_84_cnn32_seed1": {
+        "median_max_x_across_start_bins_below_650": [
+          701.0,
+          716.0,
+          707.0,
+          819.0
+        ],
+        "range_pp": 118.0,
+        "mean": 735.75
+      },
+      "P_84_cnn32_seed4": {
+        "median_max_x_across_start_bins_below_650": [
+          723.0,
+          722.5,
+          722.5,
+          864.0
+        ],
+        "range_pp": 141.5,
+        "mean": 758.0
+      }
+    },
+    "reading": "median max_x varies by only 118-142 px across start bins spanning 650 px. Starting further along buys almost NO extra reach: the ceiling is ABSOLUTE, set by specific obstacles, not by how far the policy can run."
+  },
+  "walls": {
+    "named": {
+      "288": "goomba",
+      "720": "pipe3 face",
+      "912": "pipe4 face",
+      "1216": "koopas",
+      "1504": "frontier falls"
+    },
+    "reading": "stopping points pile up at the SAME absolute x for both arms: ~672-704 (pipe 3 face 720), ~896 (pipe 4 face 912), ~288 (the Goomba), ~1216-1248 (Koopas) and ~1504-1536 (the frontier falls at 1504-1562). Four to five named places, not a continuum."
+  },
+  "flagpole": {
+    "reached": 0,
+    "of_episodes": 720,
+    "note": "0 of 720. Block 55's two completions were from B_84_d64_L1 and R_128_d64_L1 at T=1.0, not from these P arms at T=0.7 -- the completion does not reproduce on the encoder arms at the sharpened temperature."
+  },
+  "verdict": "**THE REACH CEILING IS ABSOLUTE, NOT RELATIVE.** Median max_x is flat to within 118-142 px across start bins spanning 650 px of the level, and episodes stop at the same handful of absolute positions regardless of where they began: pipe 3's face, pipe 4's face, the Goomba, the Koopas and the frontier falls. **'Cannot finish 1-1' decomposes into four or five named obstacles, not into an accumulating error budget** -- so starting the policy closer does not help, and the remaining target is a small bounded set of places rather than the level."
+}

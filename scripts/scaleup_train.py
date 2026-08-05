@@ -75,6 +75,26 @@ ARMS = {
                                     steps=15_000, batch=64, seed=0, cnn=(32, 64, 64)),
     "V_128_cnn32_seed1":       dict(size=128, d_model=64, n_layers=1, corpus="runs128",
                                     steps=15_000, batch=64, seed=1, cnn=(32, 64, 64)),
+    # ---- block 56 §1: FIVE seeds per cell. The variance-collapse claim was a range of two numbers
+    # against a range of two numbers; a spread and a standard deviation need n=5, and training is
+    # ~4 min. B already had seeds 0/1/2, so it needs two more, not three.
+    "B_84_seed3":              dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=15_000, batch=64, seed=3),
+    "B_84_seed4":              dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=15_000, batch=64, seed=4),
+    "P_84_cnn32_seed2":        dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=15_000, batch=64, seed=2, cnn=(32, 64, 64)),
+    "P_84_cnn32_seed3":        dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=15_000, batch=64, seed=3, cnn=(32, 64, 64)),
+    "P_84_cnn32_seed4":        dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=15_000, batch=64, seed=4, cnn=(32, 64, 64)),
+    # ---- block 56 §3: wider still, 84x84 only. Trained ONLY if §1 confirms the spread separation.
+    "W_84_cnn48":              dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=15_000, batch=64, seed=0, cnn=(48, 96, 96)),
+    "W_84_cnn48_seed1":        dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=15_000, batch=64, seed=1, cnn=(48, 96, 96)),
+    "W_84_cnn48_seed2":        dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=15_000, batch=64, seed=2, cnn=(48, 96, 96)),
 }
 
 

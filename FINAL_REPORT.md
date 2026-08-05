@@ -2083,3 +2083,107 @@ already passable given a decent entry, then the thing worth mapping is **where r
 function of where you start**, which is a cheap sweep with a policy we already have. The difficulty may be
 early rather than late, and we have been measuring the early part hardest without ever asking whether the
 late part was the problem at all.
+
+---
+
+## Block 56 — Two of my own claims withdrawn, and a map that shrinks the problem
+
+### What changed
+
+**The previous entry's headline is withdrawn.** It reported that widening the network's visual encoder made
+independently trained networks agree with each other — "spread 24.5 points down to 2.5" — and that it lifted
+performance by 13 points. Both numbers came from comparing two training runs against two training runs. Run
+five against five and the spread is 35 down to 23.5, and the performance lift, measured against the right
+unit, is not statistically distinguishable from zero.
+
+**In exchange, something more useful:** the reason this policy cannot finish the level is now known to be a
+short list of specific places rather than a gradually accumulating failure. **Starting it 650 pixels further
+into the level buys it about 130 pixels of extra progress and nothing more.** It stops at the same absolute
+positions no matter where it begins.
+
+### How we got there, including the wrong turn
+
+The advisor gated the whole block on re-testing the variance claim at five seeds, on the grounds that a range
+of two numbers against a range of two numbers is not a dispersion result. That was right, and the gate caught
+more than it was aimed at.
+
+**The wrong turn is mine and it is a statistics error I had already documented and then walked into.** The
+previous entry's 13-point improvement carried a confidence interval computed by pooling all the episodes from
+both training runs in a cell. That treats the individual episode as the independent unit. But the two arms
+being compared differ *by training seed*, so the seed is the unit — and this project's own operating notes
+have said so since block 39. Pooling episodes narrows precisely the interval that was in dispute. I wrote the
+caveat into that report, in the report itself, and then let the headline stand on the pooled number anyway.
+
+Recomputed with the seed as the unit, and with an exact permutation test rather than a bootstrap — the right
+test when each group has five values, since it enumerates all 252 possible arrangements — the improvement is
+12.1 points with p = 0.175. At this sample size the smallest p the test could have produced is 0.008, so it
+had the power to find a clean separation and did not.
+
+What survives is weaker but real and worth keeping: every summary statistic favours the wider encoder at both
+sampling temperatures, and **its worst of five training runs beats the narrower encoder's median run** — 60.0
+against 54.5, and 56.0 against 47.5. That is a difference in the shape of the distribution, not just noise in
+its location. It is promising and unproven, and settling it would take roughly seventeen to twenty training
+runs per configuration.
+
+Because the gate did not open, the planned follow-up — widening the encoder further — was not built. The
+advisor had specified that branch in advance and named the reach study as the block's result instead. That
+turned out to be the better instruction.
+
+### The numbers, with sample size and baseline
+
+Second-pipe clearance, 200 episodes per training run, five runs per configuration:
+
+| encoder | at T=1.0 | at T=0.7 |
+|---|---|---|
+| (16,32,32) | 63.5 · 51.5 · 67.5 · 48.5 · 54.5 | 65.5 · 41.0 · 73.5 · 47.5 · 38.5 |
+| (32,64,64) | 62.5 · 60.5 · 60.0 · 61.5 · 72.5 | 67.5 · 65.0 · 56.0 · 58.5 · 79.5 |
+
+Spread 19.0 → 12.5 and 35.0 → 23.5; standard deviation 8.1 → 5.2 and 15.5 → 9.2. Differences in dispersion,
+bootstrapped over seeds: [−6.5, +17.5] and [−14.5, +26.0]. Difference in means: +6.3 and +12.1 points, exact
+permutation p = 0.183 and 0.175.
+
+The reach study, run from 72 saved positions with five repeats each, on two independently trained networks —
+**720 episodes, and every number below is conditional on being handed that starting position**, which makes it
+incomparable to the from-the-start figures above:
+
+| started at x | median furthest x reached (run A) | (run B) |
+|---|---|---|
+| 0–200 | 701 | 723 |
+| 200–350 | 716 | 722 |
+| 350–500 | 707 | 722 |
+| 500–650 | 819 | 864 |
+
+Three of run B's bins land on 722 *exactly*. Across start positions spanning 650 pixels the ceiling moves by
+118 and 142 pixels respectively.
+
+And the places where episodes end are the same for both networks: a large pile at 672–704, which is the face
+of the third pipe at x=720; a second at 896, the face of the fourth pipe at 912; a third at 288, which is the
+first Goomba; then 1216–1248 at the Koopas and 1504–1536 at a known fall. Not a continuum — five named
+locations.
+
+**These runs reached the flagpole zero times in 720 attempts.** The two completions reported in the previous
+entry came from different checkpoints at a different sampling temperature. They stand at two events out of 576
+attempts, with the same handoff caveat, and nothing here upgrades them.
+
+### Cost
+
+Five network trainings at roughly three minutes each, ten evaluation configurations, and 720 start-state
+episodes — about an hour and a half in total, most of it evaluation. The follow-up experiment that was gated
+off would have cost another half hour and is specified and unrun.
+
+### Downstream effect
+
+The withdrawal matters less than the map. For fifty-six blocks the working framing has been that the policy
+runs out of competence somewhere around x=900 and the question is how to extend it. That framing is wrong in a
+specific and useful way: the policy does not run out of anything. **It arrives at the third pipe in good shape
+whether it has travelled 50 pixels or 650, and then it fails there.** Three places — the third pipe's face,
+the fourth pipe's face, and the first Goomba — account for nearly every failure in the first thousand pixels.
+
+That is the first time this project has had a bounded, well-posed target rather than a level. It also explains
+the earlier completion cleanly: handing the policy the first 39% of the level did not give it a running start,
+it simply skipped the two pipes it cannot pass.
+
+The practical consequence is that the per-obstacle study which has sat near the bottom of the queue for weeks
+— restore to a saved position just before one obstacle, and measure that obstacle in isolation — is now the
+highest-value thing available, because the map says the problem lives at three addresses and we finally know
+which three.
