@@ -22,6 +22,7 @@ its optimiser state as well as its weights, or the effective schedule differs fr
 from __future__ import annotations
 
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -42,6 +43,11 @@ RUNS128 = ROOT / "data/runs128"
 OUTDIR = ROOT / "data/bc_scaleup"
 LR = 3e-4
 CHUNK_STEPS = 250
+#: Block 58 §3 needs the depth-vs-steps curve, and the directive assumed the every-250-step banked
+#: checkpoints "already exist". They do not: `{name}.partial.pt` is OVERWRITTEN at every bank, so only
+#: the final step survives. Set SNAP_STEPS to keep permanent snapshots at chosen steps -- same recipe,
+#: same seed, nothing trained longer or wider, just intermediate weights retained.
+SNAP_STEPS = sorted(int(x) for x in os.environ.get("SNAP_STEPS", "").split(",") if x.strip())
 
 #: Full spec per arm, so every difference between two arms is visible in one place. `phase1` reproduces
 #: the existing `runlength.pt` recipe exactly -- **batch 128, 3,000 steps** -- because that checkpoint
@@ -111,6 +117,12 @@ ARMS = {
                                     steps=60_000, batch=64, seed=1, cnn=(48, 96, 96)),
     "WL_84_cnn48_60k_seed2":   dict(size=84, d_model=64, n_layers=1, corpus="runs",
                                     steps=60_000, batch=64, seed=2, cnn=(48, 96, 96)),
+    # ---- block 58 §3: identical recipe to L, re-run only to RETAIN intermediate snapshots so the
+    # depth-vs-steps curve can be measured. Two seeds, because a peak on one seed is a screen.
+    "CURVE_84_cnn32":          dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=60_000, batch=64, seed=0, cnn=(32, 64, 64)),
+    "CURVE_84_cnn32_seed1":    dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=60_000, batch=64, seed=1, cnn=(32, 64, 64)),
 }
 
 
@@ -211,6 +223,18 @@ def train_arm(name: str, size: int, d_model: int, n_layers: int, corpus: str,
                 opt.step()
                 step += 1
                 losses.append(float(loss.detach()))
+                if step in SNAP_STEPS:
+                    snap = OUTDIR / f"{name}.snap{step}.pt"
+                    torch.save({"model_state": {k: v.cpu() for k, v in
+                                                policy.state_dict().items()},
+                                "policy_config": cfg.to_dict(), "step": step,
+                                "loss_at_snapshot": float(np.mean(losses[-CHUNK_STEPS:]))
+                                if losses else None,
+                                "loss_history": hist,
+                                **recipe(steps=step, batch=BATCH, seed=SEED, frame_size=size),
+                                "corpus": corpus, "cnn_channels": list(cnn),
+                                "snapshot_of": name}, snap)
+                    print(f"    snapshot @ {step} -> {snap.name}", flush=True)
                 if step % CHUNK_STEPS == 0 or step >= STEPS:
                     hist.append([step, float(np.mean(losses[-CHUNK_STEPS:]))])
                     torch.save({"model_state": {k: v.cpu() for k, v in

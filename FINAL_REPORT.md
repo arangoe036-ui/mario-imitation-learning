@@ -2312,3 +2312,127 @@ And the two bugs are worth carrying forward as a rule rather than as embarrassme
 more dramatic results than the truth, and in both cases the tell was the cleanliness itself: four hand-picked
 episodes all breaking a wall, and 350 action sequences all failing at exactly the same pixel. When a result
 looks too good or too tidy, the measurement is the first suspect.
+
+---
+
+## Block 58 — The best policy has seen less than one pass over the data, and the "mistake" was the answer
+
+### What changed
+
+**Three things, and each one reverses a working assumption.**
+
+**The optimum amount of training is 1,000 steps.** That is about eight tenths of a single pass over the
+training data. Every network this project has ever trained ran for at least three times that, usually fifteen
+times, and last block sixty times. All of them were past their own peak.
+
+**Pressing Down — which looked like the clearest mistake the policy makes — is the only route to finishing the
+level that anything here has ever found.** The policy goes *into* the pipe. The bonus area beneath skips the
+back half of the level, which is the half it cannot cross on the surface.
+
+**And level 1-1 is now completed from the level start**, not from a saved position partway through: on 2% of
+episodes, verified by the game advancing to 1-2. Two such completions were already sitting on disk from earlier
+blocks, mislabelled by our own episode terminator.
+
+### How we got there, including the wrong turns
+
+The block began from last block's finding that training loss halves while the policy plays worse. The obvious
+next question was where the turning point is, and the plan was to evaluate the checkpoints already saved every
+250 steps.
+
+**Those checkpoints did not exist.** The training loop writes a resume file and *overwrites* it at every save,
+so only the final step survives. The curve required re-running the same recipe with intermediate weights
+retained — same architecture, seed, data and step count, nothing trained longer.
+
+The curve, once measured, is stark. Peak performance at 1,000 steps: 79% past the second pipe, 49% past the
+third. By 45,000 steps: 31% and 19%. Meanwhile the training loss falls at *every single rung*, from 4.03 to
+1.23, without one exception. The thing being optimised improves monotonically; the thing we care about peaks
+almost immediately and then decays. Both training runs peaked at exactly 1,000.
+
+I want to be careful about what that does and does not show. The decline is not perfectly smooth — 15,000
+steps shows a local bump, and 45,000 is worse than 60,000 — so at 100 episodes per point there is real
+measurement noise between neighbouring rungs. What is solid is that both seeds' maximum is at 1,000, that the
+second-pipe rate falls from 79% to around 60% across the long end, and that the loss curve has no such bump
+anywhere.
+
+**The second reversal came from testing an idea that looked obviously right.** The owner had noticed the policy
+seemed to be trying to go down a pipe at the exact place it needed to jump over one, and suspected the training
+data was teaching both at once. The data agreed: the human experts do press Down in that window. So we masked
+the Down button — along with Up, Start and Select — at the moment of action selection, which needs no
+retraining at all.
+
+The mask worked perfectly: the Down rate went to exactly zero and pipe-entry events to zero. Surface progress
+did not change at all — a fifth of a percentage point across five seeds, in both directions, thoroughly null.
+
+**And the level completions went from four to zero.** Checking every completion this project has ever recorded
+— five of them, including one by a random button script — every single one passes through the bonus area. Five
+of five episodes that ever left the surface completed the level. Zero of the 395 that stayed on it did.
+
+So the policy is not confused. It has found the one route it can actually finish, and it is not the route we
+have spent fifty-eight blocks measuring. **The thing that looked like the bug was the only thing working.**
+
+I nearly did not find this. The surface numbers were a clean null and the mask verification was perfect; the
+natural write-up was "the Down mass is harmless, hypothesis disproved, move on." What caught it was that the
+mask had also zeroed the rare flagpole events, and rare events were worth looking at because the completion
+claim was open.
+
+**The third reversal was smaller and entirely mine.** Fixing the episode terminator, I picked a threshold of
+1,800 frames, then measured the distribution it was supposed to clear and found the 99.9th percentile was
+5,374. My number was below the thing it was chosen to exceed. It is now 6,500, above the largest value ever
+observed, and the discarded guess is recorded in the code so nobody restores it.
+
+### The numbers, with sample size and baseline
+
+Depth against training steps, 100 episodes per point, both measures from the level start:
+
+| steps | training loss | past pipe 2 | past pipe 3 | past pipe 4 |
+|---|---|---|---|---|
+| 500 | 4.033 | 70% | 42% | 25% |
+| **1,000** | **3.955** | **79%** | **49%** | 29% |
+| 3,000 | 3.675 | 64% | 35% | 22% |
+| 15,000 | 2.571 | 73% | 45% | 20% |
+| 45,000 | 1.661 | 31% | 19% | 1% |
+| 60,000 | **1.228** | 64% | 31% | 25% |
+
+The button mask, five independently trained networks, 200 episodes each, paired random seeds:
+
+| | without mask | with mask |
+|---|---|---|
+| past pipe 3 | 45.5 · 34.5 · 37.0 · 39.5 · 47.5 | 49.0 · 31.0 · 39.0 · 35.0 · 49.0 |
+| Down button rate | 0.055 · 0.014 · 0.012 · 0.015 · 0.027 | 0.0000 × 5 |
+| pipe entries | 4 · 3 · 1 · 0 · 14 | 0 × 5 |
+| **flagpole reaches** | 0 · 0 · 0 · 0 · **4** | **0 × 5** |
+
+Completions from the level start, 200 episodes each, terminator corrected: the learned policy 4, a fixed-rate
+random script 1. All 400 episodes ended in death rather than by timeout. All five completions traversed the
+bonus area.
+
+And the size of the old terminator's censoring, same network, same temperature: past pipe 3 goes from 27.6% to
+45.5%, past pipe 4 from 8.3% to 20.0%, purely from correcting the rule. Every distance figure in this document
+predating this block is a lower bound.
+
+### Cost
+
+About four hours: three training runs (only to retain intermediate weights), roughly 45 evaluation
+configurations and 2,700 episodes. One planned comparison was cut — the button mask at the second sampling
+temperature — because the emulator is single-instance and the training-curve measurement was the block's
+central question. That was a deliberate trade and it leaves a real gap.
+
+### Downstream effect
+
+The training-length result is the largest retraction this project has produced. It does not invalidate the
+internal comparisons of earlier blocks, since every arm within a comparison shared the same length, but it does
+mean all of them were measured well past the point where the policy was at its best. Every conclusion about
+resolution, encoder width, temperature and seed variance was drawn in a degraded regime.
+
+More importantly, it moves the target. If the peak arrives before one pass through the data, then stopping
+earlier is a workaround and not a fix — the objective is pulling away from the behaviour almost immediately.
+That makes the loss function itself the thing to change, and it makes the next experiment cheap rather than
+expensive: anything worth trying should be trained for about a thousand steps, not fifteen thousand.
+
+The route result changes what to measure. Fifty-eight blocks have been aimed at two pipes on the surface of the
+level, and the only thing that has ever reached the end went underneath them. Where the pipe entrance is, what
+state it requires, and how close the policy gets to it are now more interesting questions than the walls above.
+
+And the general lesson is one this document has recorded before in a different form: **the mask produced a
+clean null on the metric we were watching and destroyed the outcome we actually wanted.** A null result on the
+headline number is not the same as a null result. It was worth looking at the rare events.

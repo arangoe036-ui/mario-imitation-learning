@@ -1,0 +1,133 @@
+{
+  "start": "1-1 level_start savestate -- Mario spawns at x=40; there is no x=0",
+  "measurement_basis": "single_life_from_level_start",
+  "terminator": {
+    "stall_frames": 100000,
+    "cap_frames": 12000,
+    "note": "terminator effectively off; the frame cap is the only bound"
+  },
+  "n": 200,
+  "script_rates": {
+    "A": 0.85,
+    "Left": 0.135,
+    "Down": 0.086
+  },
+  "policy_arm": "P_84_cnn32_seed4",
+  "policy_temperature": 0.7,
+  "skipped": [],
+  "disk_scan": {
+    "files": 118,
+    "episodes": 22350,
+    "flagpole_hits_found_on_disk": [
+      {
+        "trace": "ladder_match_top20_200",
+        "seed": 12,
+        "arm": "fixed-rate script",
+        "max_x": 3266,
+        "frames_at_state_0x05": 403,
+        "recorded_ended": "stuck",
+        "start_x": 40
+      },
+      {
+        "trace": "seeds_plain_s1_200",
+        "seed": 197,
+        "arm": "learned, plain BCE",
+        "max_x": 3218,
+        "frames_at_state_0x05": 67,
+        "recorded_ended": "budget",
+        "start_x": 40
+      }
+    ],
+    "note": "both start at x=40 and both were MISLABELLED by the terminator; traces record no world/stage, which is why the script arm is re-run here"
+  },
+  "per_arm": {
+    "script_match_top20": {
+      "n": 200,
+      "grabbed_flagpole": 1,
+      "completed_1_1": 1,
+      "completion_seeds": [
+        156
+      ],
+      "max_x_median": 827.5,
+      "max_x_max": 3266,
+      "world_stage_union": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "areas_union": [
+        1,
+        2,
+        3
+      ],
+      "ended": {
+        "died": 200
+      },
+      "recovered_freeze": {
+        "median": 211.0,
+        "p90": 1665.5,
+        "p99": 3522.5599999999995,
+        "p99.9": 5848.034000000046,
+        "max": 6412,
+        "frac_above_300": 0.455,
+        "frac_above_1200": 0.155
+      }
+    },
+    "policy_P_84_cnn32_seed4": {
+      "n": 200,
+      "grabbed_flagpole": 4,
+      "completed_1_1": 4,
+      "completion_seeds": [
+        58,
+        80,
+        156,
+        199
+      ],
+      "max_x_median": 723.0,
+      "max_x_max": 3267,
+      "world_stage_union": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "areas_union": [
+        1,
+        2,
+        3
+      ],
+      "ended": {
+        "died": 200
+      },
+      "recovered_freeze": {
+        "median": 102.0,
+        "p90": 582.3,
+        "p99": 1469.0499999999963,
+        "p99.9": 3424.7410000000314,
+        "max": 3811,
+        "frac_above_300": 0.205,
+        "frac_above_1200": 0.025
+      }
+    }
+  },
+  "terminator_recommendation": {
+    "recovered_freeze_p99": 2882.459999999994,
+    "recovered_freeze_p99.9": 5374.2010000001455,
+    "recovered_freeze_max": 6412,
+    "n_episodes": 400,
+    "chosen_stall": 6500,
+    "rationale": "set above the OBSERVED MAXIMUM recovered freeze; a terminator only has to outlast freezes an episode can come back from. A first guess of 1800 was below the measured p99.9 and was discarded -- the number is measured, not chosen",
+    "sufficient": true
+  },
+  "verdict": "**1-1 IS COMPLETABLE FROM THE LEVEL START \u2014 AND A COIN-FLIPPING SCRIPT DOES IT.** From x=40 with the terminator off, the fixed-rate script (A 0.85 / Left 0.135 / Down 0.086) grabs the flagpole on 1 of 200 episodes and completes the level (1 stage advances to 1-2); the learned policy P_84_cnn32_seed4 at T=0.7 grabs it on 4 of 200 and completes 4. **So a completion is a milestone for the project and NOT evidence of learned skill** \u2014 the honest sentence has to carry both halves. Two such completions were already sitting on disk mislabelled `stuck` and `budget`. Recovered-freeze p99.9 = 5374 frames, so stall=6500 clears it (a first guess of 1800 did NOT -- discarded), and stall=300 was censoring a fifth to a half of all episodes.",
+  "minutes": 0.0
+}

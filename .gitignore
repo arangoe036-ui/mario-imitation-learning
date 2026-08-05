@@ -39,3 +39,7 @@ data/reach_curve.partial.json
 data/hidden_area_check.partial.json
 data/stall_rule_audit.partial.json
 data/pipe3_requirement.partial.json
+data/freeze_and_completion.partial.json
+data/traces/mask_*.json
+data/traces/curve_*.json
+data/bc_scaleup/*.snap*.pt
