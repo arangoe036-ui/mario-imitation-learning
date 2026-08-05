@@ -1840,3 +1840,121 @@ The broader consequence is that several earlier results need re-checking rather 
 that the policy is never confident about jumping, the decomposition of its conditioning into spatial and
 temporal parts, and the per-obstacle lift table were all measured on that same single checkpoint. None of
 them is refuted by this entry. All of them are now single-seed, and single-seed is a screen.
+
+---
+
+## Block 54 — A plausible fix that did nothing, and a spectacular result that was a sample of one
+
+### What changed
+
+Two things, both negative, and the second is more useful than the first.
+
+**Capping the jump did nothing.** The policy's jump-hold had no upper bound: one sample could commit it to
+over two seconds of airtime. Bounding that hold at 12, 24 or 48 frames does not improve clearance at the pipe
+we measure against. The intervention is dead in the form we tried.
+
+**And a configuration that briefly looked like the answer turned out to be a single coin flip.** Taking the
+most likely action instead of sampling produced, on one checkpoint, the deepest trajectory this project has
+ever recorded — past three obstacles, reaching x=916 — with button statistics closer to a human expert's than
+anything we have built. Run the identical rule on two other training runs of the same recipe: one reaches x=316
+and clears nothing, the other stops at x=723. It is not a policy that succeeds 92% of the time. It is one
+trajectory, and we happened to look at a good one first.
+
+### How we got there, including the wrong turn
+
+The reasoning behind the cap was sound and is worth stating because it was wrong in an instructive way. An
+earlier block had capped the *no-op* runs — the stretches where the policy holds nothing — at four frames, and
+that single change doubled how far it got. The jump runs had never been capped. The policy starts about 1.6
+times as many jumps as the expert and holds some of them for 130 to 304 frames, so bounding the jump looked
+like the obvious symmetric fix, and it needed no retraining.
+
+**The measurement said the mechanism was backwards.** A tight cap made the policy jump *more*, not less:
+truncating a hold forces an immediate re-decision, and it simply jumps again. Jump starts per thousand frames
+went *up* from 45 to 56, and airborne fraction went up too. Worse, the obstacles that need a long sustained
+hold — the taller pipes — collapsed from 25% cleared to 12%. We had reasoned about the cap as though it
+subtracted airtime. It redistributed it into more, shorter jumps.
+
+**The wrong turn I want on the record is the one that didn't happen.** The advisor's directive had insisted,
+as a hard requirement, that any winning configuration be confirmed on two further training runs before being
+reported. When the greedy-action arm returned 91.7% at three consecutive obstacles, that requirement was the
+only thing standing between us and a headline. It took about ten minutes of looking at the number before the
+replication came back at 0.0% on the next seed.
+
+Two properties of the setup made this trap unusually well concealed. The game is deterministic and the start
+state is fixed, so a policy that always takes its most likely action produces **exactly one trajectory** no
+matter how many episodes you run. We ran two hundred and the scorer dutifully reported a percentage, because
+nothing in it knew that the two hundred episodes were the same episode. And they were *almost* the same: two
+hundred runs produced two distinct trajectories, which is exactly the kind of near-uniformity that reads as
+"low variance" rather than "no variance."
+
+That second trajectory turned out to be its own small discovery. **Episode zero of a freshly started emulator
+session differs from every subsequent episode**, because the initial frame buffer is filled from the first
+reset's frame and that frame is not identical to later resets'. For every stochastic policy we have ever
+evaluated this is invisible — the episodes all differ anyway — and at two hundred episodes it is half a
+percent of the sample, so it cannot have moved any number we have published. For a deterministic policy it is
+one hundred percent of the observed variation.
+
+### The numbers, with sample size and baseline
+
+All figures are 200 episodes, single life, one training run per checkpoint unless stated.
+
+Jump cap, best setting per checkpoint, measured against no cap at the second pipe:
+
+| checkpoint | best cap | no cap | capped | gain | interval |
+|---|---|---|---|---|---|
+| 84×84 | 48 frames | 63.5% | 64.0% | **+0.5 pp** | [−8.9, +9.8] |
+| 128×128 | 24 frames | 55.5% | 59.5% | **+4.0 pp** | [−5.6, +13.5] |
+
+Neither interval excludes zero. Replicated across three training runs of the same recipe, the gains are
+**+0.5, −1.5, 0.0** — and for scale, those same three runs *without* any cap clear the pipe at **63.5%,
+51.5% and 67.5%**, a 16-point spread. **The noise between training runs is larger than every effect measured
+in this block.**
+
+Greedy action selection, across six checkpoints, reported as trajectories because that is what they are:
+
+| checkpoint | furthest x | obstacles cleared | jump-button rate | airborne |
+|---|---|---|---|---|
+| 84×84, run 0 | **916** | three | 0.283 | 44.8% |
+| 84×84, run 1 | 316 | none | 0.320 | 77.1% |
+| 84×84, run 2 | 723 | two | 0.448 | 80.9% |
+| 128×128 | 300 | none | 0.357 | 58.6% |
+| 128×128, larger net | **40** | none | **0.000** | 0.0% |
+| short-training control | 311 | none | 0.002 | 5.5% |
+
+Expert reference: jump-button rate 0.152, airborne 61.1%. **Two of six trajectories clear the second pipe;
+one clears the third.** The last two rows are a separate finding: on those checkpoints the greedy policy never
+presses the jump button at all — one of them does not leave the starting position — which is a known failure
+mode we had recorded as a property of a *different* network head. It turns out to be a property of the
+individual trained checkpoint, reproducing on two of six models that share an architecture.
+
+### Cost
+
+About forty minutes of emulator time across sixteen policy configurations and five scripted controls, plus no
+training at all — every checkpoint already existed. Two small pieces of engineering came out of it: every
+saved checkpoint now records its own recipe (training steps, batch size, random seed, resolution, commit hash,
+and whether the working tree was clean), and the scorer now measures how many of its episodes are actually
+distinct and reports an effective sample size instead of a confident percentage.
+
+The recipe-recording exists because of the previous block. When an earlier result failed to reproduce, we
+could not tell whether it had been an unlucky random seed or a different recipe nobody wrote down, and the
+file itself contained no way to find out. Five fields, five minutes, and that particular ambiguity cannot
+recur.
+
+### Downstream effect
+
+The specific intervention is closed. The broader question is not, and this entry deliberately stops short of
+the conclusion the directive invited.
+
+The directive had said: if capping fails, then the measurement we have been using to track the policy's sense
+of timing is itself suspect. We are declining that inference. Two things stand in the way. The
+higher-resolution model gained nine points at the third pipe under a cap while the lower-resolution one gained
+nothing there — a resolution-dependent effect in the direction the theory predicted, at an obstacle we were
+not looking at. And the greedy configuration is not a negative result but an **unmeasurable** one: it is the
+only thing we have built whose behaviour statistics resemble an expert's, and its evaluation is a sample of
+one by construction.
+
+That last point sets up the obvious next step, and it is a change of evaluation rather than of method. More
+random seeds cannot rescue a sample of one, because the trajectory does not depend on the seed. **Many
+starting positions can** — and a library of seventy-two of them, harvested from the policy's own earlier
+play, already sits in the repository. That would turn "two of six trajectories" into an actual rate, and it is
+the cheapest remaining way to find out whether the most expert-like thing we have built is any good.

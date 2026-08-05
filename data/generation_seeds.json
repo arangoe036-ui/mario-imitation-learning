@@ -1,0 +1,1613 @@
+{
+  "arms": {
+    "B_84_seed1_cap48_t1": {
+      "label": "B_84_seed1_cap48_t1",
+      "n": 200,
+      "measurement_basis": "single_life",
+      "loss": "plain cross-entropy",
+      "seeds": 1,
+      "grounded_enforced": false,
+      "generation_rule": "capped(non-A<=4) + A-run cap 48 + temperature 1.0",
+      "x_median": 631.5,
+      "x_max": 1956,
+      "a_hold_pipe2": {
+        "n": 1255,
+        "median": 4.0,
+        "p90": 29.0,
+        "max": 133.0,
+        "frac_ge_required": 0.3314741035856574,
+        "required_hold": 12,
+        "p99": 63.0
+      },
+      "a_hold_anywhere": {
+        "n": 7012,
+        "median": 5.0,
+        "p90": 29.0,
+        "max": 136.0,
+        "frac_ge_required": 0.3193097547062179,
+        "required_hold": 12,
+        "p99": 60.0
+      },
+      "a_onsets_per_1000_frames": 48.43845597641693,
+      "expert_onsets_per_1000_frames": 27.5,
+      "noop_runs": {
+        "n": 3236,
+        "median": 4.0,
+        "p90": 8.0,
+        "p99": 12.0,
+        "max": 28.0
+      },
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 123,
+          "n": 200,
+          "rate": 0.615,
+          "ci": [
+            0.5459973878179245,
+            0.6796680308208618
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 100,
+          "n": 200,
+          "rate": 0.5,
+          "ci": [
+            0.43135962209034523,
+            0.5686403779096547
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 62,
+          "n": 200,
+          "rate": 0.31,
+          "ci": [
+            0.24998842733633997,
+            0.377173054912622
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 22,
+          "n": 200,
+          "rate": 0.11,
+          "ci": [
+            0.07377190160716048,
+            0.16092798300912986
+          ],
+          "method": "Wilson"
+        }
+      },
+      "vs_script_best_fixed_rate": {
+        "n": 200,
+        "measurement_basis": "single_life",
+        "per_obstacle": {
+          "pipe1": {
+            "obstacle": "pipe1",
+            "threshold_x": 470,
+            "rate": 0.615,
+            "script_rate": 0.87,
+            "script_arm": "left",
+            "advantage_pp": -25.5,
+            "ci_pp": [
+              -33.46173761776478,
+              -17.096520481761427
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe2": {
+            "obstacle": "pipe2",
+            "threshold_x": 630,
+            "rate": 0.5,
+            "script_rate": 0.825,
+            "script_arm": "left",
+            "advantage_pp": -32.49999999999999,
+            "ci_pp": [
+              -40.78495750683528,
+              -23.47182453464296
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe3": {
+            "obstacle": "pipe3",
+            "threshold_x": 735,
+            "rate": 0.31,
+            "script_rate": 0.235,
+            "script_arm": "rng_matched",
+            "advantage_pp": 7.500000000000001,
+            "ci_pp": [
+              -1.2308889488032924,
+              16.08289881208227
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": false
+          },
+          "pipe4": {
+            "obstacle": "pipe4",
+            "threshold_x": 975,
+            "rate": 0.11,
+            "script_rate": 0.08,
+            "script_arm": "down",
+            "advantage_pp": 3.0,
+            "ci_pp": [
+              -2.8545710899745598,
+              8.918847601661922
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": false
+          }
+        },
+        "beats_script_at": [],
+        "beats_script_at_pipe2": false
+      },
+      "button_marginals": {
+        "frames": 143832,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.019,
+          "Left": 0.056,
+          "Right": 0.556,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.692,
+          "A": 0.543
+        },
+        "over_expert": {
+          "Up": 0.18,
+          "Down": 2.78,
+          "Left": 1.85,
+          "Right": 1.23,
+          "Start": null,
+          "Select": null,
+          "B": 1.35,
+          "A": 3.57
+        },
+        "frames_inside_a_hold_pct": 54.3,
+        "a_holds": {
+          "n": 6967,
+          "median": 5.0,
+          "p90": 29.400000000000546,
+          "max": 136,
+          "frac_ge_required": 0.32022391273144823,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "behaviour": {
+        "available": true,
+        "frames": 143832,
+        "airborne_fraction": 0.6765462484009122,
+        "expert_airborne_fraction": 0.611,
+        "a_onsets_while_grounded_per_1000": 1.1958395906335169,
+        "a_onsets_total_per_1000": 48.43845597641693,
+        "a_held_while_airborne": 0.5924837373726993,
+        "a_held_while_grounded": 0.4405132944994949,
+        "note": "a_held_while_airborne is the pathology: A during a descent does nothing and blocks the next jump, which needs a fresh onset from the ground"
+      },
+      "expert_airborne": 0.611,
+      "airborne_minus_expert_pp": 6.554624840091217,
+      "ended": {
+        "died": 143,
+        "stuck": 57
+      },
+      "checkpoint": "B_84_seed1",
+      "max_a_hold": 48,
+      "temperature": 1.0,
+      "frame_size": 84,
+      "train_seed": 1,
+      "train_steps": 15000,
+      "distinctness": {
+        "n_episodes": 200,
+        "n_distinct_prefixes": 200,
+        "effective_n": 200,
+        "collapsed": false
+      },
+      "traces": "data/traces/gen_B_84_seed1_cap48_t1_200.json"
+    },
+    "B_84_seed1_cap48_t0p7": {
+      "label": "B_84_seed1_cap48_t0p7",
+      "n": 200,
+      "measurement_basis": "single_life",
+      "loss": "plain cross-entropy",
+      "seeds": 1,
+      "grounded_enforced": false,
+      "generation_rule": "capped(non-A<=4) + A-run cap 48 + temperature 0.7",
+      "x_median": 595.0,
+      "x_max": 1561,
+      "a_hold_pipe2": {
+        "n": 1243,
+        "median": 2.0,
+        "p90": 21.0,
+        "max": 105.0,
+        "frac_ge_required": 0.23572003218020918,
+        "required_hold": 12,
+        "p99": 49.57999999999993
+      },
+      "a_hold_anywhere": {
+        "n": 6818,
+        "median": 3.0,
+        "p90": 27.0,
+        "max": 105.0,
+        "frac_ge_required": 0.24669991199765326,
+        "required_hold": 12,
+        "p99": 50.0
+      },
+      "a_onsets_per_1000_frames": 48.891063744045134,
+      "expert_onsets_per_1000_frames": 27.5,
+      "noop_runs": {
+        "n": 2921,
+        "median": 4.0,
+        "p90": 8.0,
+        "p99": 19.200000000000728,
+        "max": 224.0
+      },
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 127,
+          "n": 200,
+          "rate": 0.635,
+          "ci": [
+            0.5663157405897017,
+            0.6985958378123518
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 81,
+          "n": 200,
+          "rate": 0.405,
+          "ci": [
+            0.3393765611244294,
+            0.4742041800000517
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 44,
+          "n": 200,
+          "rate": 0.22,
+          "ci": [
+            0.16816453539463405,
+            0.2823892279196257
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 11,
+          "n": 200,
+          "rate": 0.055,
+          "ci": [
+            0.030985020801370097,
+            0.0957879244659355
+          ],
+          "method": "Wilson"
+        }
+      },
+      "vs_script_best_fixed_rate": {
+        "n": 200,
+        "measurement_basis": "single_life",
+        "per_obstacle": {
+          "pipe1": {
+            "obstacle": "pipe1",
+            "threshold_x": 470,
+            "rate": 0.635,
+            "script_rate": 0.87,
+            "script_arm": "left",
+            "advantage_pp": -23.5,
+            "ci_pp": [
+              -31.43416258480019,
+              -15.1787481842258
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe2": {
+            "obstacle": "pipe2",
+            "threshold_x": 630,
+            "rate": 0.405,
+            "script_rate": 0.825,
+            "script_arm": "left",
+            "advantage_pp": -41.99999999999999,
+            "ci_pp": [
+              -50.03678190526666,
+              -32.928885254156015
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe3": {
+            "obstacle": "pipe3",
+            "threshold_x": 735,
+            "rate": 0.22,
+            "script_rate": 0.235,
+            "script_arm": "rng_matched",
+            "advantage_pp": -1.4999999999999987,
+            "ci_pp": [
+              -9.69046318648826,
+              6.713897768999316
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": false
+          },
+          "pipe4": {
+            "obstacle": "pipe4",
+            "threshold_x": 975,
+            "rate": 0.055,
+            "script_rate": 0.08,
+            "script_arm": "down",
+            "advantage_pp": -2.5,
+            "ci_pp": [
+              -7.688298736104116,
+              2.5727418838637437
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": false
+          }
+        },
+        "beats_script_at": [],
+        "beats_script_at_pipe2": false
+      },
+      "button_marginals": {
+        "frames": 138962,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.032,
+          "Left": 0.06,
+          "Right": 0.617,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.745,
+          "A": 0.424
+        },
+        "over_expert": {
+          "Up": 0.03,
+          "Down": 4.63,
+          "Left": 2.0,
+          "Right": 1.36,
+          "Start": null,
+          "Select": null,
+          "B": 1.45,
+          "A": 2.79
+        },
+        "frames_inside_a_hold_pct": 42.4,
+        "a_holds": {
+          "n": 6794,
+          "median": 3.0,
+          "p90": 27.0,
+          "max": 105,
+          "frac_ge_required": 0.24727700912569914,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "behaviour": {
+        "available": true,
+        "frames": 138962,
+        "airborne_fraction": 0.6263151077272924,
+        "expert_airborne_fraction": 0.611,
+        "a_onsets_while_grounded_per_1000": 1.115412846677509,
+        "a_onsets_total_per_1000": 48.891063744045134,
+        "a_held_while_airborne": 0.5063308592044489,
+        "a_held_while_grounded": 0.2852218456324141,
+        "note": "a_held_while_airborne is the pathology: A during a descent does nothing and blocks the next jump, which needs a fresh onset from the ground"
+      },
+      "expert_airborne": 0.611,
+      "airborne_minus_expert_pp": 1.5315107727292387,
+      "ended": {
+        "died": 113,
+        "stuck": 87
+      },
+      "checkpoint": "B_84_seed1",
+      "max_a_hold": 48,
+      "temperature": 0.7,
+      "frame_size": 84,
+      "train_seed": 1,
+      "train_steps": 15000,
+      "distinctness": {
+        "n_episodes": 200,
+        "n_distinct_prefixes": 200,
+        "effective_n": 200,
+        "collapsed": false
+      },
+      "traces": "data/traces/gen_B_84_seed1_cap48_t0p7_200.json"
+    },
+    "B_84_seed2_cap48_t1": {
+      "label": "B_84_seed2_cap48_t1",
+      "n": 200,
+      "measurement_basis": "single_life",
+      "loss": "plain cross-entropy",
+      "seeds": 1,
+      "grounded_enforced": false,
+      "generation_rule": "capped(non-A<=4) + A-run cap 48 + temperature 1.0",
+      "x_median": 704.5,
+      "x_max": 2226,
+      "a_hold_pipe2": {
+        "n": 844,
+        "median": 14.0,
+        "p90": 32.0,
+        "max": 101.0,
+        "frac_ge_required": 0.5260663507109005,
+        "required_hold": 12,
+        "p99": 59.569999999999936
+      },
+      "a_hold_anywhere": {
+        "n": 6550,
+        "median": 4.0,
+        "p90": 29.0,
+        "max": 101.0,
+        "frac_ge_required": 0.3290076335877863,
+        "required_hold": 12,
+        "p99": 56.0
+      },
+      "a_onsets_per_1000_frames": 50.45622840854518,
+      "expert_onsets_per_1000_frames": 27.5,
+      "noop_runs": {
+        "n": 3165,
+        "median": 4.0,
+        "p90": 8.0,
+        "p99": 12.0,
+        "max": 20.0
+      },
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 138,
+          "n": 200,
+          "rate": 0.69,
+          "ci": [
+            0.622826945087378,
+            0.75001157266366
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 135,
+          "n": 200,
+          "rate": 0.675,
+          "ci": [
+            0.6073185684304498,
+            0.736085329498138
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 55,
+          "n": 200,
+          "rate": 0.275,
+          "ci": [
+            0.21779604313809775,
+            0.3406846595251467
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 14,
+          "n": 200,
+          "rate": 0.07,
+          "ci": [
+            0.04215178292291873,
+            0.11405578216683726
+          ],
+          "method": "Wilson"
+        }
+      },
+      "vs_script_best_fixed_rate": {
+        "n": 200,
+        "measurement_basis": "single_life",
+        "per_obstacle": {
+          "pipe1": {
+            "obstacle": "pipe1",
+            "threshold_x": 470,
+            "rate": 0.69,
+            "script_rate": 0.87,
+            "script_arm": "left",
+            "advantage_pp": -18.000000000000004,
+            "ci_pp": [
+              -25.803707713489345,
+              -9.949359376631364
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe2": {
+            "obstacle": "pipe2",
+            "threshold_x": 630,
+            "rate": 0.675,
+            "script_rate": 0.825,
+            "script_arm": "left",
+            "advantage_pp": -14.999999999999991,
+            "ci_pp": [
+              -23.20568509554815,
+              -6.531994790009072
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe3": {
+            "obstacle": "pipe3",
+            "threshold_x": 735,
+            "rate": 0.275,
+            "script_rate": 0.235,
+            "script_arm": "rng_matched",
+            "advantage_pp": 4.0000000000000036,
+            "ci_pp": [
+              -4.540343090723094,
+              12.466918207048325
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": false
+          },
+          "pipe4": {
+            "obstacle": "pipe4",
+            "threshold_x": 975,
+            "rate": 0.07,
+            "script_rate": 0.08,
+            "script_arm": "down",
+            "advantage_pp": -0.9999999999999996,
+            "ci_pp": [
+              -6.376475003166638,
+              4.339033790980822
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": false
+          }
+        },
+        "beats_script_at": [],
+        "beats_script_at_pipe2": false
+      },
+      "button_marginals": {
+        "frames": 129102,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.013,
+          "Left": 0.045,
+          "Right": 0.604,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.693,
+          "A": 0.541
+        },
+        "over_expert": {
+          "Up": 0.42,
+          "Down": 1.84,
+          "Left": 1.5,
+          "Right": 1.33,
+          "Start": null,
+          "Select": null,
+          "B": 1.35,
+          "A": 3.56
+        },
+        "frames_inside_a_hold_pct": 54.1,
+        "a_holds": {
+          "n": 6514,
+          "median": 5.0,
+          "p90": 29.0,
+          "max": 101,
+          "frac_ge_required": 0.3306723979121891,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "behaviour": {
+        "available": true,
+        "frames": 129102,
+        "airborne_fraction": 0.6687115614010627,
+        "expert_airborne_fraction": 0.611,
+        "a_onsets_while_grounded_per_1000": 1.2780592089975367,
+        "a_onsets_total_per_1000": 50.45622840854518,
+        "a_held_while_airborne": 0.5880669971737015,
+        "a_held_while_grounded": 0.4470423193827449,
+        "note": "a_held_while_airborne is the pathology: A during a descent does nothing and blocks the next jump, which needs a fresh onset from the ground"
+      },
+      "expert_airborne": 0.611,
+      "airborne_minus_expert_pp": 5.771156140106271,
+      "ended": {
+        "died": 149,
+        "stuck": 51
+      },
+      "checkpoint": "B_84_seed2",
+      "max_a_hold": 48,
+      "temperature": 1.0,
+      "frame_size": 84,
+      "train_seed": 2,
+      "train_steps": 15000,
+      "distinctness": {
+        "n_episodes": 200,
+        "n_distinct_prefixes": 200,
+        "effective_n": 200,
+        "collapsed": false
+      },
+      "traces": "data/traces/gen_B_84_seed2_cap48_t1_200.json"
+    },
+    "B_84_seed2_cap48_t0p7": {
+      "label": "B_84_seed2_cap48_t0p7",
+      "n": 200,
+      "measurement_basis": "single_life",
+      "loss": "plain cross-entropy",
+      "seeds": 1,
+      "grounded_enforced": false,
+      "generation_rule": "capped(non-A<=4) + A-run cap 48 + temperature 0.7",
+      "x_median": 722.0,
+      "x_max": 2226,
+      "a_hold_pipe2": {
+        "n": 764,
+        "median": 14.0,
+        "p90": 29.0,
+        "max": 83.0,
+        "frac_ge_required": 0.5340314136125655,
+        "required_hold": 12,
+        "p99": 51.370000000000005
+      },
+      "a_hold_anywhere": {
+        "n": 7163,
+        "median": 3.0,
+        "p90": 22.0,
+        "max": 98.0,
+        "frac_ge_required": 0.2507329331285774,
+        "required_hold": 12,
+        "p99": 49.0
+      },
+      "a_onsets_per_1000_frames": 53.06478164036022,
+      "expert_onsets_per_1000_frames": 27.5,
+      "noop_runs": {
+        "n": 3312,
+        "median": 4.0,
+        "p90": 5.0,
+        "p99": 12.0,
+        "max": 20.0
+      },
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 152,
+          "n": 200,
+          "rate": 0.76,
+          "ci": [
+            0.69626534544272,
+            0.8139347314797533
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 145,
+          "n": 200,
+          "rate": 0.725,
+          "ci": [
+            0.6593153404748534,
+            0.7822039568619022
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 63,
+          "n": 200,
+          "rate": 0.315,
+          "ci": [
+            0.25462218077944276,
+            0.38235084141033604
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 13,
+          "n": 200,
+          "rate": 0.065,
+          "ci": [
+            0.03837598764975976,
+            0.10802003749917945
+          ],
+          "method": "Wilson"
+        }
+      },
+      "vs_script_best_fixed_rate": {
+        "n": 200,
+        "measurement_basis": "single_life",
+        "per_obstacle": {
+          "pipe1": {
+            "obstacle": "pipe1",
+            "threshold_x": 470,
+            "rate": 0.76,
+            "script_rate": 0.87,
+            "script_arm": "left",
+            "advantage_pp": -10.999999999999998,
+            "ci_pp": [
+              -18.509775158417852,
+              -3.3915521616490807
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe2": {
+            "obstacle": "pipe2",
+            "threshold_x": 630,
+            "rate": 0.725,
+            "script_rate": 0.825,
+            "script_arm": "left",
+            "advantage_pp": -9.999999999999998,
+            "ci_pp": [
+              -18.041781585171808,
+              -1.8075727501517382
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe3": {
+            "obstacle": "pipe3",
+            "threshold_x": 735,
+            "rate": 0.315,
+            "script_rate": 0.235,
+            "script_arm": "rng_matched",
+            "advantage_pp": 8.000000000000002,
+            "ci_pp": [
+              -0.7561032336868251,
+              16.596820187854593
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": false
+          },
+          "pipe4": {
+            "obstacle": "pipe4",
+            "threshold_x": 975,
+            "rate": 0.065,
+            "script_rate": 0.08,
+            "script_arm": "down",
+            "advantage_pp": -1.5,
+            "ci_pp": [
+              -6.814097463559615,
+              3.753893666817491
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": false
+          }
+        },
+        "beats_script_at": [],
+        "beats_script_at_pipe2": false
+      },
+      "button_marginals": {
+        "frames": 134251,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.015,
+          "Left": 0.049,
+          "Right": 0.68,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.739,
+          "A": 0.439
+        },
+        "over_expert": {
+          "Up": 0.04,
+          "Down": 2.16,
+          "Left": 1.63,
+          "Right": 1.5,
+          "Start": null,
+          "Select": null,
+          "B": 1.44,
+          "A": 2.89
+        },
+        "frames_inside_a_hold_pct": 43.9,
+        "a_holds": {
+          "n": 7124,
+          "median": 3.0,
+          "p90": 22.0,
+          "max": 98,
+          "frac_ge_required": 0.251965188096575,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "behaviour": {
+        "available": true,
+        "frames": 134251,
+        "airborne_fraction": 0.6454849498327759,
+        "expert_airborne_fraction": 0.611,
+        "a_onsets_while_grounded_per_1000": 1.5865803606677045,
+        "a_onsets_total_per_1000": 53.06478164036022,
+        "a_held_while_airborne": 0.5207888572186897,
+        "a_held_while_grounded": 0.29148632180526957,
+        "note": "a_held_while_airborne is the pathology: A during a descent does nothing and blocks the next jump, which needs a fresh onset from the ground"
+      },
+      "expert_airborne": 0.611,
+      "airborne_minus_expert_pp": 3.4484949832775946,
+      "ended": {
+        "died": 135,
+        "stuck": 65
+      },
+      "checkpoint": "B_84_seed2",
+      "max_a_hold": 48,
+      "temperature": 0.7,
+      "frame_size": 84,
+      "train_seed": 2,
+      "train_steps": 15000,
+      "distinctness": {
+        "n_episodes": 200,
+        "n_distinct_prefixes": 200,
+        "effective_n": 200,
+        "collapsed": false
+      },
+      "traces": "data/traces/gen_B_84_seed2_cap48_t0p7_200.json"
+    },
+    "RT_128_d128_L2_cap48_targmax": {
+      "label": "RT_128_d128_L2_cap48_targmax",
+      "n": 3,
+      "measurement_basis": "single_life",
+      "loss": "plain cross-entropy",
+      "seeds": 1,
+      "grounded_enforced": false,
+      "generation_rule": "capped(non-A<=4) + A-run cap 48 + temperature argmax",
+      "x_median": 40.0,
+      "x_max": 40,
+      "a_hold_pipe2": {
+        "n": 0,
+        "median": null,
+        "p90": null,
+        "max": null,
+        "frac_ge_required": null
+      },
+      "a_hold_anywhere": {
+        "n": 0,
+        "median": null,
+        "p90": null,
+        "max": null,
+        "frac_ge_required": null
+      },
+      "a_onsets_per_1000_frames": 0.0,
+      "expert_onsets_per_1000_frames": 27.5,
+      "noop_runs": {
+        "n": 1,
+        "median": 906.0,
+        "p90": 906.0,
+        "p99": 906.0,
+        "max": 906.0
+      },
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 0,
+          "n": 3,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.5615060804490177
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 0,
+          "n": 3,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.5615060804490177
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 0,
+          "n": 3,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.5615060804490177
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 0,
+          "n": 3,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.5615060804490177
+          ],
+          "method": "Wilson"
+        }
+      },
+      "vs_script_best_fixed_rate": {
+        "n": 3,
+        "measurement_basis": "single_life",
+        "per_obstacle": {
+          "pipe1": {
+            "obstacle": "pipe1",
+            "threshold_x": 470,
+            "rate": 0.0,
+            "script_rate": 0.87,
+            "script_arm": "left",
+            "advantage_pp": -87.0,
+            "ci_pp": [
+              -90.97185863477438,
+              -30.593531313127176
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe2": {
+            "obstacle": "pipe2",
+            "threshold_x": 630,
+            "rate": 0.0,
+            "script_rate": 0.825,
+            "script_arm": "left",
+            "advantage_pp": -82.5,
+            "ci_pp": [
+              -87.13955882539106,
+              -26.043966476118243
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe3": {
+            "obstacle": "pipe3",
+            "threshold_x": 735,
+            "rate": 0.0,
+            "script_rate": 0.235,
+            "script_arm": "rng_matched",
+            "advantage_pp": -23.5,
+            "ci_pp": [
+              -29.841492986724656,
+              32.90420855545878
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": false
+          },
+          "pipe4": {
+            "obstacle": "pipe4",
+            "threshold_x": 975,
+            "rate": 0.0,
+            "script_rate": 0.08,
+            "script_arm": "down",
+            "advantage_pp": -8.0,
+            "ci_pp": [
+              -12.599048979512318,
+              48.23154760639355
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": false
+          }
+        },
+        "beats_script_at": [],
+        "beats_script_at_pipe2": false
+      },
+      "button_marginals": {
+        "frames": 906,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 0.0,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.0,
+          "A": 0.0
+        },
+        "over_expert": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.0,
+          "Right": 0.0,
+          "Start": null,
+          "Select": null,
+          "B": 0.0,
+          "A": 0.0
+        },
+        "frames_inside_a_hold_pct": 0.0,
+        "a_holds": {
+          "n": 0,
+          "median": null,
+          "p90": null,
+          "max": null,
+          "frac_ge_required": null
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "behaviour": {
+        "available": true,
+        "frames": 906,
+        "airborne_fraction": 0.0,
+        "expert_airborne_fraction": 0.611,
+        "a_onsets_while_grounded_per_1000": 0.0,
+        "a_onsets_total_per_1000": 0.0,
+        "a_held_while_airborne": null,
+        "a_held_while_grounded": 0.0,
+        "note": "a_held_while_airborne is the pathology: A during a descent does nothing and blocks the next jump, which needs a fresh onset from the ground"
+      },
+      "expert_airborne": 0.611,
+      "airborne_minus_expert_pp": -61.1,
+      "ended": {
+        "died": 0,
+        "stuck": 3
+      },
+      "checkpoint": "RT_128_d128_L2",
+      "max_a_hold": 48,
+      "temperature": "argmax",
+      "frame_size": 128,
+      "train_seed": 0,
+      "train_steps": 15000,
+      "distinctness": {
+        "n_episodes": 3,
+        "n_distinct_prefixes": 1,
+        "effective_n": 1,
+        "collapsed": true
+      },
+      "traces": "data/traces/gen_RT_128_d128_L2_cap48_targmax_3.json"
+    },
+    "phase1_repro_84_3k_b128_cap48_targmax": {
+      "label": "phase1_repro_84_3k_b128_cap48_targmax",
+      "n": 3,
+      "measurement_basis": "single_life",
+      "loss": "plain cross-entropy",
+      "seeds": 1,
+      "grounded_enforced": false,
+      "generation_rule": "capped(non-A<=4) + A-run cap 48 + temperature argmax",
+      "x_median": 311.0,
+      "x_max": 313,
+      "a_hold_pipe2": {
+        "n": 0,
+        "median": null,
+        "p90": null,
+        "max": null,
+        "frac_ge_required": null
+      },
+      "a_hold_anywhere": {
+        "n": 1,
+        "median": 1.0,
+        "p90": 1.0,
+        "max": 1.0,
+        "frac_ge_required": 0.0,
+        "required_hold": 12,
+        "p99": 1.0
+      },
+      "a_onsets_per_1000_frames": 2.4096385542168677,
+      "expert_onsets_per_1000_frames": 27.5,
+      "noop_runs": {
+        "n": 0
+      },
+      "clearance": {
+        "pipe1": {
+          "threshold_x": 470,
+          "k": 0,
+          "n": 3,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.5615060804490177
+          ],
+          "method": "Wilson"
+        },
+        "pipe2": {
+          "threshold_x": 630,
+          "k": 0,
+          "n": 3,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.5615060804490177
+          ],
+          "method": "Wilson"
+        },
+        "pipe3": {
+          "threshold_x": 735,
+          "k": 0,
+          "n": 3,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.5615060804490177
+          ],
+          "method": "Wilson"
+        },
+        "pipe4": {
+          "threshold_x": 975,
+          "k": 0,
+          "n": 3,
+          "rate": 0.0,
+          "ci": [
+            0.0,
+            0.5615060804490177
+          ],
+          "method": "Wilson"
+        }
+      },
+      "vs_script_best_fixed_rate": {
+        "n": 3,
+        "measurement_basis": "single_life",
+        "per_obstacle": {
+          "pipe1": {
+            "obstacle": "pipe1",
+            "threshold_x": 470,
+            "rate": 0.0,
+            "script_rate": 0.87,
+            "script_arm": "left",
+            "advantage_pp": -87.0,
+            "ci_pp": [
+              -90.97185863477438,
+              -30.593531313127176
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe2": {
+            "obstacle": "pipe2",
+            "threshold_x": 630,
+            "rate": 0.0,
+            "script_rate": 0.825,
+            "script_arm": "left",
+            "advantage_pp": -82.5,
+            "ci_pp": [
+              -87.13955882539106,
+              -26.043966476118243
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": true
+          },
+          "pipe3": {
+            "obstacle": "pipe3",
+            "threshold_x": 735,
+            "rate": 0.0,
+            "script_rate": 0.235,
+            "script_arm": "rng_matched",
+            "advantage_pp": -23.5,
+            "ci_pp": [
+              -29.841492986724656,
+              32.90420855545878
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": false
+          },
+          "pipe4": {
+            "obstacle": "pipe4",
+            "threshold_x": 975,
+            "rate": 0.0,
+            "script_rate": 0.08,
+            "script_arm": "down",
+            "advantage_pp": -8.0,
+            "ci_pp": [
+              -12.599048979512318,
+              48.23154760639355
+            ],
+            "method": "Newcombe",
+            "beats_script": false,
+            "loses_to_script": false
+          }
+        },
+        "beats_script_at": [],
+        "beats_script_at_pipe2": false
+      },
+      "button_marginals": {
+        "frames": 415,
+        "rates": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 0.118,
+          "Right": 0.875,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.901,
+          "A": 0.002
+        },
+        "over_expert": {
+          "Up": 0.0,
+          "Down": 0.0,
+          "Left": 3.94,
+          "Right": 1.93,
+          "Start": null,
+          "Select": null,
+          "B": 1.75,
+          "A": 0.02
+        },
+        "frames_inside_a_hold_pct": 0.2,
+        "a_holds": {
+          "n": 1,
+          "median": 1.0,
+          "p90": 1.0,
+          "max": 1,
+          "frac_ge_required": 0.0,
+          "required_hold": 12
+        },
+        "expert_rates": {
+          "Up": 0.001,
+          "Down": 0.007,
+          "Left": 0.03,
+          "Right": 0.453,
+          "Start": 0.0,
+          "Select": 0.0,
+          "B": 0.514,
+          "A": 0.152
+        }
+      },
+      "behaviour": {
+        "available": true,
+        "frames": 415,
+        "airborne_fraction": 0.05542168674698795,
+        "expert_airborne_fraction": 0.611,
+        "a_onsets_while_grounded_per_1000": 0.0,
+        "a_onsets_total_per_1000": 2.4096385542168677,
+        "a_held_while_airborne": 0.043478260869565216,
+        "a_held_while_grounded": 0.0,
+        "note": "a_held_while_airborne is the pathology: A during a descent does nothing and blocks the next jump, which needs a fresh onset from the ground"
+      },
+      "expert_airborne": 0.611,
+      "airborne_minus_expert_pp": -55.5578313253012,
+      "ended": {
+        "died": 3,
+        "stuck": 0
+      },
+      "checkpoint": "phase1_repro_84_3k_b128",
+      "max_a_hold": 48,
+      "temperature": "argmax",
+      "frame_size": 84,
+      "train_seed": 0,
+      "train_steps": 3000,
+      "distinctness": {
+        "n_episodes": 3,
+        "n_distinct_prefixes": 2,
+        "effective_n": 2,
+        "collapsed": false
+      },
+      "traces": "data/traces/gen_phase1_repro_84_3k_b128_cap48_targmax_3.json"
+    }
+  },
+  "seed_replication_sampled": {
+    "cap48_T1.0": {
+      "per_seed": [
+        {
+          "seed_arm": "B_84_d64_L1",
+          "uncapped_pipe2": 0.635,
+          "config_pipe2": 0.64,
+          "gain_pp": 0.5000000000000004,
+          "ci_pp": [
+            -8.853325921239652,
+            9.841077296590788
+          ],
+          "pipe3_uncapped": 0.255,
+          "pipe3_config": 0.255
+        },
+        {
+          "seed_arm": "B_84_seed1",
+          "uncapped_pipe2": 0.515,
+          "config_pipe2": 0.5,
+          "gain_pp": -1.5000000000000013,
+          "ci_pp": [
+            -11.185107983072147,
+            8.225077483509336
+          ],
+          "pipe3_uncapped": 0.32,
+          "pipe3_config": 0.31
+        },
+        {
+          "seed_arm": "B_84_seed2",
+          "uncapped_pipe2": 0.675,
+          "config_pipe2": 0.675,
+          "gain_pp": 0.0,
+          "ci_pp": [
+            -9.117123262959533,
+            9.117123262959533
+          ],
+          "pipe3_uncapped": 0.265,
+          "pipe3_config": 0.275
+        }
+      ],
+      "n_seeds": 3,
+      "median_gain_pp": 0.0,
+      "min_gain_pp": -1.5000000000000013,
+      "max_gain_pp": 0.5000000000000004,
+      "all_positive": false,
+      "any_interval_excludes_zero": false
+    },
+    "cap48_T0.7": {
+      "per_seed": [
+        {
+          "seed_arm": "B_84_d64_L1",
+          "uncapped_pipe2": 0.635,
+          "config_pipe2": 0.65,
+          "gain_pp": 1.5000000000000013,
+          "ci_pp": [
+            -7.837252474659401,
+            10.800767639069049
+          ],
+          "pipe3_uncapped": 0.255,
+          "pipe3_config": 0.15
+        },
+        {
+          "seed_arm": "B_84_seed1",
+          "uncapped_pipe2": 0.515,
+          "config_pipe2": 0.405,
+          "gain_pp": -10.999999999999998,
+          "ci_pp": [
+            -20.473682449107272,
+            -1.2350472321032855
+          ],
+          "pipe3_uncapped": 0.32,
+          "pipe3_config": 0.22
+        },
+        {
+          "seed_arm": "B_84_seed2",
+          "uncapped_pipe2": 0.675,
+          "config_pipe2": 0.725,
+          "gain_pp": 4.999999999999993,
+          "ci_pp": [
+            -3.969889618512884,
+            13.861754261974358
+          ],
+          "pipe3_uncapped": 0.265,
+          "pipe3_config": 0.315
+        }
+      ],
+      "n_seeds": 3,
+      "median_gain_pp": 1.5000000000000013,
+      "min_gain_pp": -10.999999999999998,
+      "max_gain_pp": 4.999999999999993,
+      "all_positive": false,
+      "any_interval_excludes_zero": false
+    }
+  },
+  "argmax_trajectories": {
+    "B_84_d64_L1_cap48_targmax": {
+      "checkpoint": "B_84_d64_L1",
+      "frame_size": 84,
+      "train_seed": 0,
+      "episodes_run": 12,
+      "distinct_trajectories": 2,
+      "effective_n": 1,
+      "effective_n_note": "1, not the reported distinct count: the extra trajectory is always episode 0 of a freshly started session, whose initial frame stack differs -- a harness artifact, not policy variation",
+      "x_median": 916.0,
+      "x_max": 916,
+      "cleared": {
+        "pipe1": true,
+        "pipe2": true,
+        "pipe3": true,
+        "pipe4": false
+      },
+      "reported_rate_pipe2_NOT_A_RATE": 0.9166666666666666,
+      "a_rate": 0.283,
+      "a_onsets_per_1000": 22.55109231853418,
+      "airborne": 0.4480855062250411,
+      "a_hold_max": 40.0
+    },
+    "R_128_d64_L1_cap24_targmax": {
+      "checkpoint": "R_128_d64_L1",
+      "frame_size": 128,
+      "train_seed": 0,
+      "episodes_run": 12,
+      "distinct_trajectories": 2,
+      "effective_n": 1,
+      "effective_n_note": "1, not the reported distinct count: the extra trajectory is always episode 0 of a freshly started session, whose initial frame stack differs -- a harness artifact, not policy variation",
+      "x_median": 300.0,
+      "x_max": 594,
+      "cleared": {
+        "pipe1": false,
+        "pipe2": false,
+        "pipe3": false,
+        "pipe4": false
+      },
+      "reported_rate_pipe2_NOT_A_RATE": 0.0,
+      "a_rate": 0.357,
+      "a_onsets_per_1000": 31.162464985994397,
+      "airborne": 0.5861344537815126,
+      "a_hold_max": 42.0
+    },
+    "B_84_seed1_cap48_targmax": {
+      "checkpoint": "B_84_seed1",
+      "frame_size": 84,
+      "train_seed": 1,
+      "episodes_run": 200,
+      "distinct_trajectories": 2,
+      "effective_n": 1,
+      "effective_n_note": "1, not the reported distinct count: the extra trajectory is always episode 0 of a freshly started session, whose initial frame stack differs -- a harness artifact, not policy variation",
+      "x_median": 316.0,
+      "x_max": 316,
+      "cleared": {
+        "pipe1": false,
+        "pipe2": false,
+        "pipe3": false,
+        "pipe4": false
+      },
+      "reported_rate_pipe2_NOT_A_RATE": 0.0,
+      "a_rate": 0.32,
+      "a_onsets_per_1000": 43.76184229704125,
+      "airborne": 0.7714254481853957,
+      "a_hold_max": 29.0
+    },
+    "B_84_seed2_cap48_targmax": {
+      "checkpoint": "B_84_seed2",
+      "frame_size": 84,
+      "train_seed": 2,
+      "episodes_run": 200,
+      "distinct_trajectories": 2,
+      "effective_n": 1,
+      "effective_n_note": "1, not the reported distinct count: the extra trajectory is always episode 0 of a freshly started session, whose initial frame stack differs -- a harness artifact, not policy variation",
+      "x_median": 723.0,
+      "x_max": 723,
+      "cleared": {
+        "pipe1": true,
+        "pipe2": true,
+        "pipe3": false,
+        "pipe4": false
+      },
+      "reported_rate_pipe2_NOT_A_RATE": 1.0,
+      "a_rate": 0.448,
+      "a_onsets_per_1000": 36.420875891982654,
+      "airborne": 0.8088708549041556,
+      "a_hold_max": 29.0
+    },
+    "RT_128_d128_L2_cap48_targmax": {
+      "checkpoint": "RT_128_d128_L2",
+      "frame_size": 128,
+      "train_seed": 0,
+      "episodes_run": 3,
+      "distinct_trajectories": 1,
+      "effective_n": 1,
+      "effective_n_note": "1, not the reported distinct count: the extra trajectory is always episode 0 of a freshly started session, whose initial frame stack differs -- a harness artifact, not policy variation",
+      "x_median": 40.0,
+      "x_max": 40,
+      "cleared": {
+        "pipe1": false,
+        "pipe2": false,
+        "pipe3": false,
+        "pipe4": false
+      },
+      "reported_rate_pipe2_NOT_A_RATE": 0.0,
+      "a_rate": 0.0,
+      "a_onsets_per_1000": 0.0,
+      "airborne": 0.0,
+      "a_hold_max": null
+    },
+    "phase1_repro_84_3k_b128_cap48_targmax": {
+      "checkpoint": "phase1_repro_84_3k_b128",
+      "frame_size": 84,
+      "train_seed": 0,
+      "episodes_run": 3,
+      "distinct_trajectories": 2,
+      "effective_n": 1,
+      "effective_n_note": "1, not the reported distinct count: the extra trajectory is always episode 0 of a freshly started session, whose initial frame stack differs -- a harness artifact, not policy variation",
+      "x_median": 311.0,
+      "x_max": 313,
+      "cleared": {
+        "pipe1": false,
+        "pipe2": false,
+        "pipe3": false,
+        "pipe4": false
+      },
+      "reported_rate_pipe2_NOT_A_RATE": 0.0,
+      "a_rate": 0.002,
+      "a_onsets_per_1000": 2.4096385542168677,
+      "airborne": 0.05542168674698795,
+      "a_hold_max": 1.0
+    }
+  },
+  "argmax_summary": {
+    "n_checkpoints": 6,
+    "cleared_pipe2": 2,
+    "cleared_pipe3": 1,
+    "x_median_range": [
+      40.0,
+      916.0
+    ],
+    "a_rate_range": [
+      0.0,
+      0.448
+    ],
+    "expert_a_rate": 0.152,
+    "expert_airborne": 0.611,
+    "expert_onsets_per_1000": 27.5,
+    "vote_splitting_reproduced": true,
+    "vote_splitting_checkpoints": [
+      "RT_128_d128_L2_cap48_targmax",
+      "phase1_repro_84_3k_b128_cap48_targmax"
+    ],
+    "vote_splitting_a_rates": {
+      "B_84_d64_L1_cap48_targmax": 0.283,
+      "R_128_d64_L1_cap24_targmax": 0.357,
+      "B_84_seed1_cap48_targmax": 0.32,
+      "B_84_seed2_cap48_targmax": 0.448,
+      "RT_128_d128_L2_cap48_targmax": 0.0,
+      "phase1_repro_84_3k_b128_cap48_targmax": 0.002
+    },
+    "vote_splitting_note": "LEDGER's 'never argmax the categorical head' -- A emitted on 0.03% of frames by vote-splitting -- **reproduces on some checkpoints and not others, on the SAME head.** Measured A under argmax: B seeds 0.28/0.32/0.45, R 0.36, but RT **0.000** (never presses A, x=40, does not leave the start) and phase1_repro **0.002**. So the rule is not wrong and is not universal: it is a property of the individual checkpoint's logit geometry, and argmax must be checked per checkpoint rather than assumed either safe or fatal.",
+    "verdict": "argmax is ONE trajectory per checkpoint. Across 6 checkpoints it clears pipe 2 on 2 and pipe 3 on 1. Its button statistics are the closest to the expert's of anything in this project, and its outcome is bimodal: one trajectory reached x=916 past pipe 4's face, another died at x=316. **A rate cannot be estimated from it by running more seeds; it needs many START STATES.**"
+  },
+  "binary_question": {
+    "does_capping_improve_pipe2": false,
+    "B_gain_pp": 0.5000000000000004,
+    "B_ci": [
+      -8.853325921239652,
+      9.841077296590788
+    ],
+    "R_gain_pp": 3.9999999999999925,
+    "R_ci": [
+      -5.645937565259924,
+      13.541763627266947
+    ],
+    "R_minus_B_pp": 3.499999999999992,
+    "answered_on": "sampled arms only; argmax cannot answer it because its n is 1"
+  },
+  "verdict": "**NO \u2014 capping the A-run does not improve pipe 2.** B +0.5 pp [-8.9,+9.8], R +4.0 pp [-5.6,+13.5]; both intervals span zero, and across three training seeds the gains do not hold a sign. Temperature 0.7 does not rescue it. **The generation rule, in the one form the directive specified, is not the bottleneck for pipe 2.**\n\nBut the directive's 'no' branch \u2014 that the LIFT is then under suspicion \u2014 does not follow yet, and I am not claiming it. Two things sit in the way. **(1) R's pipe 3 moved 22.5% -> 31.5% under cap 24 while B's did not**, which is a resolution-dependent gain in the predicted direction, at the wrong obstacle. **(2) argmax is not a null result, it is an unmeasurable one**: it produces the most expert-like button statistics in the project and one trajectory to x=916, but it is n=1 per checkpoint and needs many start states rather than many seeds. **The lift's behavioural relevance is untested, not refuted.**",
+  "minutes": 0.0
+}

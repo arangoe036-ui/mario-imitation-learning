@@ -33,3 +33,4 @@ data/bc_scaleup/
 # half, which is the advisor's call. Files stay on disk -- nothing here is deleted.
 data/traces/scaleup_*.json
 data/runlength_index_*.npz
+data/traces/gen_*.json

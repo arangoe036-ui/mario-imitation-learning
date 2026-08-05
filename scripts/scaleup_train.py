@@ -34,6 +34,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import scripts.overnight as O  # noqa: E402
 from tasdata.bc.data import FrameStackDataset  # noqa: E402
 from tasdata.bc.model import BCPolicy, PolicyConfig, pick_device  # noqa: E402
+from tasdata.bc.provenance import recipe  # noqa: E402
 from tasdata.bc.runlength import RunLengthDataset, build_index, collate, joint_size  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -170,10 +171,13 @@ def train_arm(name: str, size: int, d_model: int, n_layers: int, corpus: str,
         policy.eval()
     blob = torch.load(partial, map_location="cpu", weights_only=False)
     torch.save({"model_state": blob["model_state"], "policy_config": cfg.to_dict(),
-                "step": blob["step"], "arm": name, "frame_size": size,
+                "step": blob["step"], "arm": name,
                 "stored_size": stored, "corpus": corpus, "loss": "plain cross-entropy",
-                "steps": STEPS, "batch": BATCH, "lr": LR, "seed": SEED,
-                "n_train_runs": len(runs), "n_samples": len(ds)}, ckpt)
+                "lr": LR, "n_train_runs": len(runs), "n_samples": len(ds),
+                # steps / batch / seed / git_sha / git_dirty / frame_size -- the five fields whose
+                # absence from runlength.pt made "outlier seed" and "different recipe"
+                # indistinguishable after the fact.
+                **recipe(steps=STEPS, batch=BATCH, seed=SEED, frame_size=size)}, ckpt)
     return {"arm": name, "checkpoint": str(ckpt.relative_to(ROOT)), "frame_size": size,
             "stored_size": stored, "d_model": d_model, "n_layers": n_layers, "corpus": corpus,
             "steps": int(blob["step"]), "batch": BATCH, "seed": SEED, "lr": LR,
