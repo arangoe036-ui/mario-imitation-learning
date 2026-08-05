@@ -1493,3 +1493,61 @@ beats the policy at both by being airborne 88% of the time, while the policy bea
 sustained placed action is needed. Finishing 1-1 requires both halves, and search-and-distil only addresses
 the second. The next lever for the first is generation and marginals — the same lever that took `capped` from
 x median 314 to 702 — not another obstacle sweep.
+
+---
+
+## Goomba forensics: half the deaths stand on the ground next to the enemy and never jump
+
+**What changed.** No build — a read over retained traces, answering the question the sweep was meant to
+inform and could not: what does the policy actually do in the frames before it dies at the Goomba?
+
+**Numbers.** 200 episodes: 69 died in x 272–319, 130 cleared x>320. A-onset presence per episode:
+
+| A-onset window | died (n=69) | cleared (n=130) | difference |
+|---|---|---|---|
+| approach, 200–260 | **78.3%** | 63.8% | **−14.4 pp [−26.2, −0.9]** |
+| **at the Goomba, 260–320** | **50.7%** | **86.2%** | **+35.4 pp [+22.0, +47.9]** |
+| the expert's own peak, 272–304 | 27.5% | 68.5% | **+40.9 pp [+26.7, +52.7]** |
+
+**Jumping early predicts death; jumping at the enemy predicts clearing.** The deaths jump *more* than the
+clearers during the approach and far less at the obstacle itself.
+
+**The finding: 34 of the 69 deaths never press A anywhere in 260–320, and in that stretch they are grounded
+93% of the time (median), with none airborne throughout.** They jumped early (24 of the 34 had), landed, and
+walked into the enemy on foot. They could jump and did not. The other 35 jump at the Goomba and die anyway.
+**So the failure is roughly half timing, half not acting at all.**
+
+**A mechanism I proposed and the data refuted.** I expected the non-jumpers to be airborne from an early jump
+and therefore unable to jump again — SMB requires releasing A to jump. **The opposite holds: deaths are
+grounded when first reaching x=272 on 47.8% of episodes against the clearers' 26.2%, −21.7 pp [−35.1, −7.7].**
+Deaths are on the ground *more* than clearers. Being airborne is not what kills them; being grounded and
+passive is.
+
+| grounded fraction in x 260–300 | median |
+|---|---|
+| deaths that did **not** jump at the Goomba | **0.93** |
+| deaths that jumped at the Goomba | 0.14 |
+| clearers | 0.18 |
+
+**A correction to the previous entry, caused by a window I chose badly.** That entry concluded the Goomba was
+a marginal problem. Part of that came from measuring an "approach" window of 200–260 — and **the expert's
+Goomba onsets sit at 272–304, outside it.** I measured everywhere except where the expert actually jumps. The
+airborne-fraction argument remains a correct description of the *script's* exploit (88.3% airborne, 27 points
+above the expert's 61.1%), but the policy's own failure is now located and it is not a marginal.
+
+**The expert's jump positions**, read from the corpus for the first time: A-onsets in x 180–320 are
+**bimodal** — an early cluster at 192–208 and a second at 272–304, the Goomba jump. n=30 across 25 runs, so
+this locates the jump but supports no distributional claim.
+
+**What this says about search.** The last sweep drew grounded start states before the enemy and found 87.2%
+of configurations winning. **But for half the deaths the failure is not "wrong jump from a good state", it is
+"no jump from a good state" — and every configuration in a sweep jumps by construction.** The missing
+demonstration is not a better trigger; it is the decision to trigger at all.
+
+**Cost.** A pass over files already on disk.
+
+**Downstream effect.** The Goomba deficit is a missing *decision* from a grounded state — neither a missing
+demonstration nor a marginal. If that generalises to pipe 1, then the project's two competing goods — absolute
+performance, which argues for a higher airborne fraction, and defensibility, which argues for the run-length
+line's expert-like behaviour — stop competing, because the fix would be to act more often *when grounded*
+rather than to spend more time in the air.
