@@ -1,0 +1,70 @@
+{
+  "threshold_x": 320,
+  "x_window": [
+    140,
+    240
+  ],
+  "n": 12,
+  "states": [
+    {
+      "seed": 97,
+      "frame_index": 101,
+      "x": 153
+    },
+    {
+      "seed": 185,
+      "frame_index": 115,
+      "x": 219
+    },
+    {
+      "seed": 138,
+      "frame_index": 110,
+      "x": 155
+    },
+    {
+      "seed": 94,
+      "frame_index": 116,
+      "x": 171
+    },
+    {
+      "seed": 74,
+      "frame_index": 106,
+      "x": 188
+    },
+    {
+      "seed": 130,
+      "frame_index": 292,
+      "x": 164
+    },
+    {
+      "seed": 182,
+      "frame_index": 230,
+      "x": 177
+    },
+    {
+      "seed": 102,
+      "frame_index": 105,
+      "x": 190
+    },
+    {
+      "seed": 101,
+      "frame_index": 126,
+      "x": 187
+    },
+    {
+      "seed": 151,
+      "frame_index": 192,
+      "x": 187
+    },
+    {
+      "seed": 187,
+      "frame_index": 119,
+      "x": 238
+    },
+    {
+      "seed": 153,
+      "frame_index": 77,
+      "x": 149
+    }
+  ]
+}

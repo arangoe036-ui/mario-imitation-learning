@@ -1400,9 +1400,16 @@ undefined because the opponent never reaches pipe 4's gate at all.
 fixed rate cannot work, and worse on the one obstacle a fixed rate handles fine.
 
 **How we got there, and the prediction that failed.** The expectation was that p(A)=0.572 would interpolate
-between the p=0.50 arm's pipe-2 clearance of 10.0% and the p=0.85 arm's 68.5%. It landed at **7.0% — below
-the p=0.50 arm.** Pipe-2 clearance is not smooth in p(A), and the reason is the p^L arithmetic this whole
-phase was built on:
+between the p=0.50 arm's pipe-2 clearance of 10.0% and the p=0.85 arm's 68.5%. It came in at **7.0%**.
+
+**A correction to how this entry first read it.** I described 7.0% as landing *below* the p=0.50 arm and
+called pipe-2 clearance non-monotonic in p(A). **That comparison is not available: the p=0.50 figure is n=20,
+i.e. two episodes** — 2/20 = 10% [1.7, 30.1] against 14/200 = 7% [4.2, 11.4], intervals overlapping almost
+entirely. There is no non-monotonicity to explain, and comparing an n=20 screen with an n=200 measurement as
+though the ordering meant something is a mistake this document's own §4 warns about.
+
+**The real reason the prediction failed is the functional form: a p^L curve was interpolated linearly, and it
+is convex by a factor of ~50 across that range.**
 
 | A-rate | P(10 consecutive A) | P(11) | measured pipe 2 |
 |---|---|---|---|
@@ -1410,10 +1417,10 @@ phase was built on:
 | **0.572** | **0.37%** | **0.21%** | **7.0%** |
 | 0.850 | 19.69% | 16.73% | 68.5% |
 
-Pipe 2 requires A held 10–11 frames. **A per-frame sampler at 0.572 produces that 0.2–0.4% of the time;
+Pipe 2 requires A held 10–11 frames. **A per-frame sampler at 0.572 produces that 0.375% of the time;
 `capped` produces ≥12-frame holds on 36.8% of its pipe-2 onsets — about 170× more often at the same
-marginal.** The sharp threshold between 0.572 and 0.85 is p^L turning over. The failed interpolation is the
-cleanest confirmation of the macro-action argument the project has: it predicts a threshold, and there is one.
+marginal.** That ratio is the macro-action argument stated quantitatively, and it does not depend on the
+n=20 screen at all.
 
 **Both bars are kept, because they answer different questions.** Against the *best* script (p(A)=0.85 with
 Left, pipe 2 82.5%) `capped` is still **−21.5 pp** — that is the bar `FINDINGS.md` uses and it remains unmet.
@@ -1430,3 +1437,59 @@ max 72. Its p99 and max now sit at or above the expert's; its median is still we
 in this project outside pipe 3 — behaviour a marginal cannot reproduce at the rate the policy actually runs
 at. The frontier has also moved: **107 of `capped`'s 151 deaths are at x≈256, the first Goomba**, which is
 now the dominant single loss and the obstacle where 75 of 80 scripted timings succeed.
+
+---
+
+## Phase 2, the Goomba: distillation did nothing, because the Goomba's solution is a marginal
+
+**What changed.** Search-and-distil was run end to end on the level's dominant loss for the first time: a
+sweep from the policy's own start states, the winning solutions re-encoded as run-length training samples,
+distilled with plain cross-entropy, and measured against both script bars. **It did not work, and the reason
+reframes what "the dominant loss" meant.**
+
+**Numbers.** Threshold derived, not chosen: `capped`'s max_x histogram piles at 272/288/304 and **x 320–431 is
+completely empty**, so x>320 is the first x past the Goomba's far edge. n=200 throughout.
+
+| arm | Goomba (x>320) | deaths 272–319 | airborne | A | pipe2 | pipe3 | pipe4 |
+|---|---|---|---|---|---|---|---|
+| `capped` (before) | 65.0% | 69 | 66.7% | 0.572 | 61.0% | 18.0% | 9.5% |
+| **distilled** | **64.0%** | **72** | 66.1% | 0.533 | 57.0% | **21.5%** | **13.0%** |
+| **rate-matched script** | **83.0%** | **34** | **88.3%** | 0.533 | 4.0% | 0.0% | 0.0% |
+
+Goomba change: **−1.0 pp [−10.3, +8.3]**. Nothing.
+
+**The finding: a coin-flipping script at the policy's own button rates clears the Goomba 19 points better
+than the policy does.** The mechanism is one column — the script is airborne **88.3%** of frames against the
+policy's **66.1%**. **The Goomba is not a timing obstacle, it is an "be in the air a lot" obstacle**, and a
+script that jumps constantly is almost never on the ground to be hit. Distilling macro-actions cannot fix
+that, because the solution is not a macro-action. It is a marginal.
+
+**The sweep confirmed this before the distillation did.** From grounded start states just before the Goomba,
+**1,005 of 1,152 configurations cleared and survived — 87.2%** — with the minimum winner a **single-frame**
+tap at x=252. There was no needle to find.
+
+**And that exposes the deeper mistake, which was mine.** I drew start states that were **grounded** at a
+pre-Goomba x. That guarantees a good approach — which is exactly what the policy fails to achieve. **The
+policy's Goomba deaths come from arriving in the wrong state, not from jumping wrongly, and the filter
+excluded that by construction.** A sweep that begins after the failure cannot demonstrate its fix. This is the
+same shape as conditioning on arrival: condition on being in a good state, and the obstacle looks easy.
+
+**A second defect of mine cost an entire arm.** Run-length encoding compresses ~100 demonstration frames into
+~3 run samples, so 48 winning attempts became **144 samples across 7 classes**. A 1:1 expert:demo ratio then
+**capped the expert side at 144 as well** — 288 samples total, and 300 steps over them is **133 epochs**,
+discarding 77,772 of 77,916 available expert samples. That arm regressed the Goomba to **53.5%**. It is the
+pipe-4 distillation failure reproduced at ten times the severity, by me, one block after quoting it as the
+thing not to do. Corrected to 20,000 expert samples with demos at 9% and **1.7 epochs**.
+
+**What the demos did do.** Downstream of the Goomba the distillation helped: **pipe 3 18.0% → 21.5%**, **pipe 4
+9.5% → 13.0%**. Against the best fixed-rate script, pipe 3 is now **−2.0 pp** (from −5.5) and pipe 4 is
+**+5.0**. Against a script rate-matched to its own marginals it still wins pipes 2–4 (+53.0, +21.5, +13.0) and
+still loses pipe 1 (−15.0).
+
+**Cost.** ~50 minutes, two distillation arms and five 200-episode evaluations.
+
+**Downstream effect.** **Pipe 1 and the Goomba are one problem, and it is a marginal problem:** the script
+beats the policy at both by being airborne 88% of the time, while the policy beats the script everywhere a
+sustained placed action is needed. Finishing 1-1 requires both halves, and search-and-distil only addresses
+the second. The next lever for the first is generation and marginals — the same lever that took `capped` from
+x median 314 to 702 — not another obstacle sweep.
