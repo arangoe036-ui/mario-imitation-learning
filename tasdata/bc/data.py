@@ -86,6 +86,28 @@ def build_run_index(runs: list[LoadedRun]) -> list[RunIndex]:
     return out
 
 
+def _downscale_stack(stack: np.ndarray, size: int) -> np.ndarray:
+    """Area-average a ``(T, S, S)`` uint8 stack down to ``(T, size, size)``.
+
+    Area averaging, matching `replay._resize_gray`'s INTER_AREA, so a frame downscaled from a
+    128x128 capture is the same kind of image as one captured at 84x84 directly -- not merely a
+    similar size. **This is not exactly bit-identical to capturing at 84x84**: that path averages
+    from the NES's native 240x256, this one from an already-averaged 128x128, so it is a second
+    lossy step. The 84x84 store is therefore kept rather than regenerated from this.
+    """
+    try:
+        import cv2
+
+        return np.stack([cv2.resize(f, (size, size), interpolation=cv2.INTER_AREA)
+                         for f in stack])
+    except ImportError:
+        from PIL import Image
+
+        return np.stack([np.asarray(Image.fromarray(f, mode="L")
+                                    .resize((size, size), Image.BOX), dtype=np.uint8)
+                         for f in stack])
+
+
 class FrameStackDataset(Dataset):
     """``(stack, token)`` pairs drawn from memory-mapped run frames.
 
@@ -105,6 +127,7 @@ class FrameStackDataset(Dataset):
         prev_actions: int = 0,
         label_offset: int = DEFAULT_LABEL_OFFSET,
         label_mode: str = "token",
+        frame_size: int | None = None,
     ) -> None:
         self.index = build_run_index(runs)
         if not self.index:
@@ -124,6 +147,21 @@ class FrameStackDataset(Dataset):
         self.lengths = np.array([r.n_obs for r in self.index], dtype=np.int64)
         self.offsets = np.concatenate([[0], np.cumsum(self.lengths)])
         self._maps: dict[int, np.ndarray] = {}
+        #: Resolution as *stored* on disk, read from the first run rather than assumed. A corpus
+        #: captured at 128x128 and one captured at 84x84 are otherwise indistinguishable to a
+        #: caller, and the model raises on a mismatch rather than reshaping silently.
+        probe = np.load(self.index[0].frames_path, mmap_mode="r")
+        self.stored_size = int(probe.shape[-1])
+        del probe
+        #: Resolution *served*. `None` means "whatever is stored"; a smaller value downscales at
+        #: load time, so one 128x128 capture serves both resolutions and 84x84 need not be
+        #: re-captured to be available.
+        self.frame_size = int(frame_size) if frame_size else self.stored_size
+        if self.frame_size > self.stored_size:
+            raise ValueError(
+                f"cannot serve {self.frame_size}x{self.frame_size} from a "
+                f"{self.stored_size}x{self.stored_size} capture -- upscaling would invent detail"
+            )
         # Tokens are precomputed: 1.2M int64 is 10 MB and saves a lookup per item.
         self.tokens = [vocab.encode(r.actions) for r in self.index]
 
@@ -149,11 +187,13 @@ class FrameStackDataset(Dataset):
         if self.blind:
             # Identical shape, no information. The blind baseline must differ from
             # the sighted model *only* in what it can see.
-            stack = np.zeros((self.stack, 84, 84), dtype=np.uint8)
+            stack = np.zeros((self.stack, self.frame_size, self.frame_size), dtype=np.uint8)
         else:
             frames = self._frames(run_id)
             rows = np.clip(np.arange(row - self.stack + 1, row + 1), 0, entry.n_obs - 1)
             stack = np.asarray(frames[rows])
+            if self.frame_size != self.stored_size:
+                stack = _downscale_stack(stack, self.frame_size)
 
         tokens = self.tokens[run_id]
         last = len(tokens) - 1

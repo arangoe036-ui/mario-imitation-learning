@@ -463,15 +463,19 @@ def cmd_measure(args: argparse.Namespace) -> int:
 
 def cmd_batch(args: argparse.Namespace) -> int:
     from .batch import run_batch
-    from .curate import load_plan
+    from .curate import estimate_bytes, load_plan
 
     candidates = load_plan(args.plan)
     if args.limit:
         candidates = candidates[: args.limit]
-    est = sum(c.est_bytes for c in candidates)
+    # `c.est_bytes` was computed by `curate` at ITS observation shape and frozen into the plan, so
+    # it is wrong for any capture at a different resolution -- a 128x128 batch reported 11.18 GiB
+    # and wrote 25.7. Recompute from the shape this capture will actually use.
+    est = sum(estimate_bytes(c.n_frames, args.observation) for c in candidates)
+    h, w = args.observation
     print(
         f"capturing {len(candidates)} runs, "
-        f"{sum(c.n_frames for c in candidates):,} frames, "
+        f"{sum(c.n_frames for c in candidates):,} frames at {w}x{h}, "
         f"est {est / (1 << 30):.2f} GiB -> {args.out}"
     )
     report = run_batch(

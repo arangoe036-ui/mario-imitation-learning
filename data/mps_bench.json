@@ -1,0 +1,89 @@
+{
+  "batch": 64,
+  "warmup": 10,
+  "timed_steps": 60,
+  "note": "this process never spawns FCEUX; the boundary is verified separately by scripts/fceux_after_mps.py in a fresh process",
+  "synthetic": {
+    "current_84_d64_L1/cpu": {
+      "device": "cpu",
+      "res": 84,
+      "d_model": 64,
+      "n_layers": 1,
+      "params": 172284,
+      "steps": 60,
+      "seconds": 3.409,
+      "steps_per_s": 17.6
+    },
+    "current_84_d64_L1/mps": {
+      "device": "mps",
+      "res": 84,
+      "d_model": 64,
+      "n_layers": 1,
+      "params": 172284,
+      "steps": 60,
+      "seconds": 0.346,
+      "steps_per_s": 173.6
+    },
+    "R_128_d64_L1/cpu": {
+      "device": "cpu",
+      "res": 128,
+      "d_model": 64,
+      "n_layers": 1,
+      "params": 366844,
+      "steps": 60,
+      "seconds": 5.507,
+      "steps_per_s": 10.9
+    },
+    "R_128_d64_L1/mps": {
+      "device": "mps",
+      "res": 128,
+      "d_model": 64,
+      "n_layers": 1,
+      "params": 366844,
+      "steps": 60,
+      "seconds": 0.721,
+      "steps_per_s": 83.2
+    },
+    "RT_128_d128_L2/cpu": {
+      "device": "cpu",
+      "res": 128,
+      "d_model": 128,
+      "n_layers": 2,
+      "params": 912892,
+      "steps": 60,
+      "seconds": 5.724,
+      "steps_per_s": 10.5
+    },
+    "RT_128_d128_L2/mps": {
+      "device": "mps",
+      "res": 128,
+      "d_model": 128,
+      "n_layers": 2,
+      "params": 912892,
+      "steps": 60,
+      "seconds": 0.83,
+      "steps_per_s": 72.3
+    },
+    "current_84_d64_L1/speedup_mps_over_cpu": 9.86,
+    "R_128_d64_L1/speedup_mps_over_cpu": 7.63,
+    "RT_128_d128_L2/speedup_mps_over_cpu": 6.89
+  },
+  "real_84x84": {
+    "cpu": {
+      "device": "cpu",
+      "n_samples": 77916,
+      "steps": 60,
+      "seconds": 4.434,
+      "steps_per_s": 13.5
+    },
+    "mps": {
+      "device": "mps",
+      "n_samples": 77916,
+      "steps": 60,
+      "seconds": 0.448,
+      "steps_per_s": 134.1
+    },
+    "speedup_mps_over_cpu": 9.93
+  },
+  "verdict": "MPS speedup on the largest arm (synthetic) 6.89x; on the real 84x84 data pipeline 9.93x. If the real speedup is near 1.0 the bottleneck is the memmap read path, not the device, and moving training to MPS buys nothing until the loader is addressed."
+}

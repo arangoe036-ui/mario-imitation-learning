@@ -1,0 +1,1016 @@
+{
+  "old_corpus": "data/runs",
+  "new_corpus": "data/runs128",
+  "n_old": 34,
+  "n_new": 34,
+  "missing_from_new": [],
+  "extra_in_new": [],
+  "checks": [
+    "sync_json_pass",
+    "trace_identical",
+    "actions_identical",
+    "shape_and_rows",
+    "frames_not_constant"
+  ],
+  "runs": {
+    "pub-1022": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 8,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        17912,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 17912,
+      "rows_old": 17912,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 59.289,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-1080": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 8,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        17891,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 17891,
+      "rows_old": 17891,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 64.17,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-1106": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        67779,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 67779,
+      "rows_old": 67779,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 69.247,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-1194": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        67729,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 67729,
+      "rows_old": 67729,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 69.011,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-1330": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 8,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        17869,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 17869,
+      "rows_old": 17869,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 59.698,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-1331": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        67580,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 67580,
+      "rows_old": 67580,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 66.845,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-1349": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        67413,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 67413,
+      "rows_old": 67413,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 68.519,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-1715": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 8,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        17868,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 17868,
+      "rows_old": 17868,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 61.032,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-1962": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        67204,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 67204,
+      "rows_old": 67204,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 67.302,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-243": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 8,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        17995,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 17995,
+      "rows_old": 17995,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 58.575,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-262": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        68357,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 68357,
+      "rows_old": 68357,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 67.752,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-3648": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        71520,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 71520,
+      "rows_old": 71520,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 67.266,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-3665": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        67158,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 67158,
+      "rows_old": 67158,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 66.356,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-3728": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        67117,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 67117,
+      "rows_old": 67117,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 69.044,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-374": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 8,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        17996,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 17996,
+      "rows_old": 17996,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 59.534,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "pub-4313": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        71438,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 71438,
+      "rows_old": 71438,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 68.549,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-4686736457": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        78130,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 78130,
+      "rows_old": 78130,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 69.275,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-4836183441": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 12,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        26177,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 26177,
+      "rows_old": 26177,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 67.868,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-4917648550": {
+      "sync_json_pass": false,
+      "synced": false,
+      "sync_failed_checks": [
+        "no-deaths"
+      ],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 2,
+      "first_last_level": [
+        "1-1",
+        "1-2"
+      ],
+      "reason": "no-deaths failed: player died 42 time(s); first death state at frame 2981",
+      "shape": [
+        68007,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 68007,
+      "rows_old": 68007,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 36.453,
+      "frames_not_constant": true,
+      "old_synced": false,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-5206271727": {
+      "sync_json_pass": false,
+      "synced": false,
+      "sync_failed_checks": [
+        "no-deaths",
+        "level-coverage"
+      ],
+      "sync_advisory_failures": [
+        "forward-progress"
+      ],
+      "n_checks": 6,
+      "levels": 1,
+      "first_last_level": [
+        "1-1",
+        "1-1"
+      ],
+      "reason": "no-deaths failed: player died 34 time(s); first death state at frame 9820 (also: level-coverage)",
+      "shape": [
+        64435,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 64435,
+      "rows_old": 64435,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 32.422,
+      "frames_not_constant": true,
+      "old_synced": false,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-6377984983": {
+      "sync_json_pass": false,
+      "synced": false,
+      "sync_failed_checks": [
+        "no-deaths"
+      ],
+      "sync_advisory_failures": [
+        "forward-progress"
+      ],
+      "n_checks": 6,
+      "levels": 2,
+      "first_last_level": [
+        "1-1",
+        "1-2"
+      ],
+      "reason": "no-deaths failed: player died 15 time(s); first death state at frame 11168",
+      "shape": [
+        36614,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 36614,
+      "rows_old": 36614,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 63.212,
+      "frames_not_constant": true,
+      "old_synced": false,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-6378219479": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        69998,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 69998,
+      "rows_old": 69998,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 66.134,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-6378829043": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        68509,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 68509,
+      "rows_old": 68509,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 66.244,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-6384136162": {
+      "sync_json_pass": false,
+      "synced": false,
+      "sync_failed_checks": [
+        "no-deaths"
+      ],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 7,
+      "first_last_level": [
+        "1-1",
+        "8-3"
+      ],
+      "reason": "no-deaths failed: player died 1 time(s); first death state at frame 4",
+      "shape": [
+        19707,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 19707,
+      "rows_old": 19707,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 60.488,
+      "frames_not_constant": true,
+      "old_synced": false,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-6385868188": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 8,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        18396,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 18396,
+      "rows_old": 18396,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 61.433,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-6386331589": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 8,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        18544,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 18544,
+      "rows_old": 18544,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 63.682,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-6388032955": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 8,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        18392,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 18392,
+      "rows_old": 18392,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 64.834,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-6389096164": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        67117,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 67117,
+      "rows_old": 67117,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 68.096,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-6669419515": {
+      "sync_json_pass": false,
+      "synced": false,
+      "sync_failed_checks": [
+        "no-deaths"
+      ],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 19,
+      "first_last_level": [
+        "1-1",
+        "5-3"
+      ],
+      "reason": "no-deaths failed: player died 20 time(s); first death state at frame 40428",
+      "shape": [
+        61077,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 61077,
+      "rows_old": 61077,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 63.724,
+      "frames_not_constant": true,
+      "old_synced": false,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-6764233309": {
+      "sync_json_pass": true,
+      "synced": true,
+      "sync_failed_checks": [],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 32,
+      "first_last_level": [
+        "1-1",
+        "8-4"
+      ],
+      "reason": "all progression invariants held",
+      "shape": [
+        67708,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 67708,
+      "rows_old": 67708,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 69.048,
+      "frames_not_constant": true,
+      "old_synced": true,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-6916660569": {
+      "sync_json_pass": false,
+      "synced": false,
+      "sync_failed_checks": [
+        "no-deaths",
+        "level-coverage"
+      ],
+      "sync_advisory_failures": [],
+      "n_checks": 6,
+      "levels": 1,
+      "first_last_level": [
+        "1-1",
+        "1-1"
+      ],
+      "reason": "no-deaths failed: player died 11 time(s); first death state at frame 771 (also: level-coverage)",
+      "shape": [
+        18510,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 18510,
+      "rows_old": 18510,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 31.74,
+      "frames_not_constant": true,
+      "old_synced": false,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-7095801412": {
+      "sync_json_pass": false,
+      "synced": false,
+      "sync_failed_checks": [
+        "no-deaths",
+        "level-coverage"
+      ],
+      "sync_advisory_failures": [
+        "forward-progress"
+      ],
+      "n_checks": 6,
+      "levels": 1,
+      "first_last_level": [
+        "1-1",
+        "1-1"
+      ],
+      "reason": "no-deaths failed: player died 28 time(s); first death state at frame 9820 (also: level-coverage)",
+      "shape": [
+        64335,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 64335,
+      "rows_old": 64335,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 26.315,
+      "frames_not_constant": true,
+      "old_synced": false,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-7100618405": {
+      "sync_json_pass": false,
+      "synced": false,
+      "sync_failed_checks": [
+        "no-deaths",
+        "level-coverage"
+      ],
+      "sync_advisory_failures": [
+        "forward-progress"
+      ],
+      "n_checks": 6,
+      "levels": 1,
+      "first_last_level": [
+        "1-1",
+        "1-1"
+      ],
+      "reason": "no-deaths failed: player died 40 time(s); first death state at frame 2938 (also: level-coverage)",
+      "shape": [
+        64289,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 64289,
+      "rows_old": 64289,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 32.151,
+      "frames_not_constant": true,
+      "old_synced": false,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    },
+    "user-7110861297": {
+      "sync_json_pass": false,
+      "synced": false,
+      "sync_failed_checks": [
+        "no-deaths",
+        "level-coverage"
+      ],
+      "sync_advisory_failures": [
+        "forward-progress"
+      ],
+      "n_checks": 6,
+      "levels": 1,
+      "first_last_level": [
+        "1-1",
+        "1-1"
+      ],
+      "reason": "no-deaths failed: player died 39 time(s); first death state at frame 2938 (also: level-coverage)",
+      "shape": [
+        64225,
+        128,
+        128
+      ],
+      "shape_and_rows": true,
+      "rows_new": 64225,
+      "rows_old": 64225,
+      "trace_identical": true,
+      "actions_identical": true,
+      "temporal_pixel_std": 28.898,
+      "frames_not_constant": true,
+      "old_synced": false,
+      "sync_agrees_with_old": true,
+      "all_pass": true
+    }
+  },
+  "n_all_pass": 34,
+  "n_trace_mismatch": 0,
+  "n_constant_frames": 0,
+  "n_synced_new": 25,
+  "n_sync_disagreements": 0,
+  "train_split": {
+    "n": 20,
+    "present_in_new": 20,
+    "synced_in_new": 20,
+    "trace_identical": 20,
+    "missing": []
+  },
+  "capture_usable": true,
+  "verdict": "**CAPTURE VERIFIES.** 34 runs at 128x128; RAM trace and applied actions byte-identical to the 84x84 corpus on every run, row counts equal, none frozen, and sync status agrees run-for-run (25 synced, the same 25 as the old corpus -- the 9 desyncs are a property of those movies, not of this capture). **All 20 runs of the frozen train split are present, synced, and trace-identical**, so R and RT train on exactly the data B did."
+}

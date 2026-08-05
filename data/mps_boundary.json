@@ -1,0 +1,68 @@
+{
+  "steps": 30,
+  "cases": {
+    "clean": {
+      "case": "clean",
+      "mps_touched": false,
+      "steps_requested": 30,
+      "ok": true,
+      "steps_served": 30,
+      "framecount": 227,
+      "exit_code": -11,
+      "gl_backend": "unknown",
+      "log_tail": "",
+      "seconds": 0.5,
+      "subprocess_rc": 0
+    },
+    "poisoned": {
+      "case": "poisoned",
+      "mps_touched": true,
+      "mps": {
+        "device": "mps",
+        "logits_shape": [
+          8,
+          300
+        ],
+        "probe_used": "pick_device('mps') -- explicit, never 'auto'"
+      },
+      "steps_requested": 30,
+      "ok": true,
+      "steps_served": 30,
+      "framecount": 227,
+      "exit_code": 0,
+      "gl_backend": "unknown",
+      "log_tail": "",
+      "seconds": 0.5,
+      "subprocess_rc": 0
+    },
+    "train_only": {
+      "case": "train_only",
+      "mps_touched": true,
+      "mps": {
+        "device": "mps",
+        "logits_shape": [
+          8,
+          300
+        ],
+        "probe_used": "pick_device('mps') -- explicit, never 'auto'"
+      },
+      "spawned_fceux": false
+    },
+    "after": {
+      "case": "clean",
+      "mps_touched": false,
+      "steps_requested": 30,
+      "ok": true,
+      "steps_served": 30,
+      "framecount": 227,
+      "exit_code": 0,
+      "gl_backend": "unknown",
+      "log_tail": "",
+      "seconds": 0.5,
+      "subprocess_rc": 0
+    }
+  },
+  "boundary_holds": true,
+  "poison_reproduced": false,
+  "verdict": "**BOUNDARY UNTESTED -- the poison did not reproduce.** FCEUX succeeded even in the process that used MPS, so this run does not demonstrate confinement; it demonstrates that the failure is not deterministic on this build. **Do not treat it as a pass.** The safe rule stands on the docstring's original measurement, not on this run."
+}

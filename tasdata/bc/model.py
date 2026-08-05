@@ -40,6 +40,10 @@ class PolicyConfig:
 
     n_actions: int
     stack: int = 4
+    #: Side length of the square grayscale input. **Was hardcoded to 84 in three places**, so
+    #: resolution could not be varied without editing the model. Checkpoints saved before this
+    #: field existed omit it and `from_dict` restores the 84 default, which is what they were.
+    frame_size: int = 84
     d_model: int = 64
     n_layers: int = 1
     n_heads: int = 2
@@ -73,13 +77,13 @@ class PolicyConfig:
 
 
 class FrameEncoder(nn.Module):
-    """Shared CNN: one 84x84 grayscale frame -> one ``d_model`` vector."""
+    """Shared CNN: one ``size``x``size`` grayscale frame -> one ``d_model`` vector."""
 
-    def __init__(self, channels: tuple[int, ...], d_model: int) -> None:
+    def __init__(self, channels: tuple[int, ...], d_model: int, size: int = 84) -> None:
         super().__init__()
         layers: list[nn.Module] = []
         in_ch = 1
-        # Strided convs, DQN-style: 84 -> 20 -> 9 -> 7
+        # Strided convs, DQN-style: 84 -> 20 -> 9 -> 7; at 128 -> 31 -> 14 -> 12
         kernels = [8, 4, 3]
         strides = [4, 2, 1]
         for i, out_ch in enumerate(channels):
@@ -88,12 +92,15 @@ class FrameEncoder(nn.Module):
             layers += [nn.Conv2d(in_ch, out_ch, k, s), nn.ReLU(inplace=True)]
             in_ch = out_ch
         self.conv = nn.Sequential(*layers)
+        self.size = int(size)
+        # Probe rather than derive: the flatten width depends on kernel/stride/padding and an
+        # off-by-one here is a silent shape error at the first backward pass.
         with torch.no_grad():
-            n_flat = self.conv(torch.zeros(1, 1, 84, 84)).numel()
+            n_flat = self.conv(torch.zeros(1, 1, self.size, self.size)).numel()
         self.proj = nn.Linear(n_flat, d_model)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        # x: (B*T, 1, 84, 84)
+        # x: (B*T, 1, size, size)
         return self.proj(self.conv(x).flatten(1))
 
 
@@ -103,7 +110,7 @@ class BCPolicy(nn.Module):
     def __init__(self, config: PolicyConfig) -> None:
         super().__init__()
         self.config = config
-        self.encoder = FrameEncoder(config.cnn_channels, config.d_model)
+        self.encoder = FrameEncoder(config.cnn_channels, config.d_model, config.frame_size)
         n_positions = config.stack + max(0, config.n_prev_actions)
         self.pos = nn.Parameter(torch.zeros(1, n_positions, config.d_model))
         nn.init.trunc_normal_(self.pos, std=0.02)
@@ -138,12 +145,19 @@ class BCPolicy(nn.Module):
     def forward(
         self, frames: torch.Tensor, prev_actions: torch.Tensor | None = None
     ) -> torch.Tensor:
-        """Logits from ``frames`` ``(B, stack, 84, 84)`` and optional ``prev`` ``(B, k)``."""
+        """Logits from ``frames`` ``(B, stack, S, S)`` and optional ``prev`` ``(B, k)``."""
         b, t = frames.shape[0], frames.shape[1]
         if self.config.blind:
             # Belt and braces: the data pipeline already zeroes it.
             frames = torch.zeros_like(frames)
-        x = self.encoder(frames.reshape(b * t, 1, 84, 84)).reshape(b, t, -1)
+        s = self.config.frame_size
+        if frames.shape[-1] != s or frames.shape[-2] != s:
+            raise ValueError(
+                f"frame_size mismatch: model expects {s}x{s}, got "
+                f"{frames.shape[-2]}x{frames.shape[-1]}. A resolution change needs a re-capture "
+                f"or a load-time downscale, not just a config edit."
+            )
+        x = self.encoder(frames.reshape(b * t, 1, s, s)).reshape(b, t, -1)
 
         if self.config.n_prev_actions > 0:
             k = self.config.n_prev_actions

@@ -1731,3 +1731,112 @@ representational win with no timing content.** Sharpening and search are both ru
 measurement rather than by argument. What remains untested is the **observation** — resolution, or explicit
 enemy-relative features from RAM, which the trace logger already records at death. That is a change of input
 rather than of method, and therefore a different project than the one this document describes.
+
+---
+
+## Block 53 — The previous entry is overturned: it rested on a single training run
+
+**The entry immediately above this one stays exactly as written.** It was an honest account of what we
+believed and why. It is also wrong, and this entry says how we found that out.
+
+### What changed
+
+**"The policy has no timing anywhere" is withdrawn.** So is "its competence is duration, not timing," and so
+is the elimination argument that made changing the observation the only remaining lever. All three were
+inferred from the timing lift measured on **one checkpoint**, `runlength.pt`. Retrain the same recipe and the
+sign flips. The policy does discriminate when to jump, including where it succeeds.
+
+**What replaces it is narrower and more useful:** the timing signal is real, it grows sharply with input
+resolution, and **behaviour does not use it.**
+
+### How we got there, including the wrong turn
+
+The advisor's directive opened by correcting the estimator, and the correction was legitimate. Under
+run-length encoding the model only ever decides at run boundaries, but the baseline we had been comparing
+against — "non-onset frames at the same x" — turned out to be **93.4% mid-run**, inputs the model is never
+trained to score. So the comparison was in-distribution onsets against off-distribution neighbours. We
+rebuilt it as onsets versus **non-A run starts**, which holds "this is a decision point" fixed.
+
+The corrected estimator did not change the answer: pipe 2 stayed negative, −0.026 against the confounded
+−0.012. We recorded that the finding survived and moved on to the scale-up.
+
+**The wrong turn is visible only in hindsight, and it is a methodological one rather than a coding error.**
+The fifty-first block measured one checkpoint. The correction re-measured *the same checkpoint*, more
+carefully. A better instrument applied to the same single sample cannot reveal that the sample is unusual —
+and our own operational ledger has said since block 39 that *one seed is a screen, not a ranking*. We had
+written the rule down, cited it against other people's numbers, and then walked straight into it. Neither the
+advisor who wrote the directive nor the builder who executed it caught it at the time.
+
+What caught it was incidental. The scale-up needed an 84×84 control trained for the same 15,000 steps as the
+new arms, because comparing against a 3,000-step checkpoint would confound resolution with training length.
+We measured that control's timing lift as a throwaway sanity check before spending the expensive part of the
+budget — and it came out **positive**. At that point the responsible move was not to celebrate but to go
+backwards: re-run the *old* recipe, 3,000 steps at batch 128, through the new pipeline. That is the arm that
+settles it, because it changes nothing except which particular training run you are looking at.
+
+### The numbers, with sample size and baseline
+
+Corrected estimator throughout; stratified over 16-px bins, weighted by onset count, bootstrapped over
+onsets. Everything below is 84×84, `d_model=64`, one transformer layer, the same frozen expert-train split,
+plain cross-entropy, run-length joint action classes. **Seeds vary weight initialisation as well as data
+order.** Pipe-2 onsets n=32.
+
+| arm | steps | batch | pipe-2 corrected lift |
+|---|---|---|---|
+| `runlength.pt` — the previous entry's checkpoint | 3,000 | 128 | **−0.026 [−0.035, −0.016]** |
+| same recipe, retrained | 3,000 | 128 | **+0.028 [+0.013, +0.042]** |
+| longer, seed 0 | 15,000 | 64 | **+0.063 [+0.025, +0.101]** |
+| longer, seed 1 | 15,000 | 64 | **+0.177 [+0.127, +0.226]** |
+| longer, seed 2 | 15,000 | 64 | **+0.130 [+0.083, +0.178]** |
+
+Four freshly trained checkpoints, four positive lifts, every interval excluding zero. The checkpoint the
+conclusion was built on is the outlier. A by-product worth keeping: the **seed spread on a lift is 0.114**,
+which is the first noise floor we have ever measured for this quantity and the number future lift comparisons
+have to clear.
+
+Then the scale-up itself, n=200 episodes per arm, single life, one training seed each, evaluated identically:
+
+| arm | resolution | transformer | pipe 1 | pipe 2 | pipe 3 | pipe 4 | pipe-2 timing lift |
+|---|---|---|---|---|---|---|---|
+| B | 84×84 | d64, 1 layer | 66.0% | 63.5% | 25.5% | 9.5% | +0.063 |
+| R | 128×128 | d64, 1 layer | 61.5% | 55.5% | 22.5% | 6.0% | **+0.301** |
+| RT | 128×128 | d128, 2 layers | 63.5% | 55.0% | 26.0% | 5.0% | **+0.324** |
+
+**The timing lift rises roughly fivefold and clearance does not move.** At the Goomba — the obstacle this
+policy actually fails — the larger network reaches **+0.366**, the strongest timing signal recorded anywhere
+in this project, and clears it no better. We are explicitly *not* claiming resolution hurt performance: the
+8 pp gap at pipe 2 sits well inside a documented 14.5–24.5 pp training-seed spread, and these arms are one
+seed each. The supported claim is that clearance **did not improve**.
+
+Against the standing bar, nothing has changed: no arm at any resolution beats the best fixed-rate script at
+pipes 1–2 (the best, B, is 19.0 pp short at pipe 2). Against a script matched to each arm's own button rates,
+all three win pipes 2–4 by +48 to +49 pp at pipe 2 and lose pipe 1 — the same shape as before.
+
+### Cost
+
+About four hours end to end, most of it the 26 GB re-capture at 128×128 and six sets of 200 evaluation
+episodes. The training itself stopped being the expensive part: moving it to the GPU took 15,000 steps from
+roughly 40 minutes to **2.9 minutes**, which is the only reason running four extra checkpoints to check a
+seed was affordable at all. That is the practical lesson hiding inside the methodological one — **we had been
+treating one seed as sufficient partly because a second seed used to cost most of an afternoon.**
+
+Two incidental defects were found and fixed. Seven of the thirty-four movie paths in the capture plan still
+pointed at the project's pre-move directory, so the first capture pass silently produced 27 of 34 runs — and
+all seven missing runs were in the training split. And the capture command estimated 11.18 GiB of disk for a
+job that wrote 25.7, because it reported a figure frozen at the old resolution rather than the one requested.
+
+### Downstream effect
+
+The observation is no longer the indicated next lever, and the two things the previous entry ruled out —
+sharpening, and search — are ruled back in, because the premise that ruled them out has been withdrawn.
+
+More usefully, the dissociation narrows the target. The network's probability of jumping now discriminates
+the expert's jump moments substantially better at higher resolution, and the agent's behaviour is unchanged.
+Whatever is binding sits *between* the probability and the action: the generation rule that samples once from
+the softmax, commits to a duration, and truncates non-jump runs at four frames. That is a much smaller and
+more testable object than "the observation," and it costs nothing to capture.
+
+The broader consequence is that several earlier results need re-checking rather than re-deriving. The claim
+that the policy is never confident about jumping, the decomposition of its conditioning into spatial and
+temporal parts, and the per-obstacle lift table were all measured on that same single checkpoint. None of
+them is refuted by this entry. All of them are now single-seed, and single-seed is a screen.

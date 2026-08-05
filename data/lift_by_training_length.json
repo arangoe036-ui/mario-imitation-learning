@@ -1,0 +1,382 @@
+{
+  "arms": {
+    "phase1_runlength_3k_ORIGINAL": {
+      "checkpoint": "data/bc_phase1/runlength.pt",
+      "steps": null,
+      "batch": null,
+      "seed": null,
+      "frame_size": 84,
+      "d_model": 64,
+      "n_layers": 1,
+      "samples_seen": null,
+      "timing_lift": {
+        "estimator": "stratified 16px bins, bootstrap over onsets",
+        "n_frames": 4131,
+        "obstacles": {
+          "goomba_288": {
+            "n_onsets": 30,
+            "measurable": true,
+            "corrected_lift": 0.06198484597520696,
+            "corrected_ci": [
+              0.03497859691280044,
+              0.09043013369297195
+            ],
+            "confounded_lift_all_non_onset": 0.03515384665819136,
+            "confounded_ci": [
+              0.022297277327320633,
+              0.047888024281316305
+            ]
+          },
+          "pipe1_432": {
+            "n_onsets": 36,
+            "measurable": true,
+            "corrected_lift": 0.007825735420986281,
+            "corrected_ci": [
+              -0.0028277595470423324,
+              0.018336011244984404
+            ],
+            "confounded_lift_all_non_onset": -0.01067098122948976,
+            "confounded_ci": [
+              -0.022183589050311196,
+              -0.0006045048845375107
+            ]
+          },
+          "pipe2_592": {
+            "n_onsets": 32,
+            "measurable": true,
+            "corrected_lift": -0.025658816939183305,
+            "corrected_ci": [
+              -0.03485676147603282,
+              -0.015805644139514453
+            ],
+            "confounded_lift_all_non_onset": -0.01235560556724525,
+            "confounded_ci": [
+              -0.02262957583761887,
+              -0.002211176637115
+            ]
+          }
+        }
+      }
+    },
+    "phase1_repro_84_3k_b128": {
+      "checkpoint": "data/bc_scaleup/phase1_repro_84_3k_b128.pt",
+      "steps": 3000,
+      "batch": 128,
+      "seed": 0,
+      "frame_size": 84,
+      "d_model": 64,
+      "n_layers": 1,
+      "samples_seen": 384000,
+      "timing_lift": {
+        "estimator": "stratified 16px bins, bootstrap over onsets",
+        "n_frames": 4131,
+        "obstacles": {
+          "goomba_288": {
+            "n_onsets": 30,
+            "measurable": true,
+            "corrected_lift": 0.016422480398582098,
+            "corrected_ci": [
+              0.005916374287568039,
+              0.02719810494428708
+            ],
+            "confounded_lift_all_non_onset": 0.0037868207391406543,
+            "confounded_ci": [
+              -0.004408242839167496,
+              0.012004062673367304
+            ]
+          },
+          "pipe1_432": {
+            "n_onsets": 36,
+            "measurable": true,
+            "corrected_lift": 0.0016070090516498653,
+            "corrected_ci": [
+              -0.011006526708217204,
+              0.014247873282727948
+            ],
+            "confounded_lift_all_non_onset": -0.017859279804312914,
+            "confounded_ci": [
+              -0.031193637455694423,
+              -0.005552623153972649
+            ]
+          },
+          "pipe2_592": {
+            "n_onsets": 32,
+            "measurable": true,
+            "corrected_lift": 0.027715581721851464,
+            "corrected_ci": [
+              0.01345676458898338,
+              0.04244287248057802
+            ],
+            "confounded_lift_all_non_onset": 0.02290169994923918,
+            "confounded_ci": [
+              0.010873250281980221,
+              0.03512688553317797
+            ]
+          }
+        }
+      }
+    },
+    "B_84_d64_L1": {
+      "checkpoint": "data/bc_scaleup/B_84_d64_L1.pt",
+      "steps": 15000,
+      "batch": 64,
+      "seed": 0,
+      "frame_size": 84,
+      "d_model": 64,
+      "n_layers": 1,
+      "samples_seen": 960000,
+      "timing_lift": {
+        "estimator": "stratified 16px bins, bootstrap over onsets",
+        "n_frames": 4131,
+        "obstacles": {
+          "goomba_288": {
+            "n_onsets": 30,
+            "measurable": true,
+            "corrected_lift": 0.12759889439438227,
+            "corrected_ci": [
+              0.050319119574260655,
+              0.20862785617543245
+            ],
+            "confounded_lift_all_non_onset": 0.05437044393421602,
+            "confounded_ci": [
+              0.010398879627349887,
+              0.09911687157132355
+            ]
+          },
+          "pipe1_432": {
+            "n_onsets": 36,
+            "measurable": true,
+            "corrected_lift": 0.047706757421197406,
+            "corrected_ci": [
+              0.018086738917010323,
+              0.07921322590016347
+            ],
+            "confounded_lift_all_non_onset": 0.02576919498130791,
+            "confounded_ci": [
+              -0.012189255722368628,
+              0.058885334003784984
+            ]
+          },
+          "pipe2_592": {
+            "n_onsets": 32,
+            "measurable": true,
+            "corrected_lift": 0.06304869123314523,
+            "corrected_ci": [
+              0.02504769239774566,
+              0.10112105870207887
+            ],
+            "confounded_lift_all_non_onset": 0.13533200625126338,
+            "confounded_ci": [
+              0.09721003159076634,
+              0.17133106473755044
+            ]
+          }
+        }
+      }
+    },
+    "B_84_seed1": {
+      "checkpoint": "data/bc_scaleup/B_84_seed1.pt",
+      "steps": 15000,
+      "batch": 64,
+      "seed": 1,
+      "frame_size": 84,
+      "d_model": 64,
+      "n_layers": 1,
+      "samples_seen": 960000,
+      "timing_lift": {
+        "estimator": "stratified 16px bins, bootstrap over onsets",
+        "n_frames": 4131,
+        "obstacles": {
+          "goomba_288": {
+            "n_onsets": 30,
+            "measurable": true,
+            "corrected_lift": 0.12441511428363068,
+            "corrected_ci": [
+              0.05775561548517673,
+              0.19848227044165187
+            ],
+            "confounded_lift_all_non_onset": 0.07167993167555092,
+            "confounded_ci": [
+              0.029891167064523702,
+              0.12083456674626993
+            ]
+          },
+          "pipe1_432": {
+            "n_onsets": 36,
+            "measurable": true,
+            "corrected_lift": 0.09735516625384388,
+            "corrected_ci": [
+              0.051235519320302673,
+              0.14469399820136772
+            ],
+            "confounded_lift_all_non_onset": 0.04649810036791855,
+            "confounded_ci": [
+              -0.0032806034469455682,
+              0.08975467375170619
+            ]
+          },
+          "pipe2_592": {
+            "n_onsets": 32,
+            "measurable": true,
+            "corrected_lift": 0.17676204345432517,
+            "corrected_ci": [
+              0.12740551166663153,
+              0.22613969261496178
+            ],
+            "confounded_lift_all_non_onset": 0.13064529279862752,
+            "confounded_ci": [
+              0.08856261847893318,
+              0.16798541459593505
+            ]
+          }
+        }
+      }
+    },
+    "B_84_seed2": {
+      "checkpoint": "data/bc_scaleup/B_84_seed2.pt",
+      "steps": 15000,
+      "batch": 64,
+      "seed": 2,
+      "frame_size": 84,
+      "d_model": 64,
+      "n_layers": 1,
+      "samples_seen": 960000,
+      "timing_lift": {
+        "estimator": "stratified 16px bins, bootstrap over onsets",
+        "n_frames": 4131,
+        "obstacles": {
+          "goomba_288": {
+            "n_onsets": 30,
+            "measurable": true,
+            "corrected_lift": 0.12423846323232819,
+            "corrected_ci": [
+              0.06191680013870225,
+              0.18629971247530516
+            ],
+            "confounded_lift_all_non_onset": 0.05297780621063262,
+            "confounded_ci": [
+              0.0138309779910019,
+              0.09348129987424338
+            ]
+          },
+          "pipe1_432": {
+            "n_onsets": 36,
+            "measurable": true,
+            "corrected_lift": 0.0420504707727042,
+            "corrected_ci": [
+              0.006212214193156339,
+              0.07742087919892969
+            ],
+            "confounded_lift_all_non_onset": 0.04832137284041481,
+            "confounded_ci": [
+              0.01640277348398501,
+              0.0807963653773852
+            ]
+          },
+          "pipe2_592": {
+            "n_onsets": 32,
+            "measurable": true,
+            "corrected_lift": 0.13004781418096492,
+            "corrected_ci": [
+              0.08339852855654291,
+              0.17767238254810186
+            ],
+            "confounded_lift_all_non_onset": 0.11981575025250418,
+            "confounded_ci": [
+              0.07613584164831871,
+              0.16399413404394453
+            ]
+          }
+        }
+      }
+    }
+  },
+  "estimator": "corrected: expert A-onsets vs NON-A RUN STARTS, stratified over 16px bins, weighted by onset count, bootstrapped over onsets",
+  "held_fixed": "architecture d_model=64 n_layers=1, 84x84, expert-train split, plain cross-entropy, run-length joint classes",
+  "varied": "training steps (3,000 vs 15,000), batch (128 vs 64), and seed",
+  "section1_values_on_old_checkpoint": {
+    "goomba_288": {
+      "corrected_lift": 0.062,
+      "corrected_ci": [
+        0.035,
+        0.09
+      ]
+    },
+    "pipe1_432": {
+      "corrected_lift": 0.008,
+      "corrected_ci": [
+        -0.003,
+        0.018
+      ]
+    },
+    "pipe2_592": {
+      "corrected_lift": -0.026,
+      "corrected_ci": [
+        -0.035,
+        -0.016
+      ]
+    }
+  },
+  "pipe2": {
+    "old_3k_original": [
+      [
+        "phase1_runlength_3k_ORIGINAL",
+        -0.025658816939183305,
+        [
+          -0.03485676147603282,
+          -0.015805644139514453
+        ]
+      ]
+    ],
+    "repro_3k": [
+      [
+        "phase1_repro_84_3k_b128",
+        0.027715581721851464,
+        [
+          0.01345676458898338,
+          0.04244287248057802
+        ]
+      ]
+    ],
+    "at_15k_three_seeds": [
+      [
+        "B_84_d64_L1",
+        0.06304869123314523,
+        [
+          0.02504769239774566,
+          0.10112105870207887
+        ]
+      ],
+      [
+        "B_84_seed1",
+        0.17676204345432517,
+        [
+          0.12740551166663153,
+          0.22613969261496178
+        ]
+      ],
+      [
+        "B_84_seed2",
+        0.13004781418096492,
+        [
+          0.08339852855654291,
+          0.17767238254810186
+        ]
+      ]
+    ]
+  },
+  "pipe2_summary": {
+    "n_seeds_15k": 3,
+    "median_15k": 0.13004781418096492,
+    "min_15k": 0.06304869123314523,
+    "max_15k": 0.17676204345432517,
+    "seed_spread_15k": 0.11371335222117994,
+    "repro_3k_lift": 0.027715581721851464,
+    "all_15k_seeds_positive_excluding_zero": true,
+    "reproduced_the_old_negative_at_3k": false,
+    "old_checkpoint_lift": -0.025658816939183305,
+    "old_negative_is_single_seed_artifact": true
+  },
+  "verdict": "**\"NO TIMING ANYWHERE\" IS VOID: IT WAS ONE TRAINING SEED.** The old checkpoint's pipe-2 lift is -0.026. Re-running **its own recipe** -- 3,000 steps, batch 128, same architecture, corpus, split, loss -- gives +0.028, POSITIVE. And at 15,000 steps it is positive in 3/3 seeds (median +0.130, range +0.063 to +0.177), every interval excluding zero. **Four freshly trained checkpoints all show a positive pipe-2 timing lift; the one the conclusion was built on is the outlier.** The fifty-first block measured a single checkpoint and \u00a71 re-measured that same checkpoint, so neither read caught it -- the ledger's own rule that one seed is a screen was the thing being violated. **The policy does discriminate when to jump where it succeeds. The observation is not the indicated lever, and there is also a training-length dose-response on top of the seed effect: +0.028 at 3k against a median +0.130 at 15k.**",
+  "minutes": 0.4
+}

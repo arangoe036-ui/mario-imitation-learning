@@ -26,3 +26,10 @@ __pycache__/
 *.pyc
 *.egg-info/
 .DS_Store
+data/runs128/
+data/bc_scaleup/
+# Block 53: episode traces and regenerable index caches. LEDGER §4's open cleanup asks for
+# data/traces/ to be untracked; this honours that for NEW files without doing the `git rm --cached`
+# half, which is the advisor's call. Files stay on disk -- nothing here is deleted.
+data/traces/scaleup_*.json
+data/runlength_index_*.npz
