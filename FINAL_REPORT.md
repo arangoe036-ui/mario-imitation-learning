@@ -3067,3 +3067,137 @@ The loss function has not been touched.
 The positive result is unaffected and stands as written: run-length action tokens buy the early, static
 obstacles, and learning buys the late, moving ones — a 5.5-point advantage over a representation-matched script
 at the Koopa Troopas, in all ten of ten training runs.
+
+---
+
+## Block sixty-five — training only on the level we actually test
+
+### What changed
+
+We tried the most obvious idea left, and it failed in a way that was worth more than success would have been.
+
+Every network in this project is trained on demonstrations of all thirty-two levels of the game, but it is
+only ever *tested* on the first one. That is an odd arrangement, and the arithmetic behind it is worse than it
+looks: at the training length that works best, the network sees the first level less than once through from
+beginning to end. So the question almost asks itself — what if we trained it only on the level it has to play?
+
+We built two versions. One drew every training example from level 1-1 and nothing else. The other drew half
+from 1-1 and half from everywhere else. Both were trained ten separate times so that the comparison would be
+between training procedures rather than between two lucky runs.
+
+Both were worse. Not catastrophically, and not everywhere — but worse, and worse in a place that turns out to
+matter.
+
+### How we got there, including the wrong turns
+
+The first thing that happened was that the premise shrank three times before a single network was trained.
+
+The brief said level 1-1 was 8.9% of the usable training signal, and that training only on it would multiply
+its exposure elevenfold. Checking that against the code rather than accepting it changed all three numbers.
+
+The training data is not stored as individual frames. It is stored as *runs* — "hold right for nine frames",
+"press jump for twenty-two" — which is a compression, and it does not compress every part of the recording
+equally. A long stretch of a loading screen, where nothing is pressed at all, becomes one training example.
+A busy passage of play becomes hundreds. So a share measured in frames is not the share the training procedure
+actually draws from. Measured properly, level 1-1 is **3.0%** of the training examples, not 8.9%.
+
+Then a second discrepancy: the brief's figures covered the entire recorded corpus, but training only reads a
+subset of it — the twenty runs reserved for the purpose. On that subset the share is smaller still.
+
+The two corrections compounded. Restricting to level 1-1 would multiply its exposure not elevenfold but about
+**thirty-four fold**, and the resulting training set would be **2,323 examples** rather than the roughly
+seven thousand assumed — smaller than any of the twelve largest levels in the data. That is a very small
+number of examples for a network with three hundred thousand parameters.
+
+We wrote that down in the training script, before running anything, as a reason to expect the experiment to
+fail by over-fitting. It is easy to notice a weakened premise after seeing a disappointing result. Noticing it
+first is the only version that counts.
+
+### The numbers
+
+The comparison is against the existing full-corpus networks, ten of them, on two hundred attempts each. Before
+trusting any of it, we re-scored the old networks through the new code and got the previous block's figures
+back exactly — so the differences below are differences in behaviour, not in bookkeeping.
+
+The early obstacles were unaffected, or very slightly better. The late ones got worse, in both versions, by
+about the same amount:
+
+| obstacle | full corpus | 1-1 only | half-and-half |
+|---|---|---|---|
+| the first Goomba | 66.0% | 68.6% | 67.0% |
+| the second pipe | 66.0% | 68.4% | 67.0% |
+| the third pipe | 39.3% | 41.1% | 36.6% |
+| **the fourth pipe** | **23.6%** | **20.4%** | **19.5%** |
+| the Koopa Troopas | 20.4% | 18.6% | 17.8% |
+
+At the fourth pipe, nine of the ten restricted runs were worse than their paired baseline, in both versions
+independently. None of these differences survives the statistical correction for having looked at seven
+obstacles across two versions, and we did not name the fourth pipe in advance as the place to look, so no
+individual figure here is being claimed. What is being claimed is that two differently-built versions failed
+in the same place by the same amount — and that a separate experiment then explained why.
+
+That separate experiment is the one that matters. We saved snapshots at five points during training and tested
+each, which shows how behaviour tracks the training objective as learning proceeds:
+
+| training steps | 1-1 only: error / fourth pipe | full corpus: error / fourth pipe |
+|---|---|---|
+| 500 | 3.93 / 17% | 4.03 / 23% |
+| 1,000 | 3.11 / 18% | 3.96 / 28% |
+| 2,000 | 1.98 / 11% | 3.81 / 21% |
+| 5,000 | 0.98 / 5% | 3.46 / 32% |
+| 15,000 | **0.70 / 0%** | 2.57 / 20% |
+| 60,000 | — | 1.23 / 25% |
+
+Read the bottom rows. Trained only on the level it is tested on, the network drives its training error down to
+**0.70** — better than the full-corpus network ever achieves in sixty thousand steps — and reaches the fourth
+pipe in **none of a hundred attempts**. The full-corpus network, at nearly double that error, gets there a
+quarter of the time.
+
+The prediction under test was that concentrating the data would move the best training length *later*. It did
+not move at all: the best point is a thousand steps in both cases. What moved was the collapse, and it moved
+**earlier** — arriving after five thousand steps instead of forty-five thousand. Thirty-four times the
+exposure bought a ninefold acceleration of the failure.
+
+Comparing the two at equal training error rather than at equal training length, the restricted networks are
+worse at the fourth pipe at all ten points of comparison.
+
+### Cost
+
+About two and three-quarter hours: twenty-two short trainings, thirty evaluation configurations, five thousand
+attempts at the level.
+
+### Downstream effect
+
+The 91% of the training data that is never tested on is not dead weight. It is doing something, and what it is
+doing is preventing the network from memorising the small amount of data that is directly relevant. Removing
+it does not focus the network; it lets it collapse.
+
+There is a detail in *where* the damage landed that is worth more than the headline. This project's one
+positive result is a claim about a boundary: that the compressed action representation is what gets the
+network past the early, stationary obstacles, and that learning is what gets it past the late, moving ones.
+Restricting the data left the early obstacles alone and damaged the late ones — the learning half, exactly.
+That boundary was drawn in a previous block, before this experiment existed. **It is the first time a negative
+result in this project has landed on the side of a line that was drawn in advance**, which is a modest form of
+corroboration but a real one.
+
+We also found a small error in our own accounting, in the direction that costs nothing. The first and second
+pipes have identical clearance rates in every version ever run, including the scripted controls — no attempt
+in the history of this project has ever failed in the stretch between them. They have been counted as two
+independent measurements when correcting for multiple comparisons, which has made every such correction
+slightly too strict. That made us under-claim rather than over-claim, but it should be six obstacles and not
+seven.
+
+What this leaves is a short list. The visual input, the network's internal representation, and its output
+layer were each measured and found adequate in the two previous blocks. The training data has now been
+measured too, and the answer is the opposite of the one expected: it is not too narrow, and narrowing it
+further is actively harmful.
+
+That leaves the objective — plain next-token prediction — which is the one component that has never been
+changed in sixty-five blocks of work. Everything else has been varied: the data has been re-recorded,
+re-balanced, augmented with search, and now re-weighted by level; the network has been widened, deepened, and
+given a non-linear output; the sampling has been capped, sharpened and biased. The loss function has not been
+touched once.
+
+The positive result is unaffected and stands as written: run-length action tokens buy the early, static
+obstacles, and learning buys the late, moving ones — a 5.5-point advantage over a representation-matched
+script at the Koopa Troopas, in all ten of ten training runs.

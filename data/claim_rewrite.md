@@ -118,3 +118,35 @@ A fifth item joins the "must be said alongside it" list:
    probing pointed — changes no measured outcome at ten paired seeds. **Together with the trunk probes (wall
    identity AUC 0.892–1.000, position R² 0.712) this means no future negative in this project can be blamed on
    the representation or on the read-out. Both have been measured and both are adequate.**
+
+---
+
+## Block 65 — the corpus is load-bearing, and the claim's boundary held under a new test
+
+**The claim is unchanged:** run-length action tokens buy the early static obstacles; learning buys the late
+moving ones — **Koopas +5.5 pp, 10/10 seeds, p=0.0020, Bonferroni ×6 = 0.012.**
+
+Block 65 restricted the training corpus to the only level ever evaluated (1-1), on the hypothesis that the
+model was seeing it less than once through. Two arms at ten paired seeds: **C1** drew every batch from 1-1
+alone (2,323 samples, 27.6 epochs at 1,000 steps against the full corpus's 0.82); **C2** drew half of each
+batch from 1-1.
+
+**Both arms were worse, and worse in a specific place.** Early walls flat or slightly up and null
+(pipe 2: C1 +2.5 pp, 7/10 seeds, p=0.242). Late walls down in both arms with the same sign and the same seed
+count (pipe 4: C1 −3.2 pp 1/10 up p=0.035; C2 −4.0 pp 1/10 up p=0.022). Nothing survives Bonferroni over the
+14 wall tests and nothing was pre-specified; the replication across two independent arms is what is claimed,
+not any p-value. A steps ladder confirmed it: C1's pipe-4 clearance falls monotonically 17→18→11→5→**0%** as
+its loss falls 3.933→**0.700**, a loss the full corpus never reaches in 60,000 steps while still clearing
+pipe 4 in 25% of episodes. **Matched on loss rather than on steps, the restricted arms are worse at pipe 4 at
+all ten matched rungs.**
+
+**Sixth item on the "must be said alongside it" list:**
+
+6. **The 91% of the corpus that is never evaluated is load-bearing.** Removing it degrades exactly the late,
+   moving obstacles that the claim attributes to learning, and leaves the early, static ones — the ones the
+   claim attributes to the token representation — untouched. The off-task levels act as regularisation.
+   **This is the first time a negative in this project landed on the side of a line drawn in advance**, which
+   is weak corroboration of the claim's boundary rather than of the claim's size.
+
+**Also settled, and it must be said whenever "train it more" comes up:** the peak did **not** move. C1's best
+rung is 1,000 steps, identical to the full corpus. What moved is the collapse, ~9× earlier in steps.

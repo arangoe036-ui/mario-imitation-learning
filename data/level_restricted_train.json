@@ -1,0 +1,210 @@
+{
+  "arms": {
+    "C1_84_s0": {
+      "tag": "C1",
+      "seed": 0,
+      "steps": 1000,
+      "mode": "only",
+      "final_loss": 3.1113514137268066,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C2_84_s0": {
+      "tag": "C2",
+      "seed": 0,
+      "steps": 1000,
+      "mode": "half",
+      "final_loss": 3.900148715019226,
+      "n_samples_1_1": 2323,
+      "minutes": 0.3
+    },
+    "C1_84_s1": {
+      "tag": "C1",
+      "seed": 1,
+      "steps": 1000,
+      "mode": "only",
+      "final_loss": 2.9794984788894654,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C2_84_s1": {
+      "tag": "C2",
+      "seed": 1,
+      "steps": 1000,
+      "mode": "half",
+      "final_loss": 3.8619366836547853,
+      "n_samples_1_1": 2323,
+      "minutes": 0.3
+    },
+    "C1_84_s2": {
+      "tag": "C1",
+      "seed": 2,
+      "steps": 1000,
+      "mode": "only",
+      "final_loss": 2.9170398969650266,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C2_84_s2": {
+      "tag": "C2",
+      "seed": 2,
+      "steps": 1000,
+      "mode": "half",
+      "final_loss": 3.845656538963318,
+      "n_samples_1_1": 2323,
+      "minutes": 0.3
+    },
+    "C1_84_s3": {
+      "tag": "C1",
+      "seed": 3,
+      "steps": 1000,
+      "mode": "only",
+      "final_loss": 3.081304642677307,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C2_84_s3": {
+      "tag": "C2",
+      "seed": 3,
+      "steps": 1000,
+      "mode": "half",
+      "final_loss": 3.891218500137329,
+      "n_samples_1_1": 2323,
+      "minutes": 0.3
+    },
+    "C1_84_s4": {
+      "tag": "C1",
+      "seed": 4,
+      "steps": 1000,
+      "mode": "only",
+      "final_loss": 3.1430092697143555,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C2_84_s4": {
+      "tag": "C2",
+      "seed": 4,
+      "steps": 1000,
+      "mode": "half",
+      "final_loss": 3.84442786026001,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C1_84_s5": {
+      "tag": "C1",
+      "seed": 5,
+      "steps": 1000,
+      "mode": "only",
+      "final_loss": 2.780238248825073,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C2_84_s5": {
+      "tag": "C2",
+      "seed": 5,
+      "steps": 1000,
+      "mode": "half",
+      "final_loss": 3.7273435230255125,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C1_84_s6": {
+      "tag": "C1",
+      "seed": 6,
+      "steps": 1000,
+      "mode": "only",
+      "final_loss": 3.1951493072509765,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C2_84_s6": {
+      "tag": "C2",
+      "seed": 6,
+      "steps": 1000,
+      "mode": "half",
+      "final_loss": 3.8703607263565063,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C1_84_s7": {
+      "tag": "C1",
+      "seed": 7,
+      "steps": 1000,
+      "mode": "only",
+      "final_loss": 2.976273325920105,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C2_84_s7": {
+      "tag": "C2",
+      "seed": 7,
+      "steps": 1000,
+      "mode": "half",
+      "final_loss": 3.7952191915512086,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C1_84_s8": {
+      "tag": "C1",
+      "seed": 8,
+      "steps": 1000,
+      "mode": "only",
+      "final_loss": 3.062702317237854,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C2_84_s8": {
+      "tag": "C2",
+      "seed": 8,
+      "steps": 1000,
+      "mode": "half",
+      "final_loss": 3.8386245222091673,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C1_84_s9": {
+      "tag": "C1",
+      "seed": 9,
+      "steps": 1000,
+      "mode": "only",
+      "final_loss": 2.964607234954834,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C2_84_s9": {
+      "tag": "C2",
+      "seed": 9,
+      "steps": 1000,
+      "mode": "half",
+      "final_loss": 3.8225699129104616,
+      "n_samples_1_1": 2323,
+      "minutes": 0.2
+    },
+    "C1_84_s0_15000": {
+      "tag": "C1",
+      "seed": 0,
+      "steps": 15000,
+      "mode": "only",
+      "final_loss": 0.7000696527957916,
+      "n_samples_1_1": 2323,
+      "minutes": 3.3
+    },
+    "C2_84_s0_15000": {
+      "tag": "C2",
+      "seed": 0,
+      "steps": 15000,
+      "mode": "half",
+      "final_loss": 1.9707541131973267,
+      "n_samples_1_1": 2323,
+      "minutes": 3.7
+    }
+  },
+  "batch": 64,
+  "lr": 0.0003,
+  "level": "1-1",
+  "composition_note": "1-1 is 2,323 of 77,916 run-length training samples (3.0%); the 8.9% in the directive is a FRAME share. C1 therefore trains on 2,323 samples, not the 6,949 anticipated",
+  "modes": {
+    "C1": "every batch drawn from 1-1 only",
+    "C2": "half of each batch from 1-1, half from the rest"
+  }
+}

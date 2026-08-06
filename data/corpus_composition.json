@@ -1,0 +1,72 @@
+{
+  "question": "does the dataset's own filter exclude non-in-control frames, and what share of the TRAINING SAMPLES is 1-1?",
+  "filter_answer": {
+    "FrameStackDataset_filters_in_control": false,
+    "build_index_filters_in_control": false,
+    "evidence": "neither module references `pregame` or `player_state`; build_index keeps every observation row whose action token differs from the previous frame's",
+    "consequence": "the 77,916 run-length training samples INCLUDE pregame frames, level transitions and death animations"
+  },
+  "corpus_frames_expert_train_split": {
+    "total_frames": 981385,
+    "in_control_frames": 615785,
+    "in_control_share": 0.6274652659251976,
+    "frames_labelled_1_1": 40023,
+    "in_control_frames_1_1": 16095,
+    "in_control_share_of_1_1_label": 0.4021437673337831,
+    "note": "the directive's table is over the WHOLE 34-run corpus (1,684,996 frames); this is the 20-run expert-train split, which is what training actually reads"
+  },
+  "TRAINING_SAMPLES": {
+    "total_run_samples": 77916,
+    "samples_1_1": 2323,
+    "share_1_1": 0.029814158837722676,
+    "samples_1_1_in_control": 1737,
+    "share_1_1_in_control": 0.022293238872632064,
+    "in_control_samples_total": 75368,
+    "in_control_share_of_samples": 0.9672981159197084,
+    "by_level_top12": {
+      "7-2": 6349,
+      "8-4": 5501,
+      "2-2": 5294,
+      "8-1": 4184,
+      "1-2": 3245,
+      "4-2": 2957,
+      "8-2": 2882,
+      "7-4": 2756,
+      "4-1": 2604,
+      "4-4": 2433,
+      "6-2": 2360,
+      "8-3": 2358
+    },
+    "by_level_in_control_top12": {
+      "7-2": 6310,
+      "2-2": 5223,
+      "8-4": 5148,
+      "8-1": 4133,
+      "4-2": 2884,
+      "8-2": 2843,
+      "1-2": 2828,
+      "7-4": 2748,
+      "4-1": 2550,
+      "4-4": 2419,
+      "8-3": 2327,
+      "6-2": 2306
+    }
+  },
+  "exposure": {
+    "1000_steps": {
+      "samples_drawn": 64000,
+      "epochs_over_full_index": 0.8213974023307151,
+      "expected_1_1_samples_seen": 1908.1061656142513,
+      "epochs_over_1_1_if_restricted": 27.55058114507103,
+      "epochs_over_1_1_in_control_if_restricted": 36.84513529073114
+    },
+    "15000_steps": {
+      "samples_drawn": 960000,
+      "epochs_over_full_index": 12.320961034960726,
+      "expected_1_1_samples_seen": 28621.59248421377,
+      "epochs_over_1_1_if_restricted": 413.25871717606543,
+      "epochs_over_1_1_in_control_if_restricted": 552.6770293609671
+    }
+  },
+  "verdict": "**The dataset does NOT filter to in-control frames** \u2014 neither `FrameStackDataset` nor `build_index` references `pregame` or `player_state`, so 3.3% of training samples are out-of-control frames (pregame, transitions, death animations). **1-1 is 2,323 of 77,916 training samples (3.0%), of which 1,737 are in-control (2.2%).** At the measured optimum of 1,000 steps \u00d7 batch 64 = 64,000 draws, the model sees about **1908 1-1 samples \u2014 27.6 epochs' worth if restricted**, against 0.82 epochs over the full index."
+}
