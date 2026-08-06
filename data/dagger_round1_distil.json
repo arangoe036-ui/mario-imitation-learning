@@ -1,0 +1,28 @@
+{
+  "arm": "P_84_cnn32",
+  "steps": 1000,
+  "batch": 64,
+  "lr": 0.0003,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "mix": {
+    "expert_samples": 20000,
+    "correction_samples": 1507,
+    "correction_share": 0.07007020969916772,
+    "epochs_over_mixture": 2.9757753289626634,
+    "rule": "SAMPLE COUNT with an absolute floor -- never a ratio (LEDGER \u00a71)"
+  },
+  "max_solutions_per_state": 8,
+  "solution_kinds": {
+    "retreat": "1480",
+    "sampled": "27"
+  },
+  "checkpoints": [
+    "data/bc_scaleup/DAG1_84_cnn32_s0.pt",
+    "data/bc_scaleup/DAG1_84_cnn32_s1.pt",
+    "data/bc_scaleup/DAG1_84_cnn32_s2.pt"
+  ]
+}

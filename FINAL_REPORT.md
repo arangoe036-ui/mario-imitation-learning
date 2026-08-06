@@ -2647,3 +2647,124 @@ to check.
 If that arm closes the gap, the deficit was a marginal after all — just not the marginal we were testing. If
 it does not, then what a memoryless coin flip has that a trained policy lacks is the *timing* of its jumps,
 which would be a genuinely strange thing to be true and would need explaining rather than reporting.
+
+---
+
+## Block 61 — Search solved every failure it was given; the distillation learned the answer as a habit
+
+### What changed
+
+**The search half of the method works, and it is not marginal.** Given sixty states where the policy had
+actually failed, a search guided by the policy itself found a way past **every single one** — 14,675 working
+correction sequences in total. The bottleneck this project has been circling for weeks is not "can we find
+better actions".
+
+**Training on those corrections made the policy worse**, and the diagnostic built for this block says exactly
+why: it learned the corrections **specifically and strongly**, and then applied them **everywhere**.
+
+**And the project's headline positive result has been cut by more than an order of magnitude** by a control
+that should have been built much earlier. What was reported as an eighty-point advantage over a scripted
+opponent is, against an honest control, about six points.
+
+### How we got there, including the wrong turn
+
+The reasoning behind the block was that the training data — 1.2 million frames of flawless tool-assisted play
+— contains no mistakes and therefore no recoveries. A policy cloned from it leaves the demonstrated path
+within seconds and then has no idea what to do. The fix is to generate the missing data: take states where the
+policy failed, search for actions that get past the failure, and train on those.
+
+Stage one worked immediately. Sixty failure states, spread across every obstacle where failures actually
+occur, and all sixty solvable. Most needed only that the search start half a second before the failure rather
+than at it.
+
+A deliberate ingredient turned out to matter: the owner had observed that Mario gets stuck on top of a pipe
+and doesn't know he can go backwards, and the corpus turns out to contain retreating in **0.5%** of its action
+tokens — so a search that samples from the policy would essentially never discover "back up and try again". We
+injected sixty-four hand-built retreat manoeuvres at every state. They produced 2,885 of the corrections, and
+in an earlier check one of them solved a state that no single action could.
+
+**The wrong turn was in how I selected which corrections to train on.** Reasoning that retreats were the
+scarce and valuable label, I sorted them to the front. The result was that **98% of the training corrections
+were retreats**. The policy saw "press Left" as almost the entire correction signal.
+
+What it learned is measurable and unambiguous. Its probability on the exact retreat actions rose **eight-fold**
+at the states where they were the answer — the corrections were absolutely learned. But its overall rate of
+pressing Left rose from 5% of frames to **55%**. It did not learn *when* to back up. It learned to back up.
+Progress past the third pipe fell from 41% to 25%.
+
+This is the failure mode that killed three previous distillation attempts in this project, and each time it
+was recorded as "distillation doesn't work". The diagnostic built for this block — measure the probability
+mass on the specific solutions, not just the outcome — separates "the training didn't take" from "the training
+took and taught the wrong generalisation". They need opposite responses, and for three blocks the project drew
+the wrong one.
+
+**The second finding came from a control the advisor asked for.** The project's central positive claim was
+that the policy beats a random script with the same button rates by eighty percentage points. But that script
+picks the jump button independently on every frame, and clearing the second pipe requires holding it for
+twelve consecutive frames — probability 0.338 to the twelfth power, about two in a million. **The script's
+score wasn't low because it played badly; it was low because it physically could not perform the action.**
+
+Rebuilt so the control samples *durations* the way the policy does — matched on the action representation
+rather than on per-frame rates — the policy's advantage falls from **+80 points to +6.3**, and at the third
+pipe the control actually beats the policy in one of three training runs.
+
+### The numbers, with sample size and baseline
+
+Search, from 60 failure states across 8 obstacles: **60 solved**, 14,675 correction sequences, 2,885 of them
+retreats. 49 states needed a 30-frame head start, 11 needed 60, none needed 120.
+
+Where the failures actually are, out of 200 episodes — and split by whether Mario was stuck *at* a pipe or
+stuck *on top of* one:
+
+| obstacle | failures | at the face | **on top** |
+|---|---|---|---|
+| third pipe | 60 | 45 | **15** |
+| first Goomba | 48 | 46 | 2 |
+| fourth pipe | 38 | 19 | **19** |
+| the Koopas | 30 | 29 | 1 |
+
+**Seventeen percent of all failures are Mario stranded on top of a pipe** — and at the fourth pipe it is
+exactly half. These have been scored identically to "couldn't clear the pipe" for the whole project, and they
+need the opposite correction.
+
+Round one of the distillation, three training runs, 200 episodes each:
+
+| | past pipe 3 | Left-button rate | completions |
+|---|---|---|---|
+| baseline | 41.0 · 45.0 · 37.5 | 0.050 · 0.062 · 0.055 | 2 · 0 · 1 |
+| after distillation | 33.5 · 13.5 · 29.5 | **0.224 · 0.563 · 0.551** | 1 · 0 · 0 |
+
+Probability on the retreat solutions, at the states where they are the answer: **0.016 → 0.11–0.17**, an
+eight-fold rise, while probability on the other solution class moved by 0.003.
+
+The honest control, three training runs, 200 episodes each:
+
+| | pipe 2 | pipe 3 | pipe 4 |
+|---|---|---|---|
+| policy | 66.7% | 41.2% | 24.2% |
+| run-length script | 60.3% | 35.5% | 22.4% |
+| **difference** | **+6.3** | **+5.7** | **+1.8** |
+
+### Cost
+
+About three and a quarter hours: 2,000 evaluation episodes, roughly 26,000 search sequences, eight short
+training runs. The search data is on disk and reusable — round two needs only a different selection from it.
+
+### Downstream effect
+
+Three things are now known that were not this morning.
+
+**Search is not the constraint.** Every failure state handed to it was solved. Whatever is limiting this
+project, it is not the ability to find better actions.
+
+**The constraint is generalisation, and it is measurable.** Training on corrections teaches the correction —
+provably, eight-fold — but teaches it as a habit rather than as a response to a situation. That reframes the
+remaining problem precisely: not "can we find the right action" but "can the policy learn *when* it applies".
+The immediate test is cheap, because the mix that caused it was 98% one manoeuvre and the balanced version is
+a single line of selection code over data already collected.
+
+**And the central claim needs restating before anything is built on it.** Most of what looked like learned
+skill was the action representation — the ability to commit to holding a button for twelve frames, which the
+comparison script could not do at all. What remains after that is corrected for is about six percentage
+points. That is a real, positive, and much smaller result, and it is better to say so now than after another
+five rounds of building on the larger number.

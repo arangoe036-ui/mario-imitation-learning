@@ -1,0 +1,781 @@
+{
+  "arm": "P_84_cnn32_seed4",
+  "hypothesis": "A is already held at the unsolvable arrival frames",
+  "capture_window_x": [
+    660,
+    700
+  ],
+  "clear_threshold_x": 735,
+  "measurement_basis": "conditional_on_arrival",
+  "retreat_macro_grid": {
+    "L": [
+      8,
+      16,
+      24,
+      32
+    ],
+    "M": [
+      16,
+      24,
+      32,
+      48
+    ],
+    "H": [
+      12,
+      16,
+      20,
+      24
+    ],
+    "n": 64,
+    "why": "the corpus holds 695 retreats in 132,005 run tokens (0.526%), so ~1.8 expected among 350 sampled sequences; a retreat+re-approach is 2-3 tokens and effectively unreachable by sampling"
+  },
+  "arrivals": [
+    {
+      "from_start_x": 56,
+      "x": 663,
+      "y_absolute": 432,
+      "y_sub": 16,
+      "speed_byte": 24,
+      "speed_px_per_frame": 1.5,
+      "grounded": true,
+      "button_byte": 131,
+      "A_held_at_arrival": true,
+      "A_hold_len_running_in": 76,
+      "enemies": [
+        {
+          "slot": 0,
+          "raw_id": 6,
+          "active": 1,
+          "x": 699
+        },
+        {
+          "slot": 1,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 2,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 3,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 4,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        }
+      ],
+      "scratch_slot": 1,
+      "n_single_configs": 350,
+      "n_single_cleared": 11,
+      "n_retreat_configs": 64,
+      "n_retreat_cleared": 0,
+      "solvable_by_single": true,
+      "solvable_by_retreat_only": false,
+      "min_single_hold": 32,
+      "retreat_examples": []
+    },
+    {
+      "from_start_x": 96,
+      "x": 678,
+      "y_absolute": 432,
+      "y_sub": 56,
+      "speed_byte": 40,
+      "speed_px_per_frame": 2.5,
+      "grounded": true,
+      "button_byte": 131,
+      "A_held_at_arrival": true,
+      "A_hold_len_running_in": 29,
+      "enemies": [
+        {
+          "slot": 0,
+          "raw_id": 6,
+          "active": 1,
+          "x": 688
+        },
+        {
+          "slot": 1,
+          "raw_id": 6,
+          "active": 1,
+          "x": 815
+        },
+        {
+          "slot": 2,
+          "raw_id": 6,
+          "active": 1,
+          "x": 838
+        },
+        {
+          "slot": 3,
+          "raw_id": 0,
+          "active": 0,
+          "x": 1280
+        },
+        {
+          "slot": 4,
+          "raw_id": 0,
+          "active": 0,
+          "x": 1280
+        }
+      ],
+      "scratch_slot": 2,
+      "n_single_configs": 350,
+      "n_single_cleared": 0,
+      "n_retreat_configs": 64,
+      "n_retreat_cleared": 0,
+      "solvable_by_single": false,
+      "solvable_by_retreat_only": false,
+      "min_single_hold": null,
+      "retreat_examples": []
+    },
+    {
+      "from_start_x": 66,
+      "x": 672,
+      "y_absolute": 432,
+      "y_sub": 144,
+      "speed_byte": 40,
+      "speed_px_per_frame": 2.5,
+      "grounded": true,
+      "button_byte": 131,
+      "A_held_at_arrival": true,
+      "A_hold_len_running_in": 31,
+      "enemies": [
+        {
+          "slot": 0,
+          "raw_id": 6,
+          "active": 1,
+          "x": 690
+        },
+        {
+          "slot": 1,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 2,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 3,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 4,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        }
+      ],
+      "scratch_slot": 3,
+      "n_single_configs": 350,
+      "n_single_cleared": 66,
+      "n_retreat_configs": 64,
+      "n_retreat_cleared": 0,
+      "solvable_by_single": true,
+      "solvable_by_retreat_only": false,
+      "min_single_hold": 14,
+      "retreat_examples": []
+    },
+    {
+      "from_start_x": 130,
+      "x": 669,
+      "y_absolute": 432,
+      "y_sub": 136,
+      "speed_byte": 39,
+      "speed_px_per_frame": 2.4375,
+      "grounded": true,
+      "button_byte": 0,
+      "A_held_at_arrival": false,
+      "A_hold_len_running_in": 0,
+      "enemies": [
+        {
+          "slot": 0,
+          "raw_id": 6,
+          "active": 1,
+          "x": 685
+        },
+        {
+          "slot": 1,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 2,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 3,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 4,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        }
+      ],
+      "scratch_slot": 4,
+      "n_single_configs": 350,
+      "n_single_cleared": 0,
+      "n_retreat_configs": 64,
+      "n_retreat_cleared": 0,
+      "solvable_by_single": false,
+      "solvable_by_retreat_only": false,
+      "min_single_hold": null,
+      "retreat_examples": []
+    },
+    {
+      "from_start_x": 144,
+      "x": 678,
+      "y_absolute": 432,
+      "y_sub": 56,
+      "speed_byte": 40,
+      "speed_px_per_frame": 2.5,
+      "grounded": true,
+      "button_byte": 131,
+      "A_held_at_arrival": true,
+      "A_hold_len_running_in": 29,
+      "enemies": [
+        {
+          "slot": 0,
+          "raw_id": 6,
+          "active": 1,
+          "x": 692
+        },
+        {
+          "slot": 1,
+          "raw_id": 6,
+          "active": 1,
+          "x": 816
+        },
+        {
+          "slot": 2,
+          "raw_id": 6,
+          "active": 1,
+          "x": 840
+        },
+        {
+          "slot": 3,
+          "raw_id": 0,
+          "active": 0,
+          "x": 1280
+        },
+        {
+          "slot": 4,
+          "raw_id": 0,
+          "active": 0,
+          "x": 1280
+        }
+      ],
+      "scratch_slot": 5,
+      "n_single_configs": 350,
+      "n_single_cleared": 0,
+      "n_retreat_configs": 64,
+      "n_retreat_cleared": 0,
+      "solvable_by_single": false,
+      "solvable_by_retreat_only": false,
+      "min_single_hold": null,
+      "retreat_examples": []
+    },
+    {
+      "from_start_x": 279,
+      "x": 697,
+      "y_absolute": 432,
+      "y_sub": 240,
+      "speed_byte": 24,
+      "speed_px_per_frame": 1.5,
+      "grounded": true,
+      "button_byte": 131,
+      "A_held_at_arrival": true,
+      "A_hold_len_running_in": 22,
+      "enemies": [
+        {
+          "slot": 0,
+          "raw_id": 6,
+          "active": 1,
+          "x": 808
+        },
+        {
+          "slot": 1,
+          "raw_id": 6,
+          "active": 1,
+          "x": 678
+        },
+        {
+          "slot": 2,
+          "raw_id": 6,
+          "active": 1,
+          "x": 831
+        },
+        {
+          "slot": 3,
+          "raw_id": 0,
+          "active": 0,
+          "x": 1280
+        },
+        {
+          "slot": 4,
+          "raw_id": 0,
+          "active": 0,
+          "x": 1280
+        }
+      ],
+      "scratch_slot": 6,
+      "n_single_configs": 350,
+      "n_single_cleared": 44,
+      "n_retreat_configs": 64,
+      "n_retreat_cleared": 16,
+      "solvable_by_single": true,
+      "solvable_by_retreat_only": false,
+      "min_single_hold": 20,
+      "retreat_examples": [
+        {
+          "kind": "retreat",
+          "L": 8,
+          "M": 16,
+          "H": 24
+        },
+        {
+          "kind": "retreat",
+          "L": 8,
+          "M": 24,
+          "H": 20
+        },
+        {
+          "kind": "retreat",
+          "L": 8,
+          "M": 24,
+          "H": 24
+        },
+        {
+          "kind": "retreat",
+          "L": 8,
+          "M": 32,
+          "H": 24
+        },
+        {
+          "kind": "retreat",
+          "L": 8,
+          "M": 48,
+          "H": 24
+        },
+        {
+          "kind": "retreat",
+          "L": 16,
+          "M": 16,
+          "H": 20
+        }
+      ]
+    },
+    {
+      "from_start_x": 254,
+      "x": 678,
+      "y_absolute": 432,
+      "y_sub": 128,
+      "speed_byte": 40,
+      "speed_px_per_frame": 2.5,
+      "grounded": true,
+      "button_byte": 131,
+      "A_held_at_arrival": true,
+      "A_hold_len_running_in": 16,
+      "enemies": [
+        {
+          "slot": 0,
+          "raw_id": 6,
+          "active": 1,
+          "x": 690
+        },
+        {
+          "slot": 1,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 2,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 3,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 4,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        }
+      ],
+      "scratch_slot": 7,
+      "n_single_configs": 350,
+      "n_single_cleared": 0,
+      "n_retreat_configs": 64,
+      "n_retreat_cleared": 0,
+      "solvable_by_single": false,
+      "solvable_by_retreat_only": false,
+      "min_single_hold": null,
+      "retreat_examples": []
+    },
+    {
+      "from_start_x": 345,
+      "x": 673,
+      "y_absolute": 432,
+      "y_sub": 56,
+      "speed_byte": 36,
+      "speed_px_per_frame": 2.25,
+      "grounded": true,
+      "button_byte": 2,
+      "A_held_at_arrival": false,
+      "A_hold_len_running_in": 0,
+      "enemies": [
+        {
+          "slot": 0,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 1,
+          "raw_id": 6,
+          "active": 1,
+          "x": 689
+        },
+        {
+          "slot": 2,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 3,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 4,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        }
+      ],
+      "scratch_slot": 8,
+      "n_single_configs": 350,
+      "n_single_cleared": 66,
+      "n_retreat_configs": 64,
+      "n_retreat_cleared": 0,
+      "solvable_by_single": true,
+      "solvable_by_retreat_only": false,
+      "min_single_hold": 14,
+      "retreat_examples": []
+    },
+    {
+      "from_start_x": 456,
+      "x": 677,
+      "y_absolute": 432,
+      "y_sub": 16,
+      "speed_byte": 40,
+      "speed_px_per_frame": 2.5,
+      "grounded": true,
+      "button_byte": 131,
+      "A_held_at_arrival": true,
+      "A_hold_len_running_in": 66,
+      "enemies": [
+        {
+          "slot": 0,
+          "raw_id": 6,
+          "active": 1,
+          "x": 818
+        },
+        {
+          "slot": 1,
+          "raw_id": 6,
+          "active": 1,
+          "x": 702
+        },
+        {
+          "slot": 2,
+          "raw_id": 6,
+          "active": 1,
+          "x": 841
+        },
+        {
+          "slot": 3,
+          "raw_id": 0,
+          "active": 0,
+          "x": 1280
+        },
+        {
+          "slot": 4,
+          "raw_id": 0,
+          "active": 0,
+          "x": 1280
+        }
+      ],
+      "scratch_slot": 9,
+      "n_single_configs": 350,
+      "n_single_cleared": 77,
+      "n_retreat_configs": 64,
+      "n_retreat_cleared": 0,
+      "solvable_by_single": true,
+      "solvable_by_retreat_only": false,
+      "min_single_hold": 12,
+      "retreat_examples": []
+    },
+    {
+      "from_start_x": 463,
+      "x": 678,
+      "y_absolute": 432,
+      "y_sub": 192,
+      "speed_byte": 38,
+      "speed_px_per_frame": 2.375,
+      "grounded": true,
+      "button_byte": 0,
+      "A_held_at_arrival": false,
+      "A_hold_len_running_in": 0,
+      "enemies": [
+        {
+          "slot": 0,
+          "raw_id": 6,
+          "active": 1,
+          "x": 815
+        },
+        {
+          "slot": 1,
+          "raw_id": 6,
+          "active": 1,
+          "x": 706
+        },
+        {
+          "slot": 2,
+          "raw_id": 6,
+          "active": 1,
+          "x": 838
+        },
+        {
+          "slot": 3,
+          "raw_id": 0,
+          "active": 0,
+          "x": 1280
+        },
+        {
+          "slot": 4,
+          "raw_id": 0,
+          "active": 0,
+          "x": 1280
+        }
+      ],
+      "scratch_slot": 10,
+      "n_single_configs": 350,
+      "n_single_cleared": 77,
+      "n_retreat_configs": 64,
+      "n_retreat_cleared": 0,
+      "solvable_by_single": true,
+      "solvable_by_retreat_only": false,
+      "min_single_hold": 12,
+      "retreat_examples": []
+    },
+    {
+      "from_start_x": 576,
+      "x": 679,
+      "y_absolute": 432,
+      "y_sub": 240,
+      "speed_byte": 24,
+      "speed_px_per_frame": 1.5,
+      "grounded": true,
+      "button_byte": 131,
+      "A_held_at_arrival": true,
+      "A_hold_len_running_in": 31,
+      "enemies": [
+        {
+          "slot": 0,
+          "raw_id": 6,
+          "active": 1,
+          "x": 662
+        },
+        {
+          "slot": 1,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 2,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 3,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 4,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        }
+      ],
+      "scratch_slot": 11,
+      "n_single_configs": 350,
+      "n_single_cleared": 44,
+      "n_retreat_configs": 64,
+      "n_retreat_cleared": 24,
+      "solvable_by_single": true,
+      "solvable_by_retreat_only": false,
+      "min_single_hold": 20,
+      "retreat_examples": [
+        {
+          "kind": "retreat",
+          "L": 8,
+          "M": 16,
+          "H": 12
+        },
+        {
+          "kind": "retreat",
+          "L": 8,
+          "M": 16,
+          "H": 16
+        },
+        {
+          "kind": "retreat",
+          "L": 8,
+          "M": 16,
+          "H": 20
+        },
+        {
+          "kind": "retreat",
+          "L": 8,
+          "M": 16,
+          "H": 24
+        },
+        {
+          "kind": "retreat",
+          "L": 8,
+          "M": 24,
+          "H": 24
+        },
+        {
+          "kind": "retreat",
+          "L": 8,
+          "M": 32,
+          "H": 24
+        }
+      ]
+    },
+    {
+      "from_start_x": 534,
+      "x": 662,
+      "y_absolute": 432,
+      "y_sub": 176,
+      "speed_byte": 24,
+      "speed_px_per_frame": 1.5,
+      "grounded": true,
+      "button_byte": 1,
+      "A_held_at_arrival": true,
+      "A_hold_len_running_in": 1,
+      "enemies": [
+        {
+          "slot": 0,
+          "raw_id": 6,
+          "active": 1,
+          "x": 718
+        },
+        {
+          "slot": 1,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 2,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 3,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        },
+        {
+          "slot": 4,
+          "raw_id": 0,
+          "active": 0,
+          "x": 864
+        }
+      ],
+      "scratch_slot": 12,
+      "n_single_configs": 350,
+      "n_single_cleared": 0,
+      "n_retreat_configs": 64,
+      "n_retreat_cleared": 1,
+      "solvable_by_single": false,
+      "solvable_by_retreat_only": true,
+      "min_single_hold": null,
+      "retreat_examples": [
+        {
+          "kind": "retreat",
+          "L": 32,
+          "M": 24,
+          "H": 24
+        }
+      ]
+    }
+  ],
+  "cross_tab": {
+    "n": 12,
+    "n_solvable_by_single": 7,
+    "n_unsolvable_by_single": 5,
+    "A_held_among_solvable": 5,
+    "A_held_among_unsolvable": 4,
+    "mean_A_run_solvable": 32.285714285714285,
+    "mean_A_run_unsolvable": 15.0,
+    "x_solvable": [
+      663,
+      672,
+      697,
+      673,
+      677,
+      678,
+      679
+    ],
+    "x_unsolvable": [
+      678,
+      669,
+      678,
+      678,
+      662
+    ],
+    "retreat_rescued": [
+      662
+    ],
+    "n_retreat_rescued": 1
+  },
+  "verdict": "**THE STUCK-A HYPOTHESIS DOES NOT HOLD.** A is held at 4 of 5 unsolvable arrivals and 5 of 7 solvable ones; mean A-run 15.0 vs 32.285714285714285. **The hidden variable is still unidentified, so \u00a73 must capture states earlier to compensate.** **RETREAT MACROS RESCUE 1 STATE(S) THAT SINGLE-ACTION SEARCH CANNOT** (x = [662]). Backing off and re-approaching is a solution the policy has ~0.5% mass on and sampling would never find."
+}

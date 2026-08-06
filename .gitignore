@@ -48,3 +48,9 @@ data/recheck_720.partial.json
 data/traces/peak_*.json
 data/traces/jb_*.json
 data/traces/threeway_*.json
+data/dagger_round1.partial.json
+data/dagger_round1_samples.npz
+data/dagger_round1_solutions.json
+data/traces/dag1_*.json
+data/traces/rlscript_*.json
+data/traces/daglad_*.json

@@ -1,0 +1,1434 @@
+{
+  "arm": "P_84_cnn32",
+  "rollout_temperature": 0.7,
+  "search_temperature": 1.8,
+  "n_episodes": 200,
+  "n_failures": 200,
+  "n_completions": 0,
+  "terminator": {
+    "stall_frames": 6500,
+    "cap_frames": 12000,
+    "legacy_stall": 300,
+    "legacy_cap_frames": 3000,
+    "note": "every reach figure produced before block 58 used stall=300/cap=3000 and is a LOWER BOUND -- including the +367 px encoder depth result and block 56's '0 of 720 completions at T=0.7'"
+  },
+  "leads": [
+    30,
+    60,
+    120
+  ],
+  "n_sampled_per_state": 250,
+  "reduction_note": "directive suggested ~350 sampled sequences per state; reduced to 250 to fit distillation, measurement and the steps ladder in one block",
+  "failure_histogram": {
+    "goomba_288": 48,
+    "koopas_1216": 30,
+    "frontier_1504": 9,
+    "pipe3_720": 60,
+    "other_800": 13,
+    "pipe4_912": 38,
+    "pipe2_592": 1,
+    "other_1800": 1
+  },
+  "failure_histogram_by_height": {
+    "goomba_288|at_face": 46,
+    "koopas_1216|at_face": 29,
+    "frontier_1504|at_face": 9,
+    "pipe3_720|on_top": 15,
+    "other_800|at_face": 12,
+    "pipe3_720|at_face": 45,
+    "pipe4_912|at_face": 19,
+    "pipe4_912|on_top": 19,
+    "pipe2_592|at_face": 1,
+    "other_800|on_top": 1,
+    "goomba_288|on_top": 2,
+    "koopas_1216|on_top": 1,
+    "other_1800|at_face": 1
+  },
+  "height_note": "y < 424 absolute counts as ON TOP of a pipe; the floor is 432. 'At the face' and 'on top' land in the same x-bin and need different corrections",
+  "n_states_selected": 60,
+  "states": [
+    {
+      "seed": 7,
+      "wall": "pipe3_720",
+      "fail_x": 724,
+      "fail_y": 400,
+      "on_top": true,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 654,
+          "start_y": 396,
+          "grounded": false,
+          "target_x": 718,
+          "n_found": 169,
+          "n_retreat": 8
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 169,
+      "n_retreat_solutions": 8
+    },
+    {
+      "seed": 0,
+      "wall": "goomba_288",
+      "fail_x": 312,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 234,
+          "start_y": 353,
+          "grounded": false,
+          "target_x": 298,
+          "n_found": 305,
+          "n_retreat": 56
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 305,
+      "n_retreat_solutions": 56
+    },
+    {
+      "seed": 15,
+      "wall": "pipe4_912",
+      "fail_x": 872,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 827,
+          "start_y": 376,
+          "grounded": false,
+          "target_x": 891,
+          "n_found": 187,
+          "n_retreat": 32
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 187,
+      "n_retreat_solutions": 32
+    },
+    {
+      "seed": 1,
+      "wall": "koopas_1216",
+      "fail_x": 1268,
+      "fail_y": 786,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1194,
+          "start_y": 655,
+          "grounded": false,
+          "target_x": 1258,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 8,
+      "wall": "other_800",
+      "fail_x": 822,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 776,
+          "start_y": 377,
+          "grounded": false,
+          "target_x": 840,
+          "n_found": 21,
+          "n_retreat": 20
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 21,
+      "n_retreat_solutions": 20
+    },
+    {
+      "seed": 6,
+      "wall": "frontier_1504",
+      "fail_x": 1521,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1445,
+          "start_y": 432,
+          "grounded": true,
+          "target_x": 1509,
+          "n_found": 261,
+          "n_retreat": 54
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 261,
+      "n_retreat_solutions": 54
+    },
+    {
+      "seed": 31,
+      "wall": "pipe2_592",
+      "fail_x": 657,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 627,
+          "start_y": 327,
+          "grounded": false,
+          "target_x": 691,
+          "n_found": 103,
+          "n_retreat": 12
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 103,
+      "n_retreat_solutions": 12
+    },
+    {
+      "seed": 169,
+      "wall": "other_1800",
+      "fail_x": 1800,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1722,
+          "start_y": 432,
+          "grounded": true,
+          "target_x": 1786,
+          "n_found": 284,
+          "n_retreat": 48
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 284,
+      "n_retreat_solutions": 48
+    },
+    {
+      "seed": 12,
+      "wall": "pipe3_720",
+      "fail_x": 704,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 659,
+          "start_y": 328,
+          "grounded": false,
+          "target_x": 723,
+          "n_found": 21,
+          "n_retreat": 5
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 21,
+      "n_retreat_solutions": 5
+    },
+    {
+      "seed": 2,
+      "wall": "goomba_288",
+      "fail_x": 303,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 249,
+          "start_y": 432,
+          "grounded": true,
+          "target_x": 313,
+          "n_found": 171,
+          "n_retreat": 31
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 171,
+      "n_retreat_solutions": 31
+    },
+    {
+      "seed": 22,
+      "wall": "pipe4_912",
+      "fail_x": 898,
+      "fail_y": 386,
+      "on_top": true,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 822,
+          "start_y": 382,
+          "grounded": false,
+          "target_x": 886,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 4,
+      "wall": "koopas_1216",
+      "fail_x": 1250,
+      "fail_y": 987,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1204,
+          "start_y": 863,
+          "grounded": false,
+          "target_x": 1268,
+          "n_found": 0,
+          "n_retreat": 0
+        },
+        {
+          "lead": 60,
+          "start_x": 1159,
+          "start_y": 743,
+          "grounded": false,
+          "target_x": 1223,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 60,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 14,
+      "wall": "other_800",
+      "fail_x": 835,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 818,
+          "start_y": 413,
+          "grounded": false,
+          "target_x": 882,
+          "n_found": 115,
+          "n_retreat": 36
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 115,
+      "n_retreat_solutions": 36
+    },
+    {
+      "seed": 23,
+      "wall": "frontier_1504",
+      "fail_x": 1561,
+      "fail_y": 728,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1484,
+          "start_y": 599,
+          "grounded": false,
+          "target_x": 1548,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 13,
+      "wall": "pipe3_720",
+      "fail_x": 723,
+      "fail_y": 380,
+      "on_top": true,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 646,
+          "start_y": 328,
+          "grounded": false,
+          "target_x": 710,
+          "n_found": 293,
+          "n_retreat": 44
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 293,
+      "n_retreat_solutions": 44
+    },
+    {
+      "seed": 3,
+      "wall": "goomba_288",
+      "fail_x": 316,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 239,
+          "start_y": 432,
+          "grounded": true,
+          "target_x": 303,
+          "n_found": 304,
+          "n_retreat": 56
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 304,
+      "n_retreat_solutions": 56
+    },
+    {
+      "seed": 24,
+      "wall": "pipe4_912",
+      "fail_x": 899,
+      "fail_y": 400,
+      "on_top": true,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 844,
+          "start_y": 406,
+          "grounded": false,
+          "target_x": 908,
+          "n_found": 88,
+          "n_retreat": 18
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 88,
+      "n_retreat_solutions": 18
+    },
+    {
+      "seed": 16,
+      "wall": "koopas_1216",
+      "fail_x": 1250,
+      "fail_y": 945,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1204,
+          "start_y": 814,
+          "grounded": false,
+          "target_x": 1268,
+          "n_found": 0,
+          "n_retreat": 0
+        },
+        {
+          "lead": 60,
+          "start_x": 1159,
+          "start_y": 688,
+          "grounded": false,
+          "target_x": 1223,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 60,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 38,
+      "wall": "other_800",
+      "fail_x": 830,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 783,
+          "start_y": 396,
+          "grounded": false,
+          "target_x": 847,
+          "n_found": 42,
+          "n_retreat": 24
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 42,
+      "n_retreat_solutions": 24
+    },
+    {
+      "seed": 33,
+      "wall": "frontier_1504",
+      "fail_x": 1558,
+      "fail_y": 712,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1481,
+          "start_y": 588,
+          "grounded": false,
+          "target_x": 1545,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 25,
+      "wall": "pipe4_912",
+      "fail_x": 899,
+      "fail_y": 414,
+      "on_top": true,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 823,
+          "start_y": 407,
+          "grounded": false,
+          "target_x": 887,
+          "n_found": 312,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 312,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 18,
+      "wall": "koopas_1216",
+      "fail_x": 1252,
+      "fail_y": 868,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1206,
+          "start_y": 744,
+          "grounded": false,
+          "target_x": 1270,
+          "n_found": 0,
+          "n_retreat": 0
+        },
+        {
+          "lead": 60,
+          "start_x": 1161,
+          "start_y": 624,
+          "grounded": false,
+          "target_x": 1225,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 60,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 42,
+      "wall": "other_800",
+      "fail_x": 809,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 762,
+          "start_y": 337,
+          "grounded": false,
+          "target_x": 826,
+          "n_found": 143,
+          "n_retreat": 32
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 143,
+      "n_retreat_solutions": 32
+    },
+    {
+      "seed": 39,
+      "wall": "frontier_1504",
+      "fail_x": 1559,
+      "fail_y": 716,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1482,
+          "start_y": 592,
+          "grounded": false,
+          "target_x": 1546,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 19,
+      "wall": "pipe3_720",
+      "fail_x": 690,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 640,
+          "start_y": 355,
+          "grounded": false,
+          "target_x": 704,
+          "n_found": 113,
+          "n_retreat": 16
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 113,
+      "n_retreat_solutions": 16
+    },
+    {
+      "seed": 5,
+      "wall": "goomba_288",
+      "fail_x": 298,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 221,
+          "start_y": 432,
+          "grounded": true,
+          "target_x": 285,
+          "n_found": 264,
+          "n_retreat": 48
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 264,
+      "n_retreat_solutions": 48
+    },
+    {
+      "seed": 26,
+      "wall": "pipe4_912",
+      "fail_x": 898,
+      "fail_y": 377,
+      "on_top": true,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 821,
+          "start_y": 287,
+          "grounded": false,
+          "target_x": 885,
+          "n_found": 311,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 311,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 27,
+      "wall": "koopas_1216",
+      "fail_x": 1252,
+      "fail_y": 923,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1206,
+          "start_y": 793,
+          "grounded": false,
+          "target_x": 1270,
+          "n_found": 0,
+          "n_retreat": 0
+        },
+        {
+          "lead": 60,
+          "start_x": 1161,
+          "start_y": 668,
+          "grounded": false,
+          "target_x": 1225,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 60,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 49,
+      "wall": "other_800",
+      "fail_x": 839,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 768,
+          "start_y": 368,
+          "grounded": false,
+          "target_x": 832,
+          "n_found": 271,
+          "n_retreat": 36
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 271,
+      "n_retreat_solutions": 36
+    },
+    {
+      "seed": 44,
+      "wall": "frontier_1504",
+      "fail_x": 1539,
+      "fail_y": 869,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1492,
+          "start_y": 745,
+          "grounded": false,
+          "target_x": 1556,
+          "n_found": 0,
+          "n_retreat": 0
+        },
+        {
+          "lead": 60,
+          "start_x": 1447,
+          "start_y": 625,
+          "grounded": false,
+          "target_x": 1511,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 60,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 20,
+      "wall": "pipe3_720",
+      "fail_x": 707,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 637,
+          "start_y": 384,
+          "grounded": false,
+          "target_x": 701,
+          "n_found": 285,
+          "n_retreat": 48
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 285,
+      "n_retreat_solutions": 48
+    },
+    {
+      "seed": 9,
+      "wall": "goomba_288",
+      "fail_x": 316,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 240,
+          "start_y": 432,
+          "grounded": true,
+          "target_x": 304,
+          "n_found": 300,
+          "n_retreat": 56
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 300,
+      "n_retreat_solutions": 56
+    },
+    {
+      "seed": 30,
+      "wall": "pipe4_912",
+      "fail_x": 898,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 852,
+          "start_y": 420,
+          "grounded": false,
+          "target_x": 916,
+          "n_found": 67,
+          "n_retreat": 32
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 67,
+      "n_retreat_solutions": 32
+    },
+    {
+      "seed": 34,
+      "wall": "koopas_1216",
+      "fail_x": 1257,
+      "fail_y": 871,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1211,
+          "start_y": 741,
+          "grounded": false,
+          "target_x": 1275,
+          "n_found": 0,
+          "n_retreat": 0
+        },
+        {
+          "lead": 60,
+          "start_x": 1166,
+          "start_y": 615,
+          "grounded": false,
+          "target_x": 1230,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 60,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 61,
+      "wall": "other_800",
+      "fail_x": 801,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 757,
+          "start_y": 312,
+          "grounded": false,
+          "target_x": 821,
+          "n_found": 154,
+          "n_retreat": 28
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 154,
+      "n_retreat_solutions": 28
+    },
+    {
+      "seed": 91,
+      "wall": "frontier_1504",
+      "fail_x": 1562,
+      "fail_y": 716,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1485,
+          "start_y": 592,
+          "grounded": false,
+          "target_x": 1549,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 37,
+      "wall": "pipe3_720",
+      "fail_x": 723,
+      "fail_y": 397,
+      "on_top": true,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 646,
+          "start_y": 356,
+          "grounded": false,
+          "target_x": 710,
+          "n_found": 313,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 313,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 10,
+      "wall": "goomba_288",
+      "fail_x": 314,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 236,
+          "start_y": 373,
+          "grounded": false,
+          "target_x": 300,
+          "n_found": 306,
+          "n_retreat": 56
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 306,
+      "n_retreat_solutions": 56
+    },
+    {
+      "seed": 36,
+      "wall": "pipe4_912",
+      "fail_x": 899,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 832,
+          "start_y": 406,
+          "grounded": false,
+          "target_x": 896,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 41,
+      "wall": "koopas_1216",
+      "fail_x": 1253,
+      "fail_y": 901,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1207,
+          "start_y": 777,
+          "grounded": false,
+          "target_x": 1271,
+          "n_found": 0,
+          "n_retreat": 0
+        },
+        {
+          "lead": 60,
+          "start_x": 1162,
+          "start_y": 657,
+          "grounded": false,
+          "target_x": 1226,
+          "n_found": 313,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 60,
+      "n_solutions": 313,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 70,
+      "wall": "other_800",
+      "fail_x": 803,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 759,
+          "start_y": 361,
+          "grounded": false,
+          "target_x": 823,
+          "n_found": 127,
+          "n_retreat": 24
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 127,
+      "n_retreat_solutions": 24
+    },
+    {
+      "seed": 144,
+      "wall": "frontier_1504",
+      "fail_x": 1558,
+      "fail_y": 716,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1482,
+          "start_y": 592,
+          "grounded": false,
+          "target_x": 1546,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 40,
+      "wall": "pipe3_720",
+      "fail_x": 680,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 603,
+          "start_y": 351,
+          "grounded": false,
+          "target_x": 667,
+          "n_found": 313,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 313,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 11,
+      "wall": "goomba_288",
+      "fail_x": 310,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 232,
+          "start_y": 425,
+          "grounded": false,
+          "target_x": 296,
+          "n_found": 297,
+          "n_retreat": 48
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 297,
+      "n_retreat_solutions": 48
+    },
+    {
+      "seed": 47,
+      "wall": "pipe4_912",
+      "fail_x": 898,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 842,
+          "start_y": 377,
+          "grounded": false,
+          "target_x": 906,
+          "n_found": 86,
+          "n_retreat": 32
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 86,
+      "n_retreat_solutions": 32
+    },
+    {
+      "seed": 54,
+      "wall": "koopas_1216",
+      "fail_x": 1252,
+      "fail_y": 900,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1205,
+          "start_y": 770,
+          "grounded": false,
+          "target_x": 1269,
+          "n_found": 0,
+          "n_retreat": 0
+        },
+        {
+          "lead": 60,
+          "start_x": 1160,
+          "start_y": 645,
+          "grounded": false,
+          "target_x": 1224,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 60,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 80,
+      "wall": "other_800",
+      "fail_x": 805,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 759,
+          "start_y": 368,
+          "grounded": true,
+          "target_x": 823,
+          "n_found": 242,
+          "n_retreat": 44
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 242,
+      "n_retreat_solutions": 44
+    },
+    {
+      "seed": 162,
+      "wall": "frontier_1504",
+      "fail_x": 1536,
+      "fail_y": 914,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1489,
+          "start_y": 790,
+          "grounded": false,
+          "target_x": 1553,
+          "n_found": 0,
+          "n_retreat": 0
+        },
+        {
+          "lead": 60,
+          "start_x": 1444,
+          "start_y": 670,
+          "grounded": false,
+          "target_x": 1508,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 60,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 46,
+      "wall": "pipe3_720",
+      "fail_x": 722,
+      "fail_y": 415,
+      "on_top": true,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 646,
+          "start_y": 323,
+          "grounded": false,
+          "target_x": 710,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 17,
+      "wall": "goomba_288",
+      "fail_x": 315,
+      "fail_y": 427,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 238,
+          "start_y": 432,
+          "grounded": true,
+          "target_x": 302,
+          "n_found": 297,
+          "n_retreat": 48
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 297,
+      "n_retreat_solutions": 48
+    },
+    {
+      "seed": 59,
+      "wall": "pipe4_912",
+      "fail_x": 917,
+      "fail_y": 368,
+      "on_top": true,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 898,
+          "start_y": 374,
+          "grounded": false,
+          "target_x": 962,
+          "n_found": 87,
+          "n_retreat": 15
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 87,
+      "n_retreat_solutions": 15
+    },
+    {
+      "seed": 55,
+      "wall": "koopas_1216",
+      "fail_x": 1250,
+      "fail_y": 908,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1203,
+          "start_y": 777,
+          "grounded": false,
+          "target_x": 1267,
+          "n_found": 0,
+          "n_retreat": 0
+        },
+        {
+          "lead": 60,
+          "start_x": 1158,
+          "start_y": 651,
+          "grounded": false,
+          "target_x": 1222,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 60,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 104,
+      "wall": "other_800",
+      "fail_x": 803,
+      "fail_y": 422,
+      "on_top": true,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 758,
+          "start_y": 368,
+          "grounded": true,
+          "target_x": 822,
+          "n_found": 228,
+          "n_retreat": 36
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 228,
+      "n_retreat_solutions": 36
+    },
+    {
+      "seed": 172,
+      "wall": "frontier_1504",
+      "fail_x": 1559,
+      "fail_y": 719,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1482,
+          "start_y": 595,
+          "grounded": false,
+          "target_x": 1546,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 51,
+      "wall": "pipe3_720",
+      "fail_x": 682,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 633,
+          "start_y": 384,
+          "grounded": true,
+          "target_x": 697,
+          "n_found": 231,
+          "n_retreat": 28
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 231,
+      "n_retreat_solutions": 28
+    },
+    {
+      "seed": 21,
+      "wall": "goomba_288",
+      "fail_x": 308,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 230,
+          "start_y": 370,
+          "grounded": false,
+          "target_x": 294,
+          "n_found": 306,
+          "n_retreat": 56
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 306,
+      "n_retreat_solutions": 56
+    },
+    {
+      "seed": 63,
+      "wall": "pipe4_912",
+      "fail_x": 898,
+      "fail_y": 391,
+      "on_top": true,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 852,
+          "start_y": 379,
+          "grounded": false,
+          "target_x": 916,
+          "n_found": 71,
+          "n_retreat": 30
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 71,
+      "n_retreat_solutions": 30
+    },
+    {
+      "seed": 56,
+      "wall": "koopas_1216",
+      "fail_x": 1253,
+      "fail_y": 896,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 1207,
+          "start_y": 772,
+          "grounded": false,
+          "target_x": 1271,
+          "n_found": 0,
+          "n_retreat": 0
+        },
+        {
+          "lead": 60,
+          "start_x": 1162,
+          "start_y": 652,
+          "grounded": false,
+          "target_x": 1226,
+          "n_found": 314,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 60,
+      "n_solutions": 314,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 170,
+      "wall": "other_800",
+      "fail_x": 811,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 750,
+          "start_y": 368,
+          "grounded": true,
+          "target_x": 814,
+          "n_found": 283,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 283,
+      "n_retreat_solutions": 64
+    },
+    {
+      "seed": 179,
+      "wall": "other_800",
+      "fail_x": 804,
+      "fail_y": 432,
+      "on_top": false,
+      "leads_tried": [
+        {
+          "lead": 30,
+          "start_x": 745,
+          "start_y": 368,
+          "grounded": true,
+          "target_x": 809,
+          "n_found": 311,
+          "n_retreat": 64
+        }
+      ],
+      "solved_at_lead": 30,
+      "n_solutions": 311,
+      "n_retreat_solutions": 64
+    }
+  ],
+  "summary": {
+    "n_states": 60,
+    "n_solved": 60,
+    "solved_at_lead": {
+      "30": 49,
+      "60": 11
+    },
+    "n_solutions_total": 14675,
+    "n_retreat_solutions": 2885,
+    "solved_by_wall": {
+      "pipe3_720": 9,
+      "goomba_288": 9,
+      "pipe4_912": 10,
+      "koopas_1216": 10,
+      "other_800": 11,
+      "frontier_1504": 9,
+      "pipe2_592": 1,
+      "other_1800": 1
+    },
+    "unsolved_by_wall": {},
+    "on_top_states": 11,
+    "on_top_solved": 11
+  },
+  "verdict": "Collected 60 failure states across 8 walls; **60 solved by search, yielding 14675 correction sequences** (2885 from injected retreat macros). Lead distances needed: {30: 49, 60: 11}. 11 states were stalled ON TOP of a pipe rather than at its face, of which 11 were solved."
+}
