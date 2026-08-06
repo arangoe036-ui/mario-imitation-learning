@@ -57,7 +57,13 @@ RUNS128 = ROOT / "data/runs128"
 
 ARMS = ["B_84_d64_L1", "R_128_d64_L1", "RT_128_d128_L2"]
 CAP_NON_A = 4
-N_EVAL, CAP_FRAMES, STALL, CHUNK = 200, 3000, 300, 20
+# ⚠ The terminator now comes from the ONE shared constant. These were local copies of 3000/300 --
+# the censored legacy rule -- and block 60 caught `scripted_episode` still using them while the
+# calling script's artifact declared STALL=6500. A local copy of a shared constant is how an
+# artifact ends up describing a run it did not perform.
+from tasdata.bc import rollout_budget as _RB  # noqa: E402
+N_EVAL, CHUNK = 200, 20
+CAP_FRAMES, STALL = _RB.CAP_FRAMES, _RB.STALL
 PIPE2_WINDOW = (530, 645)
 EXPERT_AIRBORNE = 0.611
 EXPERT_ONSETS_PER_1K = 27.5

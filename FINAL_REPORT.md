@@ -2540,3 +2540,110 @@ rather than discovering later: **after fifty-nine blocks, a three-button random 
 level 1-1 than the learned policy does** — 57.5% past the third pipe against 47.5%. The policy's only
 advantages are at the far frontier and in completions, and neither is statistically distinguishable from the
 script. That is the honest state of the result.
+
+---
+
+## Block 60 — The jump rate explains neither side, and the comparison table finally exists in one place
+
+### What changed
+
+**The obvious explanation for why a random script outperforms the learned policy has been tested and is
+wrong.** The script jumps far more often — 85% of frames against the policy's 34% — so the natural theory was
+that the policy simply under-jumps and could be fixed for free by biasing it toward the jump button. It can't.
+
+The test works in both directions, and both fail:
+
+- **Lower the script to the policy's jump rate and it collapses.** It gets past the second pipe on 3% of
+  attempts, where the policy manages 82%, and never once passes the third.
+- **Raise the policy to the script's jump rate and it does not improve.** It reaches 35% past the third pipe,
+  against the script's 57%, and against its own unbiased 41%.
+
+**Each agent performs best at its own operating point, and moving either toward the other transfers nothing.**
+The jump rate is not the variable that explains the difference.
+
+The block also produced, for the first time in one place and at one setting, the three-way comparison the
+eventual write-up depends on.
+
+### How we got there, including the wrong turn
+
+The intervention was a bias added to the jump-containing actions just before the policy samples, tuned by
+measurement rather than guessed: for each target jump rate, the bias was found by bisection against live
+play, because an earlier attempt at fitting such an offset offline had overshot badly.
+
+Swept across six doses and three independently trained networks, the result is flat. Progress past the third
+pipe moves from 41.2% to at best 43.0%, then declines to 30.2% as the policy is pushed toward jumping on 91%
+of frames.
+
+**The wrong turn was nearly a false positive from a single training run.** The first network showed exactly
+the hoped-for effect — progress past the third pipe rising from 41% to 46.5%, and past the fourth from 23.5%
+to 34.5%, an eleven-point gain that looked like a clean confirmation. The second network, at the identical
+dose, went the other way: 45% down to 35%. Three runs were the right number, and one would have produced a
+confident and wrong headline.
+
+Worth recording separately: the known failure mode of this kind of bias — a policy that ends up holding the
+jump button permanently — appears at the top dose and is **invisible in the clearance numbers**, which decline
+gently. It shows up only in the tail of the jump-hold distribution (99th percentile 51 frames rising to 131,
+maximum 113 to 292) and in the median distance collapsing at the last rung. Reporting clearance alone would
+have missed the mechanism entirely.
+
+**And a measurement bug surfaced mid-build, of exactly the kind this project keeps finding.** The scripted
+comparison came back showing the high-jump script reaching 22% past the third pipe, where the previous block
+had measured 57.5% for identical settings. The cause: the shared episode-timeout constant, consolidated into
+one file two blocks ago, still had a *local copy* in the evaluation module. So the script arms ran under the
+old censoring rule while the output file confidently recorded the new one. Fixed, and the comparison re-run
+from scratch. Seven other scripts still carry local copies; none were used here.
+
+### The numbers, with sample size and baseline
+
+Jump bias, three networks, 200 episodes per point, all from the level start:
+
+| jump-button rate | past pipe 2 | past pipe 3 | past pipe 4 | jump-hold 99th pct | jump-hold max |
+|---|---|---|---|---|---|
+| 0.49 (unbiased) | 66.7% | **41.2%** | 24.2% | 51 | 113 |
+| 0.59 | 67.5% | **43.0%** | 28.0% | 56 | 129 |
+| 0.69 | 63.0% | 37.2% | 25.8% | 60 | 138 |
+| 0.80 | 63.0% | 38.2% | 25.7% | 76 | 166 |
+| 0.85 | 60.8% | 35.0% | 24.2% | 93 | 183 |
+| 0.91 | 53.2% | 30.2% | 20.5% | **131** | **292** |
+
+The three-way comparison, 200 episodes each, same timeout, same starting point:
+
+| obstacle | learned policy | script at the policy's rates | script at 85% jumping |
+|---|---|---|---|
+| second pipe | **82.0%** | **1.5%** | 79.5% |
+| third pipe | 47.5% | 0.0% | **57.5%** |
+| fourth pipe | 29.5% | 0.0% | **37.5%** |
+| the Koopas | 19.5% | 0.0% | **27.0%** |
+| the frontier fall | **6.5%** | 0.0% | 4.0% |
+
+Against a script at its own button rates the policy is **80 points better** at the second pipe. Against the
+high-jumping script it is **10 points worse** at the third. Both are true and neither can be stated alone.
+
+One correction worth making explicit: the high-jumping script is **not** a control and should never be
+described as "a coin flip". It runs the jump button at 85% against the policy's 34%, and it is the
+best-performing arm selected per-obstacle from a set of candidate scripts — a deliberately hard bar, but a
+maximum over attempts rather than a typical opponent.
+
+### Cost
+
+About three and a quarter hours: 21 evaluation configurations, 15 live calibrations, roughly 4,200 episodes.
+No training — every network used was already on disk, trained for a thousand steps each.
+
+### Downstream effect
+
+The simplest available explanation for the project's most awkward result is now closed. That is worth
+something on its own: "a random script beats the learned policy and we don't know why" was the one finding
+that could not be left standing, and one candidate reason has been eliminated properly rather than assumed
+away.
+
+There is a specific replacement hypothesis, and it is narrow enough to test in a single experiment. At matched
+jump rates, the remaining difference between the two is **sustained running**: the script holds the
+right-direction and run buttons on *every single frame*, while the policy holds them on 73% and 83% of frames
+respectively. The script never stops moving. But holding those buttons is not sufficient by itself — a script
+that holds them while jumping at the policy's low rate still never passes the third pipe. So the candidate is
+that the script's advantage requires the high jump rate *and* the unbroken running together, which is one arm
+to check.
+
+If that arm closes the gap, the deficit was a marginal after all — just not the marginal we were testing. If
+it does not, then what a memoryless coin flip has that a trained policy lacks is the *timing* of its jumps,
+which would be a genuinely strange thing to be true and would need explaining rather than reporting.
