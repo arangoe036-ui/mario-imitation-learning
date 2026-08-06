@@ -1,0 +1,45 @@
+{
+  "arm": "P_84_cnn32",
+  "n_samples": 600,
+  "n_states": 200,
+  "n_on_top_states": 38,
+  "n_at_face_states": 162,
+  "offsets": [
+    0,
+    -6,
+    -12
+  ],
+  "cv": "grouped 8-fold over STATES",
+  "null": "state-level label permutation",
+  "block63_values": {
+    "linear_auc": 0.651,
+    "linear_p": 0.1725,
+    "mlp_auc": 0.743,
+    "mlp_p": 0.01,
+    "n_on_top_states": 11
+  },
+  "linear": {
+    "auc": 0.8590173994657425,
+    "perm_p": 0.0,
+    "n_perm": 300
+  },
+  "mlp": {
+    "auc": 0.9146992996895531,
+    "perm_p": 0.0,
+    "n_perm": 150,
+    "null_auc_mean": 0.4955905710779005
+  },
+  "auc_difference_mlp_minus_linear": {
+    "mean": 0.055732103592770046,
+    "ci95_bootstrap_over_states": [
+      0.012018161974827564,
+      0.11650363512618936
+    ],
+    "fraction_of_bootstrap_at_or_below_zero": 0.00475,
+    "excludes_zero": true,
+    "note": "this is the test block 63 did NOT run: a difference in significance is not a tested difference in AUC"
+  },
+  "framing": "the head MAY be the bottleneck",
+  "verdict": "At 38 on-top states against 162 at-face (block 63 had 11): **linear AUC 0.859 (p=0.0000), MLP AUC 0.915 (p=0.0000)**. The difference MLP\u2212linear is **+0.056, 95% CI [+0.012, +0.117]** bootstrapped over states, so it **EXCLUDES zero**. \u21d2 Report \u00a71 as **\"the head MAY be the bottleneck\"**.",
+  "minutes": 9.1
+}

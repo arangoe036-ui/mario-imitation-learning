@@ -59,3 +59,5 @@ data/traces/r2_*.json
 data/traces/r2rl_*.json
 data/fceux_logs/
 data/probe_features.npz
+data/probe_ontop_features_all.npz
+data/traces/nh_*.json

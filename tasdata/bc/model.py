@@ -62,6 +62,17 @@ class PolicyConfig:
     n_prev_actions: int = 0
     #: Probability of masking the whole previous-action block during training.
     prev_action_dropout: float = 0.25
+    #: Width of one hidden layer in the action head. 0 = the original single `Linear(d_model,
+    #: n_actions)`.
+    #:
+    #: **Why this exists (block 63/64).** The trunk's features carry wall identity at AUC 0.892-1.000
+    #: and x position at R^2 0.712, but the on-top-of-pipe versus at-the-face distinction -- 17% of all
+    #: failures, half of pipe-4 losses, needing OPPOSITE corrections -- is **not linearly decodable**
+    #: from them (linear probe AUC 0.651, p=0.17) while a small MLP does decode it (0.743, p=0.010).
+    #: The action head was one linear layer on exactly those features, so it could not read the one
+    #: distinction that mattered. This is the cheapest change that could: +27,520 parameters at
+    #: hidden=128, or +8% of the model.
+    head_hidden: int = 0
 
     def to_dict(self) -> dict:
         d = asdict(self)
@@ -136,7 +147,14 @@ class BCPolicy(nn.Module):
         )
         self.norm = nn.LayerNorm(config.d_model)
         n_out = config.n_buttons if config.head_type == "bernoulli" else config.n_actions
-        self.head = nn.Linear(config.d_model, n_out)
+        if config.head_hidden and config.head_hidden > 0:
+            self.head = nn.Sequential(
+                nn.Linear(config.d_model, config.head_hidden),
+                nn.GELU(),
+                nn.Linear(config.head_hidden, n_out),
+            )
+        else:
+            self.head = nn.Linear(config.d_model, n_out)
 
     @property
     def n_parameters(self) -> int:

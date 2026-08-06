@@ -2970,3 +2970,100 @@ The headline positive result was also written up and frozen this block, so it st
 action tokens buy the early, static obstacles; learning buys the late, moving ones** — the policy beats a
 representation-matched script at the Koopa Troopas by 5.5 points in all ten of ten training seeds, which
 survives correction for all six obstacles measured.
+
+---
+
+## Block 64 — The output layer was not the problem, and the previous entry's reason was a power artifact
+
+### What changed
+
+**The previous entry's central mechanism is withdrawn.** It reported that the network's features contain the
+distinction between being stuck on top of a pipe and stuck at its face, but that the single linear output layer
+could not read it — a linear read-out scored 0.651 (not significant) where a small non-linear one scored 0.743
+(significant).
+
+**That was a sample-size artifact.** The probe used only eleven positive examples, because it looked only at the
+sixty failure states that had been searched. Re-run across all two hundred recorded failures — thirty-eight
+positives — the **linear** read-out scores **0.859**, overwhelmingly significant. The non-linear one still wins,
+by a real but small margin (+0.056, interval [+0.012, +0.117]). The output layer reads the distinction perfectly
+well.
+
+**And the intervention it motivated does nothing.** A non-linear output layer, at two widths, ten
+independently-trained networks each, moves neither the pre-specified target nor any other measured outcome.
+
+### How we got there, including the wrong turn
+
+The advisor's instruction had two parts, and the order mattered: fix the probe's statistical power *first*,
+because the whole block rested on it. That was the correct call and it inverted the premise before the expensive
+part ran.
+
+Two things were wrong with the original probe, and they are the same mistake in different clothes. The first is
+that **a difference in significance is not a difference in effect**: 0.743 being significant and 0.651 not
+being significant does not establish that 0.743 is larger. The two were never compared. The second is that
+eleven positive examples cannot resolve a moderate difference, and I had not checked what size of effect the
+probe could actually see.
+
+Bootstrapping the difference between the two read-outs over states — the test that had never been run — gives
++0.056 with an interval that does excludes zero. So the non-linear read-out genuinely decodes slightly better.
+But "slightly better than 0.859" is a very different claim from "the linear layer cannot read it", and the
+architectural story built on the second version is gone.
+
+The behavioural experiment ran anyway, because the arms were cheap and the non-linear read-out is genuinely
+(if marginally) better. Its primary outcome was fixed in writing before the runs, precisely so the result could
+not be rescued by picking a different obstacle afterwards. It came back flat.
+
+**This is the second time in three blocks that a result I liked rested on a sample size I had not checked
+against the effect I was claiming.** The other was three training runs where the smallest achievable p-value was
+0.25. Both were caught by the advisor rather than by me. The discipline of stating the attainable floor beside
+every p-value had been applied to the gameplay arms and not inherited by the probes.
+
+### The numbers, with sample size and baseline
+
+The probe, 600 feature vectors from 200 failure states, cross-validated with folds over states and a
+permutation null computed at state level:
+
+| read-out | positives | AUC | p |
+|---|---|---|---|
+| linear | 38 | **0.859** | 0.0000 |
+| non-linear (32 hidden units) | 38 | 0.915 | 0.0000 |
+| difference | — | **+0.056** | interval [+0.012, +0.117] |
+
+Against the previous entry's eleven positives: linear 0.651 (p = 0.17), non-linear 0.743 (p = 0.010),
+difference never tested.
+
+The behavioural arms, ten paired training runs each, 200 episodes each, primary outcome declared in advance:
+
+| output layer | parameters | on-top failures at pipe 4 | past pipe 3 | past pipe 2 |
+|---|---|---|---|---|
+| single linear | 325,964 | 7.5 per 200 | 39.3% | 66.0% |
+| 64→128→300 | 353,484 | 7.7 (p = 0.92) | 38.5% | 64.2% |
+| 64→256→300 | 400,204 | 7.4 (p = 1.00) | 38.8% | 65.1% |
+
+Every obstacle null, at both widths, with a design whose smallest attainable p-value is 0.002.
+
+### Cost
+
+About three and a half hours: twenty short trainings, twenty-seven evaluation configurations, 5,400 episodes,
+plus the probe.
+
+### Downstream effect
+
+The negative is more useful than it looks, because of what it closes. The network's internal features carry
+which obstacle it is at almost perfectly and its position to within about 200 pixels; the output layer reads
+the distinction that matters at 0.859; and adding capacity exactly where the probing pointed changes nothing
+across ten paired runs. **No future failure in this project can be blamed on the observation, the trunk, or the
+output layer. All three have now been measured, and all three are adequate.**
+
+That leaves two candidates standing, and both already have direct evidence against them rather than merely
+suspicion. The training loss falls monotonically while play gets worse beyond about a thousand steps. And the
+training data is 1.22 million frames of flawless play containing no deaths and no recoveries at all.
+
+Of those two, **the objective is the one thing that has never been varied.** Every network in sixty-four blocks
+has been trained by plain next-token prediction on the demonstration data. The data has been re-captured,
+re-balanced, augmented with search corrections, and re-weighted; the architecture has been widened, deepened,
+lengthened and given a non-linear read-out; the sampling rule has been sharpened, capped, biased and matched.
+The loss function has not been touched.
+
+The positive result is unaffected and stands as written: run-length action tokens buy the early, static
+obstacles, and learning buys the late, moving ones — a 5.5-point advantage over a representation-matched script
+at the Koopa Troopas, in all ten of ten training runs.

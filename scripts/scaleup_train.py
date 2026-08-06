@@ -161,6 +161,71 @@ ARMS = {
                                     steps=1_000, batch=64, seed=8, cnn=(32, 64, 64)),
     "PK32_84_s9":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
                                     steps=1_000, batch=64, seed=9, cnn=(32, 64, 64)),
+    # ---- block 64 §1: a NONLINEAR ACTION HEAD, placed where the evidence points. The trunk's
+    # features carry wall identity (AUC 0.892-1.000) and x (R^2 0.712), but on-top-vs-at-face --
+    # 17% of failures, half of pipe-4 losses, needing OPPOSITE corrections -- is not LINEARLY
+    # decodable from them while an MLP decodes it. The head was one Linear(64,300).
+    # H1 = 64->128->300 GELU (+27,520 params, +8%). H2 tests whether width beyond 128 adds.
+    "H1_head128_s0":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=0, cnn=(32, 64, 64),
+                                    head_hidden=128),
+    "H1_head128_s1":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=1, cnn=(32, 64, 64),
+                                    head_hidden=128),
+    "H1_head128_s2":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=2, cnn=(32, 64, 64),
+                                    head_hidden=128),
+    "H1_head128_s3":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=3, cnn=(32, 64, 64),
+                                    head_hidden=128),
+    "H1_head128_s4":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=4, cnn=(32, 64, 64),
+                                    head_hidden=128),
+    "H1_head128_s5":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=5, cnn=(32, 64, 64),
+                                    head_hidden=128),
+    "H1_head128_s6":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=6, cnn=(32, 64, 64),
+                                    head_hidden=128),
+    "H1_head128_s7":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=7, cnn=(32, 64, 64),
+                                    head_hidden=128),
+    "H1_head128_s8":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=8, cnn=(32, 64, 64),
+                                    head_hidden=128),
+    "H1_head128_s9":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=9, cnn=(32, 64, 64),
+                                    head_hidden=128),
+    "H2_head256_s0":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=0, cnn=(32, 64, 64),
+                                    head_hidden=256),
+    "H2_head256_s1":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=1, cnn=(32, 64, 64),
+                                    head_hidden=256),
+    "H2_head256_s2":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=2, cnn=(32, 64, 64),
+                                    head_hidden=256),
+    "H2_head256_s3":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=3, cnn=(32, 64, 64),
+                                    head_hidden=256),
+    "H2_head256_s4":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=4, cnn=(32, 64, 64),
+                                    head_hidden=256),
+    "H2_head256_s5":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=5, cnn=(32, 64, 64),
+                                    head_hidden=256),
+    "H2_head256_s6":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=6, cnn=(32, 64, 64),
+                                    head_hidden=256),
+    "H2_head256_s7":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=7, cnn=(32, 64, 64),
+                                    head_hidden=256),
+    "H2_head256_s8":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=8, cnn=(32, 64, 64),
+                                    head_hidden=256),
+    "H2_head256_s9":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=9, cnn=(32, 64, 64),
+                                    head_hidden=256),
 }
 
 
@@ -202,7 +267,8 @@ def runs_for(corpus: str):
 
 
 def train_arm(name: str, size: int, d_model: int, n_layers: int, corpus: str,
-              steps: int, batch: int, seed: int, cnn: tuple[int, ...] = (16, 32, 32)) -> dict:
+              steps: int, batch: int, seed: int, cnn: tuple[int, ...] = (16, 32, 32),
+              head_hidden: int = 0) -> dict:
     STEPS, BATCH, SEED = steps, batch, seed
     # Seed BOTH weight init and shuffling. Seeding only the loader generator would make a "seed
     # replica" differ in data order alone, which understates the spread the ledger records at
@@ -217,7 +283,8 @@ def train_arm(name: str, size: int, d_model: int, n_layers: int, corpus: str,
     ds = RunLengthDataset(base, load_index(base, corpus, size))
     n_cls = joint_size(ctx.vocab.size)
     cfg = PolicyConfig(n_actions=n_cls, stack=4, frame_size=size, d_model=d_model,
-                       n_layers=n_layers, head_type="categorical", cnn_channels=tuple(cnn))
+                       n_layers=n_layers, head_type="categorical", cnn_channels=tuple(cnn),
+                       head_hidden=head_hidden)
     policy = BCPolicy(cfg)
     ckpt = OUTDIR / f"{name}.pt"
     partial = OUTDIR / f"{name}.partial.pt"
@@ -300,6 +367,7 @@ def train_arm(name: str, size: int, d_model: int, n_layers: int, corpus: str,
             "stored_size": stored, "d_model": d_model, "n_layers": n_layers, "corpus": corpus,
             "steps": int(blob["step"]), "batch": BATCH, "seed": SEED, "lr": LR,
             "cnn_channels": list(cnn),
+            "head_hidden": int(head_hidden),
             "samples_seen": int(blob["step"]) * BATCH, "n_samples": len(ds),
             "params": sum(v.numel() for v in blob["model_state"].values())}
 
@@ -320,7 +388,8 @@ def main() -> None:
         a = ARMS[name]
         t0 = time.time()
         rec = train_arm(name, a["size"], a["d_model"], a["n_layers"], a["corpus"],
-                        a["steps"], a["batch"], a["seed"], a.get("cnn", (16, 32, 32)))
+                        a["steps"], a["batch"], a["seed"], a.get("cnn", (16, 32, 32)),
+                        a.get("head_hidden", 0))
         rec["minutes"] = round((time.time() - t0) / 60, 1)
         out["arms"][name] = rec
         out_path.write_text(json.dumps(out, indent=2, default=str))

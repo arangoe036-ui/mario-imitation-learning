@@ -64,3 +64,57 @@ seed, 10 paired seeds, exact paired sign-flip permutation over seeds (floor 2/2�
 4. **1-1 has been completed from the level start**, 4 of 200 episodes, stage-advance verified — but a
    coin-flipping script also completes it (1 of 200, Fisher p = 0.372), so completion is a project milestone
    and **not** evidence of skill.
+
+---
+
+# Update, block 64 — the nonlinear-head result, and a correction to its motivation
+
+## The correction comes first, because it changes how the negative reads
+
+Block 63 reported the on-top-versus-at-face distinction as **"present in the trunk's features but not
+linearly reachable"**, from a linear probe AUC of 0.651 (p = 0.17) against a small MLP's 0.743 (p = 0.010).
+
+**That was a power artifact and it is withdrawn.** The probe used only 11 on-top states because it looked only
+at the 60 states that had been searched. Re-run over all 200 recorded failures — **38 on-top against 162
+at-face** — the numbers are:
+
+| probe | AUC | permutation p |
+|---|---|---|
+| **linear** | **0.859** | **0.0000** |
+| MLP (32 hidden) | 0.915 | 0.0000 |
+| **difference** | **+0.056** | 95% CI **[+0.012, +0.117]** over states |
+
+**The linear head reads the distinction well.** The MLP's advantage is real — the bootstrapped interval
+excludes zero — but it is 0.056 of AUC, not the difference between "unreadable" and "readable".
+
+**So the claim to retire is "the action head cannot read the one distinction that matters".** What is true is
+that a nonlinear head decodes it slightly better.
+
+## And the behavioural result: no effect
+
+Ten paired seeds, 1,000 steps, n = 200 each, pre-specified primary outcome declared before running.
+
+| | params | **on-top failures at pipe 4** (primary) | past pipe 3 | past pipe 2 |
+|---|---|---|---|---|
+| H0 `Linear(64,300)` | 325,964 | 8.5 per 200 | 39.3% | 66.0% |
+| H1 `64→128→300` | 353,484 | 8.7 (**+0.2**, p = 0.918) | 38.5% (−0.8 pp) | 64.2% (−1.8 pp) |
+| H2 `64→256→300` | 400,204 | 8.4 (−0.1, p = 1.000) | 38.8% (−0.5 pp) | 65.1% (−0.8 pp) |
+
+**Nothing moves, on the pre-specified outcome or on any wall.** Completions 3 and 3 against the baseline's 4.
+
+One nominal result recorded and **not** promoted: H1's on-top failures summed over *all* walls rose by 3.3 per
+200 with 1 of 10 seeds lower (p = 0.031). That is one of several secondary comparisons, it does not survive
+multiplicity, and its direction is opposite to the intervention's intent.
+
+## What this adds to the claim
+
+Nothing is removed from the positive result. **The Koopas finding stands unchanged: +5.5 pp over a
+representation-matched script, 10 of 10 seeds, p = 0.0020, Bonferroni ×6 = 0.012.**
+
+A fifth item joins the "must be said alongside it" list:
+
+5. **The action head is not the bottleneck.** It decodes the on-top-versus-at-face distinction at AUC 0.859,
+   and adding a nonlinear head — the cheapest capacity change available, +8% parameters, placed exactly where
+   probing pointed — changes no measured outcome at ten paired seeds. **Together with the trunk probes (wall
+   identity AUC 0.892–1.000, position R² 0.712) this means no future negative in this project can be blamed on
+   the representation or on the read-out. Both have been measured and both are adequate.**
