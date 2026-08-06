@@ -1,0 +1,92 @@
+{
+  "arm": "P_84_cnn32",
+  "feature": "norm(transformer(...)) at the last frame position, d_model=64",
+  "n_features": 64,
+  "n_samples": 240,
+  "n_states": 60,
+  "offsets": [
+    0,
+    -4,
+    -8,
+    -12
+  ],
+  "cv": "grouped 6-fold over STATES",
+  "null": "label permutation AT THE STATE LEVEL, 2000 draws",
+  "probe_A_retreat_required": {
+    "constructible": false,
+    "n_retreat_dominant_share_ge_0.50": 2,
+    "n_sampled_dominant_share_le_0.15": 5,
+    "n_middle": 53,
+    "retreat_share_min": 0.047337278106508875,
+    "retreat_share_median": 0.20382165605095542,
+    "retreat_share_max": 0.9523809523809523,
+    "why": "no state is retreat-only (min sampled solutions = 1) and none has zero retreat solutions; retreat works to some degree everywhere and is strictly required nowhere. 'Is a retreat required here?' has no ground truth to probe, so the label the distillation was asked to condition on is not a well-defined property of the states"
+  },
+  "probes": {
+    "B_on_top_vs_at_face": {
+      "n_pos_states": 11,
+      "n_neg_states": 49,
+      "auc": 0.6508580705009277,
+      "perm_p": 0.1725,
+      "n_perm": 400,
+      "meaning": "these need opposite corrections -- get off the pipe vs clear it -- so a policy that cannot tell them apart cannot correct either"
+    },
+    "C_wall_identity_one_vs_rest": {
+      "pipe3_720": {
+        "auc": 0.892020697167756,
+        "perm_p": 0.0,
+        "n_pos_states": 9
+      },
+      "goomba_288": {
+        "auc": 0.9986383442265795,
+        "perm_p": 0.0,
+        "n_pos_states": 9
+      },
+      "pipe4_912": {
+        "auc": 0.915,
+        "perm_p": 0.0,
+        "n_pos_states": 10
+      },
+      "koopas_1216": {
+        "auc": 1.0,
+        "perm_p": 0.0,
+        "n_pos_states": 10
+      },
+      "other_800": {
+        "auc": 0.8996985157699443,
+        "perm_p": 0.0,
+        "n_pos_states": 11
+      },
+      "frontier_1504": {
+        "auc": 1.0,
+        "perm_p": 0.0,
+        "n_pos_states": 9
+      }
+    },
+    "D_x_position_regression": {
+      "r2_out_of_fold": 0.7121603264849579,
+      "rmse_px": 212.52037186923926,
+      "x_range": [
+        298.0,
+        1800.0
+      ],
+      "meaning": "sanity floor: if features do not carry position, B and C failing says nothing"
+    }
+  },
+  "gate_for_2b": {
+    "probe_A_constructible": false,
+    "features_separate_on_top": false,
+    "walls_separable": [
+      "pipe3_720",
+      "goomba_288",
+      "pipe4_912",
+      "koopas_1216",
+      "other_800",
+      "frontier_1504"
+    ],
+    "features_carry_position": true,
+    "open_2b": true
+  },
+  "verdict": "**THE FEATURES DO CARRY STATE INFORMATION: x-position out-of-fold R\u00b2 0.712, wall identity separable for 6 of 6 walls, on-top vs at-face AUC 0.651 (perm p=0.172).** So the representation is not the limit. **But probe A is not constructible: retreat is required at NO state and useful at EVERY state (share 0.047\u20130.952, median 0.204), so the label the distillation was asked to condition on does not exist.** That is why neither round produced conditionality, and it is a different diagnosis from either an objective problem or a capacity problem.",
+  "minutes": 9.4
+}

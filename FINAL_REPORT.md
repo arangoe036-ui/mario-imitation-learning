@@ -2877,3 +2877,96 @@ And the methodological note is worth keeping, because it has now paid for itself
 fires alarmingly, the first hypothesis should be that the check is measuring its own definition. Comparing
 against an independent quantity — the native frame here, the game's level counter before that, an action space
 that could express the answer before that — has caught it every time.
+
+---
+
+## Block 63 — The network can see the difference; its output layer cannot read it
+
+### What changed
+
+**Two findings, and they fit together.**
+
+**The rule the last two blocks were trying to teach does not exist.** Both rounds of correction-training were
+attempting to make the policy back up *when backing up is required*. Measured across all sixty searched failure
+states: backing up is **required at none of them** and **useful at all of them**. There is no state where it is
+the only way through, and no state where it fails. So neither round failed to learn a conditional rule — there
+was no conditional rule there to learn.
+
+**And the one distinction that does matter is visible to the network but unreadable by its output layer.** Being
+stuck *on top* of a pipe and stuck *at the face* of one need opposite corrections, and account for 17% of all
+failures — half of the fourth pipe's. A linear read-out of the network's internal features cannot tell them
+apart (AUC 0.651, p = 0.17). A small non-linear read-out can (**AUC 0.743, p = 0.010**). The policy's action
+layer is a single linear map on exactly those features. **The information is sitting in front of the output
+layer in a form the output layer cannot use.**
+
+### How we got there, including the wrong turn
+
+The plan was to check whether the network's internal representation can distinguish "a retreat is needed here"
+from "it isn't", on the grounds that if it cannot, no amount of data would produce the behaviour and the line
+should be closed with a precise negative.
+
+**The probe could not be built, and finding out why was the useful part.** Constructing it needs states of both
+kinds. Sorting the sixty searched states by what fraction of their working solutions involved backing up:
+**two** are retreat-dominated, **five** are dominated by ordinary actions, and **fifty-three** sit in between.
+The minimum fraction at any state is 0.047 and the maximum is 0.952 — backing up always helps somewhat and is
+never the only option. Two positive examples cannot support a probe.
+
+So the probes were re-pointed at distinctions that do have unambiguous ground truth. The network's features turn
+out to carry an enormous amount: **which obstacle Mario is at is decodable essentially perfectly** — six of six
+obstacles at AUC 0.89 to 1.00, with a permutation p of 0.0000 — and **his horizontal position** is recoverable
+at R² = 0.71 out-of-fold. Whatever is limiting this project, it is not that the network cannot see where it is.
+
+The unexpected result was the on-top-versus-at-face probe, included because those two situations need opposite
+responses. Linearly it fails. Because that was the *one* case where failure would have mattered, I ran the same
+protocol — same grouped cross-validation over states, same permutation null — with a small non-linear model
+instead, and it succeeds. The gap between the two is the finding, and the architecture makes it concrete: the
+policy chooses its action through one linear layer applied to those features.
+
+**One honest weakness:** the linear probe has only eleven positive examples, so "not linearly separable" is the
+weaker of the two claims. The non-linear result and the gap carry the interpretation.
+
+### The numbers, with sample size and baseline
+
+240 observations from 60 states, cross-validated with folds over *states*, every result accompanied by a
+label-permutation null computed at the state level (with 64 features over 60 states, a linear probe will
+separate noise without one):
+
+| what was probed | ground truth | score | p |
+|---|---|---|---|
+| which obstacle (6 separate tests) | 9–11 states each | AUC 0.892 – 1.000 | 0.0000 |
+| horizontal position | regression | R² 0.712 | — |
+| **on-top vs at-face, linear** | 11 vs 49 | **AUC 0.651** | **0.17** |
+| **on-top vs at-face, non-linear** | 11 vs 49 | **AUC 0.743** | **0.010** |
+
+Retreat-share distribution over the 60 states: minimum 0.047, median 0.204, maximum 0.952; two states above
+0.50, five below 0.15.
+
+### Cost
+
+Under an hour, and no new gameplay data — the probe reuses states already searched, needing only one forward
+pass each plus logistic regressions.
+
+The planned follow-up sweep was **not** run. Its gate was "only if the probe separates", and while the probe
+separates on obstacle identity, the specific label the sweep would have varied does not exist. Raising the
+number of training examples of a distinction that has no ground truth would not have produced conditional
+behaviour, and the reasoning is recorded so the decision can be reversed cheaply.
+
+### Downstream effect
+
+The correction-training line now has a complete causal account rather than two unexplained failures: the search
+finds solutions for every failure state, the corrections are learnable, a balanced mix stops them being
+over-applied — and the specific rule being taught was never a well-defined function of the state. That is a
+better negative than "distillation did not work", and it is a different one from the two hypotheses on the
+table.
+
+More usefully, the block produced the first complete chain from a measured failure to a named architectural
+cause. Being stranded on top of a pipe is 17% of failures and half the fourth pipe's; the corrections for it
+exist and were all found by search; the information needed to recognise it is present in the network's
+features; and the single linear layer that turns features into actions cannot read it. **That points at a
+smaller change than any of the scaling experiments this project has run — one hidden layer between the trunk
+and the action head — and it points at it for a measured reason rather than a hopeful one.**
+
+The headline positive result was also written up and frozen this block, so it stops being revised: **run-length
+action tokens buy the early, static obstacles; learning buys the late, moving ones** — the policy beats a
+representation-matched script at the Koopa Troopas by 5.5 points in all ten of ten training seeds, which
+survives correction for all six obstacles measured.

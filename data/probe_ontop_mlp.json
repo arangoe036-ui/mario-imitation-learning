@@ -1,0 +1,11 @@
+{
+  "mlp_auc": 0.7430426716141002,
+  "mlp_perm_p": 0.01,
+  "n_perm": 200,
+  "null_auc_mean": 0.4848527365491651,
+  "linear_auc": 0.651,
+  "linear_perm_p": 0.1725,
+  "n_pos_states": 11,
+  "n_neg_states": 49,
+  "reading": "compares linear vs MLP on the SAME grouped-CV-over-states protocol and the same state-level permutation null; a gap would mean the distinction is present but not linearly reachable by the action head"
+}

@@ -58,3 +58,4 @@ data/dagger_round2_samples.npz
 data/traces/r2_*.json
 data/traces/r2rl_*.json
 data/fceux_logs/
+data/probe_features.npz
