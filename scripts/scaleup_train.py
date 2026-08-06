@@ -148,6 +148,19 @@ ARMS = {
                                     steps=1_000, batch=64, seed=4),
     "PK32_84_s4":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
                                     steps=1_000, batch=64, seed=4, cnn=(32, 64, 64)),
+    # ---- block 62 §2: TEN paired seeds. At three, the smallest attainable two-sided p on a paired
+    # sign-flip permutation is 2/2^3 = 0.250, and every round-one headline sat at or above its own
+    # floor. Floors: n=5 -> 0.0625, n=8 -> 0.0078, n=10 -> 0.0020. Training costs 20 seconds.
+    "PK32_84_s5":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=5, cnn=(32, 64, 64)),
+    "PK32_84_s6":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=6, cnn=(32, 64, 64)),
+    "PK32_84_s7":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=7, cnn=(32, 64, 64)),
+    "PK32_84_s8":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=8, cnn=(32, 64, 64)),
+    "PK32_84_s9":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=9, cnn=(32, 64, 64)),
 }
 
 

@@ -2768,3 +2768,112 @@ skill was the action representation — the ability to commit to holding a butto
 comparison script could not do at all. What remains after that is corrected for is about six percentage
 points. That is a real, positive, and much smaller result, and it is better to say so now than after another
 five rounds of building on the larger number.
+
+---
+
+## Block 62 — The balanced mix fixed the pathology and taught nothing; and the real advantage is at the late obstacles
+
+### What changed
+
+**Three things, and the third is the one that matters.**
+
+The emulator was cleared of suspicion: a set of checks for whether it ever renders badly while staying alive
+came back clean, so corrupted or stale observations are not the explanation for anything.
+
+Round two of the correction-training fixed the pathology from round one and produced **no learning at all**.
+Rebalanced so that one manoeuvre made up a fifth of the corrections instead of 98% of them, the policy stopped
+applying that manoeuvre everywhere — and stopped acquiring it entirely. Ten independently trained networks,
+and every obstacle a clean null.
+
+**And the project's central positive claim has moved.** Re-measured at ten paired training runs instead of
+three, the learned policy's advantage over a properly matched scripted opponent is **not** at the early
+obstacles where it has been claimed for weeks. It is at the **late** ones: at the Koopa Troopas the policy is
+ahead by 5.5 percentage points, **in all ten of ten runs**, at the smallest p-value the design can produce.
+
+### How we got there, including the wrong turn
+
+**The graphics check nearly stopped the block on my own definition, for the third time in five blocks.**
+
+The natural test for a stale observation is: did the picture stay byte-identical while Mario's position
+changed? That fires on 2.58% of frames, comfortably over the threshold that was supposed to halt work. I was
+about to report a blocking failure.
+
+Splitting the events by *how far* Mario moved dissolved it. **Every single one occurs on a one-pixel move, and
+in every one the full-resolution native frame is identical as well.** Not one occurs on a two- or three-pixel
+move. The game advances Mario's position counter by a pixel without necessarily redrawing him at a new pixel;
+the downscaled observation identical across that is the game being reproduced correctly, not a fault. With the
+criterion corrected to "the native frame failed to redraw across a multi-pixel move", the rate is **0.297%**,
+under threshold, and consistent with ordinary hardware lag frames.
+
+That is the same shape as two earlier mistakes in this project — a search grid that couldn't express the answer
+and read as "unsolvable", and a set-union taken across a level boundary that read as a discovered route. In all
+three, the check that caught it was comparing the suspicious measurement against an *independent* quantity.
+
+**Round two's result is a genuine and interpretable null.** With the manoeuvre share reduced from 98% to 21.6%,
+and the corrections also balanced to match where failures actually occur and split between "clear the pipe" and
+"get off the pipe", the round-one damage disappeared: progress past the third pipe went from −15.7 points to
+−1.8, and the tell-tale sideways-button rate fell from 55% back to 5%.
+
+But the diagnostic says nothing was learned. The rate of that button **inside** the regions where corrections
+were collected rose by 0.0018 (p=0.44); **outside** them it fell by 0.0018 (p=0.56). Neither moves.
+
+That required extending the diagnostic. It had two outcomes — the correction is either state-specific or a
+global habit — and this is a third: **it was not acquired at all.** The two-way version would have labelled
+this a "global habit" simply because it wasn't state-specific, and pointed at the wrong fix.
+
+Taken with round one, the picture is sharp: at 98% of the corrections being one manoeuvre, the network learns
+it and applies it everywhere; at 21.6% it does not learn it. Both sat at 5–7% of the total training mixture.
+**The variable to sweep next is how much of the training data the corrections are, not what they contain.**
+
+### The numbers, with sample size and baseline
+
+Graphics: **53 render faults in 17,869 moving frames (0.297%)**; frame determinism 4 of 4 episodes
+byte-identical; emulator log empty. Stale events by pixel-distance moved: 408 at one pixel, 26 at two, 27 at
+three, out of 7,633 / 7,348 / 2,888 moving frames.
+
+Round two against baseline, ten paired training runs, 200 episodes each:
+
+| obstacle | round 2 | baseline | difference | runs improved | p |
+|---|---|---|---|---|---|
+| second pipe | 66.7% | 66.0% | +0.8 | 6/10 | 0.76 |
+| third pipe | 37.5% | 39.3% | −1.8 | 2/10 | 0.16 |
+| fourth pipe | 23.8% | 23.6% | +0.2 | 5/10 | 0.87 |
+| Koopas | 18.9% | 20.4% | −1.4 | 2/10 | 0.13 |
+
+The smallest p this design can return is 0.002, so these are real nulls rather than a lack of power.
+
+The scripted control, ten paired runs — and this is the finding:
+
+| obstacle | policy | matched script | difference | runs ahead | p |
+|---|---|---|---|---|---|
+| second pipe | 66.0% | 63.7% | +2.3 | 7/10 | 0.16 |
+| third pipe | 39.3% | 36.8% | +2.5 | 8/10 | 0.18 |
+| fourth pipe | 23.6% | 24.6% | −1.0 | 4/10 | 0.39 |
+| **Koopa Troopas** | **20.4%** | **14.8%** | **+5.5** | **10/10** | **0.002** |
+| **the frontier fall** | **3.9%** | **2.0%** | **+1.8** | 9/10 | **0.004** |
+
+The +6.3 points at the second pipe reported last block, from three runs, becomes **+2.3 points at ten and is
+not establishable**. What is establishable is the late-obstacle advantage.
+
+### Cost
+
+About three hours: 15 short trainings, 30 evaluation configurations, roughly 5,800 episodes. No new search —
+round two reused the 14,675 corrections already collected, changing only which of them were selected.
+
+### Downstream effect
+
+The claim to carry forward is narrower and better founded than the one it replaces: **the action
+representation buys the early obstacles, and learning buys the late ones.** It survives ten paired runs at the
+smallest attainable p-value, and it has a mechanism — the Koopas are moving enemies, which is precisely where
+conditioning on what is on screen should pay and where a fixed distribution over button-durations cannot. The
+second-pipe number has now been revised twice and should stop being quoted.
+
+The correction-training loop is not dead, but its failure mode is now located. Every stage works: the search
+solves every failure state it is given, the corrections are learnable, and a balanced mix removes the
+over-application. What is missing is a training share at which they are acquired *and* stay conditional, and
+that is a one-dimensional sweep over data already on disk.
+
+And the methodological note is worth keeping, because it has now paid for itself three times: when a check
+fires alarmingly, the first hypothesis should be that the check is measuring its own definition. Comparing
+against an independent quantity — the native frame here, the game's level counter before that, an action space
+that could express the answer before that — has caught it every time.

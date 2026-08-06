@@ -54,3 +54,7 @@ data/dagger_round1_solutions.json
 data/traces/dag1_*.json
 data/traces/rlscript_*.json
 data/traces/daglad_*.json
+data/dagger_round2_samples.npz
+data/traces/r2_*.json
+data/traces/r2rl_*.json
+data/fceux_logs/

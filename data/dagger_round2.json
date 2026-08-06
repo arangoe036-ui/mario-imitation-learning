@@ -1,0 +1,91 @@
+{
+  "round": 2,
+  "steps": 1000,
+  "batch": 64,
+  "lr": 0.0003,
+  "n_seeds": 10,
+  "mix": {
+    "expert_samples": 20000,
+    "correction_samples": 1136,
+    "correction_share": 0.053747161241483724,
+    "retreat_samples": 245,
+    "sampled_samples": 891,
+    "retreat_share_of_corrections": 0.21566901408450703,
+    "retreat_cap": 0.3333333333333333,
+    "rule": "sample count with an absolute floor, never a ratio (LEDGER \u00a71)"
+  },
+  "sequence_composition_by_wall_and_kind": {
+    "goomba_288|retreat": 24,
+    "goomba_288|sampled": 48,
+    "koopas_1216|retreat": 15,
+    "koopas_1216|sampled": 30,
+    "frontier_1504|retreat": 4,
+    "frontier_1504|sampled": 10,
+    "pipe3_720|retreat": 30,
+    "pipe3_720|sampled": 60,
+    "other_800|retreat": 6,
+    "other_800|sampled": 14,
+    "pipe4_912|retreat": 19,
+    "pipe4_912|sampled": 38,
+    "pipe2_592|sampled": 2,
+    "other_1800|sampled": 2
+  },
+  "sample_composition_by_wall": {
+    "goomba_288": 301,
+    "koopas_1216": 201,
+    "pipe2_592": 15,
+    "other_1800": 10,
+    "frontier_1504": 57,
+    "pipe3_720": 316,
+    "pipe4_912": 182,
+    "other_800": 54
+  },
+  "sample_composition_on_top": {
+    "goomba_288|at_face": 301,
+    "koopas_1216|at_face": 201,
+    "pipe2_592|at_face": 15,
+    "other_1800|at_face": 10,
+    "frontier_1504|at_face": 57,
+    "pipe3_720|on_top": 181,
+    "pipe4_912|on_top": 96,
+    "other_800|at_face": 19,
+    "pipe4_912|at_face": 86,
+    "pipe3_720|at_face": 135,
+    "other_800|on_top": 35
+  },
+  "round1_comparison": {
+    "retreat_share": 0.9820836098208361,
+    "note": "round 1 was 98% retreats; this is the fix"
+  },
+  "checkpoints": [
+    "data/bc_scaleup/DAG2_84_cnn32_s0.pt",
+    "data/bc_scaleup/DAG2_84_cnn32_s1.pt",
+    "data/bc_scaleup/DAG2_84_cnn32_s2.pt",
+    "data/bc_scaleup/DAG2_84_cnn32_s3.pt",
+    "data/bc_scaleup/DAG2_84_cnn32_s4.pt",
+    "data/bc_scaleup/DAG2_84_cnn32_s5.pt",
+    "data/bc_scaleup/DAG2_84_cnn32_s6.pt",
+    "data/bc_scaleup/DAG2_84_cnn32_s7.pt",
+    "data/bc_scaleup/DAG2_84_cnn32_s8.pt",
+    "data/bc_scaleup/DAG2_84_cnn32_s9.pt"
+  ],
+  "correction_windows": {
+    "centres": [
+      308,
+      312,
+      314,
+      657,
+      680,
+      723,
+      803,
+      804,
+      839,
+      899,
+      1268,
+      1561,
+      1800
+    ],
+    "half_width": 96,
+    "note": "inside = within half_width px of any captured failure x; outside = the rest"
+  }
+}

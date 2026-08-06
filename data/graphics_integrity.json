@@ -1,0 +1,902 @@
+{
+  "arm": "P_84_cnn32",
+  "temperature": 0.7,
+  "terminator": {
+    "stall_frames": 6500,
+    "cap_frames": 12000,
+    "legacy_stall": 300,
+    "legacy_cap_frames": 3000,
+    "note": "every reach figure produced before block 58 used stall=300/cap=3000 and is a LOWER BOUND -- including the +367 px encoder depth result and block 56's '0 of 720 completions at T=0.7'"
+  },
+  "n_episodes": 40,
+  "material_rate_threshold": 0.01,
+  "checks": [
+    "fceux_log_retained",
+    "stale_frames",
+    "frame_determinism"
+  ],
+  "episodes": [
+    {
+      "seed": 0,
+      "n_frames": 141,
+      "ended": "died",
+      "max_x": 309,
+      "moving_frames": 128,
+      "stale_total": 3,
+      "stale_while_moving": 0,
+      "stale_while_moving_rate": 0.0,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {},
+      "moving_by_dx": {
+        "1": 25,
+        "2": 62,
+        "3": 41
+      }
+    },
+    {
+      "seed": 1,
+      "n_frames": 2877,
+      "ended": "died",
+      "max_x": 1268,
+      "moving_frames": 824,
+      "stale_total": 675,
+      "stale_while_moving": 24,
+      "stale_while_moving_rate": 0.02912621359223301,
+      "render_faults_native_identical_dx_ge_2": 8,
+      "fault_rate": 0.009708737864077669,
+      "stale_by_dx": {
+        "1": 16,
+        "2": 6,
+        "3": 2
+      },
+      "moving_by_dx": {
+        "1": 374,
+        "2": 368,
+        "3": 82
+      }
+    },
+    {
+      "seed": 2,
+      "n_frames": 179,
+      "ended": "died",
+      "max_x": 300,
+      "moving_frames": 154,
+      "stale_total": 1,
+      "stale_while_moving": 0,
+      "stale_while_moving_rate": 0.0,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {},
+      "moving_by_dx": {
+        "1": 65,
+        "2": 67,
+        "3": 22
+      }
+    },
+    {
+      "seed": 3,
+      "n_frames": 161,
+      "ended": "died",
+      "max_x": 314,
+      "moving_frames": 146,
+      "stale_total": 1,
+      "stale_while_moving": 0,
+      "stale_while_moving_rate": 0.0,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {},
+      "moving_by_dx": {
+        "1": 44,
+        "2": 74,
+        "3": 28
+      }
+    },
+    {
+      "seed": 4,
+      "n_frames": 1473,
+      "ended": "died",
+      "max_x": 1250,
+      "moving_frames": 748,
+      "stale_total": 130,
+      "stale_while_moving": 28,
+      "stale_while_moving_rate": 0.0374331550802139,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 28
+      },
+      "moving_by_dx": {
+        "1": 344,
+        "2": 318,
+        "3": 86
+      }
+    },
+    {
+      "seed": 5,
+      "n_frames": 353,
+      "ended": "died",
+      "max_x": 295,
+      "moving_frames": 184,
+      "stale_total": 55,
+      "stale_while_moving": 7,
+      "stale_while_moving_rate": 0.03804347826086957,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 7
+      },
+      "moving_by_dx": {
+        "1": 124,
+        "2": 44,
+        "3": 16
+      }
+    },
+    {
+      "seed": 6,
+      "n_frames": 2825,
+      "ended": "died",
+      "max_x": 1518,
+      "moving_frames": 1051,
+      "stale_total": 405,
+      "stale_while_moving": 19,
+      "stale_while_moving_rate": 0.01807802093244529,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 19
+      },
+      "moving_by_dx": {
+        "1": 611,
+        "2": 368,
+        "3": 72
+      }
+    },
+    {
+      "seed": 7,
+      "n_frames": 895,
+      "ended": "died",
+      "max_x": 724,
+      "moving_frames": 438,
+      "stale_total": 41,
+      "stale_while_moving": 5,
+      "stale_while_moving_rate": 0.01141552511415525,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 5
+      },
+      "moving_by_dx": {
+        "1": 220,
+        "2": 170,
+        "3": 48
+      }
+    },
+    {
+      "seed": 8,
+      "n_frames": 801,
+      "ended": "died",
+      "max_x": 821,
+      "moving_frames": 497,
+      "stale_total": 79,
+      "stale_while_moving": 6,
+      "stale_while_moving_rate": 0.012072434607645875,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 6
+      },
+      "moving_by_dx": {
+        "1": 254,
+        "2": 189,
+        "3": 54
+      }
+    },
+    {
+      "seed": 9,
+      "n_frames": 179,
+      "ended": "died",
+      "max_x": 313,
+      "moving_frames": 140,
+      "stale_total": 9,
+      "stale_while_moving": 2,
+      "stale_while_moving_rate": 0.014285714285714285,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 2
+      },
+      "moving_by_dx": {
+        "1": 40,
+        "2": 64,
+        "3": 36
+      }
+    },
+    {
+      "seed": 10,
+      "n_frames": 145,
+      "ended": "died",
+      "max_x": 311,
+      "moving_frames": 131,
+      "stale_total": 2,
+      "stale_while_moving": 1,
+      "stale_while_moving_rate": 0.007633587786259542,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 1
+      },
+      "moving_by_dx": {
+        "1": 29,
+        "2": 61,
+        "3": 41
+      }
+    },
+    {
+      "seed": 11,
+      "n_frames": 167,
+      "ended": "died",
+      "max_x": 307,
+      "moving_frames": 155,
+      "stale_total": 5,
+      "stale_while_moving": 2,
+      "stale_while_moving_rate": 0.012903225806451613,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 2
+      },
+      "moving_by_dx": {
+        "1": 63,
+        "2": 69,
+        "3": 23
+      }
+    },
+    {
+      "seed": 12,
+      "n_frames": 429,
+      "ended": "died",
+      "max_x": 703,
+      "moving_frames": 387,
+      "stale_total": 5,
+      "stale_while_moving": 2,
+      "stale_while_moving_rate": 0.00516795865633075,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 2
+      },
+      "moving_by_dx": {
+        "1": 160,
+        "2": 173,
+        "3": 54
+      }
+    },
+    {
+      "seed": 13,
+      "n_frames": 355,
+      "ended": "died",
+      "max_x": 723,
+      "moving_frames": 303,
+      "stale_total": 9,
+      "stale_while_moving": 1,
+      "stale_while_moving_rate": 0.0033003300330033004,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 1
+      },
+      "moving_by_dx": {
+        "1": 36,
+        "2": 153,
+        "3": 114
+      }
+    },
+    {
+      "seed": 14,
+      "n_frames": 1293,
+      "ended": "died",
+      "max_x": 834,
+      "moving_frames": 612,
+      "stale_total": 120,
+      "stale_while_moving": 23,
+      "stale_while_moving_rate": 0.03758169934640523,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 23
+      },
+      "moving_by_dx": {
+        "1": 421,
+        "2": 155,
+        "3": 36
+      }
+    },
+    {
+      "seed": 15,
+      "n_frames": 823,
+      "ended": "died",
+      "max_x": 870,
+      "moving_frames": 535,
+      "stale_total": 41,
+      "stale_while_moving": 5,
+      "stale_while_moving_rate": 0.009345794392523364,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 5
+      },
+      "moving_by_dx": {
+        "1": 283,
+        "2": 203,
+        "3": 49
+      }
+    },
+    {
+      "seed": 16,
+      "n_frames": 2071,
+      "ended": "died",
+      "max_x": 1250,
+      "moving_frames": 755,
+      "stale_total": 445,
+      "stale_while_moving": 50,
+      "stale_while_moving_rate": 0.06622516556291391,
+      "render_faults_native_identical_dx_ge_2": 20,
+      "fault_rate": 0.026490066225165563,
+      "stale_by_dx": {
+        "1": 30,
+        "2": 20
+      },
+      "moving_by_dx": {
+        "1": 371,
+        "2": 271,
+        "3": 113
+      }
+    },
+    {
+      "seed": 17,
+      "n_frames": 191,
+      "ended": "died",
+      "max_x": 313,
+      "moving_frames": 142,
+      "stale_total": 17,
+      "stale_while_moving": 2,
+      "stale_while_moving_rate": 0.014084507042253521,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 2
+      },
+      "moving_by_dx": {
+        "1": 44,
+        "2": 63,
+        "3": 35
+      }
+    },
+    {
+      "seed": 18,
+      "n_frames": 2077,
+      "ended": "died",
+      "max_x": 1252,
+      "moving_frames": 680,
+      "stale_total": 437,
+      "stale_while_moving": 39,
+      "stale_while_moving_rate": 0.057352941176470586,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 39
+      },
+      "moving_by_dx": {
+        "1": 250,
+        "2": 300,
+        "3": 130
+      }
+    },
+    {
+      "seed": 19,
+      "n_frames": 701,
+      "ended": "died",
+      "max_x": 688,
+      "moving_frames": 433,
+      "stale_total": 52,
+      "stale_while_moving": 10,
+      "stale_while_moving_rate": 0.023094688221709007,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 10
+      },
+      "moving_by_dx": {
+        "1": 190,
+        "2": 175,
+        "3": 68
+      }
+    },
+    {
+      "seed": 20,
+      "n_frames": 481,
+      "ended": "died",
+      "max_x": 706,
+      "moving_frames": 395,
+      "stale_total": 39,
+      "stale_while_moving": 16,
+      "stale_while_moving_rate": 0.04050632911392405,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 16
+      },
+      "moving_by_dx": {
+        "1": 173,
+        "2": 170,
+        "3": 52
+      }
+    },
+    {
+      "seed": 21,
+      "n_frames": 189,
+      "ended": "died",
+      "max_x": 305,
+      "moving_frames": 156,
+      "stale_total": 4,
+      "stale_while_moving": 1,
+      "stale_while_moving_rate": 0.00641025641025641,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 1
+      },
+      "moving_by_dx": {
+        "1": 67,
+        "2": 66,
+        "3": 23
+      }
+    },
+    {
+      "seed": 22,
+      "n_frames": 1485,
+      "ended": "died",
+      "max_x": 898,
+      "moving_frames": 485,
+      "stale_total": 141,
+      "stale_while_moving": 5,
+      "stale_while_moving_rate": 0.010309278350515464,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 5
+      },
+      "moving_by_dx": {
+        "1": 173,
+        "2": 205,
+        "3": 107
+      }
+    },
+    {
+      "seed": 23,
+      "n_frames": 2349,
+      "ended": "died",
+      "max_x": 1561,
+      "moving_frames": 784,
+      "stale_total": 379,
+      "stale_while_moving": 35,
+      "stale_while_moving_rate": 0.044642857142857144,
+      "render_faults_native_identical_dx_ge_2": 25,
+      "fault_rate": 0.03188775510204082,
+      "stale_by_dx": {
+        "1": 10,
+        "3": 25
+      },
+      "moving_by_dx": {
+        "1": 223,
+        "2": 363,
+        "3": 198
+      }
+    },
+    {
+      "seed": 24,
+      "n_frames": 793,
+      "ended": "died",
+      "max_x": 899,
+      "moving_frames": 470,
+      "stale_total": 26,
+      "stale_while_moving": 4,
+      "stale_while_moving_rate": 0.00851063829787234,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 4
+      },
+      "moving_by_dx": {
+        "1": 157,
+        "2": 210,
+        "3": 103
+      }
+    },
+    {
+      "seed": 25,
+      "n_frames": 7138,
+      "ended": "stuck",
+      "max_x": 899,
+      "moving_frames": 532,
+      "stale_total": 2911,
+      "stale_while_moving": 14,
+      "stale_while_moving_rate": 0.02631578947368421,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 14
+      },
+      "moving_by_dx": {
+        "1": 223,
+        "2": 226,
+        "3": 83
+      }
+    },
+    {
+      "seed": 26,
+      "n_frames": 1211,
+      "ended": "died",
+      "max_x": 898,
+      "moving_frames": 445,
+      "stale_total": 78,
+      "stale_while_moving": 2,
+      "stale_while_moving_rate": 0.0044943820224719105,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 2
+      },
+      "moving_by_dx": {
+        "1": 137,
+        "2": 193,
+        "3": 115
+      }
+    },
+    {
+      "seed": 27,
+      "n_frames": 2447,
+      "ended": "died",
+      "max_x": 1252,
+      "moving_frames": 859,
+      "stale_total": 217,
+      "stale_while_moving": 35,
+      "stale_while_moving_rate": 0.04074505238649592,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 35
+      },
+      "moving_by_dx": {
+        "1": 490,
+        "2": 313,
+        "3": 56
+      }
+    },
+    {
+      "seed": 28,
+      "n_frames": 141,
+      "ended": "died",
+      "max_x": 312,
+      "moving_frames": 125,
+      "stale_total": 3,
+      "stale_while_moving": 1,
+      "stale_while_moving_rate": 0.008,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 1
+      },
+      "moving_by_dx": {
+        "1": 21,
+        "2": 59,
+        "3": 45
+      }
+    },
+    {
+      "seed": 29,
+      "n_frames": 153,
+      "ended": "died",
+      "max_x": 313,
+      "moving_frames": 128,
+      "stale_total": 11,
+      "stale_while_moving": 3,
+      "stale_while_moving_rate": 0.0234375,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 3
+      },
+      "moving_by_dx": {
+        "1": 23,
+        "2": 63,
+        "3": 42
+      }
+    },
+    {
+      "seed": 30,
+      "n_frames": 1057,
+      "ended": "died",
+      "max_x": 898,
+      "moving_frames": 521,
+      "stale_total": 52,
+      "stale_while_moving": 7,
+      "stale_while_moving_rate": 0.013435700575815739,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 7
+      },
+      "moving_by_dx": {
+        "1": 227,
+        "2": 205,
+        "3": 89
+      }
+    },
+    {
+      "seed": 31,
+      "n_frames": 603,
+      "ended": "died",
+      "max_x": 655,
+      "moving_frames": 345,
+      "stale_total": 25,
+      "stale_while_moving": 7,
+      "stale_while_moving_rate": 0.020289855072463767,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 7
+      },
+      "moving_by_dx": {
+        "1": 121,
+        "2": 166,
+        "3": 58
+      }
+    },
+    {
+      "seed": 32,
+      "n_frames": 151,
+      "ended": "died",
+      "max_x": 309,
+      "moving_frames": 127,
+      "stale_total": 6,
+      "stale_while_moving": 1,
+      "stale_while_moving_rate": 0.007874015748031496,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 1
+      },
+      "moving_by_dx": {
+        "1": 23,
+        "2": 63,
+        "3": 41
+      }
+    },
+    {
+      "seed": 33,
+      "n_frames": 1315,
+      "ended": "died",
+      "max_x": 1558,
+      "moving_frames": 755,
+      "stale_total": 73,
+      "stale_while_moving": 8,
+      "stale_while_moving_rate": 0.010596026490066225,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 8
+      },
+      "moving_by_dx": {
+        "1": 177,
+        "2": 345,
+        "3": 233
+      }
+    },
+    {
+      "seed": 34,
+      "n_frames": 3848,
+      "ended": "died",
+      "max_x": 1257,
+      "moving_frames": 814,
+      "stale_total": 814,
+      "stale_while_moving": 44,
+      "stale_while_moving_rate": 0.05405405405405406,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 44
+      },
+      "moving_by_dx": {
+        "1": 382,
+        "2": 363,
+        "3": 69
+      }
+    },
+    {
+      "seed": 35,
+      "n_frames": 163,
+      "ended": "died",
+      "max_x": 309,
+      "moving_frames": 147,
+      "stale_total": 5,
+      "stale_while_moving": 2,
+      "stale_while_moving_rate": 0.013605442176870748,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 2
+      },
+      "moving_by_dx": {
+        "1": 51,
+        "2": 67,
+        "3": 29
+      }
+    },
+    {
+      "seed": 36,
+      "n_frames": 2023,
+      "ended": "died",
+      "max_x": 899,
+      "moving_frames": 584,
+      "stale_total": 161,
+      "stale_while_moving": 8,
+      "stale_while_moving_rate": 0.0136986301369863,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 8
+      },
+      "moving_by_dx": {
+        "1": 314,
+        "2": 217,
+        "3": 53
+      }
+    },
+    {
+      "seed": 37,
+      "n_frames": 751,
+      "ended": "died",
+      "max_x": 723,
+      "moving_frames": 353,
+      "stale_total": 68,
+      "stale_while_moving": 8,
+      "stale_while_moving_rate": 0.0226628895184136,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 8
+      },
+      "moving_by_dx": {
+        "1": 108,
+        "2": 157,
+        "3": 88
+      }
+    },
+    {
+      "seed": 38,
+      "n_frames": 831,
+      "ended": "died",
+      "max_x": 828,
+      "moving_frames": 521,
+      "stale_total": 27,
+      "stale_while_moving": 12,
+      "stale_while_moving_rate": 0.023032629558541268,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 12
+      },
+      "moving_by_dx": {
+        "1": 292,
+        "2": 181,
+        "3": 48
+      }
+    },
+    {
+      "seed": 39,
+      "n_frames": 3947,
+      "ended": "died",
+      "max_x": 1559,
+      "moving_frames": 880,
+      "stale_total": 880,
+      "stale_while_moving": 22,
+      "stale_while_moving_rate": 0.025,
+      "render_faults_native_identical_dx_ge_2": 0,
+      "fault_rate": 0.0,
+      "stale_by_dx": {
+        "1": 22
+      },
+      "moving_by_dx": {
+        "1": 303,
+        "2": 369,
+        "3": 208
+      }
+    }
+  ],
+  "fceux_log": {
+    "exists": true,
+    "bytes": 0,
+    "retained_to": "data/fceux_logs/graphics_integrity_session.log",
+    "contains_software": false,
+    "contains_metal": false,
+    "contains_warning": false,
+    "interpretation": "FCEUX prints nothing on this build, so an EMPTY log is the clean case and the GL backend is genuinely unrecoverable from it. Any content -- in particular the Qt software-fallback warning block 53 saw -- is the alarm.",
+    "tail": ""
+  },
+  "frame_determinism": [
+    {
+      "seed": 900,
+      "len_a": 731,
+      "len_b": 731,
+      "compared": 731,
+      "mismatched_frames": 0,
+      "identical": true
+    },
+    {
+      "seed": 901,
+      "len_a": 439,
+      "len_b": 439,
+      "compared": 439,
+      "mismatched_frames": 0,
+      "identical": true
+    },
+    {
+      "seed": 902,
+      "len_a": 1870,
+      "len_b": 1870,
+      "compared": 1870,
+      "mismatched_frames": 0,
+      "identical": true
+    },
+    {
+      "seed": 903,
+      "len_a": 145,
+      "len_b": 145,
+      "compared": 145,
+      "mismatched_frames": 0,
+      "identical": true
+    }
+  ],
+  "stale_frames": {
+    "n_episodes": 40,
+    "total_stale_while_moving": 461,
+    "total_moving_frames": 17869,
+    "pooled_rate": 0.02579886955061839,
+    "per_episode_rate": {
+      "mean": 0.020369144160672967,
+      "max": 0.06622516556291391,
+      "n_above_threshold": 28
+    },
+    "by_outcome": {
+      "died": {
+        "n": 39,
+        "mean_rate": 0.02021666607572396
+      },
+      "stuck": {
+        "n": 1,
+        "mean_rate": 0.02631578947368421
+      }
+    },
+    "stale_total_pooled": 8452,
+    "pooled_fault_rate": 0.0029660305557110077,
+    "total_render_faults": 53,
+    "stale_by_dx_pooled": {
+      "1": 408,
+      "2": 26,
+      "3": 27
+    },
+    "moving_by_dx_pooled": {
+      "1": 7633,
+      "2": 7348,
+      "3": 2888
+    },
+    "fault_criterion": "native 256x240 frame identical while |dx| >= 2; the naive '84x84 identical while x moved' criterion fires at ~2.6% and is entirely |dx| = 1 quantisation, with the native frame identical too",
+    "note": "a stale frame with x UNCHANGED is legitimate -- the screen need not move when Mario does not. Only stale-while-moving is a rendering fault"
+  },
+  "verdict_parts": {},
+  "checks_fired": [],
+  "blocker_clear": true,
+  "verdict": "**ALL THREE GRAPHICS CHECKS PASS. The blocker is clear and \u00a73 may proceed.** **Render faults (native frame identical across a multi-pixel move): 53 of 17869 moving frames (0.2966%).** The naive criterion -- 84x84 identical while x moved -- fires at 2.58%, but that is entirely |dx| = 1 quantisation with the native frame identical too: stale-by-dx {'1': 408, '2': 26, '3': 27} against moving-by-dx {'1': 7633, '2': 7348, '3': 2888}. Frame determinism: **4/4 repeated episodes byte-identical.** `fceux.log` is **0 bytes** \u2014 FCEUX prints nothing on this build, so the GL backend cannot be recorded from it and an empty log is the clean case; it is now retained per session rather than discarded. **Degraded rendering is not a candidate for the script's residual advantage or for the between-seed variance.**"
+}
