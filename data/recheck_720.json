@@ -1,0 +1,69 @@
+{
+  "figure_under_review": "block 56: '0 of 720 completions at T=0.7', conditional_on_arrival over 72 start states, measured at STALL=300",
+  "measurement_basis": "conditional_on_arrival",
+  "NOT_comparable_to": "any from-the-level-start figure",
+  "terminator": {
+    "stall_frames": 6500,
+    "cap_frames": 12000,
+    "legacy_stall": 300,
+    "legacy_cap_frames": 3000,
+    "note": "every reach figure produced before block 58 used stall=300/cap=3000 and is a LOWER BOUND -- including the +367 px encoder depth result and block 56's '0 of 720 completions at T=0.7'"
+  },
+  "reps": 3,
+  "arms": [
+    "P_84_cnn32_seed1",
+    "P_84_cnn32_seed4"
+  ],
+  "n_episodes": 432,
+  "skipped": [],
+  "completion_criterion": "stage advance to 1-2, never max_x",
+  "completions": 6,
+  "completing": [
+    {
+      "arm": "P_84_cnn32_seed1",
+      "start_x": 898,
+      "rep": 1
+    },
+    {
+      "arm": "P_84_cnn32_seed1",
+      "start_x": 903,
+      "rep": 0
+    },
+    {
+      "arm": "P_84_cnn32_seed4",
+      "start_x": 158,
+      "rep": 1
+    },
+    {
+      "arm": "P_84_cnn32_seed4",
+      "start_x": 617,
+      "rep": 1
+    },
+    {
+      "arm": "P_84_cnn32_seed4",
+      "start_x": 730,
+      "rep": 1
+    },
+    {
+      "arm": "P_84_cnn32_seed4",
+      "start_x": 898,
+      "rep": 0
+    }
+  ],
+  "max_x_in_1_1": {
+    "median": 917.5,
+    "max": 3267
+  },
+  "per_arm": {
+    "P_84_cnn32_seed1": {
+      "n": 216,
+      "completions": 2
+    },
+    "P_84_cnn32_seed4": {
+      "n": 216,
+      "completions": 4
+    }
+  },
+  "verdict": "**BLOCK 56'S '0 OF 720' IS VOID.** At the corrected terminator, 6 of 432 conditional-on-arrival episodes complete 1-1 (stage advance verified), where the censored rule reported zero. The zero was the terminator, not the policy.",
+  "minutes": 11.0
+}

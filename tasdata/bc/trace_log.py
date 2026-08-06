@@ -55,20 +55,29 @@ class EpisodeTrace:
     """One episode, every frame, plus the enemy field at death."""
 
     seed: int
-    #: (x, y_absolute, speed, buttons, player_state, grounded) -- grounded appended 2026-08-04
+    #: (x, y_absolute, speed, buttons, player_state, grounded, world, stage, area)
+    #: -- `grounded` appended 2026-08-04; `world`/`stage`/`area` appended 2026-08-05 (block 59)
     frames: list = field(default_factory=list)
     death: dict | None = None
     ended: str = "budget"
 
     def record(self, obs, byte: int) -> None:
-        # A sixth field was appended rather than inserted: every reader indexes f[0] for x and f[3]
-        # for buttons, so appending is backward-compatible with the traces already on disk.
+        # Fields are APPENDED, never inserted: every reader indexes f[0] for x, f[3] for buttons and
+        # f[4] for player_state, so appending stays backward-compatible with the traces on disk.
         # `grounded` is here because the behaviour statistics that matter -- airborne fraction,
         # A-onsets while grounded, A still held while airborne -- cannot be derived from x and y.
+        #
+        # `world`, `stage` and `area` are here because **two completions of 1-1 sat on disk
+        # mislabelled `stuck` and `budget`** and could not be confirmed from the traces: a stage
+        # advance is the only unambiguous evidence a level was finished, and the trace could not
+        # record it. Worse, `x_position` is per-AREA, so without `area` a trace silently mixes two
+        # coordinate systems the moment Mario enters a pipe -- which is the only route by which
+        # anything here has ever completed the level.
         st = read_smb(obs.ram, obs.framecount)
         self.frames.append((int(st.x_position), y_absolute(obs.ram),
                             int(obs.ram[ADDR_X_SPEED]), int(byte), int(st.player_state),
-                            int(on_ground(obs.ram))))
+                            int(on_ground(obs.ram)),
+                            int(st.world), int(st.stage), int(st.area)))
 
     def record_death(self, obs) -> None:
         st = read_smb(obs.ram, obs.framecount)
@@ -99,9 +108,11 @@ def write_traces(path: Path | str, traces: list[EpisodeTrace], **meta) -> Path:
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(
-        {"schema": "per-frame (x, y_absolute, speed_byte, buttons, player_state, grounded); "
-                   "grounded absent in traces written before 2026-08-04; "
-                   "enemy raw_id always persisted",
+        {"schema": "per-frame (x, y_absolute, speed_byte, buttons, player_state, grounded, "
+                   "world, stage, area); grounded absent before 2026-08-04; world/stage/area "
+                   "absent before 2026-08-05 (block 59) -- a trace without them CANNOT show a "
+                   "level completion, and x is per-AREA so it mixes coordinate systems inside a "
+                   "pipe; enemy raw_id always persisted",
          "enemy_table_unverified": True, "n_episodes": len(traces), **meta,
          "episodes": [t.to_dict() for t in traces]}, separators=(",", ":")))
     return path

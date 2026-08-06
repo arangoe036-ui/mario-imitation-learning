@@ -43,3 +43,6 @@ data/freeze_and_completion.partial.json
 data/traces/mask_*.json
 data/traces/curve_*.json
 data/bc_scaleup/*.snap*.pt
+data/route_audit.partial.json
+data/recheck_720.partial.json
+data/traces/peak_*.json

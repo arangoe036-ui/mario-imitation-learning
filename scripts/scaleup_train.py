@@ -123,6 +123,31 @@ ARMS = {
                                     steps=60_000, batch=64, seed=0, cnn=(32, 64, 64)),
     "CURVE_84_cnn32_seed1":    dict(size=84, d_model=64, n_layers=1, corpus="runs",
                                     steps=60_000, batch=64, seed=1, cnn=(32, 64, 64)),
+    # ---- block 59 §3: RE-BASELINE THE ENCODER 2x2 AT THE PEAK. Every architecture comparison
+    # in this project was made at 15,000 steps, which block 58 showed is ~15x past the optimum
+    # (the 500-3,000 region beats 12,000-60,000 by +12.6 pp on pipe 2). A wider encoder is LESS
+    # trained relative to its capacity at a fixed 1,000 steps, so the advantage may shrink or
+    # reverse -- which is the point of running it.
+    "PK16_84_s0":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=0),
+    "PK32_84_s0":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=0, cnn=(32, 64, 64)),
+    "PK16_84_s1":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=1),
+    "PK32_84_s1":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=1, cnn=(32, 64, 64)),
+    "PK16_84_s2":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=2),
+    "PK32_84_s2":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=2, cnn=(32, 64, 64)),
+    "PK16_84_s3":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=3),
+    "PK32_84_s3":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=3, cnn=(32, 64, 64)),
+    "PK16_84_s4":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=4),
+    "PK32_84_s4":           dict(size=84, d_model=64, n_layers=1, corpus="runs",
+                                    steps=1_000, batch=64, seed=4, cnn=(32, 64, 64)),
 }
 
 

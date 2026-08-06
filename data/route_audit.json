@@ -1,0 +1,171 @@
+{
+  "retraction": {
+    "void_claim": "block 58: 'Down is the policy's ROUTE -- every completion goes through the bonus area; 5 of 5 that left area 1 completed, 0 of 395 surface-only did'",
+    "why_wrong": "the areas were a UNION over the whole episode, and an episode continues into 1-2 after completing 1-1. 1-2 is underground with several areas, so areas 2 and 3 were entered AFTER the stage advance. Leaving area 1 is a CONSEQUENCE of completing 1-1, not a cause; the correlation is circular",
+    "what_stands": "the mask's null on surface depth (-0.2 pp, p=0.976); the completion itself, stage-advance verified; block 56's reach map, unamended"
+  },
+  "measurement_basis": "single_life_from_level_start",
+  "terminator": {
+    "stall_frames": 6500,
+    "cap_frames": 12000,
+    "legacy_stall": 300,
+    "legacy_cap_frames": 3000,
+    "note": "every reach figure produced before block 58 used stall=300/cap=3000 and is a LOWER BOUND -- including the +367 px encoder depth result and block 56's '0 of 720 completions at T=0.7'"
+  },
+  "n": 200,
+  "policy_arm": "P_84_cnn32_seed4",
+  "temperature": 0.7,
+  "skipped": [],
+  "per_arm": {
+    "policy": {
+      "n": 200,
+      "entered_area_ne1_WHILE_IN_1_1": 0,
+      "x_at_those_area_changes": [],
+      "completed_1_1": 4,
+      "completing_seeds": [
+        58,
+        80,
+        156,
+        199
+      ],
+      "completions_that_left_area1_first": 0,
+      "areas_seen_within_1_1_union": [
+        1
+      ],
+      "max_x_in_1_1": {
+        "median": 723.0,
+        "max": 3267,
+        "p90": 1374.499999999999
+      },
+      "past_wall_in_1_1": {
+        "goomba_320": {
+          "k": 164,
+          "n": 200,
+          "rate": 0.82
+        },
+        "pipe1_470": {
+          "k": 164,
+          "n": 200,
+          "rate": 0.82
+        },
+        "pipe2_630": {
+          "k": 164,
+          "n": 200,
+          "rate": 0.82
+        },
+        "pipe3_735": {
+          "k": 95,
+          "n": 200,
+          "rate": 0.475
+        },
+        "pipe4_975": {
+          "k": 59,
+          "n": 200,
+          "rate": 0.295
+        },
+        "koopas_1248": {
+          "k": 39,
+          "n": 200,
+          "rate": 0.195
+        },
+        "frontier_1562": {
+          "k": 13,
+          "n": 200,
+          "rate": 0.065
+        },
+        "gap_1430": {
+          "k": 20,
+          "n": 200,
+          "rate": 0.1
+        },
+        "flagpole_3266": {
+          "k": 1,
+          "n": 200,
+          "rate": 0.005
+        }
+      },
+      "down_rate_in_1_1_mean": 0.014841701860530528,
+      "ended": {
+        "died": 191,
+        "stuck": 9
+      }
+    },
+    "script": {
+      "n": 200,
+      "entered_area_ne1_WHILE_IN_1_1": 0,
+      "x_at_those_area_changes": [],
+      "completed_1_1": 1,
+      "completing_seeds": [
+        156
+      ],
+      "completions_that_left_area1_first": 0,
+      "areas_seen_within_1_1_union": [
+        1
+      ],
+      "max_x_in_1_1": {
+        "median": 827.5,
+        "max": 3266,
+        "p90": 1546.0
+      },
+      "past_wall_in_1_1": {
+        "goomba_320": {
+          "k": 159,
+          "n": 200,
+          "rate": 0.795
+        },
+        "pipe1_470": {
+          "k": 159,
+          "n": 200,
+          "rate": 0.795
+        },
+        "pipe2_630": {
+          "k": 159,
+          "n": 200,
+          "rate": 0.795
+        },
+        "pipe3_735": {
+          "k": 115,
+          "n": 200,
+          "rate": 0.575
+        },
+        "pipe4_975": {
+          "k": 75,
+          "n": 200,
+          "rate": 0.375
+        },
+        "koopas_1248": {
+          "k": 54,
+          "n": 200,
+          "rate": 0.27
+        },
+        "frontier_1562": {
+          "k": 8,
+          "n": 200,
+          "rate": 0.04
+        },
+        "gap_1430": {
+          "k": 44,
+          "n": 200,
+          "rate": 0.22
+        },
+        "flagpole_3266": {
+          "k": 0,
+          "n": 200,
+          "rate": 0.0
+        }
+      },
+      "down_rate_in_1_1_mean": 0.0875603447149242,
+      "ended": {
+        "died": 200
+      }
+    }
+  },
+  "completion_vs_script": {
+    "policy": "4/200",
+    "script": "1/200",
+    "fisher_p": 0.3718553310227711,
+    "note": "not evidence of skill; the directive already states p=0.372 for 4/200 vs 1/200"
+  },
+  "verdict": "**RETRACTED: there is no bonus-area route in 1-1.** Across 400 episodes gated on `stage == 1`, **0 entered an area other than 1 while still in 1-1**. Every completion is a **surface run to the flagpole**; the areas 2 and 3 reported in block 58 belong to **1-2**, entered after the stage advance. **Leaving area 1 is a consequence of completing, not a cause, and the 5-of-5 correlation was circular.** The directive's \u00a72 premise \u2014 map the pipe entry \u2014 has no referent, so no route study was run. **The walls are the target after all: block 56's reach map stands unamended and pipes 3 and 4 are still where the level is lost.**",
+  "minutes": 8.5
+}

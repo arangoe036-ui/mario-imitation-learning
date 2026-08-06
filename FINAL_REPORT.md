@@ -2436,3 +2436,107 @@ state it requires, and how close the policy gets to it are now more interesting 
 And the general lesson is one this document has recorded before in a different form: **the mask produced a
 clean null on the metric we were watching and destroyed the outcome we actually wanted.** A null result on the
 headline number is not the same as a null result. It was worth looking at the rare events.
+
+---
+
+## Block 59 — Retracting the previous entry's headline: the "route" was an artifact of counting past the end of the level
+
+### What changed
+
+**The previous entry's central claim is withdrawn.** It reported that the policy's route to finishing level
+1-1 was to go *down a pipe* into a bonus area, and that masking the Down button removed its only win. That is
+wrong, and the error is a counting mistake of mine.
+
+**There is no bonus-area route.** Every completion is an ordinary run along the surface to the flagpole.
+Checked frame by frame across 400 episodes: **not one entered any area other than the main one while still in
+level 1-1.**
+
+Two other results were re-derived and both moved: the encoder-width advantage is **null** when measured at the
+correct training length, and the previous "zero completions in 720 attempts" figure is **void** — the zero was
+our own episode timeout, not the policy.
+
+### How we got there, including the wrong turn
+
+The mistake was in how an episode was summarised. Each episode recorded the set of "areas" it visited — a game
+variable that distinguishes the main level from underground rooms. Five completions all showed areas 1, 2 and
+3, and no non-completing episode showed anything but area 1. The correlation was perfect, and the conclusion
+looked forced: the policy goes underground, and underground is how it finishes.
+
+**But an episode does not end when the level does.** It continues into level 1-2, which is itself underground
+and has several areas. So areas 2 and 3 were being entered *after* the level was already complete, in the next
+level entirely. Leaving area 1 is a *consequence* of finishing 1-1, not a cause of it. The perfect correlation
+was circular by construction — I had built a causal story out of counting past the finish line.
+
+The check that settles it is trivial once framed correctly: look at the area *while the level counter still
+says 1-1*. Zero of 400 episodes ever left the main area during the level. The single completing run reached
+the flagpole at x=3266 with the area variable unchanged the whole way.
+
+The cost is not just a retracted sentence. The advisor had written this block's main experiment — map the pipe
+entrance, measure what it takes, measure how close the policy is — entirely on top of my claim. That
+experiment has no subject and was not run. A day of direction was spent on something that does not exist.
+
+**What this means for the button-masking result:** the part that was measured properly still stands. Masking
+Down does not change surface progress at all — two tenths of a percentage point across five training runs,
+thoroughly null. The part I over-read was that masking also removed four rare flagpole-reaching episodes. Four
+out of a thousand against zero out of a thousand is not a distinguishable difference, and I built a mechanism
+on top of it.
+
+### The numbers, with sample size and baseline
+
+Per-frame audit, 200 episodes each, gated on the level counter:
+
+| | learned policy | fixed-rate script |
+|---|---|---|
+| entered another area *during 1-1* | **0 / 200** | **0 / 200** |
+| completed 1-1 | 4 | 1 |
+| median furthest x | 723 | **828** |
+| past the third pipe | 47.5% | **57.5%** |
+| past the fourth pipe | 29.5% | **37.5%** |
+
+The encoder comparison, re-run at the training length the previous block identified as optimal — 1,000 steps,
+five independently trained networks per side:
+
+| measure | wider encoder | narrower | difference | p |
+|---|---|---|---|---|
+| furthest x | 3266 · 1797 · 3266 · 2761 · 2595 | 3267 · 2590 · 2594 · 2589 · 2018 | +125 | **0.77** |
+| past third pipe | 41 · 45 · 38 · 40 · 37 | 40 · 39 · 37 · 46 · 40 | **+0.0** | **1.00** |
+
+And the same comparison at the old training length, but with the episode timeout corrected: the advantage is
+**+327 pixels at p=0.41**, where it had been **+367 pixels at p=0.03**. The size barely moved; the
+significance vanished.
+
+**That last point is the most transferable thing here.** The old timeout ended episodes early, which caps the
+"furthest distance" statistic from above and squeezes the spread between training runs. A censored maximum has
+artificially small variance, so every significance test computed on it was too generous. This is not specific
+to the encoder — **every distance-based significance claim this project made before the timeout was fixed
+should be treated as unestablished.**
+
+Finally, the previous "0 completions in 720 attempts" figure: at the corrected timeout, **6 of 432** attempts
+complete the level, verified by the game advancing to 1-2.
+
+### Cost
+
+About three and a half hours: ten network trainings of twenty seconds each, roughly 35 evaluation
+configurations, 1,700 episodes. The block's planned main experiment was not run, because its subject does not
+exist.
+
+One small piece of engineering: episode traces now record the world, stage and area on every frame. Two
+completed levels had previously sat undetected on disk because a trace could not represent "the level ended",
+and this block's retraction is the same blindness one level up — an area number is meaningless without knowing
+which level it belongs to.
+
+### Downstream effect
+
+The walls are the target again. The reach map from three blocks ago stands unchanged, and the third and fourth
+pipes are still where the level is lost. The detour through the "route" cost a block and a half.
+
+The encoder is finished as a direction. It was the only intervention that had ever appeared to help, and it
+appeared to help for two separable reasons that have both now dissolved: it was measured at a training length
+15× past the optimum, and its significance came from a variance artifact of the old timeout. At the correct
+training length it does nothing at all, on every measure, with five runs a side.
+
+And there is a summary sentence this project is going to have to contain, which is worth writing down now
+rather than discovering later: **after fifty-nine blocks, a three-button random script gets further through
+level 1-1 than the learned policy does** — 57.5% past the third pipe against 47.5%. The policy's only
+advantages are at the far frontier and in completions, and neither is statistically distinguishable from the
+script. That is the honest state of the result.
