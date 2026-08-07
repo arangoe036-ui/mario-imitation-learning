@@ -1,0 +1,195 @@
+{
+  "source": {
+    "episodes": 2000,
+    "arms": 10,
+    "trace_files": [
+      "jb_PK32_84_s0_unbiased_200.json",
+      "jb_PK32_84_s1_unbiased_200.json",
+      "jb_PK32_84_s2_unbiased_200.json",
+      "nh_PK32_84_s3_200.json",
+      "nh_PK32_84_s4_200.json",
+      "nh_PK32_84_s5_200.json",
+      "nh_PK32_84_s6_200.json",
+      "nh_PK32_84_s7_200.json",
+      "nh_PK32_84_s8_200.json",
+      "nh_PK32_84_s9_200.json"
+    ],
+    "failure_definition": "the frame of maximum x in the episode"
+  },
+  "method": {
+    "bin_px": 20,
+    "min_bin_share": 0.02,
+    "half_width_px": 60,
+    "note": "windows seeded at local maxima of the failure histogram, merged on overlap"
+  },
+  "histogram_top15": [
+    {
+      "x_lo": 300.0,
+      "x_hi": 320.0,
+      "n": 571,
+      "share": 0.2855
+    },
+    {
+      "x_lo": 680.0,
+      "x_hi": 700.0,
+      "n": 209,
+      "share": 0.1045
+    },
+    {
+      "x_lo": 1240.0,
+      "x_hi": 1260.0,
+      "n": 201,
+      "share": 0.1005
+    },
+    {
+      "x_lo": 720.0,
+      "x_hi": 740.0,
+      "n": 111,
+      "share": 0.0555
+    },
+    {
+      "x_lo": 700.0,
+      "x_hi": 720.0,
+      "n": 107,
+      "share": 0.0535
+    },
+    {
+      "x_lo": 660.0,
+      "x_hi": 680.0,
+      "n": 102,
+      "share": 0.051
+    },
+    {
+      "x_lo": 280.0,
+      "x_hi": 300.0,
+      "n": 95,
+      "share": 0.0475
+    },
+    {
+      "x_lo": 880.0,
+      "x_hi": 900.0,
+      "n": 86,
+      "share": 0.043
+    },
+    {
+      "x_lo": 1540.0,
+      "x_hi": 1560.0,
+      "n": 77,
+      "share": 0.0385
+    },
+    {
+      "x_lo": 820.0,
+      "x_hi": 840.0,
+      "n": 63,
+      "share": 0.0315
+    },
+    {
+      "x_lo": 1560.0,
+      "x_hi": 1580.0,
+      "n": 63,
+      "share": 0.0315
+    },
+    {
+      "x_lo": 840.0,
+      "x_hi": 860.0,
+      "n": 49,
+      "share": 0.0245
+    },
+    {
+      "x_lo": 1520.0,
+      "x_hi": 1540.0,
+      "n": 46,
+      "share": 0.023
+    },
+    {
+      "x_lo": 800.0,
+      "x_hi": 820.0,
+      "n": 43,
+      "share": 0.0215
+    },
+    {
+      "x_lo": 860.0,
+      "x_hi": 880.0,
+      "n": 31,
+      "share": 0.0155
+    }
+  ],
+  "windows": [
+    {
+      "lo": 250.0,
+      "hi": 370.0,
+      "modes": [
+        310.0
+      ],
+      "failures_inside": 681,
+      "share_of_failures": 0.3405
+    },
+    {
+      "lo": 630.0,
+      "hi": 950.0,
+      "modes": [
+        690.0,
+        730.0,
+        830.0,
+        890.0
+      ],
+      "failures_inside": 848,
+      "share_of_failures": 0.424
+    },
+    {
+      "lo": 1190.0,
+      "hi": 1310.0,
+      "modes": [
+        1250.0
+      ],
+      "failures_inside": 235,
+      "share_of_failures": 0.1175
+    },
+    {
+      "lo": 1490.0,
+      "hi": 1610.0,
+      "modes": [
+        1550.0
+      ],
+      "failures_inside": 192,
+      "share_of_failures": 0.096
+    }
+  ],
+  "failures_covered": 0.9779999999999999,
+  "training_samples": {
+    "total": 77916,
+    "in_window": 295,
+    "share": 0.00378612865136814,
+    "restriction": "windows are 1-1 coordinates, so only in-control 1-1 samples can be in one",
+    "samples_1_1_in_control": 1737
+  },
+  "REACHABLE_EFFECT": {
+    "1x": {
+      "weighted_share_of_draws": 0.00378612865136814,
+      "expected_samples_per_1000_steps": 242.31223368756096,
+      "multiplier_vs_baseline": 1.0
+    },
+    "1.5x": {
+      "weighted_share_of_draws": 0.005668462213454431,
+      "expected_samples_per_1000_steps": 362.7815816610836,
+      "multiplier_vs_baseline": 1.4971657688932727
+    },
+    "2x": {
+      "weighted_share_of_draws": 0.007543695899553771,
+      "expected_samples_per_1000_steps": 482.7965375714414,
+      "multiplier_vs_baseline": 1.9924563041004462
+    },
+    "3x": {
+      "weighted_share_of_draws": 0.011273023717932387,
+      "expected_samples_per_1000_steps": 721.4735179476728,
+      "multiplier_vs_baseline": 2.9774539525641353
+    }
+  },
+  "strengths": [
+    1.0,
+    1.5,
+    2.0,
+    3.0
+  ],
+  "design_check": "The reweighting can move **295 of 77,916 training samples (0.38%)**. At the strongest swept strength (3.0x) they are 1.13% of draws against 0.38% at baseline \u2014 **2.98x the exposure**, or 721 draws per 1,000 steps against 242. The windows cover 97.8% of baseline failures."
+}

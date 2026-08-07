@@ -3201,3 +3201,129 @@ touched once.
 The positive result is unaffected and stands as written: run-length action tokens buy the early, static
 obstacles, and learning buys the late, moving ones — a 5.5-point advantage over a representation-matched
 script at the Koopa Troopas, in all ten of ten training runs.
+
+---
+
+## Block sixty-six — changing what the network is asked to minimise
+
+### What changed
+
+We changed the training objective, which is the one component of this system that had never been varied in
+sixty-five blocks of work. It made no difference, and in most measurements it made things slightly worse.
+
+Every network here learns by being shown a frame and asked to predict the button press a human expert made
+next, scored by how much probability it puts on the correct answer. That scoring rule pushes the network to
+become as certain as possible about the demonstrated action. The suspicion was that this is the problem: the
+data is a single flawless run, and being trained to commit absolutely to it might produce a policy that can
+only follow that exact path and falls apart the moment it drifts.
+
+There is a standard one-line fix for exactly that — label smoothing, which forbids the network from putting
+more than a set fraction of its confidence on any single answer. We swept three strengths, trained each ten
+times, and tested every version on two hundred attempts.
+
+It was worse at every strength and at every obstacle. Eighteen comparisons, all eighteen negative.
+
+We also tried the opposite tack: keep the objective, but show the network more of the frames near where its
+own attempts actually fail. That was flat at gentle strengths and clearly harmful at a strong one.
+
+### How we got there, including the wrong turns
+
+Two things nearly went wrong, and both were caught before they contaminated the result.
+
+The first was a subtle one about how training examples are drawn. Our baseline networks were trained by
+shuffling the whole dataset and walking through it — every example seen once per pass. Our first draft of the
+new code drew examples independently at random instead, which sounds equivalent and is not: over sixty-four
+thousand draws, independent sampling shows the network about forty-four thousand distinct examples where
+shuffling shows sixty-four thousand. Had we left it, every label-smoothed network would have differed from its
+baseline in *two* ways — the objective and the sampling — and the block's headline number would have meant
+nothing. We rebuilt the reweighting as repetition inside the shuffled list, which collapses exactly onto the
+baseline scheme when the reweighting is switched off, and verified that it does.
+
+The second was about whether the second experiment could produce an answer at all. The instruction was to find
+the places where the policy actually fails, from a histogram of two thousand failed attempts, and show the
+network more training data from those places. The histogram was clean — four clear clusters at the first
+enemy, the pipe sequence, the Koopa Troopas and the far frontier, together covering 98% of all failures. But
+the positions only mean anything in the level being tested, and the training data for that level is tiny. The
+frames those windows could actually reach came to **295 out of 77,916** — under four tenths of one percent.
+At the strongest gentle setting we were asked for, that is about five hundred extra examples out of sixty-four
+thousand.
+
+This project has previously shipped an experiment that could not express its own answer, so we computed that
+number *before* running rather than discovering it afterwards, and added one deliberately strong setting on
+top of the gentle ones — not replacing them — so that a flat result could be told apart from a manipulation
+too small to see.
+
+That decision is what made the second experiment informative.
+
+### The numbers
+
+Success is measured as the share of two hundred attempts that get past the fourth pipe, chosen in advance as
+the primary measure. Ten independently trained networks per setting.
+
+Label smoothing:
+
+| strength | past the fourth pipe | change | runs better than baseline |
+|---|---|---|---|
+| none (baseline) | 23.6% | — | — |
+| 0.05 | 22.1% | −1.4 | 3 of 10 |
+| 0.10 | 20.8% | −2.8 | 2 of 10 |
+| 0.20 | 21.4% | −2.2 | 1 of 10 |
+
+None of these differences is individually significant once corrected for having looked at six obstacles across
+three settings. What carries the result is that all eighteen comparisons point the same way, and not one
+points the other way.
+
+The prediction being tested was specific: if over-commitment is the problem, the best training length should
+move *later*, because the network should be able to keep learning without collapsing. It did not move. The
+gentlest setting peaks at a thousand steps — exactly where the unmodified objective peaks — and the strongest
+setting's apparent shift is a two-attempt difference out of a hundred on a single training run, which is
+noise. Trained far past the peak, the smoothed networks collapse just as hard: at fifteen thousand steps they
+clear the fourth pipe 12–13% of the time against the baseline's 20%.
+
+The reweighting experiment:
+
+| strength | past the fourth pipe | change | runs better than baseline |
+|---|---|---|---|
+| none | 23.6% | — | — |
+| 1.5× | 22.2% | −1.3 | 4 of 10 |
+| 2.0× | 23.2% | −0.3 | 4 of 10 |
+| 3.0× | 24.6% | +1.0 | 4 of 10 |
+| **8.0×** | **19.5%** | **−4.0** | **0 of 10** |
+
+The gentle settings do nothing, which is what the four-tenths-of-a-percent calculation predicted. The strong
+setting does something, and what it does is harm — every single one of the ten runs worse than its paired
+baseline, at the smallest probability this experimental design can produce.
+
+**Showing the network more of the demonstration data from precisely the places where it fails makes it worse.**
+
+### Cost
+
+About seven hours: eighty-five trainings, ninety evaluation configurations, fifteen thousand attempts.
+
+### Downstream effect
+
+The over-commitment explanation is now retired. It made a specific, falsifiable prediction — that the best
+training length would move later — and that prediction has now failed three separate times, against augmented
+data, against a concentrated training set, and now against an objective designed specifically to prevent
+over-commitment. Three failures of the same prediction is enough.
+
+That closes the last open component. The visual input, the network's internal representation, its output
+layer, the composition of the training data, and now the training objective have each been measured, and none
+of them is what limits this system.
+
+We also found that our own success measure had been double-counting. The first enemy, the first pipe and the
+second pipe have been reported as three separate obstacles, but no attempt in the history of this project has
+ever ended between them — of ninety networks measured this block, eighty-nine have byte-identical counts for
+the first and third of those, and the exception differs by one attempt. There are four genuinely independent
+places to fail, not seven. This made every statistical correction we have applied *too strict* rather than too
+lenient, so nothing previously claimed is weakened — but the figure should be four.
+
+What is left is a clean statement rather than a to-do list. The training data is a single perfect run through
+the game containing no mistakes and no recoveries, and supervised imitation of it stops improving after about
+a thousand steps regardless of the network, the resolution, the output layer, the data mixture, or the loss
+function. That is a real limit, it is now measured from five independent directions, and it sits beside a
+result that does hold.
+
+The positive result is unaffected and stands as written: run-length action tokens buy the early, static
+obstacles, and learning buys the late, moving ones — a 5.5-point advantage over a representation-matched
+script at the Koopa Troopas, in all ten of ten training runs.

@@ -150,3 +150,41 @@ all ten matched rungs.**
 
 **Also settled, and it must be said whenever "train it more" comes up:** the peak did **not** move. C1's best
 rung is 1,000 steps, identical to the full corpus. What moved is the collapse, ~9× earlier in steps.
+
+---
+
+## Block 66 — the objective changed nothing, and one block-65 sentence is retracted
+
+### RETRACTION, carried forward
+
+**"The off-task levels were acting as regularisation" is WITHDRAWN.** A 34× smaller training set reaches 27.6
+epochs in 1,000 steps, so "restricting the corpus" and "training for 27.6 epochs" are the same manipulation in
+block 65 and cannot be separated by it. **Matched on epochs instead of steps the comparison inverts.**
+
+**What block 65 establishes, and all it establishes:** at the operating point anyone would use — the peak —
+restricting the corpus to 1-1 is worse at the late walls. **State the practical conclusion; do not state the
+mechanism.** The sixth "must be said alongside it" item is corrected to read that way.
+
+### The claim is unchanged
+
+**Run-length action tokens buy the early static obstacles; learning buys the late moving ones — Koopas
++5.5 pp, 10/10 seeds, p=0.0020, Bonferroni ×6 = 0.012.**
+
+### Seventh item on the "must be said alongside it" list
+
+7. **The objective is not the constraint either, and the over-commitment story is retired.** Label smoothing
+   at ε = 0.05 / 0.10 / 0.20 was worse than plain cross-entropy at **all six walls at all three strengths —
+   18 of 18 cells negative in sign, none positive** — with the peak still at 1,000 steps and the collapse no
+   slower (8 of 10 NLL-matched ladder rungs at or below the unsmoothed curve). Obstacle-window reweighting was
+   null at 1.5×/2.0×/3.0× and **significantly harmful at 8.0× (−4.0 pp past pipe 4, 0/10 seeds up, p at the
+   0.00195 floor, surviving Bonferroni)**. **Three failed predictions for over-commitment: augmented data,
+   restricted corpus, and now the objective.**
+
+### And a correction to the multiplicity discipline itself
+
+**The Goomba (320), pipe 1 (470) and pipe 2 (630) are ONE measurement, not three.** Zero of 2,000 baseline
+failures land between x=320 and x=630; across the 90 arms of block 66, **89 have byte-identical Goomba and
+pipe-2 counts** and the one exception differs by a single episode. **There are four independent failure
+regions, not seven.** Every Bonferroni family this project has quoted has been too large and therefore too
+strict — the safe direction, but the corrected family should be used from here. **The live claim's
+"Bonferroni ×6 = 0.012" is conservative and stands.**
