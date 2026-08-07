@@ -16,7 +16,7 @@ data/bc_stage3/
 
 # Video artifacts
 data/video/
-data/plots/*.png
+# data/plots/*.png  (figures are published)
 
 # Logs and pid files from detached jobs
 data/*.log
@@ -61,3 +61,9 @@ data/fceux_logs/
 data/probe_features.npz
 data/probe_ontop_features_all.npz
 data/traces/nh_*.json
+
+# Agent working files (kept locally, not published)
+BUILDER_CLAUDE.md
+HANDOFF.md
+
+# CI added separately (needs workflow scope)
