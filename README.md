@@ -155,6 +155,24 @@ Verified end to end: `SYNC: PASS`, all 32 levels 1-1 → 8-4, 67,117 frames.
 head. 325,964 parameters. Plain cross-entropy, 1,000 steps, batch 64, lr 3e-4, capped run-length
 sampling at temperature 0.7.
 
+## Repository layout
+
+**One experiment, one script, one artifact.** `scripts/<name>.py` writes `data/<name>.json` —
+83 of the 107 experiment scripts pair with a same-named result file. Every number quoted above
+traces to one of them, and [`data/README.md`](data/README.md) indexes them by the claim they
+support.
+
+```
+tasdata/     the package — parse, replay, verify, clone   (46 files)
+tests/       324 tests, ~10s, no ROM required             (14 files)
+scripts/     one per experiment                          (107 files)
+data/        one artifact per experiment                 (157 files)
+docs/        research log + the superseded findings doc
+gifs/        the two clips, with provenance in manifest.json
+```
+
+Nothing here was computed in a notebook or by hand.
+
 ## Reproducing
 
 **You must supply your own legally-obtained ROM.** No ROM is distributed here.
