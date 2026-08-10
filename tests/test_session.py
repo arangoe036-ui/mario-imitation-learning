@@ -17,6 +17,7 @@ The bugs each test pins down are real ones that were hit:
 
 from __future__ import annotations
 
+import importlib.util
 import json
 import shutil
 from pathlib import Path
@@ -39,6 +40,14 @@ needs_fceux = pytest.mark.skipif(
     reason="needs a real fceux binary, the NTSC ROM and the expert movie",
 )
 
+#: The lock is `fcntl.flock`, which exists only on POSIX. On Windows `EmulatorLock`
+#: refuses to acquire rather than pretending to hold a lock, so these two tests have
+#: nothing to assert -- they check the cap, not the refusal.
+needs_flock = pytest.mark.skipif(
+    importlib.util.find_spec("fcntl") is None,
+    reason="the one-emulator cap is fcntl.flock, which this platform does not have",
+)
+
 
 @pytest.fixture(scope="module")
 def level_starts() -> list:
@@ -56,6 +65,7 @@ def session(level_starts):
         yield s
 
 
+@needs_flock
 class TestEmulatorLock:
     def test_second_acquire_is_refused(self, tmp_path: Path):
         first = EmulatorLock(tmp_path / "lock")

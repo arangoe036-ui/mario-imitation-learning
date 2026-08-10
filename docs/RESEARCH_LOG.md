@@ -6,7 +6,8 @@ search is not a gradient method — it explores, and its results are distilled b
 supervised learning.
 
 This file is the narrative record: what changed, what was found, and **how we got there**,
-including the wrong turns. `FINDINGS.md` is the technical companion with the full tables.
+including the wrong turns. `FINDINGS_2026-08-04.md` is the technical companion with the full
+tables -- archived and superseded, kept for provenance rather than as a current claim.
 
 Entries are append-only and dated. Nothing here is rewritten when a later result overturns
 it — a superseding entry is added and both are cross-referenced, because the sequence of

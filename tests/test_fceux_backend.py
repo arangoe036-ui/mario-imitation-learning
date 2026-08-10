@@ -24,6 +24,7 @@ from tasdata.fceux_backend import (
     RAM_BYTES,
     FceuxError,
     FceuxReplayer,
+    _lua_string,
     build_lua_script,
     find_fceux,
 )
@@ -71,7 +72,8 @@ class TestLuaGeneration:
         assert "local N          = 1234" in lua
         assert "local FRAME_SKIP = 3" in lua
         assert "local WANT_SCREEN= 1" in lua
-        assert str(tmp_path / "f.fifo") in lua
+        # The path goes in as a Lua string literal, so a Windows backslash is escaped.
+        assert _lua_string(str(tmp_path / "f.fifo")) in lua
 
     def test_screen_can_be_disabled(self, tmp_path: Path):
         lua = build_lua_script(
@@ -106,7 +108,9 @@ class TestLuaGeneration:
     def test_paths_with_spaces_are_quoted(self, tmp_path: Path):
         odd = tmp_path / "a dir" / "cap.fifo"
         lua = build_lua_script(n_frames=1, fifo=odd, frame_skip=1, want_screen=False)
-        assert f'"{odd}"' in lua
+        quoted = _lua_string(str(odd))
+        assert quoted.startswith('"') and quoted.endswith('"')
+        assert quoted in lua
 
 
 class TestBackendRegistry:

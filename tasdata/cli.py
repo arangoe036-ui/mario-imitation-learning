@@ -465,6 +465,11 @@ def cmd_batch(args: argparse.Namespace) -> int:
     from .batch import run_batch
     from .curate import estimate_bytes, load_plan
 
+    # `data/batch_report.json` is a published artifact -- it is the evidence for "25 of 34
+    # movies synced". A default that wrote there would let any capture run, including one
+    # that finds no movies at all, overwrite that evidence with a report of nothing. The
+    # report therefore lands next to the capture it describes.
+    report_path = Path(args.report) if args.report else Path(args.out) / "batch_report.json"
     candidates = load_plan(args.plan)
     if args.limit:
         candidates = candidates[: args.limit]
@@ -478,6 +483,7 @@ def cmd_batch(args: argparse.Namespace) -> int:
         f"{sum(c.n_frames for c in candidates):,} frames at {w}x{h}, "
         f"est {est / (1 << 30):.2f} GiB -> {args.out}"
     )
+    report_path.parent.mkdir(parents=True, exist_ok=True)
     report = run_batch(
         candidates,
         args.rom,
@@ -486,11 +492,11 @@ def cmd_batch(args: argparse.Namespace) -> int:
         frame_skip=args.frame_skip,
         expect_level=args.expect,
         stall_frames=args.stall_frames,
-        report_path=args.report,
+        report_path=report_path,
         on_event=None if args.quiet else (lambda m: print(m, flush=True)),
     )
     print(report.summary())
-    print(f"\nreport written to {args.report}")
+    print(f"\nreport written to {report_path}")
     return 0 if not report.failed else 1
 
 
@@ -950,7 +956,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--plan", default="data/shortlist.json", help="shortlist from `curate`")
     p.add_argument("--rom", required=True)
     p.add_argument("--out", default="data/runs", help="root directory for run dirs")
-    p.add_argument("--report", default="data/batch_report.json")
+    p.add_argument(
+        "--report",
+        default=None,
+        help="write the capture report here (default: <out>/batch_report.json). It is "
+        "deliberately NOT data/batch_report.json, which is a published artifact.",
+    )
     p.add_argument("--observation", type=_shape, default=(84, 84), metavar="HxW")
     p.add_argument(
         "--frame-skip",

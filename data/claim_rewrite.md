@@ -52,10 +52,16 @@ seed, 10 paired seeds, exact paired sign-flip permutation over seeds (floor 2/2�
 
 ## What must be said alongside it
 
-1. **A script that jumps far more often than the policy still gets further through the early level.** Past
-   pipe 3 the A-0.85 script reaches 57.5% against the policy's 39.3%. That script is not rate-matched and is
-   the best-performing arm of a per-obstacle envelope, so it is a hard bar rather than a typical opponent —
-   but it is a real one and it is not closed.
+1. **A script that jumps far more often than the policy still gets further — including at the Koopas, the
+   wall this claim rests on.** Past pipe 3 the A-0.85 script reaches 57.5% against the ten-seed policy mean of
+   39.3%. On the same-artifact comparison in `data/route_audit.json` (n = 200 per arm, single life from the
+   level start, policy arm `P_84_cnn32_seed4`) it is: Goomba 320 **79.5% vs 82.0%**, pipe 3 735 **57.5% vs
+   47.5%**, pipe 4 975 **37.5% vs 29.5%**, **Koopas 1248 27.0% vs 19.5%**, median max_x **827.5 vs 723**.
+   **So at the Koopas a simpler fixed-rate blind script is 7.5 pp ahead of the policy.** The +5.5 pp above is
+   a win over the representation-matched control and must not be read as the policy being the best blind-
+   beating approach at that wall. That script is not rate-matched and is the best-performing arm of a
+   per-obstacle envelope, so it is a hard bar rather than a typical opponent — but it is a real one, measured
+   on the same basis, and it is not closed.
 2. **Raising the policy's own jump rate to match does not recover it** (best dose +1.8 pp past pipe 3 across a
    0.49→0.91 sweep), so the difference is not the jump rate in either direction.
 3. **The search-and-distil line has not produced an improvement.** Search solves every failure state it is

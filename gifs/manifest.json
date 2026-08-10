@@ -1,7 +1,8 @@
 {
   "checkpoint": "PK32_84_s0",
   "architecture": "84x84 x4 stack, cnn(32,64,64), 1-layer transformer d_model=64, linear head, 325,964 params",
-  "training": "plain cross-entropy, 1,000 steps (the measured optimum, 0.82 epochs), batch 64, lr 3e-4",
+  "training": "plain cross-entropy, 1,000 steps (0.82 epochs), batch 64, lr 3e-4",
+  "why_1000_steps": "1,000 is the best rung of the steps ladder in data/depth_vs_steps.json, but the margin is not resolvable: x_median 722.5 at 1,000 against 722.0 at 15,000, at n=100 on one training seed, and the artifact records monotone_decline_from_first_rung=false. It is the operating point this project uses, not an optimum the measurement can establish.",
   "generation": "capped run-length sampling, temperature 0.7",
   "terminator": { "STALL": 6500, "CAP_FRAMES": 12000 },
   "measurement_basis": "single life from the 1-1 level start",
@@ -30,5 +31,5 @@
     }
   ],
 
-  "not_filmed": "An over-training comparison (1,000 vs 45,000 steps) was attempted and dropped: both snapshots died at the Goomba in the episodes filmed, so a side-by-side would have shown nothing. The loss/behaviour divergence is better shown as the numbers in RESULTS.md than as footage."
+  "not_filmed": "An over-training comparison (1,000 vs 45,000 steps) was attempted and dropped: both snapshots died at the Goomba in the episodes filmed, so a side-by-side would have shown nothing. The loss/behaviour divergence is better shown as the numbers in data/depth_vs_steps.json than as footage."
 }

@@ -18,7 +18,11 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=7"]
+# torch is not a core dependency: parsing, replay and verification do not need it.
+# Everything under `tasdata/bc` does, and so does tests/test_bc.py -- 41 of the tests
+# skip without it. Floor is `torch.load(weights_only=)`; no upper bound is needed.
+dev = ["pytest>=7", "torch>=1.13"]
+bc = ["torch>=1.13"]
 # The only redistributable source of an SMB ROM for smoke-testing. Note it ships
 # the *PAL* dump -- see README.
 smb = ["gym-super-mario-bros>=7.4.0"]

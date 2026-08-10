@@ -8,6 +8,10 @@ nes-py>=8.2.1
 opencv-python-headless<5
 pillow>=9
 pytest>=7
+# Needed by everything under `tasdata/bc` (the policy, training and evaluation) and by
+# tests/test_bc.py, which skips without it. Floor is 1.13 for `torch.load(weights_only=)`;
+# no upper bound because nothing here uses an API newer than that.
+torch>=1.13
 
 # Optional: ships an SMB ROM so `tasdata verify` has something to run.
 # Careful: it is the PAL (Europe) dump. See README "ROMs".

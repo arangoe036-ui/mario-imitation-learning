@@ -32,7 +32,6 @@ instead of one replay per episode.
 from __future__ import annotations
 
 import errno
-import fcntl
 import json
 import os
 import shutil
@@ -41,6 +40,11 @@ import tempfile
 import time
 from dataclasses import dataclass
 from pathlib import Path
+
+try:  # POSIX-only. Absent on Windows, which cannot run FCEUX evaluation anyway --
+    import fcntl  # but the module must still import so the suite can be collected.
+except ModuleNotFoundError:  # pragma: no cover - platform-dependent
+    fcntl = None
 
 import numpy as np
 
@@ -74,6 +78,10 @@ class TooManyEmulators(FceuxError):
     """Another FCEUX session is already running in this or another process."""
 
 
+class LockingUnavailable(FceuxError):
+    """This platform has no `fcntl.flock`, so the one-emulator cap cannot be enforced."""
+
+
 class EmulatorLock:
     """Exclusive, cross-process lock enforcing a hard cap of one FCEUX."""
 
@@ -82,6 +90,12 @@ class EmulatorLock:
         self._fh = None
 
     def acquire(self) -> None:
+        if fcntl is None:
+            raise LockingUnavailable(
+                "fcntl.flock is unavailable on this platform, so the one-FCEUX cap "
+                "cannot be enforced. Running an emulator without it reintroduces the "
+                "OpenGL race this lock exists to prevent. Evaluate on macOS or Linux."
+            )
         self._fh = self.path.open("w")
         try:
             fcntl.flock(self._fh.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)

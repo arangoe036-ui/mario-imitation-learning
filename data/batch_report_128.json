@@ -89,7 +89,7 @@
       "label": "pub 1194",
       "category": "warpless",
       "authors": "HappyLee",
-      "movie": "/Users/esteban/Desktop/tas-pipeline/data/movies/pool/happylee2-smbwarpless.fm2",
+      "movie": "data/movies/pool/happylee2-smbwarpless.fm2",
       "out_dir": null,
       "captured": false,
       "synced": null,
@@ -98,13 +98,13 @@
       "bytes_written": 0,
       "levels_reached": 0,
       "reason": "",
-      "error": "FileNotFoundError: movie not found: /Users/esteban/Desktop/tas-pipeline/data/movies/pool/happylee2-smbwarpless.fm2"
+      "error": "FileNotFoundError: movie not found: data/movies/pool/happylee2-smbwarpless.fm2"
     },
     {
       "label": "pub 1106",
       "category": "warpless",
       "authors": "HappyLee",
-      "movie": "/Users/esteban/Desktop/tas-pipeline/data/movies/pool/happylee-smb1-warpless.fm2",
+      "movie": "data/movies/pool/happylee-smb1-warpless.fm2",
       "out_dir": null,
       "captured": false,
       "synced": null,
@@ -113,13 +113,13 @@
       "bytes_written": 0,
       "levels_reached": 0,
       "reason": "",
-      "error": "FileNotFoundError: movie not found: /Users/esteban/Desktop/tas-pipeline/data/movies/pool/happylee-smb1-warpless.fm2"
+      "error": "FileNotFoundError: movie not found: data/movies/pool/happylee-smb1-warpless.fm2"
     },
     {
       "label": "pub 262",
       "category": "warpless",
       "authors": "Phil,Genisto",
-      "movie": "/Users/esteban/Desktop/tas-pipeline/data/movies/pool/phil_genisto-smb1-full.fm2",
+      "movie": "data/movies/pool/phil_genisto-smb1-full.fm2",
       "out_dir": null,
       "captured": false,
       "synced": null,
@@ -128,7 +128,7 @@
       "bytes_written": 0,
       "levels_reached": 0,
       "reason": "",
-      "error": "FileNotFoundError: movie not found: /Users/esteban/Desktop/tas-pipeline/data/movies/pool/phil_genisto-smb1-full.fm2"
+      "error": "FileNotFoundError: movie not found: data/movies/pool/phil_genisto-smb1-full.fm2"
     },
     {
       "label": "user 4686736457",
@@ -389,7 +389,7 @@
       "label": "pub 243",
       "category": "warps",
       "authors": "Phil,Genisto",
-      "movie": "/Users/esteban/Desktop/tas-pipeline/data/movies/pool/phil_genisto2-smb1.fm2",
+      "movie": "data/movies/pool/phil_genisto2-smb1.fm2",
       "out_dir": null,
       "captured": false,
       "synced": null,
@@ -398,7 +398,7 @@
       "bytes_written": 0,
       "levels_reached": 0,
       "reason": "",
-      "error": "FileNotFoundError: movie not found: /Users/esteban/Desktop/tas-pipeline/data/movies/pool/phil_genisto2-smb1.fm2"
+      "error": "FileNotFoundError: movie not found: data/movies/pool/phil_genisto2-smb1.fm2"
     },
     {
       "label": "pub 1330",
@@ -419,7 +419,7 @@
       "label": "pub 1080",
       "category": "warps",
       "authors": "klmz",
-      "movie": "/Users/esteban/Desktop/tas-pipeline/data/movies/pool/klmz2-smb1.fm2",
+      "movie": "data/movies/pool/klmz2-smb1.fm2",
       "out_dir": null,
       "captured": false,
       "synced": null,
@@ -428,13 +428,13 @@
       "bytes_written": 0,
       "levels_reached": 0,
       "reason": "",
-      "error": "FileNotFoundError: movie not found: /Users/esteban/Desktop/tas-pipeline/data/movies/pool/klmz2-smb1.fm2"
+      "error": "FileNotFoundError: movie not found: data/movies/pool/klmz2-smb1.fm2"
     },
     {
       "label": "pub 1022",
       "category": "warps",
       "authors": "klmz",
-      "movie": "/Users/esteban/Desktop/tas-pipeline/data/movies/pool/klmzv2-smb1.fm2",
+      "movie": "data/movies/pool/klmzv2-smb1.fm2",
       "out_dir": null,
       "captured": false,
       "synced": null,
@@ -443,13 +443,13 @@
       "bytes_written": 0,
       "levels_reached": 0,
       "reason": "",
-      "error": "FileNotFoundError: movie not found: /Users/esteban/Desktop/tas-pipeline/data/movies/pool/klmzv2-smb1.fm2"
+      "error": "FileNotFoundError: movie not found: data/movies/pool/klmzv2-smb1.fm2"
     },
     {
       "label": "pub 374",
       "category": "warps",
       "authors": "pom",
-      "movie": "/Users/esteban/Desktop/tas-pipeline/data/movies/pool/pom2-smb1.fm2",
+      "movie": "data/movies/pool/pom2-smb1.fm2",
       "out_dir": null,
       "captured": false,
       "synced": null,
@@ -458,7 +458,7 @@
       "bytes_written": 0,
       "levels_reached": 0,
       "reason": "",
-      "error": "FileNotFoundError: movie not found: /Users/esteban/Desktop/tas-pipeline/data/movies/pool/pom2-smb1.fm2"
+      "error": "FileNotFoundError: movie not found: data/movies/pool/pom2-smb1.fm2"
     },
     {
       "label": "user 6377984983",
