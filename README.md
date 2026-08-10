@@ -8,7 +8,7 @@ This repository is the measured answer. It contains a verified TAS→training-da
 behavioural-cloning policy, and — the actual contribution — the controls that decide whether
 any of it worked.
 
-[![tests](https://img.shields.io/badge/tests-324%20passing-brightgreen)](tests/)
+[![tests](https://github.com/arangoe036-ui/mario-imitation-learning/actions/workflows/tests.yml/badge.svg)](https://github.com/arangoe036-ui/mario-imitation-learning/actions/workflows/tests.yml)
 ![python](https://img.shields.io/badge/python-3.11-blue)
 ![license](https://img.shields.io/badge/license-Apache--2.0-blue)
 
