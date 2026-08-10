@@ -66,7 +66,6 @@ data/traces/nh_*.json
 BUILDER_CLAUDE.md
 HANDOFF.md
 
-# CI added separately (needs workflow scope)
 
 # Raw per-episode traces: 552 MB, regenerable, and not cited by any published number
 data/traces/
